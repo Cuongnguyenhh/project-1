@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost
--- Thời gian đã tạo: Th10 14, 2022 lúc 04:47 AM
--- Phiên bản máy phục vụ: 10.4.21-MariaDB
--- Phiên bản PHP: 7.4.29
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 18, 2022 lúc 05:16 AM
+-- Phiên bản máy phục vụ: 10.4.11-MariaDB
+-- Phiên bản PHP: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `qlbanhang2`
+-- Cơ sở dữ liệu: `project1`
 --
 
 -- --------------------------------------------------------
@@ -170,6 +170,28 @@ CREATE TABLE `cms_product` (
   `prd_name` varchar(100) DEFAULT NULL,
   `quaility` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `cms_product`
+--
+
+INSERT INTO `cms_product` (`ID`, `id_prd_group`, `id_pro_manufacture`, `prd_img`, `prd_status`, `create`, `prd_sell_price`, `prd_price`, `prd_name`, `quaility`) VALUES
+(1, 0, 0, '', 1, '0000-00-00', 200000, 150000, 'TRIBU', 1200),
+(2, 0, 0, '', 1, '0000-00-00', 300000, 250000, 'CRAZY', 3000),
+(3, 0, 0, '', 1, '0000-00-00', 400000, 350000, 'VAHI', 3200),
+(4, 0, 0, '', 1, '0000-00-00', 600000, 550000, 'XAVIER', 2500),
+(5, 0, 0, '', 1, '0000-00-00', 340000, 300000, 'SOFA', 2400),
+(6, 0, 0, '', 1, '0000-00-00', 450000, 400000, 'CHAIRS', 4600),
+(7, 0, 0, '', 1, '0000-00-00', 120000, 100000, 'LAMPS', 1600),
+(8, 0, 0, '', 1, '0000-00-00', 670000, 650000, 'BEDS', 0),
+(9, 0, 0, '', 1, '0000-00-00', 770000, 700000, 'MIN', 2000),
+(10, 0, 0, '', 1, '0000-00-00', 470000, 450000, 'HANO', 1900),
+(11, 0, 0, '', 1, '0000-00-00', 690000, 650000, 'CHIN', 100),
+(12, 0, 0, '', 1, '0000-00-00', 340000, 250000, 'POD', 230),
+(13, 0, 0, '', 1, '0000-00-00', 430000, 350000, 'HOBU', 900),
+(14, 0, 0, '', 1, '0000-00-00', 500000, 400000, 'JOHY', 600),
+(15, 0, 0, '', 1, '0000-00-00', 140000, 100000, 'KATY', 700),
+(16, 0, 0, '', 1, '0000-00-00', 780000, 700000, 'LEHI', 900);
 
 -- --------------------------------------------------------
 
@@ -532,7 +554,7 @@ ALTER TABLE `cms_order`
 -- AUTO_INCREMENT cho bảng `cms_product`
 --
 ALTER TABLE `cms_product`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `cms_products_group`
