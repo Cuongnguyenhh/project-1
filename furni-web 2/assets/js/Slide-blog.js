@@ -1,9 +1,0 @@
-const swiperBlog = new Swiper('.slide-blog-swiper', {
-      slidesPerView: 3,
-      spaceBetween: 30,
-      loop: true,
-      navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-      },
-});
