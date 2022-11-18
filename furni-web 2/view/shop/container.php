@@ -5,7 +5,7 @@
                   <div class="row">
                         <div class="row-flex">
                               <!-- FILTER  -->
-                              <aside class="vela-aside col">
+                              <aside class="vela-aside c-3">
                                     <div class="categories">
                                           <h3 class="vela-title">Thể loại</h3>
                                           <div class="categories-content">
@@ -65,21 +65,22 @@
                                                 </ul>
                                           </div>
                                     </div>
-                                    <!-- <div class="filter">
-                                                <h3 class="vela-title">Filter by price</h3>
-                                                <div class="filter-content">
-                                                      <div class="filter-price">
-                                                            <span class="filter-span">
-                                                                  <span class="filter-bar" ></span>
-                                                                  <span class="filter-circle from"></span>
-                                                                  <span class="filter-circle to"></span>
-                                                            </span>
-                                                      </div>
-                                                      <div class="filter-btn">
-                                                            <button class="btn btn-filter-price">Filter</button>
-                                                      </div>
+                                    <!-- FILTER PRICE  -->
+                                    <div class="filter">
+                                          <h3 class="vela-title">Filter by price</h3>
+                                          <div class="filter-content">
+                                                <div class="filter-price">
+                                                      <span class="filter-span">
+                                                            <span class="filter-bar" ></span>
+                                                            <span class="filter-circle from"></span>
+                                                            <span class="filter-circle to"></span>
+                                                      </span>
                                                 </div>
-                                          </div> -->
+                                                <div class="filter-btn">
+                                                      <button class="btn btn-filter-price">Filter</button>
+                                                </div>
+                                          </div>
+                                    </div>
                                     <div class="best-seller">
                                           <h3 class="vela-title">Bán chạy nhất</h3>
                                           <div class="best-seller-content">
@@ -152,7 +153,7 @@
 
 
                               <!-- PRODUCT LIST  -->
-                              <div class="product-list col c-12">
+                              <div class="product-list col c-9">
                                     <div class="product-filter">
                                           <div class="product-filter-sort">
                                                 <div class="product-filter-view">
@@ -215,7 +216,7 @@
                                                 ?>
                                                 <div class="c-3 col">
                                                       <form action="./index.php?act=view_cart" method="post">
-                                                            <div class="product">
+                                                      <div class="product">
                                                                   <div class="product-image">
                                                                         <a class="product-image-link"
                                                                               href="index.php?act=detail&id= <?= $value['id'] ?>">
@@ -287,12 +288,9 @@
                                                                   </div>
                                                             </div>
                                                             <input type="hidden" name="id" value="<?= $value['id'] ?>">
-                                                            <input type="hidden" name="namepro-sell"
-                                                                  value="<?= $value['name_pro'] ?>">
-                                                            <input type="hidden" name="pricepro-sell"
-                                                                  value="<?= $value['price'] ?>">
-                                                            <input type="hidden" name="imgpro-sell"
-                                                                  value="<?= $value['img'] ?>">
+                                                            <input type="hidden" name="namepro-sell" value="<?= $value['name_pro'] ?>">
+                                                            <input type="hidden" name="pricepro-sell"value="<?= $value['price'] ?>">
+                                                            <input type="hidden" name="imgpro-sell" value="<?= $value['img'] ?>">
                                                       </form>
 
                                                 </div>
@@ -388,7 +386,6 @@
                                                                         </div>
                                                                   </div>
                                                             </div>
-                                                      
                                                       <?php endif ?>
                                                 <?php endforeach ?>
                                           </div> -->
