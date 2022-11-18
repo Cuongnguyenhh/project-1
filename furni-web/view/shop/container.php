@@ -219,7 +219,8 @@
                                                       <div class="product">
                                                                   <div class="product-image">
                                                                         <a class="product-image-link"
-                                                                              href="index.php?act=detail&id= <?= $value['id'] ?>">
+                                                                              href="product.php?id= <?= $value['id'] ?>"
+                                                                              
                                                                               <img src="<?= $value['img'] ?>"
                                                                                     alt="product-image">
                                                                               <div class="product-hover-image">

@@ -4,7 +4,7 @@ function getConnection()
 {
     //Khai báo thông tin server
     $host = 'localhost';
-    $dbname = 'duanmau';
+    $dbname = 'project1';
     $username = 'root';
     $password = '';
     $port = '3306';

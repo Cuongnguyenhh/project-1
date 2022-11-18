@@ -18,10 +18,15 @@ if (isset($_GET['action'])) {
 }
 switch ($action) {
     case 'home':
-        require_once './view/product/index.php';
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            getProductDetailById($id);
+            require_once './view/product/index.php';
+        }
         break;
-        
+    
+    
     default:
-        require_once './view/shop/index.php';
+        require_once './view/product/index.php';
         break;
 }
