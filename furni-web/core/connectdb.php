@@ -1,32 +1,18 @@
 <?php
 // hàm connect db 
-function getConnection()
-{
-    //Khai báo thông tin server
-    $host = 'localhost';
-    $dbname = 'project1';
-    $username = 'root';
-    $password = '';
-    $port = '3306';
-    $charset = 'utf8_general_ci';
-    $options = array(
-        PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-    );
+function getConnection(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+
     try {
-        $conn = new PDO('mysql:host=' . $host . ';port=' . $port . ';dbname=' . $dbname, $username, $password, $options);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $conn->setAttribute(
-            PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION
-        );
-    } catch (PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
-        die();
-    }
-
+    $conn = new PDO("mysql:host=$servername;dbname=duanmau", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $conn;
+    } catch(PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+    }
 }
 
 
@@ -34,16 +20,22 @@ function getConnection()
 function query($sql)
 {
     $connect = getConnection();
-    $result = $connect->query($sql)->fetchAll();
-    return $result;
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $kq = $stmt -> fetchAll();
+    return $kq;
 }
 
 //Gửi câu truy vấn SELECT và trả về 1 hàng.
 function queryOne($sql)
 {
     $connect = getConnection();
-    $result = $connect->query($sql)->fetch(PDO::FETCH_ASSOC);
-    return $result;
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $kq = $stmt -> fetchAll();
+    return $kq;
 }
 
 //Gửi câu truy vấn thêm xoá sửa và trả về ID vừa tương tác.

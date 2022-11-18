@@ -45,16 +45,16 @@
                                           echo '
                                     <div class="detail-thumb-list">
                                           <div class="detail-thumb-item">
-                                                <img src="' . $value['img_cart1'] . '" alt="detail-thumb-image" class="thumb-image">
+                                                <img src="" alt="detail-thumb-image" class="thumb-image">
                                           </div>
                                           <div class="detail-thumb-item">
-                                                <img src="' . $value['img_cart2'] . '" alt="detail-thumb-image" class="thumb-image">
+                                                <img src="" alt="detail-thumb-image" class="thumb-image">
                                           </div>
                                           <div class="detail-thumb-item">
-                                                <img src="' . $value['img_cart3'] . '" alt="detail-thumb-image" class="thumb-image">
+                                                <img src="" alt="detail-thumb-image" class="thumb-image">
                                           </div>
                                           <div class="detail-thumb-item">
-                                                <img src="' . $value['img_cart4'] . '" alt="detail-thumb-image" class="thumb-image">
+                                                <img src="" alt="detail-thumb-image" class="thumb-image">
                                           </div>
                                     </div>';
                                     }

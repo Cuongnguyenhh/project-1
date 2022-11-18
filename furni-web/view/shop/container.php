@@ -11,17 +11,15 @@
                                           <div class="categories-content">
                                                 <ul class="categories-list">
                                                       <li class="categories-item">
-                                                            <a onclick="filter('delete',1);"
-                                                                  class="categories-item-link" href="">All</a>
+                                                            <a onclick="filter('delete',1);" class="categories-item-link" href="">All</a>
                                                       </li>
                                                       <?php
                                                       $cate = getAllTag();
                                                       foreach ($cate as $c) :
                                                             $result = strtolower(str_replace(' ', '-', $c['name_cate'])); ?>
-                                                      <li class="categories-item">
-                                                            <a class="categories-item-link"
-                                                                  href="shop.php?action=<?= $result ?>&id=<?= $c['id'] ?> "><?= $c['name_cate'] ?></a>
-                                                      </li>
+                                                            <li class="categories-item">
+                                                                  <a class="categories-item-link" href="shop.php?action=<?= $result ?>&id=<?= $c['id'] ?> "><?= $c['name_cate'] ?></a>
+                                                            </li>
                                                       <?php endforeach ?>
                                                 </ul>
                                           </div>
@@ -32,34 +30,27 @@
                                                 <ul class="color-list">
                                                       <li class="color-item">
                                                             <a class="color-item-link" style="background-color: black;">
-                                                                  <img src="./public/images/color_default_icon.webp"
-                                                                        alt="color-default">
+                                                                  <img src="./public/images/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                       <li class="color-item">
                                                             <a class="color-item-link" style="background-color: grey;">
-                                                                  <img src="./public/images/color_default_icon.webp"
-                                                                        alt="color-default">
+                                                                  <img src="./public/images/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                       <li class="color-item">
-                                                            <a class="color-item-link"
-                                                                  style="background-color: indianred;">
-                                                                  <img src="./public/images/color_default_icon.webp"
-                                                                        alt="color-default">
+                                                            <a class="color-item-link" style="background-color: indianred;">
+                                                                  <img src="./public/images/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                       <li class="color-item">
-                                                            <a class="color-item-link"
-                                                                  style="background-color: lightgrey;">
-                                                                  <img src="./public/images/color_default_icon.webp"
-                                                                        alt="color-default">
+                                                            <a class="color-item-link" style="background-color: lightgrey;">
+                                                                  <img src="./public/images/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                       <li class="color-item">
                                                             <a class="color-item-link" style="background-color: white;">
-                                                                  <img src="./public/images/color_default_icon.webp"
-                                                                        alt="color-default">
+                                                                  <img src="./public/images/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                 </ul>
@@ -71,7 +62,7 @@
                                           <div class="filter-content">
                                                 <div class="filter-price">
                                                       <span class="filter-span">
-                                                            <span class="filter-bar" ></span>
+                                                            <span class="filter-bar"></span>
                                                             <span class="filter-circle from"></span>
                                                             <span class="filter-circle to"></span>
                                                       </span>
@@ -87,8 +78,7 @@
                                                 <div class="product-sidebar">
                                                       <div class="product-sidebar-image">
                                                             <a href="#" class="product-sidebar-link">
-                                                                  <img src="./public/images/product-1.webp"
-                                                                        alt="product-sidebar">
+                                                                  <img src="./public/images/product-1.webp" alt="product-sidebar">
                                                             </a>
                                                       </div>
                                                       <div class="product-sidebar-content">
@@ -108,8 +98,7 @@
                                                 <div class="product-sidebar">
                                                       <div class="product-sidebar-image">
                                                             <a href="#" class="product-sidebar-link">
-                                                                  <img src="./public/images/product-1.webp"
-                                                                        alt="product-sidebar">
+                                                                  <img src="./public/images/product-1.webp" alt="product-sidebar">
                                                             </a>
                                                       </div>
                                                       <div class="product-sidebar-content">
@@ -129,8 +118,7 @@
                                                 <div class="product-sidebar">
                                                       <div class="product-sidebar-image">
                                                             <a href="#" class="product-sidebar-link">
-                                                                  <img src="./public/images/product-1.webp"
-                                                                        alt="product-sidebar">
+                                                                  <img src="./public/images/product-1.webp" alt="product-sidebar">
                                                             </a>
                                                       </div>
                                                       <div class="product-sidebar-content">
@@ -159,13 +147,9 @@
                                                 <div class="product-filter-view">
                                                       <button class="change-view change-grid active">
                                                             <span class="icons-change">
-                                                                  <svg fill="currentColor"
-                                                                        preserveAspectRatio="xMidYMid meet" height="16"
-                                                                        width="16" viewBox="0 0 16 16" title="Grid"
-                                                                        style="vertical-align:middle">
+                                                                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="16" width="16" viewBox="0 0 16 16" title="Grid" style="vertical-align:middle">
                                                                         <g>
-                                                                              <path
-                                                                                    d="M1,3.80447821 L1,1 L3.80447821,1 L3.80447821,3.80447821 L1,3.80447821 Z M6.5977609,3.80447821 L6.5977609,1 L9.4022391,1 L9.4022391,3.80447821 L6.5977609,3.80447821 Z M12.1955218,3.80447821 L12.1955218,1 L15,1 L15,3.80447821 L12.1955218,3.80447821 Z M1,9.4022391 L1,6.59706118 L3.80447821,6.59706118 L3.80447821,9.4022391 L1,9.4022391 Z M6.5977609,9.4022391 L6.5977609,6.5977609 L9.4022391,6.5977609 L9.4022391,9.4022391 L6.5977609,9.4022391 Z M12.1955218,9.4022391 L12.1955218,6.59706118 L15,6.59706118 L15,9.4022391 L12.1955218,9.4022391 Z M1,14.9993003 L1,12.1948221 L3.80447821,12.1948221 L3.80447821,14.9993003 L1,14.9993003 Z M6.5977609,14.9993003 L6.5977609,12.1948221 L9.4022391,12.1948221 L9.4022391,14.9993003 L6.5977609,14.9993003 Z M12.1955218,14.9993003 L12.1955218,12.1948221 L15,12.1948221 L15,14.9993003 L12.1955218,14.9993003 Z">
+                                                                              <path d="M1,3.80447821 L1,1 L3.80447821,1 L3.80447821,3.80447821 L1,3.80447821 Z M6.5977609,3.80447821 L6.5977609,1 L9.4022391,1 L9.4022391,3.80447821 L6.5977609,3.80447821 Z M12.1955218,3.80447821 L12.1955218,1 L15,1 L15,3.80447821 L12.1955218,3.80447821 Z M1,9.4022391 L1,6.59706118 L3.80447821,6.59706118 L3.80447821,9.4022391 L1,9.4022391 Z M6.5977609,9.4022391 L6.5977609,6.5977609 L9.4022391,6.5977609 L9.4022391,9.4022391 L6.5977609,9.4022391 Z M12.1955218,9.4022391 L12.1955218,6.59706118 L15,6.59706118 L15,9.4022391 L12.1955218,9.4022391 Z M1,14.9993003 L1,12.1948221 L3.80447821,12.1948221 L3.80447821,14.9993003 L1,14.9993003 Z M6.5977609,14.9993003 L6.5977609,12.1948221 L9.4022391,12.1948221 L9.4022391,14.9993003 L6.5977609,14.9993003 Z M12.1955218,14.9993003 L12.1955218,12.1948221 L15,12.1948221 L15,14.9993003 L12.1955218,14.9993003 Z">
                                                                               </path>
                                                                         </g>
                                                                   </svg>
@@ -173,13 +157,9 @@
                                                       </button>
                                                       <button class="change-view change-list">
                                                             <span class="icons-change">
-                                                                  <svg fill="currentColor"
-                                                                        preserveAspectRatio="xMidYMid meet" height="16"
-                                                                        width="16" viewBox="0 0 16 16" title="List"
-                                                                        style="vertical-align:middle">
+                                                                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="16" width="16" viewBox="0 0 16 16" title="List" style="vertical-align:middle">
                                                                         <g>
-                                                                              <path
-                                                                                    d="M0,3 L0,1 L2,1 L2,3 L0,3 Z M0,7 L0,5 L2,5 L2,7 L0,7 Z M0,11 L0,9 L2,9 L2,11 L0,11 Z M0,15 L0,13 L2,13 L2,15 L0,15 Z M4,3 L4,1 L16,1 L16,3 L4,3 Z M4,7 L4,5 L16,5 L16,7 L4,7 Z M4,11 L4,9 L16,9 L16,11 L4,11 Z M4,15 L4,13 L16,13 L16,15 L4,15 Z">
+                                                                              <path d="M0,3 L0,1 L2,1 L2,3 L0,3 Z M0,7 L0,5 L2,5 L2,7 L0,7 Z M0,11 L0,9 L2,9 L2,11 L0,11 Z M0,15 L0,13 L2,13 L2,15 L0,15 Z M4,3 L4,1 L16,1 L16,3 L4,3 Z M4,7 L4,5 L16,5 L16,7 L4,7 Z M4,11 L4,9 L16,9 L16,11 L4,11 Z M4,15 L4,13 L16,13 L16,15 L4,15 Z">
                                                                               </path>
                                                                         </g>
                                                                   </svg>
@@ -214,88 +194,67 @@
                                                 foreach ($kq as $value) :
                                                       if ($value['status'] == 1) :
                                                 ?>
-                                                <div class="c-3 col">
-                                                      <form action="./index.php?act=view_cart" method="post">
-                                                      <div class="product">
-                                                                  <div class="product-image">
-                                                                        <a class="product-image-link"
-                                                                              href="product.php?id= <?= $value['id'] ?>"
-                                                                              
-                                                                              <img src="<?= $value['img'] ?>"
-                                                                                    alt="product-image">
-                                                                              <div class="product-hover-image">
-                                                                                    <div class="product-change-image">
-                                                                                          <img src="<?= $value['img'] ?>"
-                                                                                                alt="product-change-style">
+                                                            <div class="c-3 col">
+                                                                  <form action="" method="post">
+                                                                        <div class="product">
+                                                                              <div class="product-image">
+                                                                                    <a class="product-image-link" href="product.php?id=<?= $value['id'] ?>">
+                                                                                          <img src="<?= $value['img'] ?>" alt="product-image">
+                                                                                          <div class="product-hover-image">
+                                                                                                <div class="product-change-image">
+                                                                                                      <img src="<?= $value['img'] ?>" alt="product-change-style">
+                                                                                                </div>
+                                                                                          </div>
+                                                                                    </a>
+                                                                                    <div class="product-label-sale">
+                                                                                          <span>Sale</span>
+                                                                                    </div>
+                                                                                    <div class="product-quick-view">
+                                                                                          <a class="btn btn-product-view btn-quick-view" href="#">
+                                                                                                <span class="icons">
+                                                                                                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                                                                                                            <path d="M344.5,298c15-23.6,23.8-51.6,23.8-81.7c0-84.1-68.1-152.3-152.1-152.3C132.1,64,64,132.2,64,216.3c0,84.1,68.1,152.3,152.1,152.3c30.5,0,58.9-9,82.7-24.4l6.9-4.8L414.3,448l33.7-34.3L339.5,305.1L344.5,298z M301.4,131.2c22.7,22.7,35.2,52.9,35.2,85c0,32.1-12.5,62.3-35.2,85c-22.7,22.7-52.9,35.2-85,35.2c-32.1,0-62.3-12.5-85-35.2c-22.7-22.7-35.2-52.9-35.2-85c0-32.1,12.5-62.3,35.2-85c22.7-22.7,52.9-35.2,85-35.2C248.5,96,278.7,108.5,301.4,131.2z">
+                                                                                                            </path>
+                                                                                                      </svg>
+                                                                                                </span>
+                                                                                          </a>
                                                                                     </div>
                                                                               </div>
-                                                                        </a>
-                                                                        <div class="product-label-sale">
-                                                                              <span>Sale</span>
-                                                                        </div>
-                                                                        <div class="product-quick-view">
-                                                                              <a class="btn btn-product-view btn-quick-view"
-                                                                                    href="#">
-                                                                                    <span class="icons">
-                                                                                          <svg version="1.1"
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                                                x="0px" y="0px"
-                                                                                                viewBox="0 0 512 512"
-                                                                                                style="enable-background:new 0 0 512 512;"
-                                                                                                xml:space="preserve">
-                                                                                                <path
-                                                                                                      d="M344.5,298c15-23.6,23.8-51.6,23.8-81.7c0-84.1-68.1-152.3-152.1-152.3C132.1,64,64,132.2,64,216.3c0,84.1,68.1,152.3,152.1,152.3c30.5,0,58.9-9,82.7-24.4l6.9-4.8L414.3,448l33.7-34.3L339.5,305.1L344.5,298z M301.4,131.2c22.7,22.7,35.2,52.9,35.2,85c0,32.1-12.5,62.3-35.2,85c-22.7,22.7-52.9,35.2-85,35.2c-32.1,0-62.3-12.5-85-35.2c-22.7-22.7-35.2-52.9-35.2-85c0-32.1,12.5-62.3,35.2-85c22.7-22.7,52.9-35.2,85-35.2C248.5,96,278.7,108.5,301.4,131.2z">
-                                                                                                </path>
-                                                                                          </svg>
-                                                                                    </span>
-                                                                              </a>
-                                                                        </div>
-                                                                  </div>
-                                                                  <div class="product-content">
-                                                                        <h5 class="product-title">
-                                                                              <a class="product-title-link"
-                                                                                    href="index.php?act=detail&id=<?= $value['id'] ?>"><?= $value['name_pro'] ?></a>
-                                                                        </h5>
-                                                                        <div class="product-price">
-                                                                              <div class="product-current">
-                                                                                    <span>$<?= $value['price'] ?>.00</span>
+                                                                              <div class="product-content">
+                                                                                    <h5 class="product-title">
+                                                                                          <a class="product-title-link" href="index.php?act=detail&id=<?= $value['id'] ?>"><?= $value['name_pro'] ?></a>
+                                                                                    </h5>
+                                                                                    <div class="product-price">
+                                                                                          <div class="product-current">
+                                                                                                <span>$<?= $value['price'] ?>.00</span>
+                                                                                          </div>
+                                                                                          <div class="product-sale">
+                                                                                                <span>$26.00</span>
+                                                                                          </div>
+                                                                                          <button name="add-cart" type="submit" class="btn btn-add-cart ">
+                                                                                                <i class="icons">
+                                                                                                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                                                                                                            <g>
+                                                                                                                  <g>
+                                                                                                                        <path d="M416,277.333H277.333V416h-42.666V277.333H96v-42.666h138.667V96h42.666v138.667H416V277.333z">
+                                                                                                                        </path>
+                                                                                                                  </g>
+                                                                                                            </g>
+                                                                                                      </svg>
+                                                                                                </i>
+                                                                                                <span>Add to Cart</span>
+                                                                                          </button>
+                                                                                    </div>
                                                                               </div>
-                                                                              <div class="product-sale">
-                                                                                    <span>$26.00</span>
-                                                                              </div>
-                                                                              <button name="add-cart" type="submit"
-                                                                                    class="btn btn-add-cart ">
-                                                                                    <i class="icons">
-                                                                                          <svg version="1.1"
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                                                x="0px" y="0px"
-                                                                                                viewBox="0 0 512 512"
-                                                                                                enable-background="new 0 0 512 512"
-                                                                                                xml:space="preserve">
-                                                                                                <g>
-                                                                                                      <g>
-                                                                                                            <path
-                                                                                                                  d="M416,277.333H277.333V416h-42.666V277.333H96v-42.666h138.667V96h42.666v138.667H416V277.333z">
-                                                                                                            </path>
-                                                                                                      </g>
-                                                                                                </g>
-                                                                                          </svg>
-                                                                                    </i>
-                                                                                    <span>Add to Cart</span>
-                                                                              </button>
                                                                         </div>
-                                                                  </div>
-                                                            </div>
-                                                            <input type="hidden" name="id" value="<?= $value['id'] ?>">
-                                                            <input type="hidden" name="namepro-sell" value="<?= $value['name_pro'] ?>">
-                                                            <input type="hidden" name="pricepro-sell"value="<?= $value['price'] ?>">
-                                                            <input type="hidden" name="imgpro-sell" value="<?= $value['img'] ?>">
-                                                      </form>
+                                                                        <input type="hidden" name="id" value="<?= $value['id'] ?>">
+                                                                        <input type="hidden" name="namepro-sell" value="<?= $value['name_pro'] ?>">
+                                                                        <input type="hidden" name="pricepro-sell" value="<?= $value['price'] ?>">
+                                                                        <input type="hidden" name="imgpro-sell" value="<?= $value['img'] ?>">
+                                                                  </form>
 
-                                                </div>
-                                                <?php endif ?>
+                                                            </div>
+                                                      <?php endif ?>
                                                 <?php endforeach ?>
                                           </div>
                                     </div>
@@ -397,26 +356,22 @@
                                                 <nav class="pagination">
                                                       <ul class="pagination-list">
                                                             <li class="pagination-item">
-                                                                  <a class="pagination-page-link"
-                                                                        href="index.php?act=product&pagenum=1">
+                                                                  <a class="pagination-page-link" href="index.php?act=product&pagenum=1">
                                                                         <i class="fa-sharp fa-solid fa-angle-left"></i>
                                                                   </a>
                                                             </li>
                                                             <li class="pagination-item active">
-                                                                  <a class="pagination-page-link"
-                                                                        href="index.php?act=product&pagenum=1">
+                                                                  <a class="pagination-page-link" href="index.php?act=product&pagenum=1">
                                                                         1
                                                                   </a>
                                                             </li>
                                                             <li class="pagination-item active">
-                                                                  <a class="pagination-page-link"
-                                                                        href="index.php?act=product&pagenum=2">
+                                                                  <a class="pagination-page-link" href="index.php?act=product&pagenum=2">
                                                                         2
                                                                   </a>
                                                             </li>
                                                             <li class="pagination-item active">
-                                                                  <a class="pagination-page-link"
-                                                                        href="index.php?act=product&pagenum=3">
+                                                                  <a class="pagination-page-link" href="index.php?act=product&pagenum=3">
                                                                         3
                                                                   </a>
                                                             </li>
@@ -426,8 +381,7 @@
                                                                   </a>
                                                             </li>
                                                             <li class="pagination-item active">
-                                                                  <a id="product" class="pagination-page-link"
-                                                                        href="index.php?act=product&pagenum=3">
+                                                                  <a id="product" class="pagination-page-link" href="index.php?act=product&pagenum=3">
                                                                         3
                                                                   </a>
                                                             </li>
@@ -442,34 +396,34 @@
       </div>
 </main>
 <script>
-const changeList = document.querySelector('.change-list');
-const changeGrid = document.querySelector('.change-grid');
-const productList = document.querySelector('.product-box-list');
-const productBox = document.querySelector('.product-box');
+      const changeList = document.querySelector('.change-list');
+      const changeGrid = document.querySelector('.change-grid');
+      const productList = document.querySelector('.product-box-list');
+      const productBox = document.querySelector('.product-box');
 
-changeList.addEventListener('click', () => {
-      productList.classList.add('active');
-      productBox.classList.remove('active');
-      changeList.classList.add('active');
-      changeGrid.classList.remove('active');
-});
-changeGrid.addEventListener('click', () => {
-      productBox.classList.add('active');
-      productList.classList.remove('active');
-      changeList.classList.remove('active');
-      changeGrid.classList.add('active');
-});
-$(document).ready(function() {
-      $("#sortby").on('change', function() {
-            var sortby = $(this).val();
-            $.ajax({
-                  url: "shop.php?action=sortby",
-                  method: "POST",
-                  data: "sortby:sortby",
-                  success: (function(data) {
-                        $("product").html(data);
-                  })
-            })
+      changeList.addEventListener('click', () => {
+            productList.classList.add('active');
+            productBox.classList.remove('active');
+            changeList.classList.add('active');
+            changeGrid.classList.remove('active');
       });
-});
+      changeGrid.addEventListener('click', () => {
+            productBox.classList.add('active');
+            productList.classList.remove('active');
+            changeList.classList.remove('active');
+            changeGrid.classList.add('active');
+      });
+      $(document).ready(function() {
+            $("#sortby").on('change', function() {
+                  var sortby = $(this).val();
+                  $.ajax({
+                        url: "shop.php?action=sortby",
+                        method: "POST",
+                        data: "sortby:sortby",
+                        success: (function(data) {
+                              $("product").html(data);
+                        })
+                  })
+            });
+      });
 </script>
