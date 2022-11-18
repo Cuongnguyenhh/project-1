@@ -3927,6 +3927,15 @@ tfoot .total td span:last-child {
       .header-item__search span:last-child {
             display: none;
       }
+      .container .row-flex-margin {
+            margin: 0;
+      }
+      .logo-company {
+            padding: 0;
+      }
+      .sale-off {
+            padding: 0;
+      }
 }
 
 @media screen and (min-width: 1220px) {

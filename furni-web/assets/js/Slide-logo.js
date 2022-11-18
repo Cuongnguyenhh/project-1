@@ -15,7 +15,7 @@ const swiperCompany = new Swiper('.slide-company-swiper', {
                   spaceBetween: 20,
             },
             992: {
-                  slidesPerView: 3,
+                  slidesPerView: 4,
                   spaceBetween: 20,
                 },
             768: {
@@ -24,8 +24,12 @@ const swiperCompany = new Swiper('.slide-company-swiper', {
 
             },
             480: {
-                  slidesPerView: 2,
+                  slidesPerView: 3,
                   spaceBetween: 20,
+            },
+            0: {
+                  slidesPerView: 2,
+                  spaceBetween: 30,
             }
           }
 });
