@@ -14,8 +14,43 @@
   $pro_supp = $pro_one['id_pro_manufacture'];
   $pro_sell = $pro_one['prd_sell_price'];
   $pro_price = $pro_one['prd_price'];
-
   }
+    //  edit controll--------------
+      if(isset($_POST['edit'])){
+        $ID =$_POST['ID'];
+        $prd_name =$_POST['prd_name'];
+        $quaility = $_POST['quaility'];
+        $cate = $_POST['cate'];
+        $post_supp = $_POST['supp'];
+        $priceSell = $_POST['priceSell'];
+        $price = $_POST['price'];
+        $imgload =basename( $_FILES['imgload']['name']);
+
+        // uploadfile
+
+    $target_dir = "../../uploads/";
+    $target_file = $target_dir . $imgload;
+    move_uploaded_file($_FILES["imgload"]["tmp_name"], $target_file);
+
+        try{
+          $sql = "UPDATE cms_product SET ID='$ID', prd_name='$prd_name', prd_img='$imgload', id_prd_group='$cate',id_pro_manufacture='$post_supp', prd_sell_price='$priceSell', prd_price='$price', quaility='$quaility'  WHERE ID=$get_id";
+
+  // Prepare statement
+  $stmt = $conn->prepare($sql);
+
+  // execute the query
+  $stmt->execute();
+
+  // echo a message to say the UPDATE succeeded
+  echo $stmt->rowCount() . " records UPDATED successfully";
+} catch(PDOException $e) {
+  echo $sql . "<br>" . $e->getMessage();
+}
+        }
+      
+      
+
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -206,10 +241,15 @@
                     class="fas fa-folder-plus"></i> Thêm tình trạng</a>
               </div>
             </div>
-            <form action="./form-add-san-pham.php" class="row" enctype="multipart/form-data"  method="POST">
+
+
+            <!-- day la cai form ne -->
+
+
+            <form action="" class="row" enctype="multipart/form-data"  method="POST">
               <div class="form-group col-md-3">
                 <label class="control-label">Mã sản phẩm </label>
-                <input name="ID_prd" class="form-control" type="number" value="<?php echo $get_id ?>">
+                <input name="ID" class="form-control" type="number" value="<?php echo $get_id ?>">
               </div>
               <div class="form-group col-md-3">
                 <label class="control-label">Tên sản phẩm</label>
@@ -276,7 +316,7 @@
                 <label class="control-label">Ảnh sản phẩm</label>
             
                 <div id="myfileupload">
-                  <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(this);" />
+                  <input type="file" id="uploadfile" name="imgload" onchange="readURL(this);" />
                 </div>
                 <div id="thumbbox">
                   <img height="450" width="400" alt="Thumb image" id="thumbimage" style="display: none" />
@@ -296,7 +336,7 @@
               </div>
             
           <a class="btn btn-cancel" href="table-data-product.php">Hủy bỏ</a>
-          <input class="btn btn-save" name="themsp" type="submit">
+          <input class="btn btn-save" name="edit" type="submit">
           </div>
           </form>
           

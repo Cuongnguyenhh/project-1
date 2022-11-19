@@ -21,6 +21,14 @@ $conn = condb();
     $post_supp = $_POST['supp'];
     $post_priceSell = $_POST['priceSell'];
     $post_price = $_POST['price'];
+    $imgload =basename( $_FILES['imgload']['name']);
+
+    // uploadfile
+
+    $target_dir = "../../uploads/";
+    $target_file = $target_dir . $imgload;
+    move_uploaded_file($_FILES["imgload"]["tmp_name"], $target_file);
+
     // try {
     //   $sql = "INSERT INTO cms_product (prd_name,quaility , id_prd_group, id_pro_manufacture,  prd_sell_price)
     //   VALUES ('$post_prd_name' , '$post_quaility' , '$post_cate', '$post_supp'  )";
@@ -32,8 +40,8 @@ $conn = condb();
     // }
   
     try{
-    $sql = "INSERT INTO cms_product (prd_name, quaility, id_prd_group, id_pro_manufacture, prd_sell_price, prd_price )
-  VALUES ('$post_prd_name', '$post_quaility', '$post_cate', '$post_supp', '$post_priceSell', '$post_price')";
+    $sql = "INSERT INTO cms_product (prd_name, quaility, id_prd_group, id_pro_manufacture, prd_img, prd_sell_price, prd_price )
+  VALUES ('$post_prd_name', '$post_quaility', '$post_cate', '$post_supp', '$imgload', '$post_priceSell', '$post_price')";
   // use exec() because no results are returned
   $conn->exec($sql);
   echo "New record created successfully";
@@ -49,7 +57,8 @@ $conn = condb();
 <html lang="en">
 
 <head>
-  <title>Thêm sản phẩm | Quản trị Admin</title>
+
+  <title>Thêm sản phẩm | Quản trị Admin</title> <?php echo $imgload ?>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -289,7 +298,7 @@ $conn = condb();
                 <label class="control-label">Ảnh sản phẩm</label>
             
                 <div id="myfileupload">
-                  <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(this);" />
+                  <input type="file" id="uploadfile" name="imgload" onchange="readURL(this);" />
                 </div>
                 <div id="thumbbox">
                   <img height="450" width="400" alt="Thumb image" id="thumbimage" style="display: none" />
