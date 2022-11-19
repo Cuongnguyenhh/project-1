@@ -345,7 +345,7 @@
         </div>
 
         <div class="text-right" style="font-size: 12px">
-            <p><b>Hệ thống quản lý V2.0 | Code by Trường</b></p>
+            <p><b>Hệ thống quản lý| Project-1 Nhóm 5</b></p>
         </div>
     </main>
     <!-- Essential javascripts for application to work-->

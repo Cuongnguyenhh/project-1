@@ -226,7 +226,7 @@
       <p><b>Copyright
           <script type="text/javascript">
             document.write(new Date().getFullYear());
-          </script> Phần mềm quản lý bán hàng | Dev By Trường
+          </script> Phần mềm quản lý bán hàng | Project-1 Nhóm 5
         </b></p>
     </div>
   </main>

@@ -143,8 +143,7 @@
                                 
                                
                                 ?>
-                            <a href="./form-edit-san-pham.php?ID='.$pro['ID'].'" name="edit" value="'.$pro['ID'].'" class="btn btn-primary btn-sm edit" type="button"  id="show-emp" 
-                                                 ><i class="fas fa-edit"></i></a>
+                          
                             </tbody>
                         </table>
                     </div>
@@ -302,6 +301,9 @@ MODAL
                             swal("Đã xóa thành công.!", {
 
                             });
+                            <?php
+                              
+                            ?>
                         }
                     });
             });

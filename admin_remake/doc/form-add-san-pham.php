@@ -12,6 +12,25 @@ condb();
 
 <?php
 $conn = condb();
+// them danh muc------
+
+if (isset($_POST['add_cate'])) {
+  $name_cate =$_POST['name_cate'];
+  try{
+    $sql = "INSERT INTO cms_products_group (prd_group_name)
+    VALUES ('$name_cate')";
+    // use exec() because no results are returned
+    $conn->exec($sql);
+    echo "New record created successfully";
+    header("Refresh:0");
+  } catch(PDOException $e) {
+    echo $sql . "<br>" . $e->getMessage();
+  }
+
+}
+
+
+
 
   if(isset($_POST['themsp'])){
     $today = date("Y-m-d");
@@ -58,7 +77,7 @@ $conn = condb();
 
 <head>
 
-  <title>Thêm sản phẩm | Quản trị Admin</title> <?php echo $imgload ?>
+  <title>Thêm sản phẩm | Quản trị Admin</title> 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -382,7 +401,8 @@ MODAL
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
 
-        <div class="modal-body">
+       <form action="" method="POST">
+       <div class="modal-body">
           <div class="row">
             <div class="form-group  col-md-12">
               <span class="thong-tin-thanh-toan">
@@ -391,7 +411,7 @@ MODAL
             </div>
             <div class="form-group col-md-12">
               <label class="control-label">Nhập tên danh mục mới</label>
-              <input class="form-control" type="text" required>
+              <input name="name_cate" class="form-control" type="text" required>
             </div>
             <div class="form-group col-md-12">
               <label class="control-label">Danh mục sản phẩm hiện đang có</label>
@@ -405,10 +425,11 @@ MODAL
             </div>
           </div>
           <BR>
-          <button class="btn btn-save" type="button">Lưu lại</button>
+          <button name="add_cate" class="btn btn-save" type="submit">Lưu lại</button>
           <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
           <BR>
         </div>
+       </form>
         <div class="modal-footer">
         </div>
       </div>
