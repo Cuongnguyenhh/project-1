@@ -1,10 +1,34 @@
 <?php
   $get_id = $_GET['ID'];
+  require '../config/database.php';
+  $conn = condb();
+  require '../config/controller/product.php';
+  require '../config/controller/Catelory.php';
+  $kq_supp = getAll_supp();
+  $kq_cate = getAll_cate();
+  $pro_one = getOne_pro($get_id);
+  foreach($pro_one as $pro_one){
+  $pro_name =  $pro_one['prd_name'] ;
+  $pro_quaility =  $pro_one['quaility'] ;
+  $pro_cate = $pro_one['id_prd_group'];
+  $pro_supp = $pro_one['id_pro_manufacture'];
+  $pro_sell = $pro_one['prd_sell_price'];
+  $pro_price = $pro_one['prd_price'];
+
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <?php
+    // echo $pro_cate;
+    // echo $pro_name;
+    // echo $pro_price;
+    // echo $pro_quaility; 
+    // echo $pro_supp;
+    // echo $pro_sell;
+    ?>
   <title>Sửa sản phẩm | Quản trị Admin</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -189,16 +213,20 @@
               </div>
               <div class="form-group col-md-3">
                 <label class="control-label">Tên sản phẩm</label>
-                <input name="prd_name" class="form-control" type="text">
+                
+
+                <input name="prd_name" class="form-control" value="<?php echo $pro_name ?>">
+                
+                
               </div>
      
 
               <div class="form-group  col-md-3">
                 <label class="control-label">Số lượng</label>
-                <input name="quaility" class="form-control" type="number">
+                <input name="quaility" class="form-control" type="number" value="<?php echo $pro_quaility ?>" >
               </div>
-              <div class="form-group col-md-3 ">
-                <label for="exampleSelect1" class="control-label">Tình trạng</label>
+                <div class="form-group col-md-3 ">
+                    <label for="exampleSelect1" class="control-label">Tình trạng</label>
                 <select class="form-control" id="exampleSelect1">
                   <option>-- Chọn tình trạng --</option>
                   <option>Còn hàng</option>
@@ -208,9 +236,11 @@
               <div class="form-group col-md-3">
                 <label for="exampleSelect1" class="control-label">Danh mục</label>
                 <select name="cate" class="form-control" id="exampleSelect1">
+                    <option><?php echo $pro_cate ?></option>
                   <?php
-                 echo '<option>--Chọn Danh mục--</option>';
+                 
                    foreach ($kq_cate as $cate){
+                    
                    echo  '<option>'.$cate['prd_group_name'].' </option>';
                    };
                  ;
@@ -222,8 +252,9 @@
               <div class="form-group col-md-3 ">
                 <label for="exampleSelect1" class="control-label">Nhà cung cấp</label>
                 <select name="supp" class="form-control" id="exampleSelect1">
+                <option><?php echo $pro_supp ?></option>'
                 <?php
-                 echo '<option>--Chọn Nhà Cung Cấp --</option>';
+            
                    foreach ($kq_supp as $supp){
                    echo  '<option>'.$supp['supplier_name'].' </option>';
                    };
@@ -234,11 +265,11 @@
               </div>
               <div class="form-group col-md-3">
                 <label class="control-label">Giá bán</label>
-                <input name="priceSell" class="form-control" type="text">
+                <input name="priceSell" class="form-control" type="text" value="<?php echo $pro_sell ?>">
               </div>
               <div class="form-group col-md-3">
                 <label class="control-label">Giá vốn</label>
-                <input name="price" class="form-control" type="text">
+                <input name="price" class="form-control" type="text" value="<?php  echo $pro_price ?>" >
               </div>
               <div class="form-group col-md-12">
                 <!-- Upload hanh sp -->
@@ -259,7 +290,7 @@
 
               </div>
               <div class="form-group col-md-12">
-                <label class="control-label">Mô tả sản phẩm</label>
+                <label class="control-label">Mô tả sản phẩm</label> 
                 <textarea class="form-control" name="mota" id="mota"></textarea>
                 <script>CKEDITOR.replace('mota');</script>
               </div>

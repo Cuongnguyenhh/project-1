@@ -1,3 +1,3 @@
 <?php
-header('Location: http://localhost/Project1/project-1/admin_remake/doc/');
+header('Location: http://localhost/admin_project1/admin_remake/doc/');
 ?>

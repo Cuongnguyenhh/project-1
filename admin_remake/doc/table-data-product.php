@@ -129,7 +129,7 @@
                                             onclick="myFunction(this)"><i class="fas fa-trash-alt"></i> 
                                         </button>
                                          
-                                        <a href="./formeditPro.php?ID='.$pro['ID'].'" name="edit" value="'.$pro['ID'].'" class="btn btn-primary btn-sm edit" type="button"  id="show-emp" 
+                                        <a href="./form-edit-san-pham.php?ID='.$pro['ID'].'" name="edit" value="'.$pro['ID'].'" class="btn btn-primary btn-sm edit" type="button"  id="show-emp" 
                                         ><i class="fas fa-edit"></i></a>
                                        
                                        
@@ -143,7 +143,7 @@
                                 
                                
                                 ?>
-                            <a href="./formeditPro.php?act='.$pro['ID'].'" name="edit" value="'.$pro['ID'].'" class="btn btn-primary btn-sm edit" type="button"  id="show-emp" 
+                            <a href="./form-edit-san-pham.php?ID='.$pro['ID'].'" name="edit" value="'.$pro['ID'].'" class="btn btn-primary btn-sm edit" type="button"  id="show-emp" 
                                                  ><i class="fas fa-edit"></i></a>
                             </tbody>
                         </table>
