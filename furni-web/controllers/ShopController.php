@@ -20,15 +20,8 @@ switch ($action) {
     case 'home':
         require_once './view/shop/index.php';
         break;
-    case 'sortby':
-        $a = $_POST['sortby'];
-        if ($a == 1) {
-            echo'asd';
-        } else {
-            echo'zxc';
-        }
-        
-        
+    case 'page':
+        require_once './view/shop/index.php';
         break;
         
     default:

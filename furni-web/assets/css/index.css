@@ -414,7 +414,7 @@ align-items: center;
 .pagination-list .pagination-item:hover a {
       color: var(--vela-color-primary);
 }
-.pagination-list .pagination-item.active {
+.pagination-list .pagination-item:active {
       border-color: var(--vela-color-primary);
       box-shadow: rgba(99, 99, 99, 0.3) 0px 2px 8px 0px;
 }
