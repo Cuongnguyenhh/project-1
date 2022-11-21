@@ -32,7 +32,7 @@
                                     </a>
                               </li>
                               <li class="has-dropdown">
-                                    <a href="c">
+                                    <a href="collection.php">
                                           <span>Bộ sưu tập</span>
                                     </a>
                                     <div class="collection-dropdown">
@@ -95,12 +95,12 @@
                                     </div>
                               </li>
                               <li>
-                                    <a href="index.php?action=blog">
+                                    <a href="blog.php">
                                           <span>Blog</span>
                                     </a>
                               </li>
                               <li>
-                                    <a href="index.php?action=contact">
+                                    <a href="contact.php">
                                           <span>Liên lạc</span>
                                     </a>
                               </li>

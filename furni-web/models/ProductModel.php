@@ -10,7 +10,7 @@ function getAllProduct(){
 
 // Lấy sản phẩm theo vị trí
 function getProductByOffset($limit, $offset){
-    $sql = "SELECT * FROM product LIMIT $limit OFFSET $offset";
+    $sql = "SELECT * FROM product LIMIT $limit, $offset";
     return query($sql);
 }
 
@@ -28,7 +28,7 @@ function getProductByFilter($where){
 
 // Đếm sản phẩm
 function getCountProduct(){
-    $sql = "SELECT (COUNT(*)/6) AS 'count' from `product`";
+    $sql = "SELECT COUNT(*) FROM product WHERE status = 1";
     return queryOne($sql);
 }
 

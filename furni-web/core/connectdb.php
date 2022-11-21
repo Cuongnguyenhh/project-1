@@ -34,7 +34,7 @@ function queryOne($sql)
     $stmt = $connect->prepare($sql);
     $stmt->execute();
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    $kq = $stmt -> fetchAll();
+    $kq = $stmt -> fetchColumn();
     return $kq;
 }
 

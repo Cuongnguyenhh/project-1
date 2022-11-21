@@ -138,7 +138,45 @@
                                           </div>
                                     </div>
                               </aside>
-
+                              <?php
+                              $where = '';
+                              $true = 1;
+                              $page = 1;
+                              if (isset($_GET['tag']) || isset($_GET['brand']) || isset($_GET['sort']) || isset($_GET['page']) || isset($_GET['price'])) {
+                                    
+                                    if (isset($_GET['tag'])) {
+                                          $true = 2;
+                                          $tag = $_GET['tag'];
+                                          $where .= !empty($where) ? ' and id IN(select id from product  INNER JOIN tag_of_product on product_id = id WHERE tag_id = ' . $tag . ')' : 'INNER JOIN tag_of_product on product_id = id WHERE tag_id = ' . $tag . '';
+                                    }
+                                    if (isset($_GET['brand'])) {
+                                          $true = 2;
+                                          $brand = $_GET['brand'];
+                                          $where .= !empty($where) ? ' and product.id IN(select product.id from product INNER JOIN brand on brand.id = brand_id where brand_id = ' . $brand . ')' : 'INNER JOIN brand on brand.id = brand_id where brand_id =' . $brand . '';
+                                    }
+                                    if (isset($_GET['price'])) {
+                                          $true = 2;
+                                          $lower = $_SESSION['price']['lower'];
+                                          $upper = $_SESSION['price']['upper'];
+                                          $where .= !empty($where) ? ' and price BETWEEN ' . $lower . ' and ' . $upper . '' : ' where price BETWEEN ' . $lower . ' and ' . $upper . '';
+                                    }
+                                    if (isset($_GET['sort'])) {
+                                          $true = 2;
+                                          $value = $_GET['sort'];
+                                          if ($value == 1) {
+                                                $where .= '';
+                                          } else if ($value == 2) {
+                                                $where .= ' order by `update` desc';
+                                          } else if ($value == 3) {
+                                                $where .= ' order by view desc';
+                                          } else if ($value == 4) {
+                                                $where .= ' order by price asc';
+                                          } else if ($value == 5) {
+                                                $where .= ' order by price desc';
+                                          }
+                                    }
+                              } 
+                              ?>
 
                               <!-- PRODUCT LIST  -->
                               <div class="product-list col c-9">
@@ -190,7 +228,16 @@
                                                 <!-- PRODUCT  -->
                                                 <?php
                                                 // phân trang
-                                                $kq = getAllProduct();
+                                                $per_page = 12;
+                                                // xuất sản phẩm 
+                                                if (!isset($_GET['page'])) {
+                                                      $page = 1;
+                                                } else {
+                                                      $page = $_GET['page'];
+                                                }
+
+                                                $from_pro = ($page - 1) * $per_page;
+                                                $kq = getProductByOffset($from_pro, $per_page);
                                                 foreach ($kq as $value) :
                                                       if ($value['status'] == 1) :
                                                 ?>
@@ -234,12 +281,8 @@
                                                                                           <button name="add-cart" type="submit" class="btn btn-add-cart ">
                                                                                                 <i class="icons">
                                                                                                       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-                                                                                                            <g>
-                                                                                                                  <g>
-                                                                                                                        <path d="M416,277.333H277.333V416h-42.666V277.333H96v-42.666h138.667V96h42.666v138.667H416V277.333z">
-                                                                                                                        </path>
-                                                                                                                  </g>
-                                                                                                            </g>
+                                                                                                            <path d="M416,277.333H277.333V416h-42.666V277.333H96v-42.666h138.667V96h42.666v138.667H416V277.333z">
+                                                                                                            </path>
                                                                                                       </svg>
                                                                                                 </i>
                                                                                                 <span>Add to Cart</span>
@@ -350,41 +393,55 @@
                                                 <?php endforeach ?>
                                           </div> -->
                                     <!-- PAGINATION  -->
-
+                                    <?php
+                                    $count_pro = getCountProduct();
+                                    $total_page = ceil($count_pro / $per_page);
+                                    ?>
                                     <div class="c-12">
                                           <div class="product-pagination">
                                                 <nav class="pagination">
                                                       <ul class="pagination-list">
-                                                            <li class="pagination-item">
-                                                                  <a class="pagination-page-link" href="index.php?act=product&pagenum=1">
-                                                                        <i class="fa-sharp fa-solid fa-angle-left"></i>
-                                                                  </a>
-                                                            </li>
-                                                            <li class="pagination-item active">
-                                                                  <a class="pagination-page-link" href="index.php?act=product&pagenum=1">
-                                                                        1
-                                                                  </a>
-                                                            </li>
-                                                            <li class="pagination-item active">
-                                                                  <a class="pagination-page-link" href="index.php?act=product&pagenum=2">
-                                                                        2
-                                                                  </a>
-                                                            </li>
-                                                            <li class="pagination-item active">
-                                                                  <a class="pagination-page-link" href="index.php?act=product&pagenum=3">
-                                                                        3
-                                                                  </a>
-                                                            </li>
-                                                            <li class="pagination-item">
-                                                                  <a class="pagination-page-link" href="#">
-                                                                        <i class="fa-sharp fa-solid fa-angle-right"></i>
-                                                                  </a>
-                                                            </li>
-                                                            <li class="pagination-item active">
-                                                                  <a id="product" class="pagination-page-link" href="index.php?act=product&pagenum=3">
-                                                                        3
-                                                                  </a>
-                                                            </li>
+                                                            <?php if ($page > 1) : ?>
+                                                                  <li class="pagination-item">
+                                                                        <a class="pagination-page-link" href="shop.php?page=<?= $page - 1 ?>">
+                                                                              <i class="fa-sharp fa-solid fa-angle-left"></i>
+                                                                        </a>
+                                                                  </li>
+                                                            <?php endif; ?>
+
+                                                            <?php if ($page - 2 > 0) : ?>
+                                                                  <li class="pagination-item active">
+                                                                        <a href="shop.php?page=<?= $page - 2 ?>"><?php echo $page - 2 ?></a>
+                                                                  </li>
+                                                            <?php endif; ?>
+
+                                                            <?php if ($page - 1 > 0) : ?>
+                                                                  <li class="pagination-item active">
+                                                                        <a href="shop.php?page=<?php echo $page - 1 ?>"><?php echo $page - 1 ?></a>
+                                                                  </li>
+                                                            <?php endif; ?>
+
+                                                            <li class="pagination-item active"><a href="shop.php?page=<?php echo $page ?>"><?php echo $page ?></a></li>
+
+                                                            <?php if ($page + 1 < ($total_page + 1)) : ?>
+                                                                  <li class="pagination-item active">
+                                                                        <a href="shop.php?page=<?php echo $page + 1 ?>"><?php echo $page + 1 ?></a>
+                                                                  </li>
+                                                            <?php endif; ?>
+
+                                                            <?php if ($page + 2 < ($total_page + 1)) : ?>
+                                                                  <li class="pagination-item active">
+                                                                        <a href="shop.php?page=<?php echo $page + 2 ?>"><?php echo $page + 2 ?></a>
+                                                                  </li>
+                                                            <?php endif; ?>
+
+                                                            <?php if ($page < ($total_page)) : ?>
+                                                                  <li class="pagination-item">
+                                                                        <a class="pagination-page-link" href="shop.php?page=<?= $page + 1 ?>">
+                                                                              <i class="fa-sharp fa-solid fa-angle-right"></i>
+                                                                        </a>
+                                                                  </li>
+                                                            <?php endif; ?>
                                                       </ul>
                                                 </nav>
                                           </div>
@@ -412,18 +469,5 @@
             productList.classList.remove('active');
             changeList.classList.remove('active');
             changeGrid.classList.add('active');
-      });
-      $(document).ready(function() {
-            $("#sortby").on('change', function() {
-                  var sortby = $(this).val();
-                  $.ajax({
-                        url: "shop.php?action=sortby",
-                        method: "POST",
-                        data: "sortby:sortby",
-                        success: (function(data) {
-                              $("product").html(data);
-                        })
-                  })
-            });
       });
 </script>
