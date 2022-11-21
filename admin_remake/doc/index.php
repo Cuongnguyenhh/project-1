@@ -6,6 +6,7 @@ require '../config/controller/Catelory.php';
 require '../config/controller/customer.php';
 getAll_cate();
 getAll_pro();
+require './user_menu.php';
 if(isset($_GET['act'])){
     $act =$_GET['act'];
     switch($_GET['act']){
