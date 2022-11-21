@@ -23,7 +23,7 @@ if(isset($_GET['act'])){
         case 'product':
             $kq = getAll_pro();
             $kq_cate = getAll_cate();
-            require_once './navbar.php';
+            // require_once './navbar.php';
             require_once './table-data-product.php';
             break;
         case 'order':

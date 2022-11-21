@@ -405,8 +405,7 @@ MODAL
             <div class="form-group  col-md-12">
               <span class="thong-tin-thanh-toan">
                 <h5>Thêm mới danh mục </h5> <?php
-                echo $post_id;
-                echo "sad"
+               
                 ?>
               </span>
             </div>
