@@ -18,9 +18,9 @@ if (isset($_GET['action'])) {
 }
 switch ($action) {
     case 'home':
-        require_once './view/contact/index.php';
+        require_once './view/collection/index.php';
         break;
     default:
-        require_once './view/contact/index.php';
+        require_once './view/collection/index.php';
         break;
 }
