@@ -9,7 +9,7 @@ function getAll_pro(){
 }
 function getOne_pro($get_id){
     $conn = condb();
-    $stmt = $conn->prepare("SELECT quaility ,prd_name, prd_price, id_prd_group, id_pro_manufacture,prd_sell_price FROM cms_product WHERE ID='$get_id'");
+    $stmt = $conn->prepare("SELECT quaility ,prd_name, prd_price, id_prd_group, id_pro_manufacture,prd_sell_price, prd_img FROM cms_product WHERE ID='$get_id'");
     $stmt->execute();
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $pro_one = $stmt -> fetchAll();
