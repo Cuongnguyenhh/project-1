@@ -10,6 +10,7 @@ if(isset($_GET['act'])){
     $act =$_GET['act'];
     switch($_GET['act']){
         case 'main':
+            $kq = getAll_pro();
             require_once './mainControll.php';
         // case 'pos':
         //     require_once './phan-mem-ban-hang.php';
@@ -36,6 +37,7 @@ if(isset($_GET['act'])){
             
     }
 }else{
+    $kq = getAll_pro();
    require_once './navbar.php';
    require_once './mainControll.php';
 }

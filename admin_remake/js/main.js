@@ -12,9 +12,9 @@ function validate() {
             close: true,
             button: false,
           });
-        window.location = "doc/index.php";
+        window.location = "../admin_remake/doc/index.php";
         return true;
-       
+          
     }
     //Nếu không nhập gì mà nhấn đăng nhập thì sẽ báo lỗi
     if (username == "" && password == "") {

@@ -112,8 +112,10 @@
                                   $status = $pro['prd_status'];
                                   if($status> 0){
                                     $status = "Còn hàng";
+                                    $class = 'badge bg-success';
                                   }else{
                                     $status = "Hết hàng";
+                                    $class = 'badge bg-danger';
                                   }
                                   echo '
                                   <tr>
@@ -122,9 +124,9 @@
                                     <td>'.$pro['prd_name'].'</td>
                                     <td><img src="../../uploads/'.$pro['prd_img'].'" alt="" width="100px;"></td>
                                     <td>'.$pro['quaility'].'</td> 
-
+                                   
           
-                                    <td><span class="badge bg-success">'.$status.'</span></td>
+                                    <td><span class="'.$class.'">'.$status.'</span></td>
                                     <td>'.$pro['prd_sell_price'].'</td>
                                     <td>'.$pro['id_prd_group'].'</td>
                                     <td><a href="../config//controller//delete.php?getid='.$pro['ID'].'"  type="button" 
