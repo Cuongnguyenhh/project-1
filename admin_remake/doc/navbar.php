@@ -29,9 +29,9 @@
     </div>
     <hr>
     <ul class="app-menu">
-      <li><a class="app-menu__item haha" href="?act=pos">
+      <!-- <li><a class="app-menu__item haha" href="?act=pos">
         <i class='app-menu__icon bx bx-cart-alt'></i>
-          <span class="app-menu__label">POS Bán Hàng</span></a></li>
+          <span class="app-menu__label">POS Bán Hàng</span></a></li> -->
       <li><a class="app-menu__item active" href="?act=main"><i class='app-menu__icon bx bx-tachometer'></i><span
             class="app-menu__label">Bảng điều khiển</span></a></li>
       <li><a class="app-menu__item " href="?act=ql_nhanvien"><i class='app-menu__icon bx bx-id-card'></i> <span
