@@ -4,13 +4,13 @@ condb();
 require '../config/controller/product.php';
 require '../config/controller/Catelory.php';
 require '../config/controller/customer.php';
-getAll_cate();
-getAll_pro();
+
 require './user_menu.php';
 if(isset($_GET['act'])){
     $act =$_GET['act'];
     switch($_GET['act']){
         case 'main':
+            $kq_customers = getAll_customer();
             $kq = getAll_pro();
             require_once './mainControll.php';
         // case 'pos':
@@ -38,6 +38,7 @@ if(isset($_GET['act'])){
             
     }
 }else{
+    $kq_customers = getAll_customer();
     $kq = getAll_pro();
    require_once './navbar.php';
    require_once './mainControll.php';

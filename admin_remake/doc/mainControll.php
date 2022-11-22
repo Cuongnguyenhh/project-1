@@ -1,3 +1,19 @@
+<?php
+$out_prd = 0; 
+$total_prd = 0;
+$total_customers = 0;
+// lấy số sản phẩm
+foreach($kq as $prd){
+ $total_prd++;
+ if($prd['quaility'] < 50){
+   $out_prd++;
+ };
+}  
+// lấy số khách hàng
+foreach($kq_customers as $customers){
+  $total_customers++;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,7 +73,7 @@
         <div class="widget-small primary coloured-icon"><i class='icon bx bxs-user-account fa-3x'></i>
           <div class="info">
             <h4>Tổng khách hàng</h4>
-            <p><b>56 khách hàng</b></p>
+            <p><b><?php echo $total_customers; ?> khách hàng</b></p>
             <p class="info-tong">Tổng số khách hàng được quản lý.</p>
           </div>
         </div>
@@ -67,13 +83,6 @@
             <div class="widget-small info coloured-icon"><i class='icon bx bxs-data fa-3x'></i>
               <div class="info">
                 <h4>Tổng sản phẩm</h4>
-                <?php $out_prd = 0; $total_prd = 0;
-                 foreach($kq as $prd){
-                  $total_prd++;
-                  if($prd['quaility'] < 50){
-                    $out_prd++;
-                  };
-                }  ?>
                 <p><b><?php echo $total_prd ?> sản phẩm</b></p>
                 <p class="info-tong">Tổng số sản phẩm được quản lý.</p>
               </div>

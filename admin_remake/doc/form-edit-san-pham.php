@@ -34,9 +34,9 @@
     move_uploaded_file($_FILES["imgload"]["tmp_name"], $target_file);
 
         try{
-          if($imgload == ''){
+          if($imgload==null){
           $sql = "UPDATE cms_product SET ID='$ID', prd_name='$prd_name', prd_img='$get_anhsp', id_prd_group='$cate',id_pro_manufacture='$post_supp', prd_sell_price='$priceSell', prd_price='$price', quaility='$quaility'  WHERE ID=$get_id";
-          }          $sql = "UPDATE cms_product SET ID='$ID', prd_name='$prd_name', prd_img='$imgload', id_prd_group='$cate',id_pro_manufacture='$post_supp', prd_sell_price='$priceSell', prd_price='$price', quaility='$quaility'  WHERE ID=$get_id";
+          }else {$sql = "UPDATE cms_product SET ID='$ID', prd_name='$prd_name', prd_img='$imgload', id_prd_group='$cate',id_pro_manufacture='$post_supp', prd_sell_price='$priceSell', prd_price='$price', quaility='$quaility'  WHERE ID=$get_id";}
 
   // Prepare statement
   $stmt = $conn->prepare($sql);
@@ -221,7 +221,7 @@
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb">
         <li class="breadcrumb-item">Danh sách sản phẩm</li> 
-        <li class="breadcrumb-item"><a href="#">Chỉnh sửa sản phẩm</a></li><?php echo $get_id ?>
+        <li class="breadcrumb-item"><a href="#">Chỉnh sửa sản phẩm</a></li>
       </ul>
     </div>
     <div class="row">
