@@ -4,12 +4,14 @@ condb();
 require '../config/controller/product.php';
 require '../config/controller/Catelory.php';
 require '../config/controller/customer.php';
-getAll_cate();
-getAll_pro();
+
+require './user_menu.php';
 if(isset($_GET['act'])){
     $act =$_GET['act'];
     switch($_GET['act']){
         case 'main':
+            $kq_customers = getAll_customer();
+            $kq = getAll_pro();
             require_once './mainControll.php';
         // case 'pos':
         //     require_once './phan-mem-ban-hang.php';
@@ -23,7 +25,7 @@ if(isset($_GET['act'])){
         case 'product':
             $kq = getAll_pro();
             $kq_cate = getAll_cate();
-            require_once './navbar.php';
+            // require_once './navbar.php';
             require_once './table-data-product.php';
             break;
         case 'order':
@@ -36,6 +38,8 @@ if(isset($_GET['act'])){
             
     }
 }else{
+    $kq_customers = getAll_customer();
+    $kq = getAll_pro();
    require_once './navbar.php';
    require_once './mainControll.php';
 }

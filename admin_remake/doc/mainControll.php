@@ -1,3 +1,19 @@
+<?php
+$out_prd = 0; 
+$total_prd = 0;
+$total_customers = 0;
+// lấy số sản phẩm
+foreach($kq as $prd){
+ $total_prd++;
+ if($prd['quaility'] < 50){
+   $out_prd++;
+ };
+}  
+// lấy số khách hàng
+foreach($kq_customers as $customers){
+  $total_customers++;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +46,6 @@
 
 
       <!-- User Menu-->
-      <li><a class="app-nav__item" href="/index.php"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
       </li>
     </ul>
@@ -58,7 +73,7 @@
         <div class="widget-small primary coloured-icon"><i class='icon bx bxs-user-account fa-3x'></i>
           <div class="info">
             <h4>Tổng khách hàng</h4>
-            <p><b>56 khách hàng</b></p>
+            <p><b><?php echo $total_customers; ?> khách hàng</b></p>
             <p class="info-tong">Tổng số khách hàng được quản lý.</p>
           </div>
         </div>
@@ -68,7 +83,7 @@
             <div class="widget-small info coloured-icon"><i class='icon bx bxs-data fa-3x'></i>
               <div class="info">
                 <h4>Tổng sản phẩm</h4>
-                <p><b>1850 sản phẩm</b></p>
+                <p><b><?php echo $total_prd ?> sản phẩm</b></p>
                 <p class="info-tong">Tổng số sản phẩm được quản lý.</p>
               </div>
             </div>
@@ -88,7 +103,7 @@
             <div class="widget-small danger coloured-icon"><i class='icon bx bxs-error-alt fa-3x'></i>
               <div class="info">
                 <h4>Sắp hết hàng</h4>
-                <p><b>4 sản phẩm</b></p>
+                <p><b><?php echo $out_prd; ?> sản phẩm</b></p>
                 <p class="info-tong">Số sản phẩm cảnh báo hết cần nhập thêm.</p>
               </div>
             </div>
@@ -264,7 +279,7 @@
         pointStrokeColor: "rgb(9, 109, 239)",
         pointHighlightFill: "rgb(9, 109, 239)",
         pointHighlightStroke: "rgb(9, 109, 239)",
-        data: [48, 48, 49, 39, 86, 10]
+        data: [100, 48, 200, 39, 86, 10]
       }
       ]
     };

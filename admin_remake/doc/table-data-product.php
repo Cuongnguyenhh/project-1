@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +33,6 @@
 
 
       <!-- User Menu-->
-      <li><a class="app-nav__item" href="/index.php"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
       </li>
     </ul>
@@ -110,8 +111,10 @@
                                   $status = $pro['prd_status'];
                                   if($status> 0){
                                     $status = "Còn hàng";
+                                    $class = 'badge bg-success';
                                   }else{
                                     $status = "Hết hàng";
+                                    $class = 'badge bg-danger';
                                   }
                                   echo '
                                   <tr>
@@ -120,30 +123,32 @@
                                     <td>'.$pro['prd_name'].'</td>
                                     <td><img src="../../uploads/'.$pro['prd_img'].'" alt="" width="100px;"></td>
                                     <td>'.$pro['quaility'].'</td> 
-
+                                   
           
-                                    <td><span class="badge bg-success">'.$status.'</span></td>
+                                    <td><span class="'.$class.'">'.$status.'</span></td>
                                     <td>'.$pro['prd_sell_price'].'</td>
                                     <td>'.$pro['id_prd_group'].'</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i> 
-                                        </button>
+                                    <td><a href="../config//controller//delete.php?getid='.$pro['ID'].'"  type="button" 
+                                   ><i class="fas fa-trash-alt"></i> 
+                                </a>
                                          
-                                        <a href="./form-edit-san-pham.php?ID='.$pro['ID'].'" name="edit" value="'.$pro['ID'].'" class="btn btn-primary btn-sm edit" type="button"  id="show-emp" 
+                                        <a href="./form-edit-san-pham.php?ID='.$pro['ID'].'" onclick="delete_sp('.$pro['ID'].')" name="edit" value="'.$pro['ID'].'" class="btn btn-primary btn-sm edit" type="button"  id="show-emp" 
                                         ><i class="fas fa-edit"></i></a>
-                                       
+                                        
                                        
                                     </td>
-                                </tr>
-                                  ';
+                                    </tr>
+                                      ';
+                                        
+                                 
                                   
                                 }
                                 
                                 
-                                
+                     
                                
                                 ?>
-                          
+                     
                             </tbody>
                         </table>
                     </div>
@@ -152,7 +157,7 @@
         </div>
     </main>
 
-<!--
+<!--  
   MODAL
 -->
 <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
@@ -228,7 +233,7 @@ MODAL
 -->
 
     <!-- Essential javascripts for application to work-->
-    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></scripts>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -301,11 +306,10 @@ MODAL
                             swal("Đã xóa thành công.!", {
 
                             });
-                            <?php
-                              
-                            ?>
+                            
                         }
                     });
+                    
             });
         });
         oTable = $('#sampleTable').dataTable();
@@ -315,5 +319,4 @@ MODAL
         });
     </script>
 </body>
-
 </html>

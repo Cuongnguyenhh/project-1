@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost
--- Thời gian đã tạo: Th10 19, 2022 lúc 08:05 AM
--- Phiên bản máy phục vụ: 10.4.21-MariaDB
--- Phiên bản PHP: 7.4.29
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 21, 2022 lúc 09:23 AM
+-- Phiên bản máy phục vụ: 10.4.24-MariaDB
+-- Phiên bản PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -163,7 +163,7 @@ CREATE TABLE `cms_product` (
   `ID` int(10) NOT NULL,
   `id_prd_group` int(10) NOT NULL,
   `id_pro_manufacture` int(10) NOT NULL,
-  `prd_img` varchar(50) NOT NULL,
+  `prd_img` varchar(150) NOT NULL,
   `prd_status` int(11) NOT NULL DEFAULT 1,
   `create` date NOT NULL,
   `prd_sell_price` float NOT NULL,
@@ -177,22 +177,33 @@ CREATE TABLE `cms_product` (
 --
 
 INSERT INTO `cms_product` (`ID`, `id_prd_group`, `id_pro_manufacture`, `prd_img`, `prd_status`, `create`, `prd_sell_price`, `prd_price`, `prd_name`, `quaility`) VALUES
-(1, 0, 0, '', 1, '0000-00-00', 200000, 150000, 'TRIBU', 1200),
-(2, 0, 0, '', 1, '0000-00-00', 300000, 250000, 'CRAZY', 3000),
-(3, 0, 0, '', 1, '0000-00-00', 400000, 350000, 'VAHI', 3200),
-(4, 0, 0, '', 1, '0000-00-00', 600000, 550000, 'XAVIER', 2500),
-(5, 0, 0, '', 1, '0000-00-00', 340000, 300000, 'SOFA', 2400),
-(6, 0, 0, '', 1, '0000-00-00', 450000, 400000, 'CHAIRS', 4600),
-(7, 0, 0, '', 1, '0000-00-00', 120000, 100000, 'LAMPS', 1600),
-(8, 0, 0, '', 1, '0000-00-00', 670000, 650000, 'BEDS', 0),
-(9, 0, 0, '', 1, '0000-00-00', 770000, 700000, 'MIN', 2000),
-(10, 0, 0, '', 1, '0000-00-00', 470000, 450000, 'HANO', 1900),
-(11, 0, 0, '', 1, '0000-00-00', 690000, 650000, 'CHIN', 100),
-(12, 0, 0, '', 1, '0000-00-00', 340000, 250000, 'POD', 230),
-(13, 0, 0, '', 1, '0000-00-00', 430000, 350000, 'HOBU', 900),
-(14, 0, 0, '', 1, '0000-00-00', 500000, 400000, 'JOHY', 600),
-(15, 0, 0, '', 1, '0000-00-00', 140000, 100000, 'KATY', 700),
-(16, 0, 0, '', 1, '0000-00-00', 780000, 700000, 'LEHI', 900);
+(36, 0, 0, 'alice.webp', 1, '0000-00-00', 4050000, 3500000, 'Sofa băng ALICE', 1200),
+(37, 0, 0, 'jasmin.webp', 1, '0000-00-00', 9756000, 9000000, 'Sofa băng JASMIN', 1400),
+(38, 0, 0, 'moana.webp', 1, '0000-00-00', 9855000, 9000000, 'Sofa MOANA', 1600),
+(39, 0, 0, 'hiro.webp', 1, '0000-00-00', 12105000, 1100000, 'Sofa HIRO', 1800),
+(40, 0, 0, 'anna.webp', 1, '0000-00-00', 13365000, 12000000, 'Sofa ANNA', 2000),
+(41, 0, 0, 'lam.webp', 1, '0000-00-00', 1344000, 1000000, 'Tủ quần áo LAM', 1300),
+(42, 0, 0, 'ez.webp', 1, '0000-00-00', 2800000, 2000000, 'Tủ quần áo EZ', 1500),
+(43, 0, 0, 'johy.webp', 1, '0000-00-00', 12480000, 12000000, 'Tủ quần áo JOHY', 1700),
+(44, 0, 0, 'quada.webp', 1, '0000-00-00', 18870000, 17000000, 'Tủ quần áo QUADA', 1900),
+(45, 0, 0, 'dalat grace.webp', 1, '0000-00-00', 5525000, 5000000, 'Tủ quần áo DALAT GRACE', 2100),
+(46, 0, 0, 'Doer.webp', 1, '0000-00-00', 1317500, 1000000, 'Bàn DOER', 2300),
+(47, 0, 0, 'victor.webp', 1, '0000-00-00', 1960000, 1500000, 'Bàn VICTOR', 2500),
+(48, 0, 0, 'fighter.webp', 1, '0000-00-00', 1960000, 1500000, 'Bàn FIGHTER', 2700),
+(49, 0, 0, 'builder.webp', 1, '0000-00-00', 2422500, 2000000, 'Bàn BUILDER', 2900),
+(50, 0, 0, 'doer plus.webp', 1, '0000-00-00', 1720000, 1300000, 'Bàn DOER Plus', 2200),
+(51, 0, 0, 'latu.webp', 1, '0000-00-00', 962500, 900000, 'Ghế LATU', 2400),
+(52, 0, 0, 'to-be.webp', 1, '0000-00-00', 3612500, 3000000, 'Ghế TO-BE', 2800),
+(53, 0, 0, 'noven.webp', 1, '0000-00-00', 742500, 650000, 'Ghế NOVEN', 3000),
+(54, 0, 0, 'astu.webp', 1, '0000-00-00', 466650, 350000, 'Ghế ASTU', 3200),
+(55, 0, 0, 'shape.webp', 1, '0000-00-00', 841500, 750000, 'Ghế SHAPE', 3400),
+(56, 0, 0, 'tu ez.webp', 1, '0000-00-00', 416500, 350000, 'Tủ EZ', 3800),
+(57, 0, 0, 'ke tapi.webp', 1, '0000-00-00', 864000, 700000, 'Kệ TAPI', 4000),
+(58, 0, 0, 'ke pamiti.webp', 1, '0000-00-00', 578000, 400000, 'Kệ PAMITI', 3300),
+(59, 0, 0, 'ke vita.webp', 1, '0000-00-00', 1032000, 900000, 'Kệ VITA', 3500),
+(60, 0, 0, 'ke hobu.webp', 1, '0000-00-00', 1351500, 1000000, 'Kệ HOBU', 3700),
+(61, 0, 0, 'guong duka.webp', 1, '0000-00-00', 1160000, 900000, 'Gương DUKA', 1200),
+(62, 0, 0, 'guong haso.webp', 1, '0000-00-00', 1317500, 1000000, 'Gương HASO', 4600);
 
 -- --------------------------------------------------------
 
@@ -212,7 +223,15 @@ CREATE TABLE `cms_products_group` (
 --
 
 INSERT INTO `cms_products_group` (`ID`, `prd_group_name`, `created`, `updated`) VALUES
-(138, 'Tủ Quần áo', '2022-11-18 13:24:51', '2022-11-18 13:24:51');
+(138, 'Tủ Quần áo', '2022-11-18 13:24:51', '2022-11-18 13:24:51'),
+(139, 'Sofa', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(140, 'Bàn', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(141, 'Ghế', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(142, 'Kệ Tủ', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(143, 'Gương', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(144, 'Đèn', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(145, 'Giường', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(146, 'Chăn mền', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -443,13 +462,13 @@ ALTER TABLE `cms_order`
 -- AUTO_INCREMENT cho bảng `cms_product`
 --
 ALTER TABLE `cms_product`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT cho bảng `cms_products_group`
 --
 ALTER TABLE `cms_products_group`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
 
 --
 -- AUTO_INCREMENT cho bảng `cms_products_manufacture`

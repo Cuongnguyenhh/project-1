@@ -57,7 +57,7 @@ if (isset($_POST['add_cate'])) {
     // } catch(PDOException $e) {
     //   echo $sql . "<br>" . $e->getMessage();
     // }
-  
+    
     try{
     $sql = "INSERT INTO cms_product (prd_name, quaility, id_prd_group, id_pro_manufacture, prd_img, prd_sell_price, prd_price )
   VALUES ('$post_prd_name', '$post_quaility', '$post_cate', '$post_supp', '$imgload', '$post_priceSell', '$post_price')";
@@ -219,7 +219,6 @@ if (isset($_POST['add_cate'])) {
 
 
       <!-- User Menu-->
-      <li><a class="app-nav__item" href="/index.php"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
       </li>
     </ul>

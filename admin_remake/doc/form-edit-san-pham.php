@@ -8,6 +8,7 @@
   $kq_cate = getAll_cate();
   $pro_one = getOne_pro($get_id);
   foreach($pro_one as $pro_one){
+  $get_anhsp = $pro_one['prd_img'];
   $pro_name =  $pro_one['prd_name'] ;
   $pro_quaility =  $pro_one['quaility'] ;
   $pro_cate = $pro_one['id_prd_group'];
@@ -33,7 +34,9 @@
     move_uploaded_file($_FILES["imgload"]["tmp_name"], $target_file);
 
         try{
-          $sql = "UPDATE cms_product SET ID='$ID', prd_name='$prd_name', prd_img='$imgload', id_prd_group='$cate',id_pro_manufacture='$post_supp', prd_sell_price='$priceSell', prd_price='$price', quaility='$quaility'  WHERE ID=$get_id";
+          if($imgload==null){
+          $sql = "UPDATE cms_product SET ID='$ID', prd_name='$prd_name', prd_img='$get_anhsp', id_prd_group='$cate',id_pro_manufacture='$post_supp', prd_sell_price='$priceSell', prd_price='$price', quaility='$quaility'  WHERE ID=$get_id";
+          }else {$sql = "UPDATE cms_product SET ID='$ID', prd_name='$prd_name', prd_img='$imgload', id_prd_group='$cate',id_pro_manufacture='$post_supp', prd_sell_price='$priceSell', prd_price='$price', quaility='$quaility'  WHERE ID=$get_id";}
 
   // Prepare statement
   $stmt = $conn->prepare($sql);
@@ -206,7 +209,6 @@
 
 
       <!-- User Menu-->
-      <li><a class="app-nav__item" href="/index.php"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
       </li>
     </ul>
@@ -218,8 +220,8 @@
  
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb">
-        <li class="breadcrumb-item">Danh sách sản phẩm</li>
-        <li class="breadcrumb-item"><a href="#">Chỉnh sửa sản phẩm</a></li><?php echo $get_id ?>
+        <li class="breadcrumb-item">Danh sách sản phẩm</li> 
+        <li class="breadcrumb-item"><a href="#">Chỉnh sửa sản phẩm</a></li>
       </ul>
     </div>
     <div class="row">
@@ -405,8 +407,7 @@ MODAL
             <div class="form-group  col-md-12">
               <span class="thong-tin-thanh-toan">
                 <h5>Thêm mới danh mục </h5> <?php
-                echo $post_id;
-                echo "sad"
+               
                 ?>
               </span>
             </div>
