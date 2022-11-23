@@ -10,7 +10,7 @@ function getAllCart(){
 
 function getCartByUserId($name){
     $sql = "select * from config where name = '".$name."'";
-    return queryOne($sql);
+    return query($sql);
 }
 
 function addNewCart($userId, $productId, $sizeId, $colorId, $quantity){

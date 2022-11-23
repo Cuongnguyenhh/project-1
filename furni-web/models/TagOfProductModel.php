@@ -4,7 +4,7 @@ require_once 'core/connectdb.php';
 // Lấy ra tất cả thẻ của sản phẩm
 function getTagByProductId($id){
     $sql = "SELECT * FROM tag_of_product WHERE product_id = $id;";
-    return queryOne($sql);
+    return query($sql);
 }
 
 // Cập nhật thẻ của sản phẩm

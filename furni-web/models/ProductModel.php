@@ -17,7 +17,7 @@ function getProductByOffset($limit, $offset){
 // Lấy sản phẩm theo id
 function getProductById($id){
     $sql = "SELECT * FROM product WHERE id = $id";
-    return queryOne($sql);
+    return query($sql);
 }
 
 // Lọc sản phẩm

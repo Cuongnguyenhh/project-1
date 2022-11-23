@@ -5,13 +5,47 @@
                   <div class="row">
                         <div class="row-flex">
                               <!-- FILTER  -->
+                              <?php
+                              $where = '';
+                              $true = 1;
+                              $page = 1;
+                              if (isset($_GET['tag']) || isset($_GET['sort']) || isset($_GET['page']) || isset($_GET['price'])) {
+
+                                    if (isset($_GET['tag'])) {
+                                          $true = 2;
+                                          $tag = $_GET['tag'];
+                                          $where .= !empty($where) ? ' and id IN(select id from product  INNER JOIN tag_of_product on product_id = id WHERE tag_id = ' . $tag . ')' : 'INNER JOIN tag_of_product on product_id = id WHERE tag_id = ' . $tag . '';
+                                    }
+                                    if (isset($_GET['price'])) {
+                                          $true = 2;
+                                          $lower = $_SESSION['price']['lower'];
+                                          $upper = $_SESSION['price']['upper'];
+                                          $where .= !empty($where) ? ' and price BETWEEN ' . $lower . ' and ' . $upper . '' : ' where price BETWEEN ' . $lower . ' and ' . $upper . '';
+                                    }
+                                    if (isset($_GET['sort'])) {
+                                          $true = 2;
+                                          $value = $_GET['sort'];
+                                          if ($value == 1) {
+                                                $where .= '';
+                                          } else if ($value == 2) {
+                                                $where .= ' order by `update` desc';
+                                          } else if ($value == 3) {
+                                                $where .= ' order by view desc';
+                                          } else if ($value == 4) {
+                                                $where .= ' order by price asc';
+                                          } else if ($value == 5) {
+                                                $where .= ' order by price desc';
+                                          }
+                                    }
+                              }
+                              ?>
                               <aside class="vela-aside c-3">
                                     <div class="categories">
                                           <h3 class="vela-title">Thể loại</h3>
                                           <div class="categories-content">
                                                 <ul class="categories-list">
                                                       <li class="categories-item">
-                                                            <a onclick="filter('delete',1);" class="categories-item-link" href="">All</a>
+                                                            <a class="categories-item-link" href="">All</a>
                                                       </li>
                                                       <?php
                                                       $cate = getAllTag();
@@ -30,27 +64,27 @@
                                                 <ul class="color-list">
                                                       <li class="color-item">
                                                             <a class="color-item-link" style="background-color: black;">
-                                                                  <img src="./public/images/color_default_icon.webp" alt="color-default">
+                                                                  <img src="assets/img/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                       <li class="color-item">
                                                             <a class="color-item-link" style="background-color: grey;">
-                                                                  <img src="./public/images/color_default_icon.webp" alt="color-default">
+                                                                  <img src="assets/img/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                       <li class="color-item">
                                                             <a class="color-item-link" style="background-color: indianred;">
-                                                                  <img src="./public/images/color_default_icon.webp" alt="color-default">
+                                                                  <img src="assets/img/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                       <li class="color-item">
                                                             <a class="color-item-link" style="background-color: lightgrey;">
-                                                                  <img src="./public/images/color_default_icon.webp" alt="color-default">
+                                                                  <img src="assets/img/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                       <li class="color-item">
                                                             <a class="color-item-link" style="background-color: white;">
-                                                                  <img src="./public/images/color_default_icon.webp" alt="color-default">
+                                                                  <img src="assets/img/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                 </ul>
@@ -78,7 +112,7 @@
                                                 <div class="product-sidebar">
                                                       <div class="product-sidebar-image">
                                                             <a href="#" class="product-sidebar-link">
-                                                                  <img src="./public/images/product-1.webp" alt="product-sidebar">
+                                                                  <img src="assets/img/product-1.webp" alt="product-sidebar">
                                                             </a>
                                                       </div>
                                                       <div class="product-sidebar-content">
@@ -98,7 +132,7 @@
                                                 <div class="product-sidebar">
                                                       <div class="product-sidebar-image">
                                                             <a href="#" class="product-sidebar-link">
-                                                                  <img src="./public/images/product-1.webp" alt="product-sidebar">
+                                                                  <img src="assets/img//product-1.webp" alt="product-sidebar">
                                                             </a>
                                                       </div>
                                                       <div class="product-sidebar-content">
@@ -118,7 +152,7 @@
                                                 <div class="product-sidebar">
                                                       <div class="product-sidebar-image">
                                                             <a href="#" class="product-sidebar-link">
-                                                                  <img src="./public/images/product-1.webp" alt="product-sidebar">
+                                                                  <img src="assets/img//product-1.webp" alt="product-sidebar">
                                                             </a>
                                                       </div>
                                                       <div class="product-sidebar-content">
@@ -138,45 +172,7 @@
                                           </div>
                                     </div>
                               </aside>
-                              <?php
-                              $where = '';
-                              $true = 1;
-                              $page = 1;
-                              if (isset($_GET['tag']) || isset($_GET['brand']) || isset($_GET['sort']) || isset($_GET['page']) || isset($_GET['price'])) {
-                                    
-                                    if (isset($_GET['tag'])) {
-                                          $true = 2;
-                                          $tag = $_GET['tag'];
-                                          $where .= !empty($where) ? ' and id IN(select id from product  INNER JOIN tag_of_product on product_id = id WHERE tag_id = ' . $tag . ')' : 'INNER JOIN tag_of_product on product_id = id WHERE tag_id = ' . $tag . '';
-                                    }
-                                    if (isset($_GET['brand'])) {
-                                          $true = 2;
-                                          $brand = $_GET['brand'];
-                                          $where .= !empty($where) ? ' and product.id IN(select product.id from product INNER JOIN brand on brand.id = brand_id where brand_id = ' . $brand . ')' : 'INNER JOIN brand on brand.id = brand_id where brand_id =' . $brand . '';
-                                    }
-                                    if (isset($_GET['price'])) {
-                                          $true = 2;
-                                          $lower = $_SESSION['price']['lower'];
-                                          $upper = $_SESSION['price']['upper'];
-                                          $where .= !empty($where) ? ' and price BETWEEN ' . $lower . ' and ' . $upper . '' : ' where price BETWEEN ' . $lower . ' and ' . $upper . '';
-                                    }
-                                    if (isset($_GET['sort'])) {
-                                          $true = 2;
-                                          $value = $_GET['sort'];
-                                          if ($value == 1) {
-                                                $where .= '';
-                                          } else if ($value == 2) {
-                                                $where .= ' order by `update` desc';
-                                          } else if ($value == 3) {
-                                                $where .= ' order by view desc';
-                                          } else if ($value == 4) {
-                                                $where .= ' order by price asc';
-                                          } else if ($value == 5) {
-                                                $where .= ' order by price desc';
-                                          }
-                                    }
-                              } 
-                              ?>
+
 
                               <!-- PRODUCT LIST  -->
                               <div class="product-list col c-9">
@@ -206,18 +202,21 @@
                                                 </div>
 
                                                 <!-- FILTER PRODUCT  -->
-                                                <div class="product-filter-collsort">
-                                                      <select name="sortby" id="sortby" class="form-control">
-                                                            <option value="1">Mặc định phân loại</option>
-                                                            <option value="2">Bán chạy nhất</option>
-                                                            <option value="3">Theo thứ tự bảng chữ cái, A-Z</option>
-                                                            <option value="4">Theo thứ tự bảng chữ cái, Z-A</option>
-                                                            <option value="5">Giá, thấp đến cao</option>
-                                                            <option value="6">Giá, từ cao đến thấp</option>
-                                                            <option value="7">Ngày, mới đến cũ</option>
-                                                            <option value="8">Ngày, cũ đến mới</option>
-                                                      </select>
-                                                </div>
+                                                
+                                                
+                                                <form  method="POST">
+                                                      <div class="product-filter-collsort">
+                                                            <select name="sortby" id="sortby" class="form-control">
+                                                            <?php 
+                                                            $kq = getAllTag();
+                                                            foreach ($kq as $value) : ?>
+                                                                  <option <?php if(isset($_SESSION['sortby']) && $_SESSION['sortby'] == $limit) echo 'selected'; ?> value="<?= $value['id'] ?>">
+                                                                        <?= $value['sort'] ?>
+                                                                  </option>
+                                                            <?php endforeach; ?>
+                                                            </select>
+                                                      </div>
+                                                </form>
                                           </div>
                                     </div>
 
@@ -319,7 +318,7 @@
                                                                                                 <img src="' . $value['img'] . '" alt="product-image">
                                                                                                 <div class="product-hover-image">
                                                                                                       <div class="product-change-image">
-                                                                                                            <img src="./public/images/product-hover-1.webp" alt="product-change-style">
+                                                                                                            <img src="assets/img//product-hover-1.webp" alt="product-change-style">
                                                                                                       </div>
                                                                                                 </div>
                                                                                           </a>
@@ -396,6 +395,8 @@
                                     <?php
                                     $count_pro = getCountProduct();
                                     $total_page = ceil($count_pro / $per_page);
+                                    $prev = $page - 1;
+                                    $next = $page + 1;
                                     ?>
                                     <div class="c-12">
                                           <div class="product-pagination">
@@ -403,41 +404,41 @@
                                                       <ul class="pagination-list">
                                                             <?php if ($page > 1) : ?>
                                                                   <li class="pagination-item">
-                                                                        <a class="pagination-page-link" href="shop.php?page=<?= $page - 1 ?>">
+                                                                        <a class="pagination-page-link" href="?page=<?= $page - 1 ?>">
                                                                               <i class="fa-sharp fa-solid fa-angle-left"></i>
                                                                         </a>
                                                                   </li>
                                                             <?php endif; ?>
 
-                                                            <?php if ($page - 2 > 0) : ?>
-                                                                  <li class="pagination-item active">
-                                                                        <a href="shop.php?page=<?= $page - 2 ?>"><?php echo $page - 2 ?></a>
+                                                            <?php if ($prev - 1 > 0) : ?>
+                                                                  <li class="pagination-item ">
+                                                                        <a href="?page=<?= $page - 2 ?>"><?php echo $page - 2 ?></a>
                                                                   </li>
                                                             <?php endif; ?>
 
-                                                            <?php if ($page - 1 > 0) : ?>
-                                                                  <li class="pagination-item active">
-                                                                        <a href="shop.php?page=<?php echo $page - 1 ?>"><?php echo $page - 1 ?></a>
+                                                            <?php if ($prev > 0) : ?>
+                                                                  <li class="pagination-item ">
+                                                                        <a href="?page=<?php echo $page - 1 ?>"><?php echo $page - 1 ?></a>
                                                                   </li>
                                                             <?php endif; ?>
 
-                                                            <li class="pagination-item active"><a href="shop.php?page=<?php echo $page ?>"><?php echo $page ?></a></li>
+                                                            <li class="pagination-item active  "><a href="?page=<?php echo $page ?>"><?php echo $page ?></a></li>
 
-                                                            <?php if ($page + 1 < ($total_page + 1)) : ?>
-                                                                  <li class="pagination-item active">
+                                                            <?php if ($next < ($total_page + 1)) : ?>
+                                                                  <li class="pagination-item ">
                                                                         <a href="shop.php?page=<?php echo $page + 1 ?>"><?php echo $page + 1 ?></a>
                                                                   </li>
                                                             <?php endif; ?>
 
-                                                            <?php if ($page + 2 < ($total_page + 1)) : ?>
-                                                                  <li class="pagination-item active">
-                                                                        <a href="shop.php?page=<?php echo $page + 2 ?>"><?php echo $page + 2 ?></a>
+                                                            <?php if ($next + 1 < ($total_page + 1)) : ?>
+                                                                  <li class="pagination-item ">
+                                                                        <a href="?page=<?php echo $page + 2 ?>"><?php echo $page + 2 ?></a>
                                                                   </li>
                                                             <?php endif; ?>
 
                                                             <?php if ($page < ($total_page)) : ?>
                                                                   <li class="pagination-item">
-                                                                        <a class="pagination-page-link" href="shop.php?page=<?= $page + 1 ?>">
+                                                                        <a class="pagination-page-link" href="?page=<?= $page + 1 ?>">
                                                                               <i class="fa-sharp fa-solid fa-angle-right"></i>
                                                                         </a>
                                                                   </li>

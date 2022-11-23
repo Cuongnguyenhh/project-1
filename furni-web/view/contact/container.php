@@ -73,7 +73,7 @@
                         </div>
                         <div class="form-group">
                             <label for="contact--message">
-                                Thông điệp
+                                Nội dung
                                 <sup>*</sup>
                             </label>
                             <textarea class="form-control" id="contact--message" rows="6" placeholder="Thông điệp"></textarea>

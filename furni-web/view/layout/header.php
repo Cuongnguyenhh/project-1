@@ -164,7 +164,7 @@
                                                 <a href="index.php?action=login">Đăng nhập</a>
                                           </li>
                                           <li class="header-bars-item">
-                                                <a href="register-account.php">Đăng ký</a>
+                                                <a href="index.php?action=register">Đăng ký</a>
                                           </li>
                                     </ul>
                               </div>
@@ -175,11 +175,11 @@
 </div>
 <?php include_once 'cart-header.php'; ?>
 <script>
+
+// #LIVE SEARCH 
 $(document).ready(function() {
       $("#live_search").keyup(function() {
-
             var content = $(this).val();
-
             if (content != '') {
                   $.ajax({
                         url: "home.php?action=search",
@@ -187,7 +187,7 @@ $(document).ready(function() {
                         data: {
                               content: content
                         },
-                        success: function(data) {
+                        success: function(data) { // Hàm thực thi khi nhận dữ liệu được từ server
                               $('#result').html(data);
                               $("#result").css("display", "block");
                         }

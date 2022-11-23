@@ -61,29 +61,29 @@ function checkVeriCode($email)
 }
 
 // Kiểm tra cấp bậc
-function checkRank($email)
+function checkRank($id)
 {
-    $sql = "select rank from user where email='$email'";
-    return queryOne($sql);
+    $sql = "SELECT rank FROM user WHERE id='$id'";
+    return query($sql);
 }
 
 // Kiểm tra username
 function checkUsername($user)
 {
-    $sql = "select * from user where username= '" . $user . "';";
-    return queryOne($sql);
+    $sql = "SELECT * FROM user WHERE username= '" . $user . "';";
+    return query($sql);
 }
 
 // Kiểm tra mật khẩu
-function checkPassword($user, $pass)
+function checkPassword($email, $pass)
 {
-    $sql = "select * from user where username= '" . $user . "' and password= '" . $pass . "';";
-    return queryOne($sql);
+    $sql = "SELECT * FROM member WHERE email= '" . $email . "' AND pass= '" . $pass . "';";
+    return query($sql);
 }
 
 // Kiểm tra email
 function checkEmail($email)
 {
-    $sql = "select * from user where email= '" . $email . "';";
-    return queryOne($sql);
+    $sql = "SELECT * FROM member WHERE email= '" . $email . "';";
+    return query($sql);
 }

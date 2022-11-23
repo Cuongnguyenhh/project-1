@@ -20,10 +20,6 @@ switch ($action) {
     case 'home':
         require_once './view/shop/index.php';
         break;
-    case 'page':
-        require_once './view/shop/index.php';
-        break;
-        
     default:
         require_once './view/shop/index.php';
         break;

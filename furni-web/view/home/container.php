@@ -129,17 +129,17 @@
                                     <?php
                         $top = 4;
                         $offset = 0;
-                        $kq = getProductByOffset($top,$offset);
-                        foreach ($kq as $value) {
-                              echo '
+                        $kq = getProductByOffset($offset,$top);
+                        foreach ($kq as $value) : ?>
+                              
                               <div class="column c-3 col">
                                           <div class="product">
                                                 <div class="product-image">
-                                                      <a class="product-image-link" href="index.php?act=detail&id=' . $value['id'] . '">
-                                                            <img src="'.$value['img'].'" alt="product-image">
+                                                      <a class="product-image-link" href="#!">
+                                                            <img src="<?= $value['img']?>" alt="product-image">
                                                             <div class="product-hover-image">
                                                                   <div class="product-change-image">
-                                                                        <img src="assets/img/product-hover-1.webp" alt="product-change-style">
+                                                                        <img src="<?= $value['img']?>" alt="product-change-style">
                                                                   </div>
                                                             </div>
                                                       </a>
@@ -159,11 +159,11 @@
                                                 </div>
                                                 <div class="product-content">
                                                       <h5 class="product-title">
-                                                            <a class="product-title-link" href="index.php?act=detail&id=' . $value['id'] . '"">'.$value['name_pro'].'</a>
+                                                            <a class="product-title-link" href=""><?= $value['name_pro']?></a>
                                                       </h5>
                                                       <div class="product-price">
                                                             <div class="product-current">
-                                                                  <span>$'.$value['price'].'</span>
+                                                                  <span>$<?= $value['price']?></span>
                                                             </div>
                                                             <div class="product-sale">
                                                                   <span>$280.00</span>
@@ -187,9 +187,8 @@
                                                 </div>
                                           </div>
                                     </div>
-                              ';
-                        }
-                        ?>
+                              
+                        <?php endforeach ?>
 
 
                               </div>
@@ -235,7 +234,7 @@
                                     <?php
                         $top = 4;
                         $offset = 0;
-                        $kq = getProductByOffset($top,$offset);
+                        $kq = getProductByOffset($offset,$top);
                         foreach ($kq as $value) {
                               echo '
                               <div class="swiper-slide">

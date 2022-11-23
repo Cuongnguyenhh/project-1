@@ -19,7 +19,7 @@
                               </li>
                               <li>
                                     <span>
-                                          ' . $value['name_pro'] . ';
+                                          ' . $value['name_pro'] . '
                                     </span>
                               </li>';
                               }

@@ -69,10 +69,10 @@
                                                 </div>
                                                 <div class="drawer-button">
                                                       <div class="drawer-button-box">
-                                                            <a href="index.php?act=view_cart" type="submit" class="btn btn-drawer">View Cart</a>
+                                                            <a href="?action=viewcart" type="submit" class="btn btn-drawer">View Cart</a>
                                                       </div>
                                                       <div class="drawer-button-box">
-                                                            <a href="checkout.php" type="submit" class="btn btn-checkout">Check Out</a>
+                                                            <a href="index.php?action=checkout" type="submit" class="btn btn-checkout">Check Out</a>
                                                       </div>
                                                 </div>
                                           </div>

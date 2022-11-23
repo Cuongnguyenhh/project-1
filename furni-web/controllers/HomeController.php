@@ -54,9 +54,19 @@ switch ($action) {
                 }
             }
         }
-        // echo $show;
         break;
-
+    case 'login':
+        require_once './view/account/login.php';
+        break;
+    case 'register':
+        require_once './view/account/register.php';
+        break;
+    case 'viewcart':
+        require_once './view/cart/viewcart.php';
+        break;
+    case 'checkout':
+        require_once './view/cart/checkout.php';
+        break;
     default:
         require_once './view/home/index.php';
         break;
