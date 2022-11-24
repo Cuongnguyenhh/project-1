@@ -383,10 +383,12 @@ display: block;
 }
 
 /* Product pagination */
-.pagination {
+.product-pagination{
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
+      margin-bottom: 2rem;
 }
+
 .pagination .pagination-list {
       display: flex;
 align-items: center;

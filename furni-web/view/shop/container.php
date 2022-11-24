@@ -5,40 +5,6 @@
                   <div class="row">
                         <div class="row-flex">
                               <!-- FILTER  -->
-                              <?php
-                              $where = '';
-                              $true = 1;
-                              $page = 1;
-                              if (isset($_GET['tag']) || isset($_GET['sort']) || isset($_GET['page']) || isset($_GET['price'])) {
-
-                                    if (isset($_GET['tag'])) {
-                                          $true = 2;
-                                          $tag = $_GET['tag'];
-                                          $where .= !empty($where) ? ' and id IN(select id from product  INNER JOIN tag_of_product on product_id = id WHERE tag_id = ' . $tag . ')' : 'INNER JOIN tag_of_product on product_id = id WHERE tag_id = ' . $tag . '';
-                                    }
-                                    if (isset($_GET['price'])) {
-                                          $true = 2;
-                                          $lower = $_SESSION['price']['lower'];
-                                          $upper = $_SESSION['price']['upper'];
-                                          $where .= !empty($where) ? ' and price BETWEEN ' . $lower . ' and ' . $upper . '' : ' where price BETWEEN ' . $lower . ' and ' . $upper . '';
-                                    }
-                                    if (isset($_GET['sort'])) {
-                                          $true = 2;
-                                          $value = $_GET['sort'];
-                                          if ($value == 1) {
-                                                $where .= '';
-                                          } else if ($value == 2) {
-                                                $where .= ' order by `update` desc';
-                                          } else if ($value == 3) {
-                                                $where .= ' order by view desc';
-                                          } else if ($value == 4) {
-                                                $where .= ' order by price asc';
-                                          } else if ($value == 5) {
-                                                $where .= ' order by price desc';
-                                          }
-                                    }
-                              }
-                              ?>
                               <aside class="vela-aside c-3">
                                     <div class="categories">
                                           <h3 class="vela-title">Thể loại</h3>
@@ -50,9 +16,9 @@
                                                       <?php
                                                       $cate = getAllTag();
                                                       foreach ($cate as $c) :
-                                                            $result = strtolower(str_replace(' ', '-', $c['name_cate'])); ?>
+                                                            $result = strtolower(str_replace(' ', '-', $c['prd_group_name'])); ?>
                                                             <li class="categories-item">
-                                                                  <a class="categories-item-link" href="shop.php?action=<?= $result ?>&id=<?= $c['id'] ?> "><?= $c['name_cate'] ?></a>
+                                                                  <a class="categories-item-link" href="shop.php?action=<?= $result ?>&id=<?= $c['ID'] ?> "><?= $c['prd_group_name'] ?></a>
                                                             </li>
                                                       <?php endforeach ?>
                                                 </ul>
@@ -201,17 +167,15 @@
                                                       </button>
                                                 </div>
 
-                                                <!-- FILTER PRODUCT  -->
-                                                
-                                                
-                                                <form  method="POST">
+                                                <!-- FILTER PRODUCT  --> 
                                                       <div class="product-filter-collsort">
                                                             <select name="sortby" id="sortby" class="form-control">
                                                             <?php 
-                                                            $kq = getAllTag();
+                                                            $where = "SELECT * FROM `cms_sort`";
+                                                            $kq = getProductByFilter($where);
                                                             foreach ($kq as $value) : ?>
-                                                                  <option <?php if(isset($_SESSION['sortby']) && $_SESSION['sortby'] == $limit) echo 'selected'; ?> value="<?= $value['id'] ?>">
-                                                                        <?= $value['sort'] ?>
+                                                                  <option <?php if(isset($_SESSION['sortby']) && $_SESSION['sortby'] == $limit) echo 'selected'; ?> value="<?= $value['ID'] ?>">
+                                                                        <?= $value['sortby'] ?>
                                                                   </option>
                                                             <?php endforeach; ?>
                                                             </select>
@@ -237,14 +201,12 @@
 
                                                 $from_pro = ($page - 1) * $per_page;
                                                 $kq = getProductByOffset($from_pro, $per_page);
-                                                foreach ($kq as $value) :
-                                                      if ($value['status'] == 1) :
-                                                ?>
+                                                foreach ($kq as $value) : ?>
                                                             <div class="c-3 col">
                                                                   <form action="" method="post">
                                                                         <div class="product">
                                                                               <div class="product-image">
-                                                                                    <a class="product-image-link" href="product.php?id=<?= $value['id'] ?>">
+                                                                                    <a class="product-image-link" href="product.php?id=<?= $value['ID'] ?>">
                                                                                           <img src="<?= $value['img'] ?>" alt="product-image">
                                                                                           <div class="product-hover-image">
                                                                                                 <div class="product-change-image">
@@ -268,11 +230,11 @@
                                                                               </div>
                                                                               <div class="product-content">
                                                                                     <h5 class="product-title">
-                                                                                          <a class="product-title-link" href="index.php?act=detail&id=<?= $value['id'] ?>"><?= $value['name_pro'] ?></a>
+                                                                                          <a class="product-title-link" href="index.php?act=detail&id=<?= $value['ID'] ?>"><?= $value['prd_name'] ?></a>
                                                                                     </h5>
                                                                                     <div class="product-price">
                                                                                           <div class="product-current">
-                                                                                                <span>$<?= $value['price'] ?>.00</span>
+                                                                                                <span>$<?= $value['prd_price'] ?>.00</span>
                                                                                           </div>
                                                                                           <div class="product-sale">
                                                                                                 <span>$26.00</span>
@@ -289,14 +251,13 @@
                                                                                     </div>
                                                                               </div>
                                                                         </div>
-                                                                        <input type="hidden" name="id" value="<?= $value['id'] ?>">
+                                                                        <input type="hidden" name="id" value="<?= $value['ID'] ?>">
                                                                         <input type="hidden" name="namepro-sell" value="<?= $value['name_pro'] ?>">
                                                                         <input type="hidden" name="pricepro-sell" value="<?= $value['price'] ?>">
                                                                         <input type="hidden" name="imgpro-sell" value="<?= $value['img'] ?>">
                                                                   </form>
 
                                                             </div>
-                                                      <?php endif ?>
                                                 <?php endforeach ?>
                                           </div>
                                     </div>
@@ -445,6 +406,9 @@
                                                             <?php endif; ?>
                                                       </ul>
                                                 </nav>
+                                                <div class= "collProductCount itemPaginate pull-right hidden-xs hidden-sm">
+                                                      <span>Tổng cộng có <?= $count_pro ?> sản phẩm</span>
+                                                </div>
                                           </div>
                                     </div>
                               </div>
@@ -471,4 +435,10 @@
             changeList.classList.remove('active');
             changeGrid.classList.add('active');
       });
+
+      // $(document).ready(function () {
+      //       $('#sortby').on('change',function () {
+      //           $('form').submit();
+      //       })
+      //   });
 </script>
