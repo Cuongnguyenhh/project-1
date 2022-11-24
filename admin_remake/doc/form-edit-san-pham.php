@@ -32,7 +32,6 @@
     $target_dir = "../../uploads/";
     $target_file = $target_dir . $imgload;
     move_uploaded_file($_FILES["imgload"]["tmp_name"], $target_file);
-
         try{
           if($imgload==null){
           $sql = "UPDATE cms_product SET ID='$ID', prd_name='$prd_name', prd_img='$get_anhsp', id_prd_group='$cate',id_pro_manufacture='$post_supp', prd_sell_price='$priceSell', prd_price='$price', quaility='$quaility'  WHERE ID=$get_id";

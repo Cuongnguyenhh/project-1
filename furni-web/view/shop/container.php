@@ -98,7 +98,7 @@
                                                 <div class="product-sidebar">
                                                       <div class="product-sidebar-image">
                                                             <a href="#" class="product-sidebar-link">
-                                                                  <img src="assets/img//product-1.webp" alt="product-sidebar">
+                                                                  <img src="assets/img/product-1.webp" alt="product-sidebar">
                                                             </a>
                                                       </div>
                                                       <div class="product-sidebar-content">
@@ -118,7 +118,7 @@
                                                 <div class="product-sidebar">
                                                       <div class="product-sidebar-image">
                                                             <a href="#" class="product-sidebar-link">
-                                                                  <img src="assets/img//product-1.webp" alt="product-sidebar">
+                                                                  <img src="assets/img/product-1.webp" alt="product-sidebar">
                                                             </a>
                                                       </div>
                                                       <div class="product-sidebar-content">
