@@ -13,13 +13,13 @@
                               <li>
                                     <a href="#">
                                           <span>
-                                          ' . $value['name_cate'] . '
+                                          ' . $value['id_prd_group'] . '
                                           </span>
                                     </a>
                               </li>
                               <li>
                                     <span>
-                                          ' . $value['name_pro'] . '
+                                          ' . $value['prd_name'] . '
                                     </span>
                               </li>';
                               }
@@ -35,7 +35,7 @@
                                     <div class="detail-image-feature">
                                           <?php
                                           foreach ($kq as  $value) {
-                                                echo '<img class="detail-current-image" src="' . $value['img'] . '" alt="detail-image-product">';
+                                                echo '<img class="detail-current-image" src="' . $value['prd_img'] . '" alt="detail-image-product">';
                                           }
                                           ?>
 
@@ -65,7 +65,7 @@
                               <div class="detail-product-info">
                                     <?php
                                     foreach ($kq as  $value) {
-                                          $value['name_pro'];
+                                          $value['prd_name'];
                                     }
                                     ?>
                                     <div class="detail-product-review">
@@ -88,10 +88,10 @@
                                                 foreach ($kq as  $value) {
                                                       echo '
                                                 <span class="detail-price-old">
-                                                      <span class="money">$' . $value['price'] . '</span>
+                                                      <span class="money">$' . $value['prd_price'] . '</span>
                                                 </span>
                                                 <span class="detail-price-sale">
-                                                      <span class="money">$' . $value['price_sale'] . '</span>
+                                                      <span class="money">$' . $value['prd_price'] . '</span>
                                                 </span>';
                                                 }
                                                 ?>
@@ -135,7 +135,14 @@
                                           <div class="detail-product-atribute">
                                                 <p class="atribute">
                                                       <label>Khả dụng:</label>
-                                                      In Stock
+                                                      <?php 
+                                                            $quaility = getQuailityOfProduct($value['ID']);
+                                                            if ($quaility > 0) {
+                                                                 echo 'In stock';
+                                                            }else{
+                                                                  echo 'Out stock';
+                                                            }
+                                                      ?>
                                                 </p>
                                                 <p class="atribute">
                                                       <label>Người bán:</label>
@@ -203,7 +210,7 @@
                               <div class="rte">
                                     <?php
                                     foreach ($kq as  $value) {
-                                          echo '<p>' . $value['discribe'] . '</p>';
+                                          echo '<p>' . $value['description'] . '</p>';
                                     }
                                     ?>
                                     <p>Đừng bao giờ chơi mình. Thời tiết thật tuyệt vời, hãy cùng tôi bước qua con đường thành công hơn. Hãy thực hiện hành trình này với tôi, Sư tử! Ngày trước cỏ có màu nâu, giờ đã xanh vì tôi không bỏ cuộc. Không bao giờ đầu hàng</p>

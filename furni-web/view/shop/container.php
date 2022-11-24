@@ -230,7 +230,7 @@
                                                                               </div>
                                                                               <div class="product-content">
                                                                                     <h5 class="product-title">
-                                                                                          <a class="product-title-link" href="index.php?act=detail&id=<?= $value['ID'] ?>"><?= $value['prd_name'] ?></a>
+                                                                                          <a class="product-title-link" href="product.php?id=<?= $value['ID'] ?>"><?= $value['prd_name'] ?></a>
                                                                                     </h5>
                                                                                     <div class="product-price">
                                                                                           <div class="product-current">

@@ -8,8 +8,8 @@ function getProductDetailById($id){
 }
 
 // Lấy ra size của sản phẩm
-function getSizeOfProduct($productId){
-    $sql = "SELECT size_id FROM product_detail WHERE product_id = $productId order by size_id";
+function getQuailityOfProduct($productId){
+    $sql = "SELECT quaility FROM cms_product WHERE ID = $productId ";
     return query($sql);
 }
 
