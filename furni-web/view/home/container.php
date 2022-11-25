@@ -136,10 +136,10 @@
                                           <div class="product">
                                                 <div class="product-image"> 
                                                       <a class="product-image-link" href="#!">
-                                                            <img src="<?=$value['prd_img']?>" alt="product-image">
+                                                            <img src="../../uploads/<?= $value['prd_img']?>" alt="product-image">
                                                             <div class="product-hover-image">
                                                                   <div class="product-change-image">
-                                                                        <img src="../../../uploads/<?= $value['prd_img']?>" alt="product-change-style">
+                                                                        <img src="../../uploads/<?= $value['prd_img']?>" alt="product-change-style">
                                                                   </div>
                                                             </div>
                                                       </a>
@@ -231,21 +231,20 @@
                         </div>
                         <div class="swiper swiper-effect slide-card-swiper">
                               <div class="swiper-wrapper">
-                                    <?php
+                        <?php
                         $top = 4;
                         $offset = 0;
                         $kq = getProductByOffset($offset,$top);
-                        foreach ($kq as $value) {
-                              echo '
+                        foreach ($kq as $value) : ?>
                               <div class="swiper-slide">
                                           <div class="product">
                                                 <div class="product-image">
                                                 
-                                                      <a class="product-image-link" href="index.php?act=detail&id=' . $value['ID'] . '">
-                                                            <img src="'.$value['prd_img'].'" alt="product-image">
+                                                      <a class="product-image-link" href="index.php?act=detail&id=<?= $value['ID']?>">
+                                                            <img src="../../uploads/<?= $value['prd_img']?>" alt="product-image">
                                                             <div class="product-hover-image">
                                                                   <div class="product-change-image">
-                                                                        <img src="'.$value['prd_img'].'" alt="product-change-style">
+                                                                        <img src="../../uploads/<?= $value['prd_img']?>" alt="product-change-style">
                                                                   </div>
                                                             </div>
                                                       </a>
@@ -265,11 +264,11 @@
                                                 </div>
                                                 <div class="product-content">
                                                       <h5 class="product-title">
-                                                            <a class="product-title-link" href="index.php?act=detail&id=' . $value['ID'] . '">'.$value['prd_name'].'</a>
+                                                            <a class="product-title-link" href="index.php?act=detail&id=' . $value['ID'] . '"><?=$value['prd_name']?></a>
                                                       </h5>
                                                       <div class="product-price">
                                                             <div class="product-current">
-                                                                  <span>$'.$value['prd_price'].'</span>
+                                                                  <span>$<?=$value['prd_price']?></span>
                                                             </div>
                                                             <div class="product-sale">
                                                                   <span>$280.00</span>
@@ -293,9 +292,8 @@
                                                 </div>
                                           </div>
                                     </div>
-                              ';
-                        }
-                        ?>
+                              
+                        <?php endforeach ?>
 
                                     <div class="swiper-slide">
                                           <div class="product">
