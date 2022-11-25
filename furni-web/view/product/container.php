@@ -34,15 +34,14 @@
                               <div class="detail-image">
                                     <div class="detail-image-feature">
                                           <?php
-                                          foreach ($kq as  $value) {
-                                                echo '<img class="detail-current-image" src="' . $value['prd_img'] . '" alt="detail-image-product">';
-                                          }
-                                          ?>
+                                          foreach ($kq as  $value) : ?>
+                                                <img class="detail-current-image" src="../../../uploads/<?=$value['prd_img']?>" alt="detail-image-product">
+                                          <?php endforeach ?>
 
                                     </div>
                                     <?php
-                                    foreach ($kq as  $value) {
-                                          echo '
+                                    foreach ($kq as  $value) : ?>
+                                          
                                     <div class="detail-thumb-list">
                                           <div class="detail-thumb-item">
                                                 <img src="" alt="detail-thumb-image" class="thumb-image">
@@ -56,9 +55,8 @@
                                           <div class="detail-thumb-item">
                                                 <img src="" alt="detail-thumb-image" class="thumb-image">
                                           </div>
-                                    </div>';
-                                    }
-                                    ?>
+                                    </div>
+                                    <?php endforeach ?>
                               </div>
                         </div>
                         <div class="c-6 col">

@@ -124,7 +124,7 @@
                                           <div class="search-input">
                                                 <div class="search-input__container">
                                                       <input type="search" name="" id="live_search"
-                                                            placeholder="Search con cat...">
+                                                            placeholder="Search...">
                                                 </div>
                                                 <ul id="result"></ul>
                                           </div>
