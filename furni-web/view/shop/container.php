@@ -207,10 +207,10 @@
                                                                         <div class="product">
                                                                               <div class="product-image">
                                                                                     <a class="product-image-link" href="product.php?id=<?= $value['ID'] ?>">
-                                                                                          <img src="<?= $value['img'] ?>" alt="product-image">
+                                                                                          <img src="<?= $value['prd_img'] ?>" alt="product-image">
                                                                                           <div class="product-hover-image">
                                                                                                 <div class="product-change-image">
-                                                                                                      <img src="<?= $value['img'] ?>" alt="product-change-style">
+                                                                                                      <img src="<?= $value['prd_img'] ?>" alt="product-change-style">
                                                                                                 </div>
                                                                                           </div>
                                                                                     </a>

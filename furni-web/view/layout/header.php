@@ -72,7 +72,7 @@
                                                                   </div>
                                                                   <div class="coll-item">
                                                                         <a class="coll-image" href="#">
-                                                                              <img src="https://cdn.shopify.com/s/files/1/1573/5553/collections/21_360x.jpg?v=1511442906"
+                                                                              <img src="https://cdn.shopify.com/s/files/1/1573/5553/collections/12_360x.jpg?v=1511442995"
                                                                                     alt="Decor Art">
                                                                         </a>
                                                                         <h5 class="coll-title">
@@ -81,7 +81,7 @@
                                                                   </div>
                                                                   <div class="coll-item">
                                                                         <a class="coll-image" href="#">
-                                                                              <img src="https://cdn.shopify.com/s/files/1/1573/5553/collections/21_360x.jpg?v=1511442906"
+                                                                              <img src="https://cdn.shopify.com/s/files/1/1573/5553/collections/Arc-Large-Cup_360x.jpg?v=1511443696"
                                                                                     alt="Decor Art">
                                                                         </a>
                                                                         <h5 class="coll-title">

@@ -1724,12 +1724,12 @@ text-align: center;
   .spr-form-label{
       line-height: 20px;
   }
-  a, button, [role=button], input, label, select, textarea{
+  .spr-container a, button, [role=button], input, label, select, textarea{
       touch-action: manipulation;
       display: inline-block;
       max-width: 100%;
       margin-bottom: 5px;
-  }
+  } 
   label{
       display: inline-block;
     max-width: 100%;

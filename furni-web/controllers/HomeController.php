@@ -30,21 +30,21 @@ switch ($action) {
             }
         } else {
             foreach ($product as $p) {
-                if (strlen(strpos(strtolower($p['name_pro']), strtolower("$content"))) > 0) {
+                if (strlen(strpos(strtolower($p['prd_name']), strtolower("$content"))) > 0) {
                     // Hàm strpos() sẽ tìm kiếm vị trí đầu tiên của kí tự hoặc chuỗi con xuất hiện trong chuỗi nguồn.
                     echo'<li class="search__item">
-                            <a class="search__content-link" href="product.php?id=' . $p['id'] . '">
+                            <a class="search__content-link" href="product.php?id=' . $p['ID'] . '">
                                 <div class="search-image">
-                                    <img src="'.$p['img'].'" alt="">
+                                    <img src="../../upload/'.$p['prd_img'].'" alt="">
                                 </div>
                                 <div class="search-content">
-                                    <h5>' . $p['name_pro'] . '</h5>
+                                    <h5>' . $p['prd_name'] . '</h5>
                                     <div class="search-price">
                                         <span class="search-product-price">
-                                            <span>'.$p['price'].'</span>
+                                            <span>'.$p['prd_price'].'</span>
                                         </span>
                                         <span class="search-compare-price">
-                                            <span>'.$p['price'].'</span>
+                                            <span>'.$p['prd_price'].'</span>
                                         </span> 
                                     </div>
                                 </div>
