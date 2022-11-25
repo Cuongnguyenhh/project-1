@@ -134,9 +134,9 @@
                               
                               <div class="column c-3 col">
                                           <div class="product">
-                                                <div class="product-image">
+                                                <div class="product-image"> 
                                                       <a class="product-image-link" href="#!">
-                                                            <img src="<?= $value['prd_img']?>" alt="product-image">
+                                                            <img src="<?=$value['prd_img']?>" alt="product-image">
                                                             <div class="product-hover-image">
                                                                   <div class="product-change-image">
                                                                         <img src="../../../uploads/<?= $value['prd_img']?>" alt="product-change-style">

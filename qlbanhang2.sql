@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 24, 2022 lúc 10:17 AM
--- Phiên bản máy phục vụ: 10.4.11-MariaDB
--- Phiên bản PHP: 7.4.4
+-- Thời gian đã tạo: Th10 24, 2022 lúc 04:39 PM
+-- Phiên bản máy phục vụ: 10.4.24-MariaDB
+-- Phiên bản PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,27 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `qlbanhang2`
 --
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `cms_color`
---
-
-CREATE TABLE `cms_color` (
-  `ID` int(10) NOT NULL,
-  `color` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `cms_color`
---
-
-INSERT INTO `cms_color` (`ID`, `color`) VALUES
-(1, 'đen'),
-(2, 'xám'),
-(3, 'đỏ'),
-(4, 'trắng');
 
 -- --------------------------------------------------------
 
@@ -182,41 +161,49 @@ CREATE TABLE `cms_order` (
 
 CREATE TABLE `cms_product` (
   `ID` int(10) NOT NULL,
-  `id_prd_group` int(10) NOT NULL,
-  `id_pro_manufacture` int(10) NOT NULL,
-  `prd_img` varchar(50) NOT NULL,
+  `id_prd_group` varchar(200) NOT NULL,
+  `id_pro_manufacture` varchar(200) NOT NULL,
+  `prd_img` varchar(150) DEFAULT NULL,
   `prd_status` int(11) NOT NULL DEFAULT 1,
   `create` date NOT NULL,
   `prd_sell_price` float NOT NULL,
   `prd_price` float NOT NULL,
   `prd_name` varchar(100) DEFAULT NULL,
-  `quaility` int(11) NOT NULL,
-  `description` varchar(100) NOT NULL,
-  `id_color` int(10) NOT NULL,
-  `id_sort` int(10) NOT NULL
+  `quaility` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `cms_product`
 --
 
-INSERT INTO `cms_product` (`ID`, `id_prd_group`, `id_pro_manufacture`, `prd_img`, `prd_status`, `create`, `prd_sell_price`, `prd_price`, `prd_name`, `quaility`, `description`, `id_color`, `id_sort`) VALUES
-(1, 0, 0, '', 1, '0000-00-00', 200000, 150000, 'TRIBU', 1200, '', 0, 0),
-(2, 0, 0, '', 1, '0000-00-00', 300000, 250000, 'CRAZY', 3000, '', 0, 0),
-(3, 0, 0, '', 1, '0000-00-00', 400000, 350000, 'VAHI', 3200, '', 0, 0),
-(4, 0, 0, '', 1, '0000-00-00', 600000, 550000, 'XAVIER', 2500, '', 0, 0),
-(5, 0, 0, '', 1, '0000-00-00', 340000, 300000, 'SOFA', 2400, '', 0, 0),
-(6, 0, 0, '', 1, '0000-00-00', 450000, 400000, 'CHAIRS', 4600, '', 0, 0),
-(7, 0, 0, '', 1, '0000-00-00', 120000, 100000, 'LAMPS', 1600, '', 0, 0),
-(8, 0, 0, '', 1, '0000-00-00', 670000, 650000, 'BEDS', 0, '', 0, 0),
-(9, 0, 0, '', 1, '0000-00-00', 770000, 700000, 'MIN', 2000, '', 0, 0),
-(10, 0, 0, '', 1, '0000-00-00', 470000, 450000, 'HANO', 1900, '', 0, 0),
-(11, 0, 0, '', 1, '0000-00-00', 690000, 650000, 'CHIN', 100, '', 0, 0),
-(12, 0, 0, '', 1, '0000-00-00', 340000, 250000, 'POD', 230, '', 0, 0),
-(13, 0, 0, '', 1, '0000-00-00', 430000, 350000, 'HOBU', 900, '', 0, 0),
-(14, 0, 0, '', 1, '0000-00-00', 500000, 400000, 'JOHY', 600, '', 0, 0),
-(15, 0, 0, '', 1, '0000-00-00', 140000, 100000, 'KATY', 700, '', 0, 0),
-(16, 0, 0, '', 1, '0000-00-00', 780000, 700000, 'LEHI', 900, '', 0, 0);
+INSERT INTO `cms_product` (`ID`, `id_prd_group`, `id_pro_manufacture`, `prd_img`, `prd_status`, `create`, `prd_sell_price`, `prd_price`, `prd_name`, `quaility`) VALUES
+(36, 'Sofa', 'Công Ty Siêu Thị Hà Nội', 'beige_14__1600x1200__c866c2a9346e44498e8e6b045922a081_large.webp', 1, '0000-00-00', 4050000, 3500000, 'Sofa băng ALICE', 0),
+(37, 'Sofa', '0', 'xamnhat_ecd5d6311c71402c9e2389c20e021864_large.webp', 1, '0000-00-00', 9756000, 9000000, 'Sofa băng JASMIN', 2),
+(38, 'Sofa', '0', 'moana.webp', 1, '0000-00-00', 9855000, 9000000, 'Sofa MOANA', 2),
+(39, '0', '0', 'hiro.webp', 1, '0000-00-00', 12105000, 1100000, 'Sofa HIRO', 1800),
+(40, '0', '0', 'anna.webp', 1, '0000-00-00', 13365000, 12000000, 'Sofa ANNA', 2000),
+(41, '0', '0', 'lam.webp', 1, '0000-00-00', 1344000, 1000000, 'Tủ quần áo LAM', 1300),
+(42, '0', '0', 'ez.webp', 1, '0000-00-00', 2800000, 2000000, 'Tủ quần áo EZ', 1500),
+(43, '0', '0', 'johy.webp', 1, '0000-00-00', 12480000, 12000000, 'Tủ quần áo JOHY', 1700),
+(44, '0', '0', 'quada.webp', 1, '0000-00-00', 18870000, 17000000, 'Tủ quần áo QUADA', 1900),
+(45, '0', '0', 'dalat grace.webp', 1, '0000-00-00', 5525000, 5000000, 'Tủ quần áo DALAT GRACE', 2100),
+(46, '0', '0', 'Doer.webp', 1, '0000-00-00', 1317500, 1000000, 'Bàn DOER', 2300),
+(47, '0', '0', 'victor.webp', 1, '0000-00-00', 1960000, 1500000, 'Bàn VICTOR', 2500),
+(48, '0', '0', 'fighter.webp', 1, '0000-00-00', 1960000, 1500000, 'Bàn FIGHTER', 2700),
+(49, '0', '0', 'builder.webp', 1, '0000-00-00', 2422500, 2000000, 'Bàn BUILDER', 2900),
+(50, '0', '0', 'doer plus.webp', 1, '0000-00-00', 1720000, 1300000, 'Bàn DOER Plus', 2200),
+(51, '0', '0', 'latu.webp', 1, '0000-00-00', 962500, 900000, 'Ghế LATU', 2400),
+(52, '0', '0', 'to-be.webp', 1, '0000-00-00', 3612500, 3000000, 'Ghế TO-BE', 2800),
+(53, '0', '0', 'noven.webp', 1, '0000-00-00', 742500, 650000, 'Ghế NOVEN', 3000),
+(54, '0', '0', 'astu.webp', 1, '0000-00-00', 466650, 350000, 'Ghế ASTU', 3200),
+(55, '0', '0', 'shape.webp', 1, '0000-00-00', 841500, 750000, 'Ghế SHAPE', 3400),
+(56, '0', '0', 'tu ez.webp', 1, '0000-00-00', 416500, 350000, 'Tủ EZ', 3800),
+(57, '0', '0', 'ke tapi.webp', 1, '0000-00-00', 864000, 700000, 'Kệ TAPI', 4000),
+(58, '0', '0', 'ke pamiti.webp', 1, '0000-00-00', 578000, 400000, 'Kệ PAMITI', 3300),
+(59, '0', '0', 'ke vita.webp', 1, '0000-00-00', 1032000, 900000, 'Kệ VITA', 3500),
+(60, '0', '0', 'ke hobu.webp', 1, '0000-00-00', 1351500, 1000000, 'Kệ HOBU', 3700),
+(61, '0', '0', 'guong duka.webp', 1, '0000-00-00', 1160000, 900000, 'Gương DUKA', 1200),
+(62, '0', '0', 'guong haso.webp', 1, '0000-00-00', 1317500, 1000000, 'Gương HASO', 4600);
 
 -- --------------------------------------------------------
 
@@ -236,11 +223,15 @@ CREATE TABLE `cms_products_group` (
 --
 
 INSERT INTO `cms_products_group` (`ID`, `prd_group_name`, `created`, `updated`) VALUES
-(1, 'Kitchen Things', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 'Furniture', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 'Decor Art', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(4, 'Illumination', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(5, 'New Products', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(138, 'Tủ Quần áo', '2022-11-18 13:24:51', '2022-11-18 13:24:51'),
+(139, 'Sofa', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(140, 'Bàn', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(141, 'Ghế', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(142, 'Kệ Tủ', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(143, 'Gương', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(144, 'Đèn', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(145, 'Giường', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(146, 'Chăn mền', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -298,31 +289,6 @@ INSERT INTO `cms_products_manufacture` (`ID`, `prd_manuf_name`, `created`, `upda
 (45, 'Julius', '2019-06-14 23:22:39', '0000-00-00 00:00:00', 2, 0),
 (46, 'Kezzi', '2019-06-14 23:22:45', '0000-00-00 00:00:00', 2, 0),
 (47, 'Sunrise', '2019-06-14 23:22:51', '0000-00-00 00:00:00', 2, 0);
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `cms_sort`
---
-
-CREATE TABLE `cms_sort` (
-  `ID` int(10) NOT NULL,
-  `sortby` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `cms_sort`
---
-
-INSERT INTO `cms_sort` (`ID`, `sortby`) VALUES
-(1, 'Default sorting'),
-(2, 'Best Selling'),
-(3, 'Alphabetically, A-Z'),
-(4, 'Alphabetically, Z-A'),
-(5, 'Price, low to high'),
-(6, 'Price, high to low'),
-(7, 'Date, new to old'),
-(8, 'Date, old to new');
 
 -- --------------------------------------------------------
 
@@ -418,15 +384,22 @@ INSERT INTO `cms_users_group` (`id`, `group_name`, `group_permission`, `group_re
 (1, 'Admin', '[\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\",\"10\"]', '2016-01-22 02:58:58', '2016-06-15 21:42:04'),
 (2, 'Quản lý', '[\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\",\"10\"]', '2016-01-22 03:00:40', '2016-06-15 21:42:37');
 
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `comment`
+--
+
+CREATE TABLE `comment` (
+  `ID` int(11) NOT NULL,
+  `prd_id` int(11) NOT NULL,
+  `create` date NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Chỉ mục cho các bảng đã đổ
 --
-
---
--- Chỉ mục cho bảng `cms_color`
---
-ALTER TABLE `cms_color`
-  ADD PRIMARY KEY (`ID`);
 
 --
 -- Chỉ mục cho bảng `cms_customers`
@@ -450,9 +423,7 @@ ALTER TABLE `cms_order`
 -- Chỉ mục cho bảng `cms_product`
 --
 ALTER TABLE `cms_product`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `id_color` (`id_color`),
-  ADD KEY `id_sort` (`id_sort`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Chỉ mục cho bảng `cms_products_group`
@@ -464,12 +435,6 @@ ALTER TABLE `cms_products_group`
 -- Chỉ mục cho bảng `cms_products_manufacture`
 --
 ALTER TABLE `cms_products_manufacture`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Chỉ mục cho bảng `cms_sort`
---
-ALTER TABLE `cms_sort`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -495,12 +460,6 @@ ALTER TABLE `cms_users_group`
 --
 
 --
--- AUTO_INCREMENT cho bảng `cms_color`
---
-ALTER TABLE `cms_color`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
 -- AUTO_INCREMENT cho bảng `cms_customers`
 --
 ALTER TABLE `cms_customers`
@@ -516,25 +475,19 @@ ALTER TABLE `cms_order`
 -- AUTO_INCREMENT cho bảng `cms_product`
 --
 ALTER TABLE `cms_product`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT cho bảng `cms_products_group`
 --
 ALTER TABLE `cms_products_group`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
 
 --
 -- AUTO_INCREMENT cho bảng `cms_products_manufacture`
 --
 ALTER TABLE `cms_products_manufacture`
   MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
-
---
--- AUTO_INCREMENT cho bảng `cms_sort`
---
-ALTER TABLE `cms_sort`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `cms_suppliers`
