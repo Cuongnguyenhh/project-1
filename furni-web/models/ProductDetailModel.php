@@ -3,7 +3,7 @@ require_once 'core/connectdb.php';
 
 // Lấy ra thông tin của sản phẩm
 function getProductDetailById($id){
-    $sql = "SELECT product_id,quantity,size_id FROM product_detail WHERE product_id = $id";
+    $sql = "SELECT * FROM cms_product WHERE ID = $id";
     return query($sql);
 }
 

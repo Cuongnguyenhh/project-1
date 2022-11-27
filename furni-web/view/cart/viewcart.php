@@ -22,7 +22,8 @@
                               <div class="cart-content">
                                     <?php
                                     $i = 0;
-                                    if (isset($_SESSION['viewcart']) && count($_SESSION['viewcart']) > 0) {
+                                    if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) {
+                                          var_dump($_SESSION['cart']);
                                           echo '<form action="checkout.php" method="POST" novalidate class="cart-form">
                                                 <div class="cart-table">
                                                       <div class="cart-header-label">
@@ -37,17 +38,16 @@
                                                             </div>
                                                       </div>';
                                           $total = 0;
-                                          foreach ($_SESSION['viewcart'] as  $value) {
-                                                $total_price = $value[2] * $value[4];
-                                                $total += $total_price;
-
+                                          foreach ($_SESSION['cart'] as  $value) {
+                                                // $total_price = $value[2] * $value[4];
+                                                // $total += $total_price;
                                                 echo '
                                                       <div class="cart-item-wrap">
                                                             <div class="row-flex no-gutter">
                                                             
                                                                   <div class="c-2">
                                                                         <a href="#" class="cart-image">
-                                                                              <img src="' . $value[3] . '" alt="">
+                                                                              <img src="../../uploads/' . $value['prd_img'] . '" alt="">
                                                                         </a>
                                                                   </div>
                                                                   <div class="c-8">

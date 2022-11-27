@@ -203,7 +203,7 @@
                                                 $kq = getProductByOffset($from_pro, $per_page);
                                                 foreach ($kq as $value) : ?>
                                                             <div class="c-3 col">
-                                                                  <form action="" method="post">
+                                                                  <form action="index.php?action=viewcart" method="post">
                                                                         <div class="product">
                                                                               <div class="product-image">
                                                                                     <a class="product-image-link" href="product.php?id=<?= $value['ID'] ?>">
@@ -251,10 +251,7 @@
                                                                                     </div>
                                                                               </div>
                                                                         </div>
-                                                                        <input type="hidden" name="id" value="<?= $value['ID'] ?>">
-                                                                        <input type="hidden" name="namepro-sell" value="<?= $value['name_pro'] ?>">
-                                                                        <input type="hidden" name="pricepro-sell" value="<?= $value['price'] ?>">
-                                                                        <input type="hidden" name="imgpro-sell" value="<?= $value['img'] ?>">
+                                                                        <input type="hidden" name="id_cart" value="<?= $value['ID'] ?>">
                                                                   </form>
 
                                                             </div>
@@ -262,96 +259,7 @@
                                           </div>
                                     </div>
 
-                                    <!-- SHOW PRODUCT LIST  -->
-                                    <!-- <div class="product-box-list">
-                                                <?php
-
-                                                $kq = getAllProduct();
-                                                foreach ($kq as $value) :
-                                                      if ($value['status'] == 1) :
-                                                ?>
-                                                            <div class="product-list-item">
-                                                                  <div class="row-flex row-flex-margin">
-                                                                        <div class="c-3 col">
-                                                                              <div class="product">
-                                                                                    <div class="product-image">
-                                                                                          <a class="product-image-link" href="detail.php">
-                                                                                                <img src="' . $value['img'] . '" alt="product-image">
-                                                                                                <div class="product-hover-image">
-                                                                                                      <div class="product-change-image">
-                                                                                                            <img src="assets/img//product-hover-1.webp" alt="product-change-style">
-                                                                                                      </div>
-                                                                                                </div>
-                                                                                          </a>
-                                                                                          <div class="product-label-sale">
-                                                                                                <span>Sale</span>
-                                                                                          </div>
-                                                                                          <div class="product-quick-view">
-                                                                                                <a class="btn btn-product-view btn-quick-view" href="#">
-                                                                                                      <span class="icons">
-                                                                                                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                                                                                                                  <path d="M344.5,298c15-23.6,23.8-51.6,23.8-81.7c0-84.1-68.1-152.3-152.1-152.3C132.1,64,64,132.2,64,216.3c0,84.1,68.1,152.3,152.1,152.3c30.5,0,58.9-9,82.7-24.4l6.9-4.8L414.3,448l33.7-34.3L339.5,305.1L344.5,298z M301.4,131.2c22.7,22.7,35.2,52.9,35.2,85c0,32.1-12.5,62.3-35.2,85c-22.7,22.7-52.9,35.2-85,35.2c-32.1,0-62.3-12.5-85-35.2c-22.7-22.7-35.2-52.9-35.2-85c0-32.1,12.5-62.3,35.2-85c22.7-22.7,52.9-35.2,85-35.2C248.5,96,278.7,108.5,301.4,131.2z">
-                                                                                                                  </path>
-                                                                                                            </svg>
-                                                                                                      </span>
-                                                                                                </a>
-                                                                                          </div>
-                                                                                    </div>
-                                                                              </div>
-                                                                        </div>
-                                                                        <div class="c-7 col">
-                                                                              <div class="product-list-content">
-                                                                                    <h4 class="product-list--name">
-                                                                                    ' . $value['name_pro'] . '
-                                                                                    </h4>
-                                                                                    <div class="product-list-review">
-                                                                                          <span class="list-review">
-                                                                                                <span class="list-rating">
-                                                                                                      <i class="fa-solid fa-star"></i>
-                                                                                                      <i class="fa-solid fa-star"></i>
-                                                                                                      <i class="fa-solid fa-star"></i>
-                                                                                                      <i class="fa-solid fa-star"></i>
-                                                                                                      <i class="fa-solid fa-star"></i>
-                                                                                                </span>
-                                                                                                <span class="list-review-count">
-                                                                                                      4 reviews
-                                                                                                </span>
-                                                                                          </span>
-                                                                                    </div>
-                                                                                    <div class="product-list-desc">
-                                                                                          <p> Mô tả</p>
-                                                                                    </div>
-                                                                                    <div class="product-list-price">
-                                                                                          <div class="row-flex align-items">
-                                                                                                <span class="product-list-old">
-                                                                                                      <span class="money">$' . $value['price'] . '.00</span>
-                                                                                                </span>
-                                                                                                <span class="product-list-sale">
-                                                                                                      <span class="money">$260.00</span>
-                                                                                                </span>
-                                                                                          </div>
-                                                                                    </div>
-                                                                                    <form action="#!" method="post" class="product-list-form">
-                                                                                          <button class="btn btn-add-cart" type="submit" value="Submit">
-                                                                                                <i class="icons">
-                                                                                                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-                                                                                                            <g>
-                                                                                                                  <g>
-                                                                                                                        <path d="M416,277.333H277.333V416h-42.666V277.333H96v-42.666h138.667V96h42.666v138.667H416V277.333z"></path>
-                                                                                                                  </g>
-                                                                                                            </g>
-                                                                                                      </svg>
-                                                                                                </i>
-                                                                                                <span>Add to Cart</span>
-                                                                                          </button>
-                                                                                    </form>
-                                                                              </div>
-                                                                        </div>
-                                                                  </div>
-                                                            </div>
-                                                      <?php endif ?>
-                                                <?php endforeach ?>
-                                          </div> -->
+                                    
                                     <!-- PAGINATION  -->
                                     <?php
                                     $count_pro = getCountProduct();
