@@ -198,7 +198,6 @@
                                                 } else {
                                                       $page = $_GET['page'];
                                                 }
-
                                                 $from_pro = ($page - 1) * $per_page;
                                                 $kq = getProductByOffset($from_pro, $per_page);
                                                 foreach ($kq as $value) : ?>
@@ -251,7 +250,10 @@
                                                                                     </div>
                                                                               </div>
                                                                         </div>
-                                                                        <input type="hidden" name="id_cart" value="<?= $value['ID'] ?>">
+                                                                        <input type="hidden" name="id_pro" value="<?= $value['ID'] ?>">
+                                                                        <input type="hidden" name="namepro-sell" value="<?=$value['prd_name']?>" >
+                                                                        <input type="hidden" name="pricepro-sell" value="<?=$value['prd_price']?>" >
+                                                                        <input type="hidden" name="imgpro-sell" value="<?=$value['prd_img']?>" >
                                                                   </form>
 
                                                             </div>

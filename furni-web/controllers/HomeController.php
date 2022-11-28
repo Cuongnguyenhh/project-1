@@ -61,12 +61,42 @@ switch ($action) {
     case 'register':
         require_once './view/account/register.php';
         break;
+        
     case 'viewcart':
+        if ( isset($_POST['add-cart'])) {
+            $id = $_POST['id_pro'];
+            $name_cart = $_POST['namepro-sell'];
+            $price_cart = $_POST['pricepro-sell'];
+            $img_cart = $_POST['imgpro-sell'];
+            if (!isset($_POST['amountpro-sell'])) {
+                  $amount = 1;
+                 
+            }else {
+                  $amount = $_POST['amountpro-sell']; 
+            }
+            $arr = array($id, $name_cart, $price_cart, $img_cart, $amount);
+                $_SESSION['viewcart'][] = $arr;
+        }
         require_once './view/cart/viewcart.php';
         break;
-    case 'checkout':
-        require_once './view/cart/checkout.php';
+
+    case 'delonecart':
+        if (isset($_GET['id'])) {
+            // $id_pro = $_GET['id'];
+            array_splice($_SESSION['viewcart'],$_GET['id'],1);
+        }else{
+            unset($_SESSION['viewcart']);
+        }
+        include './view/cart/viewcart.php';
+        // header('location: view-cart.php');
         break;
+
+    case 'checkout':
+        if (isset($_POST['checkout'])) {
+            header('location: checkout.php');
+            break;
+        }
+        
     default:
         require_once './view/home/index.php';
         break;

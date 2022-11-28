@@ -2,29 +2,28 @@
 <html lang="en">
 
 <head>
-      <?php include_once './view/layout/meta.php' ?>
+    <?php include_once './view/layout/meta.php' ?>
 </head>
 
 <body>
-      <!-- Start Header Area -->
-      <?php include_once './view/layout/header.php' ?>
-      <!-- End Header Area -->
+    <!-- Start Header Area -->
+    <?php include_once './view/layout/header.php' ?>
+    <!-- End Header Area -->
 
-      <!--================Home Area =================-->
-      <main class="main-content" role="main">
-            <?php include_once './view/layout/banner.php'; ?>
-            <section class="shopping-cart">
-                  <div class="container">
-                        <div class="cart-container">
-                              <h1 class="cart-title">
-                                    Giỏ hàng
-                              </h1>
-                              <div class="cart-content">
-                                    <?php
-                                    $i = 0;
-                                    if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) {
-                                          var_dump($_SESSION['cart']);
-                                          echo '<form action="checkout.php" method="POST" novalidate class="cart-form">
+    <!--================Home Area =================-->
+    <main class="main-content" role="main">
+        <?php include_once './view/layout/banner.php'; ?>
+        <section class="shopping-cart">
+            <div class="container">
+                <div class="cart-container">
+                    <h1 class="cart-title">
+                        Giỏ hàng
+                    </h1>
+                    <div class="cart-content">
+                        <?php
+                              $i = 0;
+                              if (isset($_SESSION['viewcart']) && count($_SESSION['viewcart']) > 0) {
+                                    echo '<form action="checkout.php" method="POST" novalidate class="cart-form">
                                                 <div class="cart-table">
                                                       <div class="cart-header-label">
                                                             <div class="c-2">
@@ -37,17 +36,18 @@
                                                                   Total
                                                             </div>
                                                       </div>';
-                                          $total = 0;
-                                          foreach ($_SESSION['cart'] as  $value) {
-                                                // $total_price = $value[2] * $value[4];
-                                                // $total += $total_price;
-                                                echo '
+                                    $total = 0;
+                                    foreach ($_SESSION['viewcart'] as  $value) {
+                                          $total_price = $value[2] * $value[4];
+                                          $total += $total_price;
+                                          
+                                          echo '
                                                       <div class="cart-item-wrap">
                                                             <div class="row-flex no-gutter">
                                                             
                                                                   <div class="c-2">
                                                                         <a href="#" class="cart-image">
-                                                                              <img src="../../uploads/' . $value['prd_img'] . '" alt="">
+                                                                              <img src="../../uploads/' . $value[3] . '" alt="">
                                                                         </a>
                                                                   </div>
                                                                   <div class="c-8">
@@ -61,17 +61,17 @@
                                                                               </span>
                                                                         </div>
                                                                         <div class="cart-group row-flex align-items" data-label="Quantity">
-                                                                              <div class="cart-quantity">
-                                                                                    <button class="cart-qty-minus">
+                                                                              <div class="addcard-qty">
+                                                                                    <button type="button" class="addcard-qty-minus">
                                                                                           <span>-</span>
                                                                                     </button>
                                                                                     <input type="text" value="1" min="1" pattern="[0-9]*">
-                                                                                    <button class="cart-qty-plus">
+                                                                                    <button type="button" class="addcard-qty-plus">
                                                                                           <span>+</span>
                                                                                     </button>
                                                                               </div>
                                                                               <input type="submit" name="update" class="btn btn-update-cart" value="Update Cart">
-                                                                              <a class="cart-remove" href="./index.php?act=delonecart&id=' . $i . '">Remove</a>
+                                                                              <a class="cart-remove" href="index.php?action=delonecart&id=' . $i . '">Remove</a>
                                                                         </div>
                                                                   </div>
                                                                   <div class="c-2 text-right">
@@ -82,8 +82,8 @@
                                                             </div>
                                                       </div>';
                                                 $i++;
-                                          }
-                                          echo '</div>
+                                    }
+                                    echo '</div>
                                                 <div class="function-cart row-flex">
                                                       <div class="c-7 col">
                                                             <div class="cart-btn-note">
@@ -99,7 +99,7 @@
                                                                         Subtotal:
                                                                   </span>
                                                                   <span class="cart-subtotal">
-                                                                        <div class="money">$' . $total . '</div>
+                                                                        <div class="money">$'.$total.'</div>
                                                                   </span>
                                                             </div>
                                                             <div class="cart-shipping">
@@ -108,31 +108,31 @@
                                                             <div class="function-cart-button">
                                                                   <input type="submit" name="update" class="btn btn-update-cart" value="Update Cart">
                                                                   
-                                                                  <a href="index.php?action=checkout"><input type="submit" name="checkout" class="btn btn-checkout-cart" value="Check Out"></a>
+                                                                  <a href="index.php?act=checkout"><input type="submit" name="checkout" class="btn btn-checkout-cart" value="Check Out"></a>
                                                                   
                                                                   
                                                             </div>
                                                       </div>
                                                 </div>
 
-                                                <input type="hidden" name="total" value="' . $total . '">
+                                                <input type="hidden" name="total" value="'.$total.'">
                                             </form>';
-                                    } else {
-                                          echo '<p>Your cart is currently empty.</p>';
-                                    }
-                                    ?>
-                              </div>
-                        </div>
-                  </div>
-            </section>
-      </main>
-      <!--================Home Area =================-->
+                              } else{
+                                    echo'<p>Your cart is currently empty.</p>';
+                              }
+                              ?>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!--================Home Area =================-->
 
-      <!-- start footer Area -->
-      <?php include_once './view/layout/footer.php' ?>
-      <!-- End footer Area -->
+    <!-- start footer Area -->
+    <?php include_once './view/layout/footer.php' ?>
+    <!-- End footer Area -->
 
-      <?php include_once './view/layout/scrip.php' ?>
+    <?php include_once './view/layout/scrip.php' ?>
 </body>
 
 </html>
