@@ -619,7 +619,7 @@ a.item__card-link {
 }
 .header-bars .header-bars-list {
       position: absolute;
-      width: 120px;
+      width: 200px;
       height: auto;
       top: 100%;
       right: 0;
@@ -642,6 +642,9 @@ position: absolute;
       color: #bbb;
       line-height: 14px;
       padding: 8px 10px;
+}
+.header-bars .header-bars-item a:hover {
+      color: var(--vela-text-color-secondary);
 }
 /*__BANNER PAGES -------------------------------------------------------------------------------------------*/
 .banner-pages {
@@ -1745,6 +1748,43 @@ text-align: center;
   .spr-form-label+.spr-form-input {
       margin: 0;
   }
+
+.spr-review__rating {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+}
+.spr-review__func-admin {
+      display: flex;
+      gap: 2rem;
+      display: none;
+}
+.func-admin__ban {
+      text-transform: uppercase;
+      font-weight: 500;
+      background: rgb(185, 67, 67);
+      padding: 2px 4rem;
+      border-radius: 100rem;
+      color: var(--white);
+      transition: background .3s ease-in-out;
+}
+.func-admin__ban:hover {
+      background: rgb(129, 65, 65);
+}
+.func-admin__del {
+      text-transform: uppercase;
+      font-weight: 500;
+      background-color: var(--vela-text-color-secondary);
+      color: var(--white);
+      padding: 2px 4rem;
+      border-radius: 100rem;
+      transition: background .3s ease-in-out;
+}
+
+.func-admin__del:hover {
+      background: var(--vela-color-primary);
+}
+
 .spr-reviews {
       margin: 24px 0 0 0;
 }
@@ -4210,3 +4250,312 @@ tfoot .total td span:last-child {
       display: flex;
       flex-direction: column;
 }
+
+
+/* HEADER - USER _____________________ */
+.header-bars__user-link {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+}
+
+.header-bars__user-link:hover span {
+      color: var(--vela-color-primary);
+}
+
+.header-bars__user-link img {
+      border-radius: 100rem;
+      width: 38px;
+      height: 38px;
+      object-fit: cover;
+}
+
+.header-bars__user-link span {
+      transition: color .3s ease-out;
+}
+
+
+
+/* ACCOUNT - MANAGER _____________ */
+.manager-main {
+      padding: 20px 0;
+}
+.manager-head {
+      display: flex;
+      align-items: center;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--vela-border-color);
+}
+
+.manager-head > a {
+      font-weight: 500;
+      margin-right: 2rem;
+      transition: color .3s ease-in-out;
+}
+
+.manager-head > a:hover {
+      color: var(--vela-color-primary);
+}
+
+.manager-head > a i {
+      margin-right: 0.5rem;
+}
+
+.manager-search {
+      width: 35%;
+      display: flex;
+      position: relative;
+      border: 2px solid var(--vela-border-color);
+      height: 40px;
+      border-radius: 30rem;
+      overflow: hidden;
+}
+
+.manager-search input {
+      flex: 1;
+      margin: 0;
+      height: 100%;
+      padding-left: 2rem;
+}
+
+.manager-search button {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 1rem;
+      transition: color .3s ease-out;
+}
+
+.manager-search button:hover {
+      color: var(--vela-color-primary);
+}
+
+.manager-group {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+}
+
+.manager-notify {
+      margin-right: 3rem;
+}
+
+.manager-notify-list {
+      display: flex;
+      align-items: center;
+}
+
+.manager-notify-item {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 100rem;
+      background-color: transparent;
+      border: 1px solid rgb(204, 195, 195);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      margin-right: 1rem;
+      transition: background .3s ease-out, border .3s ease-out, color .3s ease-out;
+}
+
+.manager-notify-item:hover {
+      background-color: var(--vela-color-primary);
+      border-color: var(--vela-color-primary);
+}
+
+.manager-notify-item:hover a {
+      color: var(--white);
+}
+
+.manager-user a {
+      display: flex;
+      align-items: center;
+      row-gap: 2rem;
+}
+
+.manager-user a img {
+      width: 45px;
+      height: 45px;
+      border-radius: 100rem;
+      object-fit: cover;
+}
+
+.manager-user a span {
+      font-size: 2rem;
+      font-weight: 500;
+      margin-left: 5px;
+}
+
+.manager-body {
+      display: flex;
+      margin-top: 6rem;
+      margin-left: -1rem;
+      margin-right: -1rem;
+}
+
+.manager-body-left {
+      width: 35%;
+      padding: 0 1rem;
+}
+
+
+.manager-setting-list {
+
+}
+
+.manager-setting-item {
+      margin-bottom: 2rem;
+}
+
+.manager-setting-item a {
+      padding: 20px;
+      border-radius: 8px;
+      transition:  0.3s ease-out;
+}
+
+.manager-setting-item a:hover {
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 4px;
+}
+
+.manager-setting-item a h5 {
+      font-size: 2rem;
+      font-weight: 500;
+}
+
+.manager-setting-item a span {
+      font-size: 1.2rem;
+}
+
+.manager-body-right {
+      padding: 0 1rem;
+      width: 100%;
+}
+
+.account-setting-top {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      border-radius: 8px;
+      transition: .3s ease-in-out;
+      margin-bottom: 15px;
+}
+
+.account-setting-top:hover {
+      box-shadow: rgba(0, 0, 0, 0.345) 1px 1px 4px;
+}
+
+.account-setting-top img {
+      border-radius: 100rem;
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      margin-right: 2rem;
+}
+
+.account-setting-top a {
+      margin-left: auto;
+      padding: 1rem 5rem;
+      background-color: var(--vela-text-color-secondary);
+      color: var(--white);
+      border-radius: 30rem;
+}
+
+.account-setting-content {
+      padding: 20px;
+      border-radius: 8px;
+      transition: .3s ease-in-out;
+}
+.account-setting-content:hover {
+      box-shadow: rgba(0, 0, 0, 0.345) 1px 1px 4px;
+}
+
+.content__title {
+      font-size: 2.2rem;
+      color: var(--vela-text-color-secondary);
+      margin-bottom: 2rem;
+}
+
+.content__group {
+      margin-bottom: 0.5rem;
+}
+
+.content__group-row {
+      display: flex;
+      align-items: center;
+      margin: 0 -1rem;
+}
+
+.content__group-col label {
+      display: block;
+}
+
+.content__group-col {
+      width: 100%;
+      padding: 0 1rem;
+}
+
+.content__group-col select {
+      width: 100%;
+      border: 2px solid var(--vela-border-color);
+      height: 40px;
+      border-radius: 8px;
+      padding-left: 2rem;
+}
+
+.content__group-col select option {
+      position: relative;
+}
+
+.content__group-col select option img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 50px;
+      height: 50px;
+      border-radius: 100rem;
+}
+
+.content__group-col input {
+      width: 100%;
+      border: 2px solid var(--vela-border-color);
+      border-radius: 8px;
+      height: 40px;
+      padding-left: 2rem;
+}
+
+.content__group label {
+      display: block;
+}
+
+.content__group input {
+      height: 40px;
+      border-radius: 8px;
+      border: 2px solid var(--vela-border-color);
+      width: 100%;
+      padding-left: 2rem;
+      transition: all .3s ease-out;
+}
+
+.content__group input:focus {
+      border-color: var(--vela-color-primary);
+}
+.content__button {
+      margin-top: 2rem;
+}
+.content__button button {
+      width: 100%;
+      text-align: center;
+      border-radius: 8px;
+      background-color: var(--vela-text-color-secondary);
+      transition: background .3s ease-in;
+      color: var(--white);
+      padding: 1rem;
+      font-weight: 500;
+}
+
+.content__button button:hover {
+      background: var(--vela-color-primary);
+}
+

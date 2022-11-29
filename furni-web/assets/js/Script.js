@@ -58,7 +58,7 @@ const inputCount = document.querySelector('.addcard-qty input');
 
 if (plus) {
       plus.addEventListener('click', () => {
-            for (let i =0; i< in)
+            inputCount.value = parseInt(inputCount.value) + 1;
       })
 }
 if (minus) {
