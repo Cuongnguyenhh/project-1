@@ -61,6 +61,7 @@ const inputCount = document.querySelector('.addcard-qty input');
 //             for (let i =0; i< in)
 //       })
 // }
+
 if (minus) {
       minus.addEventListener('click', () => {
             if (inputCount.value <= 0) {

@@ -8,8 +8,8 @@
                               </a>
                         </li>
                         <?php
-                              foreach ($kq as  $value) {
-                                    echo '
+                        foreach ($kq as  $value) {
+                              echo '
                               <li>
                                     <a href="#">
                                           <span>
@@ -22,7 +22,7 @@
                                           ' . $value['prd_name'] . '
                                     </span>
                               </li>';
-                              }
+                        }
                         ?>
                   </ol>
             </div>
@@ -35,27 +35,27 @@
                                     <div class="detail-image-feature">
                                           <?php
                                           foreach ($kq as  $value) : ?>
-                                                <img class="detail-current-image" src="../../../uploads/<?=$value['prd_img']?>" alt="detail-image-product">
+                                                <img class="detail-current-image" src="../../../uploads/<?= $value['prd_img'] ?>" alt="detail-image-product">
                                           <?php endforeach ?>
 
                                     </div>
                                     <?php
                                     foreach ($kq as  $value) : ?>
-                                          
-                                    <div class="detail-thumb-list">
-                                          <div class="detail-thumb-item">
-                                                <img src="" alt="detail-thumb-image" class="thumb-image">
+
+                                          <div class="detail-thumb-list">
+                                                <div class="detail-thumb-item">
+                                                      <img src="" alt="detail-thumb-image" class="thumb-image">
+                                                </div>
+                                                <div class="detail-thumb-item">
+                                                      <img src="" alt="detail-thumb-image" class="thumb-image">
+                                                </div>
+                                                <div class="detail-thumb-item">
+                                                      <img src="" alt="detail-thumb-image" class="thumb-image">
+                                                </div>
+                                                <div class="detail-thumb-item">
+                                                      <img src="" alt="detail-thumb-image" class="thumb-image">
+                                                </div>
                                           </div>
-                                          <div class="detail-thumb-item">
-                                                <img src="" alt="detail-thumb-image" class="thumb-image">
-                                          </div>
-                                          <div class="detail-thumb-item">
-                                                <img src="" alt="detail-thumb-image" class="thumb-image">
-                                          </div>
-                                          <div class="detail-thumb-item">
-                                                <img src="" alt="detail-thumb-image" class="thumb-image">
-                                          </div>
-                                    </div>
                                     <?php endforeach ?>
                               </div>
                         </div>
@@ -98,7 +98,9 @@
                                           </div>
                                     </div>
                                     <div class="detail-product-desc">
-                                          <p>Một người đàn ông khôn ngoan than khóc rằng chính xác, anh ta cần hymenaeos phasellus felis, vì ngày mai nỗi đau của Tortor sẽ tốt cho anh ta, vì tôi đã bị treo khỏi tài sản của tôi hoặc con sư tử.</p>
+                                          <p>Một người đàn ông khôn ngoan than khóc rằng chính xác, anh ta cần hymenaeos
+                                                phasellus felis, vì ngày mai nỗi đau của Tortor sẽ tốt cho anh ta, vì
+                                                tôi đã bị treo khỏi tài sản của tôi hoặc con sư tử.</p>
                                     </div>
                                     <div class="detail-product-wrapper">
                                           <form class="detail-product-addcart" action="#" method="POST">
@@ -109,7 +111,7 @@
                                                                         <button type="button" class="addcard-qty-minus">
                                                                               <span>-</span>
                                                                         </button>
-                                                                        <input type="text" value="1" min="1" pattern="[0-9]*">
+                                                                        <input type="text" value="1" min="1" pattern="[0-9]*" value="0">
                                                                         <button type="button" class="addcard-qty-plus">
                                                                               <span>+</span>
                                                                         </button>
@@ -120,7 +122,8 @@
                                                                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
                                                                               <g>
                                                                                     <g>
-                                                                                          <path d="M416,277.333H277.333V416h-42.666V277.333H96v-42.666h138.667V96h42.666v138.667H416V277.333z"></path>
+                                                                                          <path d="M416,277.333H277.333V416h-42.666V277.333H96v-42.666h138.667V96h42.666v138.667H416V277.333z">
+                                                                                          </path>
                                                                                     </g>
                                                                               </g>
                                                                         </svg>
@@ -133,13 +136,13 @@
                                           <div class="detail-product-atribute">
                                                 <p class="atribute">
                                                       <label>Khả dụng:</label>
-                                                      <?php 
-                                                            $quaility = getQuailityOfProduct($value['ID']);
-                                                            if ($quaility > 0) {
-                                                                 echo 'In stock';
-                                                            }else{
-                                                                  echo 'Out stock';
-                                                            }
+                                                      <?php
+                                                      $quaility = getQuailityOfProduct($value['ID']);
+                                                      if ($quaility > 0) {
+                                                            echo 'In stock';
+                                                      } else {
+                                                            echo 'Out stock';
+                                                      }
                                                       ?>
                                                 </p>
                                                 <p class="atribute">
@@ -211,7 +214,9 @@
                                           echo '<p>' . $value['description'] . '</p>';
                                     }
                                     ?>
-                                    <p>Đừng bao giờ chơi mình. Thời tiết thật tuyệt vời, hãy cùng tôi bước qua con đường thành công hơn. Hãy thực hiện hành trình này với tôi, Sư tử! Ngày trước cỏ có màu nâu, giờ đã xanh vì tôi không bỏ cuộc. Không bao giờ đầu hàng</p>
+                                    <p>Đừng bao giờ chơi mình. Thời tiết thật tuyệt vời, hãy cùng tôi bước qua con đường
+                                          thành công hơn. Hãy thực hiện hành trình này với tôi, Sư tử! Ngày trước cỏ có
+                                          màu nâu, giờ đã xanh vì tôi không bỏ cuộc. Không bao giờ đầu hàng</p>
                                     <ul>
                                           <li>Sự rõ ràng cũng là một quá trình năng động.</li>
                                           <li>Kéo theo đó là sự thay đổi trong thói quen của độc giả.</li>
@@ -220,25 +225,47 @@
                                           <li>Sự rõ ràng cũng là một quá trình năng động.</li>
                                           <li>Kéo theo đó là sự thay đổi trong thói quen của độc giả. </li>
                                     </ul>
-                                    <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release.</p>
+                                    <p>It has survived not only five centuries, but also the leap into electronic
+                                          typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                                          with the release.</p>
                               </div>
                         </div>
                         <div id="ShippingandReturn" class="tab-pane ">
                               <div class="rte">
                                     <h4>Chính sách trả hàng</h4>
-                                    <p>Bạn có thể trả lại hầu hết các mặt hàng mới, chưa mở trong vòng 30 ngày kể từ ngày giao hàng để được hoàn tiền đầy đủ. Chúng tôi cũng sẽ thanh toán chi phí vận chuyển trả lại nếu việc trả lại là do lỗi của chúng tôi (bạn nhận được một mặt hàng không chính xác hoặc bị lỗi, v.v.).</p>
+                                    <p>Bạn có thể trả lại hầu hết các mặt hàng mới, chưa mở trong vòng 30 ngày kể từ
+                                          ngày giao hàng để được hoàn tiền đầy đủ. Chúng tôi cũng sẽ thanh toán chi phí
+                                          vận chuyển trả lại nếu việc trả lại là do lỗi của chúng tôi (bạn nhận được một
+                                          mặt hàng không chính xác hoặc bị lỗi, v.v.).</p>
                                     <p>
-                                          Bạn sẽ nhận được tiền hoàn lại trong vòng bốn tuần kể từ khi đưa gói hàng của bạn cho người gửi trả hàng, tuy nhiên, trong nhiều trường hợp, bạn sẽ nhận được tiền hoàn lại nhanh chóng hơn. Khoảng thời gian này bao gồm cả thời gian vận chuyển để chúng tôi nhận lại hàng của bạn từ người gửi hàng
-                                          (5 đến 10 ngày làm việc), thời gian chúng tôi xử lý yêu cầu hoàn trả của bạn sau khi chúng tôi nhận được (3 đến 5 ngày làm việc) và thời gian ngân hàng của bạn xử lý yêu cầu hoàn tiền của chúng tôi (5 đến 10 ngày làm việc).
+                                          Bạn sẽ nhận được tiền hoàn lại trong vòng bốn tuần kể từ khi đưa gói hàng của
+                                          bạn cho người gửi trả hàng, tuy nhiên, trong nhiều trường hợp, bạn sẽ nhận
+                                          được tiền hoàn lại nhanh chóng hơn. Khoảng thời gian này bao gồm cả thời gian
+                                          vận chuyển để chúng tôi nhận lại hàng của bạn từ người gửi hàng
+                                          (5 đến 10 ngày làm việc), thời gian chúng tôi xử lý yêu cầu hoàn trả của bạn
+                                          sau khi chúng tôi nhận được (3 đến 5 ngày làm việc) và thời gian ngân hàng của
+                                          bạn xử lý yêu cầu hoàn tiền của chúng tôi (5 đến 10 ngày làm việc).
                                     </p>
                                     <p>
-                                          Nếu bạn cần trả lại một mặt hàng, chỉ cần đăng nhập vào tài khoản của bạn, xem đơn đặt hàng bằng liên kết 'Hoàn thành Đơn đặt hàng' trong menu Tài khoản của Tôi và nhấp vào nút Trả lại (các) Mặt hàng. Chúng tôi sẽ thông báo cho bạn qua e-mail về khoản tiền hoàn lại của bạn sau khi chúng tôi 
+                                          Nếu bạn cần trả lại một mặt hàng, chỉ cần đăng nhập vào tài khoản của bạn, xem
+                                          đơn đặt hàng bằng liên kết 'Hoàn thành Đơn đặt hàng' trong menu Tài khoản của
+                                          Tôi và nhấp vào nút Trả lại (các) Mặt hàng. Chúng tôi sẽ thông báo cho bạn qua
+                                          e-mail về khoản tiền hoàn lại của bạn sau khi chúng tôi
                                           nhận được và xử lý trả lại mục.
                                     </p>
                                     <h4>Đang chuyển hàng</h4>
-                                    <p>Chúng tôi có thể gửi đến hầu như bất kỳ địa chỉ nào trên thế giới. Lưu ý rằng có những hạn chế đối với một số sản phẩm và một số sản phẩm không thể được vận chuyển đến các điểm đến quốc tế.</p>
-                                    <p>Khi bạn đặt hàng, chúng tôi sẽ ước tính ngày vận chuyển và giao hàng cho bạn dựa trên sự sẵn có của các mặt hàng của bạn và các tùy chọn giao hàng mà bạn chọn. Tùy thuộc vào nhà cung cấp dịch vụ vận chuyển bạn chọn, ước tính ngày giao hàng có thể xuất hiện trên báo giá vận chuyển trang.</p>
-                                    <p>Cũng xin lưu ý rằng phí vận chuyển cho nhiều mặt hàng chúng tôi bán dựa trên trọng lượng. Trọng lượng của bất kỳ mục nào như vậy có thể được tìm thấy trên trang chi tiết của nó. Để phản ánh chính sách của các công ty vận chuyển mà chúng tôi sử dụng, tất cả các trọng lượng sẽ được làm tròn thành pound tiếp theo.</p>
+                                    <p>Chúng tôi có thể gửi đến hầu như bất kỳ địa chỉ nào trên thế giới. Lưu ý rằng có
+                                          những hạn chế đối với một số sản phẩm và một số sản phẩm không thể được vận
+                                          chuyển đến các điểm đến quốc tế.</p>
+                                    <p>Khi bạn đặt hàng, chúng tôi sẽ ước tính ngày vận chuyển và giao hàng cho bạn dựa
+                                          trên sự sẵn có của các mặt hàng của bạn và các tùy chọn giao hàng mà bạn chọn.
+                                          Tùy thuộc vào nhà cung cấp dịch vụ vận chuyển bạn chọn, ước tính ngày giao
+                                          hàng có thể xuất hiện trên báo giá vận chuyển trang.</p>
+                                    <p>Cũng xin lưu ý rằng phí vận chuyển cho nhiều mặt hàng chúng tôi bán dựa trên
+                                          trọng lượng. Trọng lượng của bất kỳ mục nào như vậy có thể được tìm thấy trên
+                                          trang chi tiết của nó. Để phản ánh chính sách của các công ty vận chuyển mà
+                                          chúng tôi sử dụng, tất cả các trọng lượng sẽ được làm tròn thành pound tiếp
+                                          theo.</p>
                               </div>
                         </div>
                         <div id="Reviews" class="tab-pane">
@@ -246,7 +273,7 @@
                                     <div class="spr-container">
                                           <div class="spr-header">
                                                 <h2 class="spr-header-title">
-                                                Phản hồi khách hàng
+                                                      Phản hồi khách hàng
                                                 </h2>
                                                 <span class="spr-rating">
                                                       <i class="fa-solid fa-star" id="star1"></i>
@@ -256,7 +283,7 @@
                                                       <i class="fa-solid fa-star" id="star5"></i>
                                                 </span>
                                                 <span class="spr-review-count">
-                                                Dựa trên 4 nhận xét
+                                                      Dựa trên 4 nhận xét
                                                 </span>
                                                 <span class="spr-action">
                                                       <a id="toggle">Viết nhận xét</a>
@@ -290,11 +317,13 @@
                                                                         </div>
                                                                   </div>
                                                                   <div class="spr-form-review-title">
-                                                                        <label class="spr-form-label" for="">Review Title</label>
+                                                                        <label class="spr-form-label" for="">Review
+                                                                              Title</label>
                                                                         <input class="spr-form-input spr-form-input-text " type="text" placeholder="Give your review a title">
                                                                   </div>
                                                                   <div class="spr-form-review-body">
-                                                                        <label class="spr-form-label" for="">Body of Review
+                                                                        <label class="spr-form-label" for="">Body of
+                                                                              Review
                                                                               <span>
                                                                                     <span>(1500)</span>
                                                                                     <span></span>
@@ -312,13 +341,21 @@
                                                 <div class="spr-reviews">
                                                       <div class="spr-review">
                                                             <div class="spr-review-header">
-                                                                  <span class="spr-review-header-star">
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                  </span>
+                                                                  <div class="spr-review__rating">
+                                                                        <span class="spr-review-header-star">
+                                                                              <i class="fa-solid fa-star"></i>
+                                                                              <i class="fa-solid fa-star"></i>
+                                                                              <i class="fa-solid fa-star"></i>
+                                                                              <i class="fa-solid fa-star"></i>
+                                                                              <i class="fa-solid fa-star"></i>
+                                                                        </span>
+                                                                        <div class="spr-review__func-admin">
+                                                                              <a class="func-admin__ban" href="#!">Ban</a>
+                                                                              <a class="func-admin__del" href="#!">
+                                                                                    Delete Comment
+                                                                              </a>
+                                                                        </div>
+                                                                  </div>
                                                                   <h3 class="spr-review-header-title">nice</h3>
                                                                   <span class="spr-review-header-byline">
                                                                         <strong>Munir Hossain</strong>
@@ -332,7 +369,8 @@
                                                                   </p>
                                                             </div>
                                                             <div class="spr-review-footer">
-                                                                  <a href="#" class="spr-review-reportreview">Report as Inappropriate</a>
+                                                                  <a href="#" class="spr-review-reportreview">Report as
+                                                                        Inappropriate</a>
                                                             </div>
                                                       </div>
                                                 </div>
@@ -346,30 +384,30 @@
 </main>
 <script>
       // WRITE A REVIEW 
-      $(document).ready(function(){
-            $("#toggle").click(function(){
+      $(document).ready(function() {
+            $("#toggle").click(function() {
                   $("#spr-form").fadeToggle();
             })
       });
       // STAR RATING 
-      $(document).ready(function(){
-            $("#star1").click(function(){
+      $(document).ready(function() {
+            $("#star1").click(function() {
                   $(".fa-star").css("color", "");
                   $("#star1").css("color", "orange");
             });
-            $("#star2").click(function(){
+            $("#star2").click(function() {
                   $(".fa-star").css("color", "");
                   $("#star1,#star2").css("color", "orange");
             });
-            $("#star3").click(function(){
+            $("#star3").click(function() {
                   $(".fa-star").css("color", "");
                   $("#star1,#star2,#star3").css("color", "orange");
             });
-            $("#star4").click(function(){
+            $("#star4").click(function() {
                   $(".fa-star").css("color", "");
                   $("#star1,#star2,#star3,#star4").css("color", "orange");
             });
-            $("#star5").click(function(){
+            $("#star5").click(function() {
                   $(".fa-star").css("color", "");
                   $("#star1,#star2,#star3,#star4,#star5").css("color", "orange");
             });
