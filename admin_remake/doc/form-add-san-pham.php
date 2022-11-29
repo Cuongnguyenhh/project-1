@@ -37,6 +37,7 @@ if (isset($_POST['add_cate'])) {
     $post_prd_name = $_POST['prd_name'];
     $post_quaility = $_POST['quaility'];
     $post_cate = $_POST['cate'];
+    $post_description = $_POST['description'];
     $post_supp = $_POST['supp'];
     $post_priceSell = $_POST['priceSell'];
     $post_price = $_POST['price'];
@@ -59,8 +60,8 @@ if (isset($_POST['add_cate'])) {
     // }
     
     try{
-    $sql = "INSERT INTO cms_product (prd_name, quaility, id_prd_group, id_pro_manufacture, prd_img, prd_sell_price, prd_price )
-  VALUES ('$post_prd_name', '$post_quaility', '$post_cate', '$post_supp', '$imgload', '$post_priceSell', '$post_price')";
+    $sql = "INSERT INTO cms_product (prd_name, quaility, id_prd_group, id_pro_manufacture, prd_img, prd_sell_price, prd_price, prd_description )
+  VALUES ('$post_prd_name', '$post_quaility', '$post_cate', '$post_supp', '$imgload', '$post_priceSell', '$post_price', '$post_description')";
   // use exec() because no results are returned
   $conn->exec($sql);
   echo "New record created successfully";
@@ -331,7 +332,7 @@ if (isset($_POST['add_cate'])) {
               </div>
               <div class="form-group col-md-12">
                 <label class="control-label">Mô tả sản phẩm</label>
-                <textarea class="form-control" name="mota" id="mota"></textarea>
+                <textarea name=description class="form-control" name="mota" id="mota"></textarea>
                 <script>CKEDITOR.replace('mota');</script>
               </div>
             

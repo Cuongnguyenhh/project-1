@@ -211,23 +211,10 @@
                               <div class="rte">
                                     <?php
                                     foreach ($kq as  $value) {
-                                          echo '<p>' . $value['description'] . '</p>';
+                                          echo '<p>' . $value['prd_description'] . '</p>';
                                     }
                                     ?>
-                                    <p>Đừng bao giờ chơi mình. Thời tiết thật tuyệt vời, hãy cùng tôi bước qua con đường
-                                          thành công hơn. Hãy thực hiện hành trình này với tôi, Sư tử! Ngày trước cỏ có
-                                          màu nâu, giờ đã xanh vì tôi không bỏ cuộc. Không bao giờ đầu hàng</p>
-                                    <ul>
-                                          <li>Sự rõ ràng cũng là một quá trình năng động.</li>
-                                          <li>Kéo theo đó là sự thay đổi trong thói quen của độc giả.</li>
-                                          <li>Sự rõ ràng cũng là một quá trình năng động.</li>
-                                          <li>Kéo theo đó là sự thay đổi trong thói quen của độc giả. </li>
-                                          <li>Sự rõ ràng cũng là một quá trình năng động.</li>
-                                          <li>Kéo theo đó là sự thay đổi trong thói quen của độc giả. </li>
-                                    </ul>
-                                    <p>It has survived not only five centuries, but also the leap into electronic
-                                          typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                                          with the release.</p>
+                                    
                               </div>
                         </div>
                         <div id="ShippingandReturn" class="tab-pane ">

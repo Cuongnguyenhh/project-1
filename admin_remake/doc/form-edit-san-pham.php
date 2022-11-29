@@ -15,6 +15,7 @@
   $pro_supp = $pro_one['id_pro_manufacture'];
   $pro_sell = $pro_one['prd_sell_price'];
   $pro_price = $pro_one['prd_price'];
+  $pro_description = $pro_one['prd_description'];
   }
     //  edit controll--------------
       if(isset($_POST['edit'])){
@@ -22,6 +23,7 @@
         $prd_name =$_POST['prd_name'];
         $quaility = $_POST['quaility'];
         $cate = $_POST['cate'];
+        $description = $_POST['description'];
         $post_supp = $_POST['supp'];
         $priceSell = $_POST['priceSell'];
         $price = $_POST['price'];
@@ -34,8 +36,8 @@
     move_uploaded_file($_FILES["imgload"]["tmp_name"], $target_file);
         try{
           if($imgload==null){
-          $sql = "UPDATE cms_product SET ID='$ID', prd_name='$prd_name', prd_img='$get_anhsp', id_prd_group='$cate',id_pro_manufacture='$post_supp', prd_sell_price='$priceSell', prd_price='$price', quaility='$quaility'  WHERE ID=$get_id";
-          }else {$sql = "UPDATE cms_product SET ID='$ID', prd_name='$prd_name', prd_img='$imgload', id_prd_group='$cate',id_pro_manufacture='$post_supp', prd_sell_price='$priceSell', prd_price='$price', quaility='$quaility'  WHERE ID=$get_id";}
+          $sql = "UPDATE cms_product SET ID='$ID', prd_name='$prd_name', prd_img='$get_anhsp', id_prd_group='$cate',id_pro_manufacture='$post_supp', prd_sell_price='$priceSell', prd_price='$price', quaility='$quaility', prd_description='$description'  WHERE ID=$get_id";
+          }else {$sql = "UPDATE cms_product SET ID='$ID', prd_name='$prd_name', prd_img='$imgload', id_prd_group='$cate',id_pro_manufacture='$post_supp', prd_sell_price='$priceSell', prd_price='$price', quaility='$quaility',prd_description='$description'   WHERE ID=$get_id";}
 
   // Prepare statement
   $stmt = $conn->prepare($sql);
@@ -332,7 +334,7 @@
               </div>
               <div class="form-group col-md-12">
                 <label class="control-label">Mô tả sản phẩm</label> 
-                <textarea class="form-control" name="mota" id="mota"></textarea>
+                <textarea name="description" class="form-control" name="mota" id="mota"><?php echo $pro_description; ?></textarea>
                 <script>CKEDITOR.replace('mota');</script>
               </div>
             
