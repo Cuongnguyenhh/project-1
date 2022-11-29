@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+session_start();
+ob_start();
+?>
 <head>
       <?php include_once './view/layout/meta.php' ?>
 </head>
@@ -21,7 +24,6 @@
                               </h1>
                               <div class="cart-content">
                                     <?php
-                                    print_r($_SESSION['viewcart']);
                                     $i = 0;
                                     if (isset($_SESSION['viewcart']) && count($_SESSION['viewcart']) > 0) {
                                           echo '<form action="checkout.php" method="POST" novalidate class="cart-form">

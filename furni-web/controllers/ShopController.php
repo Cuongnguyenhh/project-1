@@ -22,30 +22,36 @@ switch ($action) {
         break;
     case 'viewcart':
         if (isset($_POST['add-cart'])) {
-            if (isset($_SESSION['viewcart'])) {
-                $arr_id = array_column($_SESSION['viewcart'],0);
-                if (!in_array($_POST['id_pro'],$arr_id)) {
-                    $count = count($_SESSION['viewcart']);
-                    $arr = array($id, $name_cart, $price_cart, $img_cart, $amount);
-                    $_SESSION['viewcart'][$count] = $arr;
-                }else{
-                    echo'<script>alert("đã dc thêm thành công ")</script>';
-                }
+            $id = $_POST['id_pro'];
+            $name_cart = $_POST['name_pro'];
+            $price_cart = $_POST['price_pro'];
+            $img_cart = $_POST['img_pro'];
+            if (!isset($_POST['amount_pro'])) {
+                $amount = 1;
             } else {
-                $id = $_POST['id_pro'];
-                $name_cart = $_POST['name_pro'];
-                $price_cart = $_POST['price_pro'];
-                $img_cart = $_POST['img_pro'];
-                if (!isset($_POST['amount_pro'])) {
-                    $amount = 1;
-                } else {
-                    $amount = $_POST['amount_pro'];
+                $amount = $_POST['amount_pro'];
+            }
+            $i = 0;
+            $flag = 0;
+            if (!empty($_SESSION['viewcart'])) {
+                foreach ($_SESSION['viewcart'] as  $value) {
+                    if ($value[0] == $id) {
+                        // cập nhật số lượng 
+                        $amount += $value[4];
+                        $flag = 1;
+                        $_SESSION['viewcart'][$i][4] = $amount;
+                        break;
+                    }
+                    $i++;
                 }
+            }
+            if ($flag == 0) {
                 $arr = array($id, $name_cart, $price_cart, $img_cart, $amount);
-                $_SESSION['viewcart'][] = $arr;
+                array_push($_SESSION['viewcart'], $arr);
             }
         }
-        require_once './view/cart/viewcart.php';
+        // require_once './view/cart/viewcart.php';
+        header('location:viewcart.php');
         break;
     case 'delonecart':
         if (isset($_GET['id'])) {
@@ -53,7 +59,7 @@ switch ($action) {
         } else {
             unset($_SESSION['viewcart']);
         }
-        include './view/cart/viewcart.php';
+        header('location:viewcart.php');
         break;
 
     default:

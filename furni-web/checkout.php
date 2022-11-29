@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+session_start();
+ob_start();
+?>
 <head>
       <?php include_once './view/layout/meta.php' ?>
 </head>
 
 <body>
-      <!-- Start Header Area -->
-      <?php include_once './view/layout/header.php' ?>
-      <!-- End Header Area -->
+
 
       <!--================Home Area =================-->
       <?php
