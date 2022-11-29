@@ -22,29 +22,38 @@ switch ($action) {
         break;
     case 'viewcart':
         if (isset($_POST['add-cart'])) {
-            $id = $_POST['id_pro'];
-            $name_cart = $_POST['name_pro'];
-            $price_cart = $_POST['price_pro'];
-            $img_cart = $_POST['img_pro'];
-            if (!isset($_POST['amount_pro'])) {
-                $amount = 1;
+            if (isset($_SESSION['viewcart'])) {
+                $arr_id = array_column($_SESSION['viewcart'],0);
+                if (!in_array($_POST['id_pro'],$arr_id)) {
+                    $count = count($_SESSION['viewcart']);
+                    $arr = array($id, $name_cart, $price_cart, $img_cart, $amount);
+                    $_SESSION['viewcart'][$count] = $arr;
+                }else{
+                    echo'<script>alert("đã dc thêm thành công ")</script>';
+                }
             } else {
-                $amount = $_POST['amountpro-sell'];
+                $id = $_POST['id_pro'];
+                $name_cart = $_POST['name_pro'];
+                $price_cart = $_POST['price_pro'];
+                $img_cart = $_POST['img_pro'];
+                if (!isset($_POST['amount_pro'])) {
+                    $amount = 1;
+                } else {
+                    $amount = $_POST['amount_pro'];
+                }
+                $arr = array($id, $name_cart, $price_cart, $img_cart, $amount);
+                $_SESSION['viewcart'][] = $arr;
             }
-            $arr = array($id, $name_cart, $price_cart, $img_cart, $amount);
-            $_SESSION['viewcart'][] = $arr;
         }
         require_once './view/cart/viewcart.php';
         break;
     case 'delonecart':
         if (isset($_GET['id'])) {
-            // $id_pro = $_GET['id'];
             array_splice($_SESSION['viewcart'], $_GET['id'], 1);
         } else {
             unset($_SESSION['viewcart']);
         }
         include './view/cart/viewcart.php';
-        // header('location: view-cart.php');
         break;
 
     default:

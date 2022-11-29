@@ -21,6 +21,7 @@
                               </h1>
                               <div class="cart-content">
                                     <?php
+                                    print_r($_SESSION['viewcart']);
                                     $i = 0;
                                     if (isset($_SESSION['viewcart']) && count($_SESSION['viewcart']) > 0) {
                                           echo '<form action="checkout.php" method="POST" novalidate class="cart-form">

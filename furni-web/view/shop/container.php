@@ -254,6 +254,7 @@
                                                                   <input type="hidden" name="name_pro" value="<?= $value['prd_name'] ?>">
                                                                   <input type="hidden" name="price_pro" value="<?= $value['prd_price'] ?>">
                                                                   <input type="hidden" name="img_pro" value="<?= $value['prd_img'] ?>">
+                                                                  <input type="hidden" name="amount_pro" value="1">
                                                             </form>
 
                                                       </div>
