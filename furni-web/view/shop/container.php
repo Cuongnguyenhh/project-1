@@ -202,7 +202,7 @@
                                                 $kq = getProductByOffset($from_pro, $per_page);
                                                 foreach ($kq as $value) : ?>
                                                             <div class="c-3 col">
-                                                                  <form action="index.php?action=viewcart" method="post">
+                                                                  <form action="shop.php?action=viewcart" method="post">
                                                                         <div class="product">
                                                                               <div class="product-image">
                                                                                     <a class="product-image-link" href="product.php?id=<?= $value['ID'] ?>">
@@ -251,9 +251,9 @@
                                                                               </div>
                                                                         </div>
                                                                         <input type="hidden" name="id_pro" value="<?= $value['ID'] ?>">
-                                                                        <input type="hidden" name="namepro-sell" value="<?=$value['prd_name']?>" >
-                                                                        <input type="hidden" name="pricepro-sell" value="<?=$value['prd_price']?>" >
-                                                                        <input type="hidden" name="imgpro-sell" value="<?=$value['prd_img']?>" >
+                                                                        <input type="hidden" name="name_pro" value="<?=$value['prd_name']?>" >
+                                                                        <input type="hidden" name="price_pro" value="<?=$value['prd_price']?>" >
+                                                                        <input type="hidden" name="img_pro" value="<?=$value['prd_img']?>" >
                                                                   </form>
 
                                                             </div>
