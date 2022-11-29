@@ -35,7 +35,7 @@ switch ($action) {
                     echo'<li class="search__item">
                             <a class="search__content-link" href="product.php?id=' . $p['ID'] . '">
                                 <div class="search-image">
-                                    <img src="../../../uploads/'.$p['prd_img'].'" alt="">
+                                    <img src="uploads/'.$p['prd_img'].'" alt="">
                                 </div>
                                 <div class="search-content">
                                     <h5>' . $p['prd_name'] . '</h5>

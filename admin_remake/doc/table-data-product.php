@@ -121,7 +121,7 @@
                                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
                                     <td>'.$pro['ID'].'</td>
                                     <td>'.$pro['prd_name'].'</td>
-                                    <td><img src="../../uploads/'.$pro['prd_img'].'" alt="" width="100px;"></td>
+                                    <td><img src="../../furni-web/uploads/'.$pro['prd_img'].'" alt="" width="100px;"></td>
                                     <td>'.$pro['quaility'].'</td> 
                                    
           

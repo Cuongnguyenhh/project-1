@@ -1,4 +1,6 @@
 <main class="main-content" role="main">
+sadasdas
+  
       <section class="slide-show">
             <div class="swiper slide-show-swiper">
                   <div class="swiper-wrapper">
@@ -133,10 +135,10 @@
                                                 <div class="product">
                                                       <div class="product-image">
                                                             <a class="product-image-link" href="#!">
-                                                                  <img src="../../uploads/<?= $value['prd_img'] ?>" alt="product-image">
+                                                                  <img src="uploads/<?= $value['prd_img'] ?>" alt="product-image">
                                                                   <div class="product-hover-image">
                                                                         <div class="product-change-image">
-                                                                              <img src="../../uploads/<?= $value['prd_img'] ?>" alt="product-change-style">
+                                                                              <img src="uploads/<?= $value['prd_img'] ?>" alt="product-change-style">
                                                                         </div>
                                                                   </div>
                                                             </a>
@@ -237,10 +239,10 @@
                                                       <div class="product-image">
 
                                                             <a class="product-image-link" href="index.php?act=detail&id=<?= $value['ID'] ?>">
-                                                                  <img src="../../uploads/<?= $value['prd_img'] ?>" alt="product-image">
+                                                                  <img src="uploads/<?= $value['prd_img'] ?>" alt="product-image">
                                                                   <div class="product-hover-image">
                                                                         <div class="product-change-image">
-                                                                              <img src="../../uploads/<?= $value['prd_img'] ?>" alt="product-change-style">
+                                                                              <img src="uploads/<?= $value['prd_img'] ?>" alt="product-change-style">
                                                                         </div>
                                                                   </div>
                                                             </a>
