@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+session_start();
+ob_start();
+?>
 <head>
       <?php include_once './view/layout/meta.php' ?>
 </head>

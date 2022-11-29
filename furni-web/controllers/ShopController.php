@@ -29,22 +29,37 @@ switch ($action) {
             if (!isset($_POST['amount_pro'])) {
                 $amount = 1;
             } else {
-                $amount = $_POST['amountpro-sell'];
+                $amount = $_POST['amount_pro'];
             }
-            $arr = array($id, $name_cart, $price_cart, $img_cart, $amount);
-            $_SESSION['viewcart'][] = $arr;
+            $i = 0;
+            $flag = 0;
+            if (!empty($_SESSION['viewcart'])) {
+                foreach ($_SESSION['viewcart'] as  $value) {
+                    if ($value[0] == $id) {
+                        // cập nhật số lượng 
+                        $amount += $value[4];
+                        $flag = 1;
+                        $_SESSION['viewcart'][$i][4] = $amount;
+                        break;
+                    }
+                    $i++;
+                }
+            }
+            if ($flag == 0) {
+                $arr = array($id, $name_cart, $price_cart, $img_cart, $amount);
+                array_push($_SESSION['viewcart'], $arr);
+            }
         }
-        require_once './view/cart/viewcart.php';
+        // require_once './view/cart/viewcart.php';
+        header('location:viewcart.php');
         break;
     case 'delonecart':
         if (isset($_GET['id'])) {
-            // $id_pro = $_GET['id'];
             array_splice($_SESSION['viewcart'], $_GET['id'], 1);
         } else {
             unset($_SESSION['viewcart']);
         }
-        include './view/cart/viewcart.php';
-        // header('location: view-cart.php');
+        header('location:viewcart.php');
         break;
 
     default:
