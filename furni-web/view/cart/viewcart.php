@@ -48,7 +48,7 @@
                                                             
                                                                   <div class="c-2">
                                                                         <a href="#" class="cart-image">
-                                                                              <img src="../../uploads/' . $value[3] . '" alt="">
+                                                                              <img src="uploads/' . $value[3] . '" alt="">
                                                                         </a>
                                                                   </div>
                                                                   <div class="c-8">

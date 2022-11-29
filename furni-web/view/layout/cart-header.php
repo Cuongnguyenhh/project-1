@@ -22,7 +22,7 @@
                                           <div class="drawer-product">
                                                 <div class="drawer-product-image">
                                                       <a href="#" class="drawer-product-link">
-                                                            <img class="drawer-image" src="../../uploads/' . $value[3] . '" alt="">
+                                                            <img class="drawer-image" src="uploads/' . $value[3] . '" alt="">
                                                       </a>
                                                 </div>
                                                 <div class="drawer-product-content">

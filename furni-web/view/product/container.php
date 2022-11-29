@@ -35,7 +35,7 @@
                                     <div class="detail-image-feature">
                                           <?php
                                           foreach ($kq as  $value) : ?>
-                                                <img class="detail-current-image" src="../../../uploads/<?= $value['prd_img'] ?>" alt="detail-image-product">
+                                                <img class="detail-current-image" src="uploads/<?= $value['prd_img'] ?>" alt="detail-image-product">
                                           <?php endforeach ?>
 
                                     </div>

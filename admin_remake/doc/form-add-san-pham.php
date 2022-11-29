@@ -44,7 +44,7 @@ if (isset($_POST['add_cate'])) {
 
     // uploadfile
 
-    $target_dir = "../../uploads/";
+    $target_dir = "../../furni-web/uploads/";
     $target_file = $target_dir . $imgload;
     move_uploaded_file($_FILES["imgload"]["tmp_name"], $target_file);
 
