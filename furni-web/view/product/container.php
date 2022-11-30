@@ -214,7 +214,7 @@
                                           echo '<p>' . $value['prd_description'] . '</p>';
                                     }
                                     ?>
-                                    
+
                               </div>
                         </div>
                         <div id="ShippingandReturn" class="tab-pane ">

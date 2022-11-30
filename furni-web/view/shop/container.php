@@ -57,21 +57,22 @@
                                           </div>
                                     </div>
                                     <!-- FILTER PRICE  -->
-                                    <div class="filter">
+                                    <!-- <div class="filter">
                                           <h3 class="vela-title">Filter by price</h3>
                                           <div class="filter-content">
-                                                <div class="filter-price">
-                                                      <span class="filter-span">
-                                                            <span class="filter-bar"></span>
-                                                            <span class="filter-circle from"></span>
-                                                            <span class="filter-circle to"></span>
-                                                      </span>
+                                                <div class="price-range-slider">
+
+                                                      <p class="range-value">
+                                                            <input type="text" id="amount" readonly>
+                                                      </p>
+                                                      <div id="slider-range" class="range-bar"></div>
+
                                                 </div>
                                                 <div class="filter-btn">
                                                       <button class="btn btn-filter-price">Filter</button>
                                                 </div>
                                           </div>
-                                    </div>
+                                    </div> -->
                                     <div class="best-seller">
                                           <h3 class="vela-title">Bán chạy nhất</h3>
                                           <div class="best-seller-content">
@@ -138,8 +139,6 @@
                                           </div>
                                     </div>
                               </aside>
-
-
                               <!-- PRODUCT LIST  -->
                               <div class="product-list col c-9">
                                     <div class="product-filter">
@@ -347,9 +346,17 @@
             changeGrid.classList.add('active');
       });
 
-      // $(document).ready(function () {
-      //       $('#sortby').on('change',function () {
-      //           $('form').submit();
-      //       })
-      //   });
+      // $(document).ready(function() {
+      //       $("#slider-range").slider({
+      //             range: true,
+      //             min: 130,
+      //             max: 10000,
+      //             values: [130, 5500],
+      //             slide: function(event, ui) {
+      //                   $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+      //             }
+      //       });
+      //       $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+      //             " - $" + $("#slider-range").slider("values", 1));
+      // });
 </script>

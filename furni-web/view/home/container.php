@@ -1,6 +1,4 @@
 <main class="main-content" role="main">
-sadasdas
-  
       <section class="slide-show">
             <div class="swiper slide-show-swiper">
                   <div class="swiper-wrapper">
