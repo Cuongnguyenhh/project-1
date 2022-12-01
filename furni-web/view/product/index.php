@@ -5,7 +5,9 @@
 </head>
 <body>
                 <!-- Start Header Area -->
-    <?php include_once './view/layout/header.php'?>
+    <?php 
+    include_once './view/layout/header.php'
+    ?>
                 <!-- End Header Area -->
     
     <!--================Home Area =================-->
