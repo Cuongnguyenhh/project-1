@@ -69,7 +69,7 @@ ob_start();
                                                                                           <button type="button" class="addcard-qty-minus">
                                                                                                 <span>-</span>
                                                                                           </button>
-                                                                                          <input type="text" value="1" min="1" pattern="[0-9]*">
+                                                                                          <input class="qty" type="text" value="' . $value[4] . '" min="1" readonly pattern="[0-9]*">
                                                                                           <button type="button" class="addcard-qty-plus">
                                                                                                 <span>+</span>
                                                                                           </button>

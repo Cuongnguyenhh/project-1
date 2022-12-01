@@ -31,6 +31,10 @@ function getCountProduct(){
     $sql = "SELECT COUNT(*) FROM cms_product ";
     return queryOne($sql);
 }
+function getCountFilter($where){
+    $sql = $where ;
+    return queryOne($sql);
+}
 
 // Thêm sản phẩm
 function addNewProduct($name,$cost,$price,$description,$update,$brand,$view,$color){

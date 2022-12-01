@@ -26,11 +26,7 @@ switch ($action) {
             $name_cart = $_POST['name_pro'];
             $price_cart = $_POST['price_pro'];
             $img_cart = $_POST['img_pro'];
-            if (!isset($_POST['amount_pro'])) {
-                $amount = 1;
-            } else {
-                $amount = $_POST['amount_pro'];
-            }
+            $amount = $_POST['amount_pro'];
             $i = 0;
             $flag = 0;
             if (!empty($_SESSION['viewcart'])) {
@@ -50,7 +46,6 @@ switch ($action) {
                 array_push($_SESSION['viewcart'], $arr);
             }
         }
-        // require_once './view/cart/viewcart.php';
         header('location:viewcart.php');
         break;
     case 'delonecart':
@@ -61,7 +56,12 @@ switch ($action) {
         }
         header('location:viewcart.php');
         break;
-
+    case 'cate':
+        $id = $_GET['id'];
+        if ($id == 0) {
+            
+        }
+        break;
     default:
         require_once './view/shop/index.php';
         break;

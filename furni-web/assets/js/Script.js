@@ -57,7 +57,6 @@ const plus = document.querySelectorAll('.addcard-qty-plus');
 const inputCount = document.querySelector('.addcard-qty input');
 
 
-
 for(var i = 0; i < plus.length; i++) {
       if (plus[i]) {
             plus[i].addEventListener('click', () => {
@@ -85,13 +84,13 @@ for(var i = 0; i < minus.length; i++) {
 //       })
 // }
 
-// if (minus) {
-//       minus.addEventListener('click', () => {
-//             if (inputCount.value <= 1) {
-//                   inputCount.value = 1;
-//             } else {
-//                   inputCount.value = parseInt(inputCount.value) - 1;
-//             }
-//       });
-// }
+if (minus) {
+      minus.addEventListener('click', () => {
+            if (inputCount.value <= 1) {
+                  inputCount.value = 1;
+            } else {
+                  inputCount.value = parseInt(inputCount.value) - 1;
+            }
+      });
+}
 
