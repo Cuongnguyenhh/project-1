@@ -134,7 +134,7 @@ ob_start();
                                           echo'<table class="sidebar__table">
                                           <tr class="product__item">
                                                 <td class="product__image">
-                                                      <img src="' . $value[3] . '" alt="">
+                                                      <img src="uploads/' . $value[3] . '" alt="">
                                                 </td>
                                                 <td class="product__desc">
                                                       ' . $value[1] . '

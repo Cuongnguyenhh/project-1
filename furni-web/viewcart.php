@@ -65,13 +65,15 @@ ob_start();
                                                                         </div>
                                                                         <div class="cart-group row-flex align-items" data-label="Quantity">
                                                                               <div class="cart-quantity">
-                                                                                    <button class="cart-qty-minus">
-                                                                                          <span>-</span>
-                                                                                    </button>
-                                                                                    <input type="text" value="1" min="1" pattern="[0-9]*">
-                                                                                    <button class="cart-qty-plus">
-                                                                                          <span>+</span>
-                                                                                    </button>
+                                                                                    <div class="addcard-qty">
+                                                                                          <button type="button" class="addcard-qty-minus">
+                                                                                                <span>-</span>
+                                                                                          </button>
+                                                                                          <input type="text" value="1" min="1" pattern="[0-9]*">
+                                                                                          <button type="button" class="addcard-qty-plus">
+                                                                                                <span>+</span>
+                                                                                          </button>
+                                                                                    </div>
                                                                               </div>
                                                                               <input type="submit" name="update" class="btn btn-update-cart" value="Update Cart">
                                                                               <a class="cart-remove" href="shop.php?action=delonecart&id=' . $i . '">Remove</a>
@@ -111,7 +113,7 @@ ob_start();
                                                             <div class="function-cart-button">
                                                                   <input type="submit" name="update" class="btn btn-update-cart" value="Update Cart">
                                                                   
-                                                                  <a href="checkout.php"><input type="submit" name="checkout" class="btn btn-checkout-cart" value="Check Out"></a>
+                                                                  <input type="submit" name="checkout" class="btn btn-checkout-cart" value="Check Out">
                                                                   
                                                                   
                                                             </div>

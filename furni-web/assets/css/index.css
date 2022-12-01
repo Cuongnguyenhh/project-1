@@ -3418,7 +3418,6 @@ fieldset {
 .btn-shipping {
   padding: 20px 23px;
   border-radius: 6px;
-  padding: 20px 23px;
   background-color: black;
   color: white;
   font-weight: 500;
@@ -3441,7 +3440,7 @@ fieldset {
 }
 
 .checkout-footer .footer__policy-list li a {
-  font-size: var(--checkout-fz);
+  font-size: 13px;
 }
 
 .sidebar-content {
@@ -4008,9 +4007,6 @@ tfoot .total td span:last-child {
   margin-right: 10px;
 }
 
-.main__info {
-  padding-bottom: 16.9em;
-}
 .shipping__table {
   background-clip: padding-box;
   border: 1px solid #d9d9d9;
@@ -4062,7 +4058,6 @@ tfoot .total td span:last-child {
   color: #333333;
 }
 .shipping__content {
-  border: 1px solid #d9d9d9;
   border-radius: 5px;
   color: #545454;
   background-clip: padding-box;
