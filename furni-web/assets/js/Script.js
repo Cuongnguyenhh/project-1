@@ -52,23 +52,46 @@ if (btnDrawerClose) {
 
 // INCREASE 
 
-const minus = document.querySelector('.addcard-qty-minus');
-const plus = document.querySelector('.addcard-qty-plus');
+const minus = document.querySelectorAll('.addcard-qty-minus');
+const plus = document.querySelectorAll('.addcard-qty-plus');
 const inputCount = document.querySelector('.addcard-qty input');
+
+
+
+for(var i = 0; i < plus.length; i++) {
+      if (plus[i]) {
+            plus[i].addEventListener('click', () => {
+                  inputCount[i].value = parseInt(inputCount.value) + 1;
+            })
+      }
+}
+
+
+for(var i = 0; i < minus.length; i++) {
+      if (minus[i]) {
+            minus[i].addEventListener('click', () => {
+                  if (inputCount.value <= 1) {
+                        inputCount.value = 1
+                  } else {
+                        inputCount.value = parseInt(inputCount.value) - 1;
+                  }
+            })
+      }
+}
 
 // if (plus) {
 //       plus.addEventListener('click', () => {
-//             for (let i =0; i< in)
+//             inputCount.value = parseInt(inputCount.value) + 1;
 //       })
 // }
 
-if (minus) {
-      minus.addEventListener('click', () => {
-            if (inputCount.value <= 0) {
-                  inputCount.value = 0;
-            } else {
-                  inputCount.value = parseInt(inputCount.value) - 1;
-            }
-      });
-}
+// if (minus) {
+//       minus.addEventListener('click', () => {
+//             if (inputCount.value <= 1) {
+//                   inputCount.value = 1;
+//             } else {
+//                   inputCount.value = parseInt(inputCount.value) - 1;
+//             }
+//       });
+// }
 

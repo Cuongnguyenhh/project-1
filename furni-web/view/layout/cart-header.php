@@ -22,7 +22,7 @@
                                           <div class="drawer-product">
                                                 <div class="drawer-product-image">
                                                       <a href="#" class="drawer-product-link">
-                                                            <img class="drawer-image" src="uploads/' . $value[3] . '" alt="">
+                                                            <img class="drawer-image" src="uploads/'.$value[3].'" alt="">
                                                       </a>
                                                 </div>
                                                 <div class="drawer-product-content">
@@ -69,10 +69,10 @@
                                           </div>
                                           <div class="drawer-button">
                                                 <div class="drawer-button-box">
-                                                      <a href="shop.php?action=viewcart" type="submit" class="btn btn-drawer">View Cart</a>
+                                                      <a href="viewcart.php" class="btn btn-drawer">View Cart</a>
                                                 </div>
                                                 <div class="drawer-button-box">
-                                                      <a href="checkout.php" type="submit" class="btn btn-checkout">Check Out</a>
+                                                      <input type="submit" name="checkout" class="btn btn-checkout" value="Check Out">
                                                 </div>
                                           </div>
                                     </div>
