@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +7,6 @@
 
 <body>
       <!-- Start Header Area -->
-      <?php include_once './view/layout/header.php' ?>
       <!-- End Header Area -->
 
       <!--================Home Area =================-->
@@ -18,8 +16,8 @@
                         <div class="payment__info">
                               <header class="header__info">
                                     <div class="info__logo">
-                                          <a class="info__link" href="#">
-                                                <img src="../../assets/img/logo_dark.svg" alt="Logo Image">
+                                          <a class="info__link" href="index.php">
+                                                <img src="assets/img/logo_dark.svg" alt="Logo Image">
                                           </a>
                                     </div>
                                     <div class="info__navbar">
@@ -45,7 +43,6 @@
                                                 <li class="info__navbar-item">
                                                       <a href="#!">
                                                             Payment
-                                                            <i class="fa-solid fa-angle-right"></i>
                                                       </a>
                                                 </li>
                                           </ul>
@@ -85,42 +82,49 @@
                                                                   </a>
                                                             </div>
                                                       </div>
-                                                </div>
-                                                <div class="shipping__method">
-                                                      <div class="shipping__header">
-                                                            <h2>Shipping method</h2>
-                                                      </div>
-                                                      <div class="shipping__content">
-                                                            <div class="content__box">
-                                                                  <div class="content__row">
-                                                                        <div class="radio__input">
-                                                                              <input id="shipping-radio" type="radio" placeholder="Standard Shipping">
-                                                                        </div>
-                                                                        <label for="shipping-radio" class="radio__label">
-                                                                              <span class="radio__primary">
-                                                                                    Standard Shipping
-                                                                                    </span>
-                                                                              <span class="radio__accesory">
-                                                                                    $10.00
-                                                                              </span>
-                                                                        </label>
+                                                      <div class="shipping__row">
+                                                            <div class="shipping__inner">
+                                                                  <div class="shipping__inner-label">
+                                                                        Method
+                                                                  </div>
+                                                                  <div class="shipping__inner-content">
+                                                                        Standard Shipping · $10.00
                                                                   </div>
                                                             </div>
                                                       </div>
                                                 </div>
-                                                <div class="shipping__back">
-                                                      <a href="#!" class="shipping__back-return">
-                                                            <i class="fa-solid fa-angle-left"></i>
-                                                            Return to information
-                                                      </a>
-                                                      <button type="submit" class="shipping__payment btn">
-                                                            Continue to payment
-                                                      </button>
+                                                <div class="shipping__method">
+                                                      <div class="shipping__header">
+                                                            <h2>Payment</h2>
+                                                      </div>
+                                                      <div class="shipping__content">
+                                                            <div class="content__box">
+                                                                  <div class="blank-slate">
+                                                                        <svg focusable="false" aria-hidden="true" role="img" class="icon-svg icon-svg--size-64 blank-slate__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 78 78">
+                                                                              <g fill="none" fill-rule="evenodd">
+                                                                                    <g transform="translate(1.38 29.486)" stroke="#B3B3B3" stroke-width="4">
+                                                                                          <use mask="url(#d)" fill="#FAFAFA" xlink:href="#a"></use>
+                                                                                          <use mask="url(#b)" fill="#FAFAFA" xlink:href="#b"></use>
+                                                                                          <use mask="url(#f)" xlink:href="#c"></use>
+                                                                                    </g>
+                                                                                    <g transform="translate(49 16)">
+                                                                                          <ellipse cx="13.094" cy="13.094" rx="13.094" ry="13.094" stroke="#B3B3B3" stroke-width="2" fill="#FAFAFA"></ellipse>
+                                                                                          <path d="M13.094 4.676v11.36" stroke="#B3B3B3" stroke-width="2"></path>
+                                                                                          <ellipse fill="#B3B3B3" cx="13.028" cy="20.108" rx="1.403" ry="1.403"></ellipse>
+                                                                                    </g>
+                                                                              </g>
+                                                                        </svg>
+                                                                        <p>
+                                                                              This store can’t accept payments right now.
+                                                                        </p>
+                                                                  </div>
+                                                            </div>
+                                                      </div>
                                                 </div>
                                           </form>
                                     </div>
                               </main>
-                              <footer class="footer__info">
+                              <footer class="footer__info"> 
                                     <ul class="footer__if-list">
                                           <li>
                                                 <a href="#!">Refund policy</a>

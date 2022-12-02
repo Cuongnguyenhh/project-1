@@ -107,11 +107,11 @@ ob_start();
                                                 </form>
                                           </div>
                                           <div class="shipping__footer">
-                                                <a href="./view-cart.php" class="shipping__link-back">
+                                                <a href="" class="shipping__link-back">
                                                       <i class="fa-sharp fa-solid fa-angle-left"></i>
                                                       Trở lại giỏ hàng
                                                 </a>
-                                                <button class="btn btn-shipping">Tiếp tục chuyển hàng</button>
+                                                <button class="btn btn-shipping"><a href="payment.php">Tiếp tục chuyển hàng</a></button>
                                           </div>
                                     </div>
                               </div>

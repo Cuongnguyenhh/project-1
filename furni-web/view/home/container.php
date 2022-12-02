@@ -160,10 +160,10 @@
                                                             </h5>
                                                             <div class="product-price">
                                                                   <div class="product-current">
-                                                                        <span>$<?= $value['prd_price'] ?></span>
+                                                                        <span><?= $value['prd_price'] ?>₫</span>
                                                                   </div>
                                                                   <div class="product-sale">
-                                                                        <span>$280.00</span>
+                                                                        <span>280.00₫</span>
                                                                   </div>
                                                                   <form class="product-form" action="shop.php?action=viewcart" method="POST" enctype="multipart/form-data">
                                                                         <button class="btn btn-add-cart" name="add-cart" type="submit">

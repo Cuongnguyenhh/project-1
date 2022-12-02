@@ -3994,7 +3994,7 @@ tfoot .total td span:last-child {
   width: 150px;
 }
 .info__navbar {
-  margin-bottom: 20px;
+  margin: 20px;
 }
 .info__navbar-list {
   display: flex;
