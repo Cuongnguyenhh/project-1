@@ -3989,6 +3989,7 @@ tfoot .total td span:last-child {
 
 .info__logo {
   text-align: left;
+  margin-top: 20px;
 }
 .info__link {
   width: 150px;
@@ -4545,7 +4546,7 @@ tfoot .total td span:last-child {
 
 .main-inner {
   display: flex;
-  padding-top: 90px;
+  
 }
 
 .payment {
@@ -4604,7 +4605,7 @@ tfoot .total td span:last-child {
 .shipping-item  {
   border: 1px solid var(--vela-border-color);
   border-radius: 3px;
-  width: 33.3333%;
+  width: 50%;
 }
 
 .shipping-item:hover {

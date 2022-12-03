@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+session_start();
+ob_start();
+?>
 
 <head>
       <?php include_once './view/layout/meta.php' ?>
@@ -10,202 +14,188 @@
       <!-- End Header Area -->
 
       <!--================Home Area =================-->
-      <div class="payment">
-            <div class="payment__container">
-                  <div class="payment__row">
-                        <div class="payment__info">
-                              <header class="header__info">
-                                    <div class="info__logo">
-                                          <a class="info__link" href="index.php">
-                                                <img src="assets/img/logo_dark.svg" alt="Logo Image">
-                                          </a>
-                                    </div>
-                                    <div class="info__navbar">
-                                          <ul class="info__navbar-list">
-                                                <li class="info__navbar-item">
-                                                      <a href="#!">
-                                                            Cart
-                                                            <i class="fa-solid fa-angle-right"></i>
-                                                      </a>
-                                                </li>
-                                                <li class="info__navbar-item">
-                                                      <a href="#!">
-                                                            Information
-                                                            <i class="fa-solid fa-angle-right"></i>
-                                                      </a>
-                                                </li>
-                                                <li class="info__navbar-item">
-                                                      <a href="#!">
-                                                            Shipping
-                                                            <i class="fa-solid fa-angle-right"></i>
-                                                      </a>
-                                                </li>
-                                                <li class="info__navbar-item">
-                                                      <a href="#!">
-                                                            Payment
-                                                      </a>
-                                                </li>
-                                          </ul>
-                                    </div>
-                              </header>
-                              <main class="main__info">
-                                    <div class="info__shipping">
-                                          <form action="#!" class="shipping__form">
-                                                <div class="shipping__table">
-                                                      <div class="shipping__row">
-                                                            <div class="shipping__inner">
-                                                                  <div class="shipping__inner-label">
-                                                                        Contact
-                                                                  </div>
-                                                                  <div class="shipping__inner-content">
-                                                                        mint03sanzz@gmail.com
-                                                                  </div>
-                                                            </div>
-                                                            <div class="shipping__link">
-                                                                  <a href="#!" class="shipping__link-change">
-                                                                        Change
-                                                                  </a>
-                                                            </div>
-                                                      </div>
-                                                      <div class="shipping__row">
-                                                            <div class="shipping__inner">
-                                                                  <div class="shipping__inner-label">
-                                                                        Ship to
-                                                                  </div>
-                                                                  <div class="shipping__inner-content">
-                                                                        HCM, Can 5 Lau, HCM 100000, Vietnam
-                                                                  </div>
-                                                            </div>
-                                                            <div class="shipping__link">
-                                                                  <a href="#!" class="shipping__link-change">
-                                                                        Change
-                                                                  </a>
-                                                            </div>
-                                                      </div>
-                                                      <div class="shipping__row">
-                                                            <div class="shipping__inner">
-                                                                  <div class="shipping__inner-label">
-                                                                        Method
-                                                                  </div>
-                                                                  <div class="shipping__inner-content">
-                                                                        Standard Shipping · $10.00
-                                                                  </div>
-                                                            </div>
-                                                      </div>
-                                                </div>
-                                                <div class="shipping__method">
-                                                      <div class="shipping__header">
-                                                            <h2>Payment</h2>
-                                                      </div>
-                                                      <div class="shipping__content">
-                                                            <div class="content__box">
-                                                                  <div class="blank-slate">
-                                                                        <svg focusable="false" aria-hidden="true" role="img" class="icon-svg icon-svg--size-64 blank-slate__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 78 78">
-                                                                              <g fill="none" fill-rule="evenodd">
-                                                                                    <g transform="translate(1.38 29.486)" stroke="#B3B3B3" stroke-width="4">
-                                                                                          <use mask="url(#d)" fill="#FAFAFA" xlink:href="#a"></use>
-                                                                                          <use mask="url(#b)" fill="#FAFAFA" xlink:href="#b"></use>
-                                                                                          <use mask="url(#f)" xlink:href="#c"></use>
-                                                                                    </g>
-                                                                                    <g transform="translate(49 16)">
-                                                                                          <ellipse cx="13.094" cy="13.094" rx="13.094" ry="13.094" stroke="#B3B3B3" stroke-width="2" fill="#FAFAFA"></ellipse>
-                                                                                          <path d="M13.094 4.676v11.36" stroke="#B3B3B3" stroke-width="2"></path>
-                                                                                          <ellipse fill="#B3B3B3" cx="13.028" cy="20.108" rx="1.403" ry="1.403"></ellipse>
-                                                                                    </g>
-                                                                              </g>
-                                                                        </svg>
-                                                                        <p>
-                                                                              This store can’t accept payments right now.
-                                                                        </p>
-                                                                  </div>
-                                                            </div>
-                                                      </div>
-                                                </div>
-                                          </form>
-                                    </div>
-                              </main>
-                              <footer class="footer__info"> 
-                                    <ul class="footer__if-list">
-                                          <li>
-                                                <a href="#!">Refund policy</a>
+      <?php
+      $add = $_POST['add_contact'];
+      $add2 = $_POST['add2_contact'];
+      $city = $_POST['city_contact'];
+      $total = 0;
+
+      ?>
+      <form action="shop.php?action=order" method="post">
+            <main class="main">
+                  <div class="container">
+                        <header class="header__info">
+                              <div class="info__logo">
+                                    <a class="info__link" href="#">
+                                          <img src="assets/img/logo_dark.svg" alt="Logo Image">
+                                    </a>
+                              </div>
+                              <div class="info__navbar">
+                                    <ul class="info__navbar-list">
+                                          <li class="info__navbar-item">
+                                                <a href="viewcart.php">
+                                                      Giỏ hàng
+                                                      <i class="fa-solid fa-angle-right"></i>
+                                                </a>
                                           </li>
-                                          <li>
-                                                <a href="#!">Shipping policy</a>
+                                          <li class="info__navbar-item">
+                                                <a href="checkout.php">
+                                                      Thông tin
+                                                      <i class="fa-solid fa-angle-right"></i>
+                                                </a>
                                           </li>
-                                          <li>
-                                                <a href="#!">Privacy policy</a>
-                                          </li>
-                                          <li>
-                                                <a href="#!">Terms of service</a>
+                                          <li class="info__navbar-item">
+                                                <a href="payment.php">
+                                                      Thanh toán
+                                                </a>
                                           </li>
                                     </ul>
-                              </footer>
-                        </div>
-                        <div class="payment__total">
-                              <div class="total__products">
-                                   <div class="total__product-list">
-                                          <div class="total__image">
-                                                      <div class="total__thumbnail">
-                                                            <img src="//cdn.shopify.com/s/files/1/1573/5553/products/3_small.jpg?v=1509980332" alt="Thumbnail image">
-                                                      </div>
-                                                      <span>1</span>
-                                          </div>
-                                          <div class="total__desc">
-                                                      <h5 class="total__name">Sacrificial Chair Design</h5>
-                                                      <span class="total__size">XL</span>
-                                          </div>
-                                          <div class="total__price">
-                                                      <span class="money">$130.00</span>
-                                          </div>
-                                   </div>
-                                   
-                                   <div class="total__product-list">
-                                          <div class="total__image">
-                                                      <div class="total__thumbnail">
-                                                            <img src="//cdn.shopify.com/s/files/1/1573/5553/products/3_small.jpg?v=1509980332" alt="Thumbnail image">
-                                                      </div>
-                                                      <span>1</span>
-                                          </div>
-                                          <div class="total__desc">
-                                                      <h5 class="total__name">Sacrificial Chair Design</h5>
-                                                      <span class="total__size">XL</span>
-                                          </div>
-                                          <div class="total__price">
-                                                      <span class="money">$130.00</span>
-                                          </div>
                               </div>
+                        </header>
+                        <div class="main-inner">
+                              <div class="payment">
+                                    <h3 class="payment-title">
+                                          General information
+                                    </h3>
+                                    <div class="payment-group">
+                                          <div class="payment-heading">
+                                                Shipping City
+                                          </div>
+                                          <div class="payment-shipping">
+                                                <div>
+                                                      <h5 class="payment-city"><?= $add2 ?> , <?= $add ?> , <?= $city ?> </h5>
+                                                </div>
+                                                <a href="checkout.php">change</a>
+                                          </div>
+                                    </div>
+                                    <div class="payment-group">
+                                          <div class="payment-heading">
+                                                Shipping Service
+                                          </div>
+                                          <ul class="shipping-list">
+                                                <li class="shipping-item">
+                                                      <a href="#!" class="shipping-active">
+                                                            <i class="fa-solid fa-truck-fast"></i>
+                                                            <div class="shipping-active-content">
+                                                                  <h6 class="shipping-title">
+                                                                        Express delivery
+                                                                  </h6>
+                                                                  <span>We ship in 1-2 hours</span>
+                                                                  <span>$10.00</span>
+                                                            </div>
+                                                      </a>
+                                                </li>
+                                                <li class="shipping-item">
+                                                      <a href="#!" class="shipping-active">
+                                                            <i class="fa-solid fa-truck"></i>
+                                                            <div class="shipping-active-content">
+                                                                  <h6 class="shipping-title">
+                                                                        Standart delivery
+                                                                  </h6>
+                                                                  <span>We ship in 1 day</span>
+                                                                  <span>Free</span>
+                                                            </div>
+                                                      </a>
+                                                </li>
+
+                                          </ul>
+                                    </div>
+                                    <div class="payment-group">
+                                          <div class="payment-heading">
+                                                Payment options
+                                          </div>
+                                          <div class="payment-options">
+                                                <div class="payment-bankcard">
+                                                      <div class="options">
+                                                            <a href="#!">
+                                                                  <i class="fa-regular fa-credit-card"></i>
+                                                                  <div class="payment-content">
+                                                                        <h6 class="payment-title">Bank card</h6>
+                                                                        <span>Pay with Visa, MasterCard, Maestro and Amex</span>
+                                                                  </div>
+                                                            </a>
+                                                      </div>
+                                                      <div class="options">
+                                                            <a href="#!">
+                                                                  <i class="fa-brands fa-cc-paypal"></i>
+                                                                  <div class="payment-content">
+                                                                        <h6 class="payment-title">PayPal</h6>
+                                                                        <span>Simple, more secure way to pay</span>
+                                                                  </div>
+                                                            </a>
+                                                      </div>
+                                                      <div class="options">
+                                                            <a href="#!">
+                                                                  <i class="fa-solid fa-money-check-dollar"></i>
+                                                                  <div class="payment-content">
+                                                                        <h6 class="payment-title">Cash on delivery</h6>
+                                                                        <span>convenient, fast and easy-to-use</span>
+                                                                  </div>
+                                                            </a>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="payment-button">
+                                          <button type="submit" class="btn btn-payment">
+                                                Đặt hàng
+                                          </button>
+                                    </div>
                               </div>
-                              <div class="total__content">
-                                    <table class="total__table">
-                                          <tbody>
-                                                <tr>
-                                                      <th>Subtotal</th>
-                                                      <td>$130.00</td>
-                                                </tr>
-                                                <tr>
-                                                      <th>Shipping</th>
-                                                      <td>$10.00</td>
-                                                </tr>
-                                                <tr>
-                                                      <th>Estimated taxes </th>
-                                                      <td>$13.00</td>
-                                                </tr>
-                                          </tbody>
-                                          <tfoot>
-                                                <tr>
-                                                      <th>Total</th>
-                                                      <td> 
-                                                            <span>USD</span>
-                                                            <span>$153.00</span>
-                                                      </td>
-                                                </tr>
-                                          </tfoot>
-                                    </table>
+                              <div class="order">
+                                    <h5 class="order-title">
+                                          Your order
+                                    </h5>
+                                    <div class="order-products">
+                                          <?php foreach ($_SESSION['viewcart'] as   $value) :
+                                                $total_price = $value[2] * $value[4];
+                                                $total += $total_price; ?>
+                                                <div class="order-product">
+                                                      <div class="order-product-image">
+                                                            <img src="uploads/<?= $value[3] ?>" alt="">
+                                                      </div>
+                                                      <div class="order-product-content">
+                                                            <h3 class="order-product-name">
+                                                                  <?= $value[1] ?>
+                                                            </h3>
+                                                            <div class="order-product-group">
+                                                                  <span class="money"><?= $value[2] ?></span>
+                                                                  <span class="count">x<?= $value[4] ?></span>
+                                                            </div>
+                                                      </div>
+                                                </div>
+                                          <?php endforeach ?>
+                                    </div>
+                                    <div class="order-product-total">
+                                          <div class="total proTotal">
+                                                <span>Total</span>
+                                                <span><?= $total ?></span>
+                                          </div>
+                                    </div>
                               </div>
                         </div>
                   </div>
-            </div>
-      </div>
+            </main>
+      </form>
+      <script>
+            const activePayment = (activeItem) => {
+                  const active = document.querySelectorAll(activeItem)
+                  if (active) {
+                        active.forEach((item) => {
+                              item.addEventListener('click', (e) => {
+                                    active.forEach((item) => {
+                                          item.classList.remove('active');
+                                    });
+                                    e.preventDefault();
+                                    item.classList.add('active');
+                              });
+                        });
+                  }
+            }
+            activePayment('.shipping-item')
+            activePayment('.options a')
+      </script>
       <!--================Home Area =================-->
 
       <?php include_once './view/layout/scrip.php' ?>
