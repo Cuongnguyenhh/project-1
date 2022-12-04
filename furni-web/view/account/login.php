@@ -64,7 +64,7 @@
                             <!-- FORM REGISTER  -->
                             <div id="CreateAccount" class="tab-change ">
                                 <div class="account-register-form">
-                                    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" accept-charset="UTF-8">
+                                    <form method="POST" action="controllers/sigup.php" accept-charset="UTF-8">
                                         <div class="account-form-content">
                                             <div class="row-flex-margin row-flex">
                                                 <div class="c-6 col">
@@ -79,29 +79,20 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" name="email_user" placeholder="Email" required>
+                                                <input type="text" class="form-control" name="email" placeholder="Email" required>
                                             </div>
                                             <div class="form-group form-group--password">
-                                                <input id="pswrd-login" type="password" class="form-control" name="pass_user" placeholder="Mật khẩu" required>
-                                                <span id="toggle-btn-login">Hiện cái con c </span>
+                                                <input id="pswrd-login" type="password" class="form-control" name="psw" placeholder="Mật khẩu" required>
+                                                <span id="toggle-btn-login"> Hiện</span>
                                             </div>
                                             <div class="form-button">
-                                                <input type="submit" class="btn btn-form-login" name="register" value="TẠO TÀI KHOẢN">
+                                                <button type="submit" class="btn btn-form-login" name="signin" > TẠO TÀI KHOẢN"</button>
                                             </div>
                                             <div class="forgot-password">
                                                 <a href="#">Quên mật khẩu?</a>
                                             </div>
                                         </div>
                                     </form>
-                                    <?php
-                                    if (isset($_POST['register'])) {
-                                        $first_name = $_POST['first_name'];
-                                        $last_name = $_POST['last_name'];
-                                        $email_user = $_POST['email_user'];
-                                        $pass_user = $_POST['pass_user'];
-                                        addUser($user, $pass, $email, $phone, $fullname, $address, $rank, $created, $avartar);
-                                    }
-                                    ?>
                                 </div>
                             </div>
                         </div>
