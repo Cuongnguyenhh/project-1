@@ -1,3 +1,6 @@
+<?php
+ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +10,15 @@
 
 <body>
       <!-- Start Header Area -->
-      <?php include './view/layout/header_user.php'?>
+      <?php 
+      if(isset($_SESSION['email']) && ($_SESSION['type'])==1 ){
+      include_once './view/layout/header_admin.php';
+      }elseif(isset($_SESSION['email']) && ($_SESSION['type'])!=1){
+            include_once './view/layout/header_admin_user.php';
+      }else{
+            include_once './view/layout/header.php';
+      }
+       ?>
       <!-- End Header Area -->
 
       <!--================Home Area =================-->

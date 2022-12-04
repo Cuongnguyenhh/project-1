@@ -1,11 +1,17 @@
 <?php  
+session_start();
+ if(!(isset($_SESSION['email']) && ($_SESSION['type'])==1 )){
+    header('location: http://localhost/project-1/furni-web/index.php?action=login');
+ }else{
 require '../config/database.php';
 condb();
 require '../config/controller/product.php';
 require '../config/controller/Catelory.php';
 require '../config/controller/customer.php';
 
-require './user_menu.php';
+
+
+require  './user_menu.php';
 if(isset($_GET['act'])){
     $act =$_GET['act'];
     switch($_GET['act']){
@@ -43,5 +49,6 @@ if(isset($_GET['act'])){
    require_once './navbar.php';
    require_once './mainControll.php';
 }
+ }
 
 ?>

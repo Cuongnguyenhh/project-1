@@ -7,7 +7,15 @@
 
 <body>
     <!-- Start Header Area -->
-    <?php include_once './view/layout/header.php' ?>
+    <?php 
+      if(isset($_SESSION['email']) && ($_SESSION['type'])==1 ){
+      include_once './view/layout/header_admin.php';
+      }elseif(isset($_SESSION['email']) && ($_SESSION['type'])!=1){
+            include_once './view/layout/header_admin_user.php';
+      }else{
+            include_once './view/layout/header.php';
+      }
+       ?>
     <!-- End Header Area -->
 
     <!--================Home Area =================-->
@@ -31,17 +39,17 @@
                             <!-- FORM LOGIN  -->
                             <div id="Login" class="tab-change active">
                                 <div class="account-login-form">
-                                    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" accept-charset="UTF-8">
+                                    <form method="POST" action="controllers/loggin.php" accept-charset="UTF-8">
                                         <div class="account-form-content">
                                             <div class="form-group">
-                                                <input class="form-control" name="email_login" type="text" placeholder="Email">
+                                                <input class="form-control" name="email" type="text" placeholder="Email">
                                             </div>
                                             <div class="form-group form-group--password">
-                                                <input id="pswrd" type="password" name="pass_login" class="form-control" placeholder="Mật khẩu" required>
+                                                <input id="pswrd" type="password" name="psw" class="form-control" placeholder="Mật khẩu" required>
                                                 <a id="toggle-btn">Hiện</a>
                                             </div>
                                             <div class="form-button">
-                                                <input type="submit" name="login" class="btn btn-form-login" value="ĐĂNG NHẬP">
+                                                <button type="submit" name="login" class="btn btn-form-login" >Đăng nhập </button>
                                             </div>
                                             <div class="forgot-password">
                                                 <a href="#">Quên mật khẩu?</a>
@@ -49,30 +57,7 @@
                                         </div>
                                     </form>
                                 </div>
-                                <?php
-                                if (isset($_POST['login']) && ($_POST['login'])) {
-                                    $email_login = $_POST['email_login'];
-                                    $pass_login = $_POST['pass_login'];
-                                    $kq = checkPassword($email_login, $pass_login);
-                                    // xác định admin 
-                                    $checkq = checkRank($id);
-                                    $typeUser = 0;
-                                    foreach ($checkq as $value) {
-                                        $typeUser = $value['rank'];
-                                    }
-                                    if ($kq == 0) {
-                                        echo 'Đăng Nhập thất bại';
-                                    } else {
-                                        // var_dump($kq);
-                                        $_SESSION['user_name'] = $email_login;
-                                        if ($typeUser == 1) {
-                                            header('location: ../admin/index.php');
-                                        } else {
-                                            header('location: ./index.php');
-                                        }
-                                    }
-                                }
-                                ?>
+                    
                             </div>
 
 
@@ -98,7 +83,7 @@
                                             </div>
                                             <div class="form-group form-group--password">
                                                 <input id="pswrd-login" type="password" class="form-control" name="pass_user" placeholder="Mật khẩu" required>
-                                                <span id="toggle-btn-login">Hiện</span>
+                                                <span id="toggle-btn-login">Hiện cái con c </span>
                                             </div>
                                             <div class="form-button">
                                                 <input type="submit" class="btn btn-form-login" name="register" value="TẠO TÀI KHOẢN">
