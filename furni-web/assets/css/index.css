@@ -1766,7 +1766,7 @@ label {
 .spr-review__func-admin {
   display: flex;
   gap: 2rem;
-  display: none;
+  /* display: none; */
 }
 .func-admin__ban {
   text-transform: uppercase;

@@ -1,4 +1,5 @@
 <?php
+require '';
 function getAll_pro(){
     $conn = condb();
     $stmt = $conn->prepare("SELECT ID, prd_name, prd_img, quaility, prd_status, prd_sell_price, id_prd_group, prd_description FROM cms_product");
@@ -15,5 +16,6 @@ function getOne_pro($get_id){
     $pro_one = $stmt -> fetchAll();
     return $pro_one;
     
-   
-}
+  
+   }
+

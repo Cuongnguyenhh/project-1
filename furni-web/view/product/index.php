@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include_once './view/layout/meta.php' ?>
+    <?php 
+            $prd_id = $_GET['id'];
+            include_once './view/layout/meta.php' ;
+            require './controllers/comment.php';
+            $comment = get_coment($prd_id);
+            
+    ?>
 </head>
 <body>
                 <!-- Start Header Area -->
@@ -15,7 +21,7 @@
            include_once './view/layout/header.php';
      }
       ?>
-    ?>
+    
                 <!-- End Header Area -->
     
     <!--================Home Area =================-->

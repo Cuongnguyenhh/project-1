@@ -1,9 +1,10 @@
 <?php
+session_start();
+ob_start();
 include '../../admin_remake/config/database_sqly.php';
 include '../../admin_remake/config/controller/user.php';
 include '../../admin_remake/config/database.php';
- session_start();
- ob_start();
+ 
  if(isset ($_SESSION['email'])){
     header('location:index.php');
  }
@@ -27,6 +28,7 @@ echo $email;
        $_SESSION['email'] = $user['email'];
         $_SESSION['avt']= $user['display_img'];
         $_SESSION['type']= $user['group_id'];
+        $_SESSION['id'] = $user['id'];
         header('location: http://localhost/project-1/furni-web/index.php');
    }
   
