@@ -56,7 +56,11 @@ switch ($action) {
         }
         break;
     case 'login':
+        if(isset ($_SESSION['email'])){
+            header('location:index.php');
+         }else{
         require_once './view/account/login.php';
+         }
         break;
     // case 'register':
     //     require_once './view/account/register.php';

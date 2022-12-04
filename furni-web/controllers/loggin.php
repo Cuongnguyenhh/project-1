@@ -4,9 +4,9 @@ include '../../admin_remake/config/controller/user.php';
 include '../../admin_remake/config/database.php';
  session_start();
  ob_start();
-//  if(isset ($_SESSION['email'])){
-//     header('location:index.php');
-//  }
+ if(isset ($_SESSION['email'])){
+    header('location:index.php');
+ }
 $email = $_POST['email'];
 $psw = md5($_POST['psw']);
 echo $psw;
@@ -22,8 +22,14 @@ echo $email;
        echo "Dang nhap thanh cong";
        $user_one = getOne_user($email);
        foreach($user_one as $user){
-        echo $user['email'];
+        // echo $user['email'];
        }
+       $_SESSION['email'] = $user['email'];
+        echo $_SESSION['email'];
+        $_SESSION['avt']= $user['display_img'];
+        $_SESSION['type']= $user['group_id'];
    }
+  
  }
+ 
 ?>

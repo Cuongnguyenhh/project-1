@@ -152,7 +152,7 @@
                                                 <a href="index.php?action=user">Tài khoản của tôi</a>
                                           </li>
                                           <li class="header-bars-item">
-                                                <a href="index.php?action=register"><i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                                <a href="controllers/logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i>
                                                       Đăng xuất
                                                 </a>
                                           </li>
