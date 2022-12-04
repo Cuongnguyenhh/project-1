@@ -1,3 +1,11 @@
+<?php
+require_once '../admin_remake/config/database.php';
+$conn =condb();
+require_once '../admin_remake/config/controller/user.php';
+$userOne = getOne_user($_SESSION['email']);
+foreach($userOne as $user){
+}
+?>
 <div class="app">
       <header class="header">
             <div class="container">
@@ -143,8 +151,8 @@
                               <div class="header-bars">
                                     <div class="header-bars__user">
                                           <a class="header-bars__user-link" href="acc_manager.php">
-                                                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1143&q=80" alt="">
-                                                <span class="header-bars__user-name">mintsanzz</span>
+                                                <img src="uploads/<?php echo $user['display_img']?>" alt="">
+                                                <span class="header-bars__user-name"><?php echo $user['display_name'] ?></span>
                                           </a>
                                     </div>
                                     <ul class="header-bars-list">
