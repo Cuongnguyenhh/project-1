@@ -31,7 +31,6 @@ ob_start();
                                           <li>
                                                 <a href="checkout.php">Thông tin</a></i>
                                           </li>
-
                                     </ul>
                               </div>
                               <div class="checkout-main">
@@ -89,7 +88,7 @@ ob_start();
                                                                   <i class="fa-sharp fa-solid fa-angle-left"></i>
                                                                   Trở lại giỏ hàng
                                                             </a>
-                                                            <button type="submit" class="btn btn-shipping">Tiếp tục chuyển hàng</a></button>
+                                                            <button type="submit" class="btn btn-shipping"  >Tiếp tục chuyển hàng</a></button>
                                                       </div>
                                                       
                                                 </form>
@@ -123,13 +122,13 @@ ob_start();
                                                 <tr class="product__item">
                                                       <td class="product__image">
                                                             <img src="uploads/<?= $value[3] ?>" alt="">
+                                                            <span class="product__quantity"><?=$value[4]?></span>
                                                       </td>
                                                       <td class="product__desc">
                                                             <?= $value[1] ?>
                                                       </td>
                                                       <td class="product__price">
                                                             <span><?= $value[2] ?></span>
-                                                            <span class="count">x<?=$value[4]?></span>
                                                       </td>
                                                 </tr>
                                           </table>
@@ -183,6 +182,11 @@ ob_start();
       <!-- End footer Area -->
 
       <?php include_once './view/layout/scrip.php' ?>
+      <script>
+            const form = document.querySelector('.shipping__form')
+            const email = document.getElementsByName('email_contact')
+
+      </script>
 </body>
 
 </html>

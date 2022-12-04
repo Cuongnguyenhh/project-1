@@ -43,7 +43,8 @@ switch ($action) {
             }
             if ($flag == 0) {
                 $arr = array($id, $name_cart, $price_cart, $img_cart, $amount);
-                array_push($_SESSION['viewcart'], $arr);
+                // array_push($_SESSION['viewcart'], $arr);
+                $_SESSION['viewcart'][] = $arr;
             }
         }
         header('location:viewcart.php');

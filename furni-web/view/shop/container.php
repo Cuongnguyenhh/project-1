@@ -29,27 +29,27 @@
                                           <div class="color-content">
                                                 <ul class="color-list">
                                                       <li class="color-item">
-                                                            <a class="color-item-link" style="background-color: black;">
+                                                            <a href="" class="color-item-link" style="background-color: black;">
                                                                   <img src="assets/img/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                       <li class="color-item">
-                                                            <a class="color-item-link" style="background-color: grey;">
+                                                            <a href="" class="color-item-link" style="background-color: grey;">
                                                                   <img src="assets/img/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                       <li class="color-item">
-                                                            <a class="color-item-link" style="background-color: indianred;">
+                                                            <a href="" class="color-item-link" style="background-color: indianred;">
                                                                   <img src="assets/img/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                       <li class="color-item">
-                                                            <a class="color-item-link" style="background-color: lightgrey;">
+                                                            <a href="" class="color-item-link" style="background-color: lightgrey;">
                                                                   <img src="assets/img/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                       <li class="color-item">
-                                                            <a class="color-item-link" style="background-color: white;">
+                                                            <a href="" class="color-item-link" style="background-color: brown;">
                                                                   <img src="assets/img/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>

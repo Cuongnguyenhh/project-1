@@ -2430,11 +2430,7 @@ fieldset {
     margin: 0 auto;
   }
 }
-@media (min-width: 992px) and (max-width: 1219px) {
-  .vela-aside {
-    display: none !important;
-  }
-}
+
 @media (max-width: 768px) and (min-width: 992px) {
   .vela-aside {
     display: none;
@@ -2544,6 +2540,7 @@ fieldset {
 
 .cart-item-wrap .cart-quantity input {
   width: 100px;
+  --height-cart: 36px;
   height: 36px;
   font-size: 18px;
   font-weight: 500;
@@ -2553,6 +2550,35 @@ fieldset {
   color: #666;
   padding: 10px 0;
   text-align: center;
+}
+
+
+.addcard-qty-minus {
+  left: 0;
+  width: 35px;
+  height: 36px;
+  line-height: 14px;
+  border: 0;
+  background-color: transparent;
+  color: #1a1a1a;
+  position: absolute;
+  font-size: 20px;
+  font-weight: 300;
+  padding: 1px 6px;
+}
+
+.addcard-qty-plus {
+  right: 0;
+  width: 35px;
+  height: 36px;
+  line-height: 14px;
+  border: 0;
+  background-color: transparent;
+  color: #1a1a1a;
+  position: absolute;
+  font-size: 20px;
+  font-weight: 300;
+  padding: 1px 6px;
 }
 
 .cart-qty-minus {
@@ -3459,10 +3485,11 @@ fieldset {
 .sidebar__table .product__item .product__image {
   height: 64px;
   width: 64px;
-  overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border-radius: 6px;
+  position: relative;
 }
+
 
 .sidebar__table .product__item {
   margin-bottom: 20px;
@@ -3484,6 +3511,20 @@ fieldset {
 
 .product__item .product__price {
   text-align: right;
+}
+
+.product__quantity {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  border-radius: 100rem;
+  width: 20px;
+  height: 20px;
+  background-color: var(--vela-color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
 }
 
 .product__item .product__price span {
@@ -4538,3 +4579,267 @@ tfoot .total td span:last-child {
 .content__button button:hover {
   background: var(--vela-color-primary);
 }
+<<<<<<< HEAD
+=======
+
+
+
+
+/* PAYMENT */
+
+.main-inner {
+  display: flex;
+  
+}
+
+.payment {
+  width: 75%;
+  padding: 20px;
+}
+
+.payment-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: var(--vela-text-color-secondary);
+}
+
+.payment-group {
+  margin-bottom: 20px;
+}
+
+.payment-heading {
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.payment-shipping {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--vela-border-color);
+  border-radius: 3px;
+  padding: 10px 20px;
+}
+
+.payment-shipping > div {
+  display: flex;
+  align-items: center;
+}
+
+.payment-shipping .payment-city {
+  color: var(--vela-color-primary);
+  margin-right: 10px;
+}
+
+.payment-shipping a {
+  margin-left: auto;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.shipping-list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.shipping-item  {
+  border: 1px solid var(--vela-border-color);
+  border-radius: 3px;
+  width: 50%;
+}
+
+.shipping-item:hover {
+  border-color: var(--vela-color-primary);
+}
+
+.shipping-item.active {
+  background-color: var(--vela-color-primary);
+}
+
+.shipping-item.active .shipping-active {
+  color: var(--white);
+}
+
+.shipping-active {
+  display: flex;
+  padding: 20px;
+}
+
+.shipping-active i {
+  margin-right: 10px;
+  font-size: 22px;
+}
+.shipping-active i::before {
+  font-size: 22px;
+}
+
+.shipping-active-content > span {
+  display: block;
+}
+
+.shipping-title {
+  font-weight: 400;
+}
+.options {
+  margin-bottom: 20px;
+}
+.options a{
+  display: flex;
+  padding: 20px;
+  border: 1px solid var(--vela-border-color);
+  transition: border .3s ease-in, color .3s ease-in-out, background .3s ease-out;
+  border-radius: 3px;
+}
+
+.options a:hover {
+  border-color: var(--vela-color-primary);
+  cursor: pointer;
+}
+.options a.active {
+  background-color: var(--vela-color-primary);
+  color: var(--white);
+}
+
+.options a.active .payment-title {
+  color: white;
+}
+
+.options i{
+  font-size: 22px;
+  margin-right: 20px;
+}
+
+.options i::before {
+  font-size: 22px;
+}
+.options .payment-title {
+  margin: 0;
+}
+
+.payment-button {
+  text-align: center;
+}
+.payment-button .btn-payment {
+  border-radius: 100rem;
+  padding: 10px 30px;
+  background-color: var(--vela-color-primary);
+  color: var(--white);
+}
+
+.order {
+  width: 25%;
+  padding: 20px;
+}
+.order-title {
+  margin-bottom: 40px;
+}
+
+.order-products {
+  border-bottom: 1px  solid var(--vela-border-color);
+}
+.order-product {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.order-product-image {
+  width: 80px;
+  height: 80px;
+  border: 1px solid var(--vela-border-color);
+  position: relative;
+  margin-right: 20px;
+}
+
+.order-product-image img {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.order-product-group .money {
+  margin-right: 10px;
+}
+
+.order-product-total {
+  margin-bottom: 20px;
+}
+.proTotal {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-edit-order {
+  border-radius: 100rem;
+  padding: 10px 30px;
+  border: 1px solid var(--vela-color-primary);
+  color: var(--vela-color-primary);
+  transition: color .3s ease-in, background .3s ease-out;
+}
+
+.btn-edit-order:hover {
+  background-color: var(--vela-color-primary);
+  color: var(--white);
+}
+
+
+.drawer-product-link {
+  position: relative;
+}
+
+.drawer__quantity {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--vela-color-primary);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100rem;
+}
+
+
+@media screen and (max-width: 991px) {
+  .vela-aside {
+    display: none;
+  }
+  .vela-product .c-9 {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+  .banner-navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .product-box .c-3 {
+    max-width: 50%;
+    flex: 0 0 50%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .product-box .c-3 {
+    max-width: 33.33333%;
+    flex: 0 0 33.33333%;
+  }
+}
+
+@media screen and (min-width: 1220px) {
+  .product-box .c-3 {
+    max-width: 25%;
+    flex: 0 0 25%;
+  }
+}
+>>>>>>> ee1e7483be960c4f88245e5db372f78186484f38
