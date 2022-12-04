@@ -61,12 +61,9 @@ switch ($action) {
     case 'register':
         require_once './view/account/register.php';
         break;
-    case 'checkout':
-        if (isset($_POST['checkout'])) {
-            header('location: checkout.php');
-            break;
-        }
-        
+    case 'user':
+        require_once './view/account/acc_manager.php';
+        break;
     default:
         require_once './view/home/index.php';
         break;

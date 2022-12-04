@@ -132,14 +132,14 @@
                                           <div class="column c-3 col">
                                                 <div class="product">
                                                       <div class="product-image">
-                                                            <a class="product-image-link" href="#!">
+                                                            <div class="product-image-link">
                                                                   <img src="uploads/<?= $value['prd_img'] ?>" alt="product-image">
                                                                   <div class="product-hover-image">
                                                                         <div class="product-change-image">
                                                                               <img src="uploads/<?= $value['prd_img'] ?>" alt="product-change-style">
                                                                         </div>
                                                                   </div>
-                                                            </a>
+                                                            </div>
                                                             <div class="product-label-sale">
                                                                   <span>Sale</span>
                                                             </div>
@@ -160,13 +160,13 @@
                                                             </h5>
                                                             <div class="product-price">
                                                                   <div class="product-current">
-                                                                        <span>$<?= $value['prd_price'] ?></span>
+                                                                        <span><?= $value['prd_price'] ?>₫</span>
                                                                   </div>
                                                                   <div class="product-sale">
-                                                                        <span>$280.00</span>
+                                                                        <span>280.00₫</span>
                                                                   </div>
-                                                                  <form class="product-form" action="#" method="POST" enctype="multipart/form-data">
-                                                                        <button class="btn btn-add-cart">
+                                                                  <form class="product-form" action="shop.php?action=viewcart" method="POST" enctype="multipart/form-data">
+                                                                        <button class="btn btn-add-cart" name="add-cart" type="submit">
                                                                               <i class="icons">
                                                                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
                                                                                           <g>
@@ -179,6 +179,11 @@
                                                                               </i>
                                                                               <span>Add to Cart</span>
                                                                         </button>
+                                                                        <input type="hidden" name="id_pro" value="<?= $value['ID'] ?>">
+                                                                        <input type="hidden" name="name_pro" value="<?= $value['prd_name'] ?>">
+                                                                        <input type="hidden" name="price_pro" value="<?= $value['prd_price'] ?>">
+                                                                        <input type="hidden" name="img_pro" value="<?= $value['prd_img'] ?>">
+                                                                        <input type="hidden" name="amount_pro" value="1">
                                                                   </form>
                                                             </div>
 
@@ -228,7 +233,7 @@
                         <div class="swiper swiper-effect slide-card-swiper">
                               <div class="swiper-wrapper">
                                     <?php
-                                    $top = 4;
+                                    $top = 6;
                                     $offset = 0;
                                     $kq = getProductByOffset($offset, $top);
                                     foreach ($kq as $value) : ?>
@@ -236,14 +241,14 @@
                                                 <div class="product">
                                                       <div class="product-image">
 
-                                                            <a class="product-image-link" href="index.php?act=detail&id=<?= $value['ID'] ?>">
+                                                            <div class="product-image-link">
                                                                   <img src="uploads/<?= $value['prd_img'] ?>" alt="product-image">
                                                                   <div class="product-hover-image">
                                                                         <div class="product-change-image">
                                                                               <img src="uploads/<?= $value['prd_img'] ?>" alt="product-change-style">
                                                                         </div>
                                                                   </div>
-                                                            </a>
+                                                            </div>
                                                             <div class="product-label-sale">
                                                                   <span>Sale</span>
                                                             </div>
@@ -295,71 +300,15 @@
                                     <div class="swiper-slide">
                                           <div class="product">
                                                 <div class="product-image">
-                                                      <a class="product-image-link" href="detail.php">
-                                                            <img src="assets/img/product-1.webp" alt="product-image">
-                                                            <div class="product-hover-image">
-                                                                  <div class="product-change-image">
-                                                                        <img src="assets/img/product-hover-1.webp" alt="product-change-style">
-                                                                  </div>
-                                                            </div>
-                                                      </a>
-                                                      <div class="product-label-sale">
-                                                            <span>Sale</span>
-                                                      </div>
-                                                      <div class="product-quick-view">
-                                                            <a class="btn btn-product-view btn-quick-view" href="#">
-                                                                  <span class="icons">
-                                                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                                                                              <path d="M344.5,298c15-23.6,23.8-51.6,23.8-81.7c0-84.1-68.1-152.3-152.1-152.3C132.1,64,64,132.2,64,216.3c0,84.1,68.1,152.3,152.1,152.3c30.5,0,58.9-9,82.7-24.4l6.9-4.8L414.3,448l33.7-34.3L339.5,305.1L344.5,298z M301.4,131.2c22.7,22.7,35.2,52.9,35.2,85c0,32.1-12.5,62.3-35.2,85c-22.7,22.7-52.9,35.2-85,35.2c-32.1,0-62.3-12.5-85-35.2c-22.7-22.7-35.2-52.9-35.2-85c0-32.1,12.5-62.3,35.2-85c22.7-22.7,52.9-35.2,85-35.2C248.5,96,278.7,108.5,301.4,131.2z">
-                                                                              </path>
-                                                                        </svg>
-                                                                  </span>
-                                                            </a>
-                                                      </div>
-                                                </div>
-                                                <div class="product-content">
-                                                      <h5 class="product-title">
-                                                            <a class="product-title-link" href="detail.php">Ghế công
-                                                                  thái học</a>
-                                                      </h5>
-                                                      <div class="product-price">
-                                                            <div class="product-current">
-                                                                  <span>$260.00</span>
-                                                            </div>
-                                                            <div class="product-sale">
-                                                                  <span>$280.00</span>
-                                                            </div>
-                                                            <form class="product-form" action="#" method="POST" enctype="multipart/form-data">
-                                                                  <button class="btn btn-add-cart">
-                                                                        <i class="icons">
-                                                                              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-                                                                                    <g>
-                                                                                          <g>
-                                                                                                <path d="M416,277.333H277.333V416h-42.666V277.333H96v-42.666h138.667V96h42.666v138.667H416V277.333z">
-                                                                                                </path>
-                                                                                          </g>
-                                                                                    </g>
-                                                                              </svg>
-                                                                        </i>
-                                                                        <span>Thêm vào giỏ hàng</span>
-                                                                  </button>
-                                                            </form>
-                                                      </div>
 
-                                                </div>
-                                          </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                          <div class="product">
-                                                <div class="product-image">
-                                                      <a class="product-image-link" href="detail.php">
-                                                            <img src="assets/img/product-1.webp" alt="product-image">
+                                                      <div class="product-image-link">
+                                                            <img src="uploads/<?= $value['prd_img'] ?>" alt="product-image">
                                                             <div class="product-hover-image">
                                                                   <div class="product-change-image">
-                                                                        <img src="assets/img/product-hover-1.webp" alt="product-change-style">
+                                                                        <img src="uploads/<?= $value['prd_img'] ?>" alt="product-change-style">
                                                                   </div>
                                                             </div>
-                                                      </a>
+                                                      </div>
                                                       <div class="product-label-sale">
                                                             <span>Sale</span>
                                                       </div>
@@ -376,12 +325,11 @@
                                                 </div>
                                                 <div class="product-content">
                                                       <h5 class="product-title">
-                                                            <a class="product-title-link" href="detail.php">Ghế công
-                                                                  thái học</a>
+                                                            <a class="product-title-link" href="index.php?act=detail&id=' . $value['ID'] . '"><?= $value['prd_name'] ?></a>
                                                       </h5>
                                                       <div class="product-price">
                                                             <div class="product-current">
-                                                                  <span>$260.00</span>
+                                                                  <span>$<?= $value['prd_price'] ?></span>
                                                             </div>
                                                             <div class="product-sale">
                                                                   <span>$280.00</span>
@@ -398,235 +346,7 @@
                                                                                     </g>
                                                                               </svg>
                                                                         </i>
-                                                                        <span>Thêm vào giỏ hàng</span>
-                                                                  </button>
-                                                            </form>
-                                                      </div>
-
-                                                </div>
-                                          </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                          <div class="product">
-                                                <div class="product-image">
-                                                      <a class="product-image-link" href="detail.php">
-                                                            <img src="assets/img/product-1.webp" alt="product-image">
-                                                            <div class="product-hover-image">
-                                                                  <div class="product-change-image">
-                                                                        <img src="assets/img/product-hover-1.webp" alt="product-change-style">
-                                                                  </div>
-                                                            </div>
-                                                      </a>
-                                                      <div class="product-label-sale">
-                                                            <span>Sale</span>
-                                                      </div>
-                                                      <div class="product-quick-view">
-                                                            <a class="btn btn-product-view btn-quick-view" href="#">
-                                                                  <span class="icons">
-                                                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                                                                              <path d="M344.5,298c15-23.6,23.8-51.6,23.8-81.7c0-84.1-68.1-152.3-152.1-152.3C132.1,64,64,132.2,64,216.3c0,84.1,68.1,152.3,152.1,152.3c30.5,0,58.9-9,82.7-24.4l6.9-4.8L414.3,448l33.7-34.3L339.5,305.1L344.5,298z M301.4,131.2c22.7,22.7,35.2,52.9,35.2,85c0,32.1-12.5,62.3-35.2,85c-22.7,22.7-52.9,35.2-85,35.2c-32.1,0-62.3-12.5-85-35.2c-22.7-22.7-35.2-52.9-35.2-85c0-32.1,12.5-62.3,35.2-85c22.7-22.7,52.9-35.2,85-35.2C248.5,96,278.7,108.5,301.4,131.2z">
-                                                                              </path>
-                                                                        </svg>
-                                                                  </span>
-                                                            </a>
-                                                      </div>
-                                                </div>
-                                                <div class="product-content">
-                                                      <h5 class="product-title">
-                                                            <a class="product-title-link" href="detail.php">Ghế công
-                                                                  thái học</a>
-                                                      </h5>
-                                                      <div class="product-price">
-                                                            <div class="product-current">
-                                                                  <span>$260.00</span>
-                                                            </div>
-                                                            <div class="product-sale">
-                                                                  <span>$280.00</span>
-                                                            </div>
-                                                            <form class="product-form" action="#" method="POST" enctype="multipart/form-data">
-                                                                  <button class="btn btn-add-cart">
-                                                                        <i class="icons">
-                                                                              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-                                                                                    <g>
-                                                                                          <g>
-                                                                                                <path d="M416,277.333H277.333V416h-42.666V277.333H96v-42.666h138.667V96h42.666v138.667H416V277.333z">
-                                                                                                </path>
-                                                                                          </g>
-                                                                                    </g>
-                                                                              </svg>
-                                                                        </i>
-                                                                        <span>Thêm vào giỏ hàng</span>
-                                                                  </button>
-                                                            </form>
-                                                      </div>
-
-                                                </div>
-                                          </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                          <div class="product">
-                                                <div class="product-image">
-                                                      <a class="product-image-link" href="detail.php">
-                                                            <img src="assets/img/product-1.webp" alt="product-image">
-                                                            <div class="product-hover-image">
-                                                                  <div class="product-change-image">
-                                                                        <img src="assets/img/product-hover-1.webp" alt="product-change-style">
-                                                                  </div>
-                                                            </div>
-                                                      </a>
-                                                      <div class="product-label-sale">
-                                                            <span>Sale</span>
-                                                      </div>
-                                                      <div class="product-quick-view">
-                                                            <a class="btn btn-product-view btn-quick-view" href="#">
-                                                                  <span class="icons">
-                                                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                                                                              <path d="M344.5,298c15-23.6,23.8-51.6,23.8-81.7c0-84.1-68.1-152.3-152.1-152.3C132.1,64,64,132.2,64,216.3c0,84.1,68.1,152.3,152.1,152.3c30.5,0,58.9-9,82.7-24.4l6.9-4.8L414.3,448l33.7-34.3L339.5,305.1L344.5,298z M301.4,131.2c22.7,22.7,35.2,52.9,35.2,85c0,32.1-12.5,62.3-35.2,85c-22.7,22.7-52.9,35.2-85,35.2c-32.1,0-62.3-12.5-85-35.2c-22.7-22.7-35.2-52.9-35.2-85c0-32.1,12.5-62.3,35.2-85c22.7-22.7,52.9-35.2,85-35.2C248.5,96,278.7,108.5,301.4,131.2z">
-                                                                              </path>
-                                                                        </svg>
-                                                                  </span>
-                                                            </a>
-                                                      </div>
-                                                </div>
-                                                <div class="product-content">
-                                                      <h5 class="product-title">
-                                                            <a class="product-title-link" href="detail.php">Ghế công
-                                                                  thái học</a>
-                                                      </h5>
-                                                      <div class="product-price">
-                                                            <div class="product-current">
-                                                                  <span>$260.00</span>
-                                                            </div>
-                                                            <div class="product-sale">
-                                                                  <span>$280.00</span>
-                                                            </div>
-                                                            <form class="product-form" action="#" method="POST" enctype="multipart/form-data">
-                                                                  <button class="btn btn-add-cart">
-                                                                        <i class="icons">
-                                                                              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-                                                                                    <g>
-                                                                                          <g>
-                                                                                                <path d="M416,277.333H277.333V416h-42.666V277.333H96v-42.666h138.667V96h42.666v138.667H416V277.333z">
-                                                                                                </path>
-                                                                                          </g>
-                                                                                    </g>
-                                                                              </svg>
-                                                                        </i>
-                                                                        <span>Thêm vào giỏ hàng</span>
-                                                                  </button>
-                                                            </form>
-                                                      </div>
-
-                                                </div>
-                                          </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                          <div class="product">
-                                                <div class="product-image">
-                                                      <a class="product-image-link" href="detail.php">
-                                                            <img src="assets/img/product-1.webp" alt="product-image">
-                                                            <div class="product-hover-image">
-                                                                  <div class="product-change-image">
-                                                                        <img src="assets/img/product-hover-1.webp" alt="product-change-style">
-                                                                  </div>
-                                                            </div>
-                                                      </a>
-                                                      <div class="product-label-sale">
-                                                            <span>Sale</span>
-                                                      </div>
-                                                      <div class="product-quick-view">
-                                                            <a class="btn btn-product-view btn-quick-view" href="#">
-                                                                  <span class="icons">
-                                                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                                                                              <path d="M344.5,298c15-23.6,23.8-51.6,23.8-81.7c0-84.1-68.1-152.3-152.1-152.3C132.1,64,64,132.2,64,216.3c0,84.1,68.1,152.3,152.1,152.3c30.5,0,58.9-9,82.7-24.4l6.9-4.8L414.3,448l33.7-34.3L339.5,305.1L344.5,298z M301.4,131.2c22.7,22.7,35.2,52.9,35.2,85c0,32.1-12.5,62.3-35.2,85c-22.7,22.7-52.9,35.2-85,35.2c-32.1,0-62.3-12.5-85-35.2c-22.7-22.7-35.2-52.9-35.2-85c0-32.1,12.5-62.3,35.2-85c22.7-22.7,52.9-35.2,85-35.2C248.5,96,278.7,108.5,301.4,131.2z">
-                                                                              </path>
-                                                                        </svg>
-                                                                  </span>
-                                                            </a>
-                                                      </div>
-                                                </div>
-                                                <div class="product-content">
-                                                      <h5 class="product-title">
-                                                            <a class="product-title-link" href="detail.php">Ghế công
-                                                                  thái học</a>
-                                                      </h5>
-                                                      <div class="product-price">
-                                                            <div class="product-current">
-                                                                  <span>$260.00</span>
-                                                            </div>
-                                                            <div class="product-sale">
-                                                                  <span>$280.00</span>
-                                                            </div>
-                                                            <form class="product-form" action="#" method="POST" enctype="multipart/form-data">
-                                                                  <button class="btn btn-add-cart">
-                                                                        <i class="icons">
-                                                                              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-                                                                                    <g>
-                                                                                          <g>
-                                                                                                <path d="M416,277.333H277.333V416h-42.666V277.333H96v-42.666h138.667V96h42.666v138.667H416V277.333z">
-                                                                                                </path>
-                                                                                          </g>
-                                                                                    </g>
-                                                                              </svg>
-                                                                        </i>
-                                                                        <span>Thêm vào giỏ hàng</span>
-                                                                  </button>
-                                                            </form>
-                                                      </div>
-
-                                                </div>
-                                          </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                          <div class="product">
-                                                <div class="product-image">
-                                                      <a class="product-image-link" href="detail.php">
-                                                            <img src="assets/img/product-1.webp" alt="product-image">
-                                                            <div class="product-hover-image">
-                                                                  <div class="product-change-image">
-                                                                        <img src="assets/img/product-hover-1.webp" alt="product-change-style">
-                                                                  </div>
-                                                            </div>
-                                                      </a>
-                                                      <div class="product-label-sale">
-                                                            <span>Sale</span>
-                                                      </div>
-                                                      <div class="product-quick-view">
-                                                            <a class="btn btn-product-view btn-quick-view" href="#">
-                                                                  <span class="icons">
-                                                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                                                                              <path d="M344.5,298c15-23.6,23.8-51.6,23.8-81.7c0-84.1-68.1-152.3-152.1-152.3C132.1,64,64,132.2,64,216.3c0,84.1,68.1,152.3,152.1,152.3c30.5,0,58.9-9,82.7-24.4l6.9-4.8L414.3,448l33.7-34.3L339.5,305.1L344.5,298z M301.4,131.2c22.7,22.7,35.2,52.9,35.2,85c0,32.1-12.5,62.3-35.2,85c-22.7,22.7-52.9,35.2-85,35.2c-32.1,0-62.3-12.5-85-35.2c-22.7-22.7-35.2-52.9-35.2-85c0-32.1,12.5-62.3,35.2-85c22.7-22.7,52.9-35.2,85-35.2C248.5,96,278.7,108.5,301.4,131.2z">
-                                                                              </path>
-                                                                        </svg>
-                                                                  </span>
-                                                            </a>
-                                                      </div>
-                                                </div>
-                                                <div class="product-content">
-                                                      <h5 class="product-title">
-                                                            <a class="product-title-link" href="detail.php">Ghế công
-                                                                  thái học</a>
-                                                      </h5>
-                                                      <div class="product-price">
-                                                            <div class="product-current">
-                                                                  <span>$260.00</span>
-                                                            </div>
-                                                            <div class="product-sale">
-                                                                  <span>$280.00</span>
-                                                            </div>
-                                                            <form class="product-form" action="#" method="POST" enctype="multipart/form-data">
-                                                                  <button class="btn btn-add-cart">
-                                                                        <i class="icons">
-                                                                              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-                                                                                    <g>
-                                                                                          <g>
-                                                                                                <path d="M416,277.333H277.333V416h-42.666V277.333H96v-42.666h138.667V96h42.666v138.667H416V277.333z">
-                                                                                                </path>
-                                                                                          </g>
-                                                                                    </g>
-                                                                              </svg>
-                                                                        </i>
-                                                                        <span>Thêm vào giỏ hàng</span>
+                                                                        <span>Add to Cart</span>
                                                                   </button>
                                                             </form>
                                                       </div>
@@ -639,7 +359,6 @@
                               </div>
                               <div class="swiper-button-prev fa-solid fa-angle-left slide-card-prev slide-swiper-prev">
                               </div>
-                              <div class="swiper-pagination"></div>
                         </div>
                   </div>
             </div>

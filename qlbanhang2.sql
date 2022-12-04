@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 27, 2022 lúc 08:09 AM
+-- Thời gian đã tạo: Th12 04, 2022 lúc 07:11 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.4
 
@@ -161,6 +161,8 @@ CREATE TABLE `cms_order` (
   `price` double NOT NULL,
   `total_prd` int(11) NOT NULL,
   `prd_id` int(10) DEFAULT NULL,
+  `shipping` int(11) NOT NULL DEFAULT 0,
+  `payment` int(11) NOT NULL DEFAULT 0,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -181,7 +183,7 @@ CREATE TABLE `cms_product` (
   `prd_price` float NOT NULL,
   `prd_name` varchar(100) DEFAULT NULL,
   `quaility` int(11) NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `prd_description` varchar(255) NOT NULL,
   `id_color` int(10) NOT NULL,
   `id_sort` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -190,34 +192,31 @@ CREATE TABLE `cms_product` (
 -- Đang đổ dữ liệu cho bảng `cms_product`
 --
 
-INSERT INTO `cms_product` (`ID`, `id_prd_group`, `id_pro_manufacture`, `prd_img`, `prd_status`, `create`, `prd_sell_price`, `prd_price`, `prd_name`, `quaility`, `description`, `id_color`, `id_sort`) VALUES
-(36, 0, 0, 'beige_14__1600x1200__c866c2a9346e44498e8e6b045922a081_large.webp', 1, '0000-00-00', 4050000, 3500000, 'Sofa băng ALICE', 0, '', 0, 0),
-(37, 0, 0, 'xamnhat_ecd5d6311c71402c9e2389c20e021864_large.webp', 1, '0000-00-00', 9756000, 9000000, 'Sofa băng JASMIN', 2, '', 0, 0),
-(38, 0, 0, 'moana.webp', 1, '0000-00-00', 9855000, 9000000, 'Sofa MOANA', 2, '', 0, 0),
-(39, 0, 0, 'hiro.webp', 1, '0000-00-00', 12105000, 1100000, 'Sofa HIRO', 1800, '', 0, 0),
-(40, 0, 0, 'anna.webp', 1, '0000-00-00', 13365000, 12000000, 'Sofa ANNA', 2000, '', 0, 0),
-(41, 0, 0, 'lam.webp', 1, '0000-00-00', 1344000, 1000000, 'Tủ quần áo LAM', 1300, '', 0, 0),
-(42, 0, 0, 'ez.webp', 1, '0000-00-00', 2800000, 2000000, 'Tủ quần áo EZ', 1500, '', 0, 0),
-(43, 0, 0, 'johy.webp', 1, '0000-00-00', 12480000, 12000000, 'Tủ quần áo JOHY', 1700, '', 0, 0),
-(44, 0, 0, 'quada.webp', 1, '0000-00-00', 18870000, 17000000, 'Tủ quần áo QUADA', 1900, '', 0, 0),
-(45, 0, 0, 'dalat grace.webp', 1, '0000-00-00', 5525000, 5000000, 'Tủ quần áo DALAT GRACE', 2100, '', 0, 0),
-(46, 1, 0, 'Doer.webp', 1, '0000-00-00', 1317500, 1000000, 'Bàn DOER', 2300, '', 0, 0),
+INSERT INTO `cms_product` (`ID`, `id_prd_group`, `id_pro_manufacture`, `prd_img`, `prd_status`, `create`, `prd_sell_price`, `prd_price`, `prd_name`, `quaility`, `prd_description`, `id_color`, `id_sort`) VALUES
+(38, 2, 0, 'moana.webp', 1, '0000-00-00', 9855000, 9000000, 'Sofa MOANA', 2, '', 0, 0),
+(39, 2, 0, 'hiro.webp', 1, '0000-00-00', 12105000, 1100000, 'Sofa HIRO', 1800, '', 0, 0),
+(40, 2, 0, 'anna.webp', 1, '0000-00-00', 13365000, 12000000, 'Sofa ANNA', 2000, '', 0, 0),
+(41, 2, 0, 'lam.webp', 1, '0000-00-00', 1344000, 1000000, 'Tủ quần áo LAM', 1300, '', 0, 0),
+(42, 2, 0, 'ez.webp', 1, '0000-00-00', 2800000, 2000000, 'Tủ quần áo EZ', 1500, '', 0, 0),
+(43, 2, 0, 'johy.webp', 1, '0000-00-00', 12480000, 12000000, 'Tủ quần áo JOHY', 1700, '', 0, 0),
+(44, 2, 0, 'quada.webp', 1, '0000-00-00', 18870000, 17000000, 'Tủ quần áo QUADA', 1900, '', 0, 0),
+(46, 2, 0, 'Doer.webp', 1, '0000-00-00', 1317500, 1000000, 'Bàn DOER', 0, '', 0, 0),
 (47, 0, 0, 'victor.webp', 1, '0000-00-00', 1960000, 1500000, 'Bàn VICTOR', 2500, '', 0, 0),
 (48, 0, 0, 'fighter.webp', 1, '0000-00-00', 1960000, 1500000, 'Bàn FIGHTER', 2700, '', 0, 0),
-(49, 1, 0, 'builder.webp', 1, '0000-00-00', 2422500, 2000000, 'Bàn BUILDER', 2900, '', 0, 0),
-(50, 1, 0, 'doer plus.webp', 1, '0000-00-00', 1720000, 1300000, 'Bàn DOER Plus', 2200, '', 0, 0),
-(51, 0, 0, 'latu.webp', 1, '0000-00-00', 962500, 900000, 'Ghế LATU', 2400, '', 0, 0),
-(52, 0, 0, 'to-be.webp', 1, '0000-00-00', 3612500, 3000000, 'Ghế TO-BE', 2800, '', 0, 0),
+(49, 0, 0, 'builder.webp', 1, '0000-00-00', 2422500, 2000000, 'Bàn BUILDER', 0, '', 0, 0),
+(50, 2, 0, 'doer plus.webp', 1, '0000-00-00', 1720000, 1300000, 'Bàn DOER Plus', 2200, '', 0, 0),
+(51, 2, 0, 'latu.webp', 1, '0000-00-00', 962500, 900000, 'Ghế LATU', 2400, '', 0, 0),
+(52, 2, 0, 'to-be.webp', 1, '0000-00-00', 3612500, 3000000, 'Ghế TO-BE', 2800, '', 0, 0),
 (53, 0, 0, 'noven.webp', 1, '0000-00-00', 742500, 650000, 'Ghế NOVEN', 3000, '', 0, 0),
 (54, 0, 0, 'astu.webp', 1, '0000-00-00', 466650, 350000, 'Ghế ASTU', 3200, '', 0, 0),
-(55, 0, 0, 'shape.webp', 1, '0000-00-00', 841500, 750000, 'Ghế SHAPE', 3400, '', 0, 0),
+(55, 2, 0, 'shape.webp', 1, '0000-00-00', 841500, 750000, 'Ghế SHAPE', 0, '', 0, 0),
 (56, 0, 0, 'tu ez.webp', 1, '0000-00-00', 416500, 350000, 'Tủ EZ', 3800, '', 0, 0),
-(57, 0, 0, 'ke tapi.webp', 1, '0000-00-00', 864000, 700000, 'Kệ TAPI', 4000, '', 0, 0),
-(58, 0, 0, 'ke pamiti.webp', 1, '0000-00-00', 578000, 400000, 'Kệ PAMITI', 3300, '', 0, 0),
-(59, 0, 0, 'ke vita.webp', 1, '0000-00-00', 1032000, 900000, 'Kệ VITA', 3500, '', 0, 0),
-(60, 0, 0, 'ke hobu.webp', 1, '0000-00-00', 1351500, 1000000, 'Kệ HOBU', 3700, '', 0, 0),
-(61, 0, 0, 'guong duka.webp', 1, '0000-00-00', 1160000, 900000, 'Gương DUKA', 1200, '', 0, 0),
-(62, 0, 0, 'guong haso.webp', 1, '0000-00-00', 1317500, 1000000, 'Gương HASO', 4600, '', 0, 0);
+(57, 1, 0, 'ke tapi.webp', 1, '0000-00-00', 864000, 700000, 'Kệ TAPI', 4000, '', 0, 0),
+(58, 1, 0, 'ke pamiti.webp', 1, '0000-00-00', 578000, 400000, 'Kệ PAMITI', 3300, '', 0, 0),
+(59, 1, 0, 'ke vita.webp', 1, '0000-00-00', 1032000, 900000, 'Kệ VITA', 3500, '', 0, 0),
+(60, 1, 0, 'ke hobu.webp', 1, '0000-00-00', 1351500, 1000000, 'Kệ HOBU', 3700, '', 0, 0),
+(61, 1, 0, 'guong duka.webp', 1, '0000-00-00', 1160000, 900000, 'Gương DUKA', 1200, '', 0, 0),
+(62, 1, 0, 'guong haso.webp', 1, '0000-00-00', 1317500, 1000000, 'Gương HASO', 4600, '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -237,11 +236,11 @@ CREATE TABLE `cms_products_group` (
 --
 
 INSERT INTO `cms_products_group` (`ID`, `prd_group_name`, `created`, `updated`) VALUES
-(138, 'Living Room', '2022-11-18 13:24:51', '2022-11-18 13:24:51'),
-(139, 'Bedroom', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(140, 'Kitchen Room', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(141, 'Home Office', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(142, 'Bathroom', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(1, 'Trang Trí', '2022-11-18 13:24:51', '2022-11-18 13:24:51'),
+(2, 'Nội Thất', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 'Nhà Bếp', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, 'Ánh Sáng', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, 'Giảm Giá', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 

@@ -11,14 +11,14 @@
                                           <div class="categories-content">
                                                 <ul class="categories-list">
                                                       <li class="categories-item">
-                                                            <a class="categories-item-link" href="">All</a>
+                                                            <a class="categories-item-link" href="shop.php?cate=0">All</a>
                                                       </li>
                                                       <?php
                                                       $cate = getAllTag();
                                                       foreach ($cate as $c) :
                                                             $result = strtolower(str_replace(' ', '-', $c['prd_group_name'])); ?>
                                                             <li class="categories-item">
-                                                                  <a class="categories-item-link" href="shop.php?action=<?= $result ?>&id=<?= $c['ID'] ?> "><?= $c['prd_group_name'] ?></a>
+                                                                  <a class="categories-item-link" href="shop.php?cate=<?= $c['ID'] ?> "><?= $c['prd_group_name'] ?></a>
                                                             </li>
                                                       <?php endforeach ?>
                                                 </ul>
@@ -29,27 +29,27 @@
                                           <div class="color-content">
                                                 <ul class="color-list">
                                                       <li class="color-item">
-                                                            <a class="color-item-link" style="background-color: black;">
+                                                            <a href="" class="color-item-link" style="background-color: black;">
                                                                   <img src="assets/img/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                       <li class="color-item">
-                                                            <a class="color-item-link" style="background-color: grey;">
+                                                            <a href="" class="color-item-link" style="background-color: grey;">
                                                                   <img src="assets/img/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                       <li class="color-item">
-                                                            <a class="color-item-link" style="background-color: indianred;">
+                                                            <a href="" class="color-item-link" style="background-color: indianred;">
                                                                   <img src="assets/img/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                       <li class="color-item">
-                                                            <a class="color-item-link" style="background-color: lightgrey;">
+                                                            <a href="" class="color-item-link" style="background-color: lightgrey;">
                                                                   <img src="assets/img/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                       <li class="color-item">
-                                                            <a class="color-item-link" style="background-color: white;">
+                                                            <a href="" class="color-item-link" style="background-color: brown;">
                                                                   <img src="assets/img/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
@@ -173,8 +173,8 @@
                                                             $where = "SELECT * FROM `cms_sort`";
                                                             $kq = getProductByFilter($where);
                                                             foreach ($kq as $value) : ?>
-                                                                  <option <?php if (isset($_SESSION['sortby']) && $_SESSION['sortby'] == $limit) echo 'selected'; ?> value="<?= $value['ID'] ?>">
-                                                                        <?= $value['sortby'] ?>
+                                                                  <option value="<?= $value['ID'] ?>">
+                                                                        <a href="#!"><?= $value['sortby'] ?></a>
                                                                   </option>
                                                             <?php endforeach; ?>
                                                       </select>
@@ -198,7 +198,70 @@
                                                       $page = $_GET['page'];
                                                 }
                                                 $from_pro = ($page - 1) * $per_page;
-                                                $kq = getProductByOffset($from_pro, $per_page);
+
+                                                if (isset($_GET['cate'])) {
+                                                      $cate = $_GET['cate'];
+                                                      
+                                                      if ($cate == "1") {
+                                                            $where = "SELECT * FROM `cms_products_group` as c, `cms_product` as p 
+                                                            WHERE c.ID = p.id_prd_group 
+                                                            AND p.id_prd_group = '1'";
+                                                            $kq = getProductByFilter($where);
+
+                                                            $count ="SELECT COUNT(*) FROM `cms_products_group` as c, `cms_product` as p 
+                                                            WHERE c.ID = p.id_prd_group 
+                                                            AND p.id_prd_group = '1'"; 
+                                                            $count_pro = getCountFilter($count);
+                                                      } elseif ($cate == 2) {
+                                                            $where = "SELECT * FROM `cms_products_group` as c, `cms_product` as p
+                                                            WHERE c.ID = p.id_prd_group 
+                                                            AND c.ID = '2'";
+                                                            $kq = getProductByFilter($where);
+
+                                                            $count ="SELECT COUNT(*) FROM `cms_products_group` as c, `cms_product` as p 
+                                                            WHERE c.ID = p.id_prd_group 
+                                                            AND p.id_prd_group = '2'"; 
+                                                            $count_pro = getCountFilter($count);
+
+                                                      } elseif ($cate == 3) {
+                                                            $where = "SELECT * FROM `cms_products_group` as c, `cms_product` as p
+                                                            WHERE c.ID = p.id_prd_group 
+                                                            AND p.id_prd_group = '3'";
+                                                            $kq = getProductByFilter($where);
+
+                                                            $count ="SELECT COUNT(*) FROM `cms_products_group` as c, `cms_product` as p 
+                                                            WHERE c.ID = p.id_prd_group 
+                                                            AND p.id_prd_group = '3'"; 
+                                                            $count_pro = getCountFilter($count);
+                                                      } elseif ($cate == 4) {
+                                                            $where = "SELECT * FROM `cms_products_group` as c, `cms_product` as p
+                                                            WHERE c.ID = p.id_prd_group 
+                                                            AND p.id_prd_group = '4'";
+                                                            $kq = getProductByFilter($where);
+
+                                                            $count ="SELECT COUNT(*) FROM `cms_products_group` as c, `cms_product` as p 
+                                                            WHERE c.ID = p.id_prd_group 
+                                                            AND p.id_prd_group = '4'"; 
+                                                            $count_pro = getCountFilter($count);
+                                                      } elseif ($cate == 5) {
+                                                            $where = "SELECT * FROM `cms_products_group` as c, `cms_product` as p
+                                                            WHERE c.ID = p.id_prd_group 
+                                                            AND p.id_prd_group = '5'";
+                                                            $kq = getProductByFilter($where);
+
+                                                            $count ="SELECT COUNT(*) FROM `cms_products_group` as c, `cms_product` as p 
+                                                            WHERE c.ID = p.id_prd_group 
+                                                            AND p.id_prd_group = '5'"; 
+                                                            $count_pro = getCountFilter($count);
+                                                      } else {
+                                                            $kq = getProductByOffset($from_pro, $per_page);
+                                                            $count_pro = getCountProduct();
+                                                      }
+                                                } else {
+                                                      $kq = getProductByOffset($from_pro, $per_page);
+                                                      $count_pro = getCountProduct();
+                                                }
+                                                
                                                 foreach ($kq as $value) : ?>
                                                       <div class="c-3 col">
                                                             <form action="shop.php?action=viewcart" method="post">
@@ -260,11 +323,9 @@
                                                 <?php endforeach ?>
                                           </div>
                                     </div>
-
-
+                                    
                                     <!-- PAGINATION  -->
                                     <?php
-                                    $count_pro = getCountProduct();
                                     $total_page = ceil($count_pro / $per_page);
                                     $prev = $page - 1;
                                     $next = $page + 1;
