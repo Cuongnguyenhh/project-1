@@ -7,9 +7,9 @@ function getAll_pro(){
     $kq_user = $stmt -> fetchAll();
     return $kq_user;
 }
-function getOne_pro($get_userName){
+function getOne_user($get_email){
     $conn = condb();
-    $stmt = $conn->prepare("SELECT * FROM cms_user WHERE ID='$get_userName'");
+    $stmt = $conn->prepare("SELECT * FROM cms_users WHERE email='$get_email'");
     $stmt->execute();
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $user_one = $stmt -> fetchAll();

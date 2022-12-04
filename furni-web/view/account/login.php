@@ -31,17 +31,17 @@
                             <!-- FORM LOGIN  -->
                             <div id="Login" class="tab-change active">
                                 <div class="account-login-form">
-                                    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" accept-charset="UTF-8">
+                                    <form method="POST" action="controllers/loggin.php" accept-charset="UTF-8">
                                         <div class="account-form-content">
                                             <div class="form-group">
-                                                <input class="form-control" name="email_login" type="text" placeholder="Email">
+                                                <input class="form-control" name="email" type="text" placeholder="Email">
                                             </div>
                                             <div class="form-group form-group--password">
-                                                <input id="pswrd" type="password" name="pass_login" class="form-control" placeholder="Mật khẩu" required>
+                                                <input id="pswrd" type="password" name="psw" class="form-control" placeholder="Mật khẩu" required>
                                                 <a id="toggle-btn">Hiện</a>
                                             </div>
                                             <div class="form-button">
-                                                <input type="submit" name="login" class="btn btn-form-login" value="ĐĂNG NHẬP">
+                                                <button type="submit" name="login" class="btn btn-form-login" >Đăng nhập </button>
                                             </div>
                                             <div class="forgot-password">
                                                 <a href="#">Quên mật khẩu?</a>
@@ -49,30 +49,7 @@
                                         </div>
                                     </form>
                                 </div>
-                                <?php
-                                if (isset($_POST['login']) && ($_POST['login'])) {
-                                    $email_login = $_POST['email_login'];
-                                    $pass_login = $_POST['pass_login'];
-                                    $kq = checkPassword($email_login, $pass_login);
-                                    // xác định admin 
-                                    $checkq = checkRank($id);
-                                    $typeUser = 0;
-                                    foreach ($checkq as $value) {
-                                        $typeUser = $value['rank'];
-                                    }
-                                    if ($kq == 0) {
-                                        echo 'Đăng Nhập thất bại';
-                                    } else {
-                                        // var_dump($kq);
-                                        $_SESSION['user_name'] = $email_login;
-                                        if ($typeUser == 1) {
-                                            header('location: ../admin/index.php');
-                                        } else {
-                                            header('location: ./index.php');
-                                        }
-                                    }
-                                }
-                                ?>
+                    
                             </div>
 
 
