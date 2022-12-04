@@ -90,7 +90,7 @@
                                                                   lại giỏ hàng
                                                             </a>
                                                             <button type="submit" class="btn btn-shipping">
-                                                                  <a href#!="#!">Tiếp tục chuyển hàng</a>
+                                                                  Tiếp tục chuyển hàng
                                                             </button>
                                                       </div>
                                                 </form>
@@ -151,7 +151,7 @@
       <!--================Home Area =================-->
       <!-- start footer Area --> <?php include_once './view/layout/footer.php' ?>
       <!-- End footer Area --> <?php include_once './view/layout/scrip.php' ?> <script>
-      // VALIDATE 
+      VALIDATE 
       function validator(options) {
             function validate(inputElement, rule) {
                   var errorMessage = rule.test(inputElement.value)
