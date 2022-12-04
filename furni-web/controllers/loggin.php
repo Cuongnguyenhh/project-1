@@ -25,11 +25,11 @@ echo $email;
         // echo $user['email'];
        }
        $_SESSION['email'] = $user['email'];
-        echo $_SESSION['email'];
         $_SESSION['avt']= $user['display_img'];
         $_SESSION['type']= $user['group_id'];
+        header('location: http://localhost/project-1/furni-web/index.php');
    }
   
  }
- 
+
 ?>

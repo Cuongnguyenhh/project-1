@@ -5,7 +5,7 @@ require '../config/controller/product.php';
 require '../config/controller/Catelory.php';
 require '../config/controller/customer.php';
 
-require './user_menu.php';
+// require_once './user_menu.php';
 if(isset($_GET['act'])){
     $act =$_GET['act'];
     switch($_GET['act']){
