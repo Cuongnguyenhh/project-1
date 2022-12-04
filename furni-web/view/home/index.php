@@ -7,7 +7,7 @@
 
 <body>
       <!-- Start Header Area -->
-      <?php include './view/layout/header_admin.php'?>
+      <?php include './view/layout/header_user.php'?>
       <!-- End Header Area -->
 
       <!--================Home Area =================-->

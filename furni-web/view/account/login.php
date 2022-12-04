@@ -98,7 +98,7 @@
                                             </div>
                                             <div class="form-group form-group--password">
                                                 <input id="pswrd-login" type="password" class="form-control" name="pass_user" placeholder="Mật khẩu" required>
-                                                <span id="toggle-btn-login">Hiện</span>
+                                                <span id="toggle-btn-login">Hiện cái con c </span>
                                             </div>
                                             <div class="form-button">
                                                 <input type="submit" class="btn btn-form-login" name="register" value="TẠO TÀI KHOẢN">
