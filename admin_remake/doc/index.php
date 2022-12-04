@@ -1,8 +1,6 @@
 <?php  
 session_start();
- if(!(isset($_SESSION['email']) && ($_SESSION['type'])==1 )){
-    header('location: http://localhost/project-1/furni-web/index.php?action=login');
- }else{
+ if(isset($_SESSION['email']) && ($_SESSION['type'])==1){
 require '../config/database.php';
 condb();
 require '../config/controller/product.php';
@@ -49,6 +47,9 @@ if(isset($_GET['act'])){
    require_once './navbar.php';
    require_once './mainControll.php';
 }
+ }else{
+    header('location: http://localhost/project-1/furni-web/index.php?action=login');
  }
+ 
 
 ?>

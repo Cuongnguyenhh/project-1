@@ -9,7 +9,7 @@
       if(isset($_SESSION['email']) && ($_SESSION['type'])==1 ){
       include_once './view/layout/header_admin.php';
       }elseif(isset($_SESSION['email']) && ($_SESSION['type'])!=1){
-            include_once './view/layout/header_admin_user.php';
+            include_once './view/layout/header_admin.php';
       }else{
             include_once './view/layout/header.php';
       }
