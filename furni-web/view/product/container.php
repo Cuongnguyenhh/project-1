@@ -204,7 +204,7 @@ foreach ($kq as  $value) : ?>
                                     <div class="rte">
                                           <?php
                                           foreach ($kq as  $value) {
-                                                echo '<p>' . $value['prd_description'] . '</p>';
+                                                echo '<p>' . substr($value['prd_description'],0, 50). '</p>';
                                           }
                                           ?>
 

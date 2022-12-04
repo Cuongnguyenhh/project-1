@@ -2430,11 +2430,7 @@ fieldset {
     margin: 0 auto;
   }
 }
-@media (min-width: 992px) and (max-width: 1219px) {
-  .vela-aside {
-    display: none !important;
-  }
-}
+
 @media (max-width: 768px) and (min-width: 992px) {
   .vela-aside {
     display: none;
@@ -2544,6 +2540,7 @@ fieldset {
 
 .cart-item-wrap .cart-quantity input {
   width: 100px;
+  --height-cart: 36px;
   height: 36px;
   font-size: 18px;
   font-weight: 500;
@@ -2553,6 +2550,35 @@ fieldset {
   color: #666;
   padding: 10px 0;
   text-align: center;
+}
+
+
+.addcard-qty-minus {
+  left: 0;
+  width: 35px;
+  height: 36px;
+  line-height: 14px;
+  border: 0;
+  background-color: transparent;
+  color: #1a1a1a;
+  position: absolute;
+  font-size: 20px;
+  font-weight: 300;
+  padding: 1px 6px;
+}
+
+.addcard-qty-plus {
+  right: 0;
+  width: 35px;
+  height: 36px;
+  line-height: 14px;
+  border: 0;
+  background-color: transparent;
+  color: #1a1a1a;
+  position: absolute;
+  font-size: 20px;
+  font-weight: 300;
+  padding: 1px 6px;
 }
 
 .cart-qty-minus {
@@ -3459,10 +3485,11 @@ fieldset {
 .sidebar__table .product__item .product__image {
   height: 64px;
   width: 64px;
-  overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border-radius: 6px;
+  position: relative;
 }
+
 
 .sidebar__table .product__item {
   margin-bottom: 20px;
@@ -3484,6 +3511,20 @@ fieldset {
 
 .product__item .product__price {
   text-align: right;
+}
+
+.product__quantity {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  border-radius: 100rem;
+  width: 20px;
+  height: 20px;
+  background-color: var(--vela-color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
 }
 
 .product__item .product__price span {
@@ -4743,4 +4784,59 @@ tfoot .total td span:last-child {
 .btn-edit-order:hover {
   background-color: var(--vela-color-primary);
   color: var(--white);
+}
+
+
+.drawer-product-link {
+  position: relative;
+}
+
+.drawer__quantity {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--vela-color-primary);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100rem;
+}
+
+
+@media screen and (max-width: 991px) {
+  .vela-aside {
+    display: none;
+  }
+  .vela-product .c-9 {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+  .banner-navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .product-box .c-3 {
+    max-width: 50%;
+    flex: 0 0 50%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .product-box .c-3 {
+    max-width: 33.33333%;
+    flex: 0 0 33.33333%;
+  }
+}
+
+@media screen and (min-width: 1220px) {
+  .product-box .c-3 {
+    max-width: 25%;
+    flex: 0 0 25%;
+  }
 }

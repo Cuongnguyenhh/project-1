@@ -23,6 +23,7 @@
                                                 <div class="drawer-product-image">
                                                       <a href="#" class="drawer-product-link">
                                                             <img class="drawer-image" src="uploads/'.$value[3].'" alt="">
+                                                            <span class="drawer__quantity">'.$value[4].'</span>
                                                       </a>
                                                 </div>
                                                 <div class="drawer-product-content">
