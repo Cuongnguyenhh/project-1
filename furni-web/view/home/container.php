@@ -156,7 +156,7 @@
                                                       </div>
                                                       <div class="product-content">
                                                             <h5 class="product-title">
-                                                                  <a class="product-title-link" href=""><?= $value['prd_name'] ?></a>
+                                                                  <a class="product-title-link" href="product.php?id=<?= $value['ID'] ?>"><?= $value['prd_name'] ?></a>
                                                             </h5>
                                                             <div class="product-price">
                                                                   <div class="product-current">
@@ -253,7 +253,7 @@
                                                                   <span>Sale</span>
                                                             </div>
                                                             <div class="product-quick-view">
-                                                                  <a class="btn btn-product-view btn-quick-view" href="#">
+                                                                  <a class="btn btn-product-view btn-quick-view" href="">
                                                                         <span class="icons">
                                                                               <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                                                                                     <path d="M344.5,298c15-23.6,23.8-51.6,23.8-81.7c0-84.1-68.1-152.3-152.1-152.3C132.1,64,64,132.2,64,216.3c0,84.1,68.1,152.3,152.1,152.3c30.5,0,58.9-9,82.7-24.4l6.9-4.8L414.3,448l33.7-34.3L339.5,305.1L344.5,298z M301.4,131.2c22.7,22.7,35.2,52.9,35.2,85c0,32.1-12.5,62.3-35.2,85c-22.7,22.7-52.9,35.2-85,35.2c-32.1,0-62.3-12.5-85-35.2c-22.7-22.7-35.2-52.9-35.2-85c0-32.1,12.5-62.3,35.2-85c22.7-22.7,52.9-35.2,85-35.2C248.5,96,278.7,108.5,301.4,131.2z">
@@ -265,7 +265,7 @@
                                                       </div>
                                                       <div class="product-content">
                                                             <h5 class="product-title">
-                                                                  <a class="product-title-link" href="index.php?act=detail&id=' . $value['ID'] . '"><?= $value['prd_name'] ?></a>
+                                                                  <a class="product-title-link" href="product.php?id=<?= $value['ID'] ?>"><?= $value['prd_name'] ?></a>
                                                             </h5>
                                                             <div class="product-price">
                                                                   <div class="product-current">
@@ -274,8 +274,8 @@
                                                                   <div class="product-sale">
                                                                         <span>$280.00</span>
                                                                   </div>
-                                                                  <form class="product-form" action="#" method="POST" enctype="multipart/form-data">
-                                                                        <button class="btn btn-add-cart">
+                                                                  <form class="product-form" action="shop.php?action=viewcart" method="POST" enctype="multipart/form-data">
+                                                                        <button class="btn btn-add-cart" name="add-cart" type="submit" >
                                                                               <i class="icons">
                                                                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
                                                                                           <g>

@@ -107,7 +107,7 @@ foreach($userOne as $user){
                                     </a>
                               </li>
                               <li>
-                                    <a href="../../../admin_remake/doc/index.php">
+                                    <a href="../admin_remake/doc/index.php">
                                           <span>admin</span>
                                     </a>
                               </li>

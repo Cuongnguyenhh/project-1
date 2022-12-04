@@ -15,8 +15,7 @@
                                                       </li>
                                                       <?php
                                                       $cate = getAllTag();
-                                                      foreach ($cate as $c) :
-                                                            $result = strtolower(str_replace(' ', '-', $c['prd_group_name'])); ?>
+                                                      foreach ($cate as $c) : ?>
                                                             <li class="categories-item">
                                                                   <a class="categories-item-link" href="shop.php?cate=<?= $c['ID'] ?> "><?= $c['prd_group_name'] ?></a>
                                                             </li>

@@ -48,7 +48,7 @@ if(isset($_GET['act'])){
    require_once './mainControll.php';
 }
  }else{
-    header('location: http://localhost/project-1/furni-web/index.php?action=login');
+    header('location:../../furni-web/index.php?action=login'); 
  }
  
 
