@@ -13,12 +13,15 @@ require_once './models/TagModel.php';
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
-}else{
+} else {
     $action = 'home';
 }
 switch ($action) {
     case 'home':
         require_once './view/collection/index.php';
+        break;
+    case 'cate':
+        require_once './view/collection/shopCollect.php';
         break;
     default:
         require_once './view/collection/index.php';

@@ -4579,8 +4579,6 @@ tfoot .total td span:last-child {
 .content__button button:hover {
   background: var(--vela-color-primary);
 }
-<<<<<<< HEAD
-=======
 
 
 
@@ -4842,4 +4840,3 @@ tfoot .total td span:last-child {
     flex: 0 0 25%;
   }
 }
->>>>>>> ee1e7483be960c4f88245e5db372f78186484f38

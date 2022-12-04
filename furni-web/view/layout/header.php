@@ -44,48 +44,48 @@
                                                       <div class="row-flex row-flex-margin">
                                                             <div class="coll-list">
                                                                   <div class="coll-item">
-                                                                        <a class="coll-image" href="#">
+                                                                        <a class="coll-image" href="collection.php?action=cate&id=1">
                                                                               <img src="https://cdn.shopify.com/s/files/1/1573/5553/collections/18_360x.jpg?v=1511442950"
                                                                                     alt="Decor Art">
                                                                         </a>
                                                                         <h5 class="coll-title">
-                                                                              <a href="#">Nghệ thuật trang trí</a>
+                                                                              <a href="collection.php?action=cate&id=1">Nghệ thuật trang trí</a>
                                                                         </h5>
                                                                   </div>
                                                                   <div class="coll-item">
-                                                                        <a class="coll-image" href="#">
+                                                                        <a class="coll-image" href="collection.php?action=cate&id=2">
                                                                               <img src="https://cdn.shopify.com/s/files/1/1573/5553/collections/7_360x.jpg?v=1511442889"
                                                                                     alt="Decor Art">
                                                                         </a>
                                                                         <h5 class="coll-title">
-                                                                              <a href="#">Đồ nội thất</a>
+                                                                              <a href="collection.php?action=cate&id=2">Đồ nội thất</a>
                                                                         </h5>
                                                                   </div>
                                                                   <div class="coll-item">
-                                                                        <a class="coll-image" href="#">
+                                                                        <a class="coll-image" href="collection.php?action=cate&id=3">
                                                                               <img src="https://cdn.shopify.com/s/files/1/1573/5553/collections/21_360x.jpg?v=1511442906"
                                                                                     alt="Decor Art">
                                                                         </a>
                                                                         <h5 class="coll-title">
-                                                                              <a href="#">Đồ nhà bếp</a>
+                                                                              <a href="collection.php?action=cate&id=3">Đồ nhà bếp</a>
                                                                         </h5>
                                                                   </div>
                                                                   <div class="coll-item">
-                                                                        <a class="coll-image" href="#">
+                                                                        <a class="coll-image" href="collection.php?action=cate&id=4">
                                                                               <img src="https://cdn.shopify.com/s/files/1/1573/5553/collections/12_360x.jpg?v=1511442995"
                                                                                     alt="Decor Art">
                                                                         </a>
                                                                         <h5 class="coll-title">
-                                                                              <a href="#">Sự chiếu sáng</a>
+                                                                              <a href="collection.php?action=cate&id=4">Sự chiếu sáng</a>
                                                                         </h5>
                                                                   </div>
                                                                   <div class="coll-item">
-                                                                        <a class="coll-image" href="#">
+                                                                        <a class="coll-image" href="collection.php?action=cate&id=5">
                                                                               <img src="https://cdn.shopify.com/s/files/1/1573/5553/collections/Arc-Large-Cup_360x.jpg?v=1511443696"
                                                                                     alt="Decor Art">
                                                                         </a>
                                                                         <h5 class="coll-title">
-                                                                              <a href="#">Giảm giá</a>
+                                                                              <a href="collection.php?action=cate&id=5">Giảm giá</a>
                                                                         </h5>
                                                                   </div>
                                                             </div>

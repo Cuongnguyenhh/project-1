@@ -1,5 +1,7 @@
 <?php
 session_start();
-session_unset();
-header('location:http://localhost/project-1/furni-web/index.php');
+unset($_SESSION['email']);
+unset($_SESSION['avt']);
+unset($_SESSION['type']);
+header('location:../index.php');
 ?>

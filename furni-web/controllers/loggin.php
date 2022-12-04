@@ -27,7 +27,7 @@ echo $email;
        $_SESSION['email'] = $user['email'];
         $_SESSION['avt']= $user['display_img'];
         $_SESSION['type']= $user['group_id'];
-        header('location: http://localhost/project-1/furni-web/index.php');
+        header('location:../index.php');
    }
   
  }
