@@ -73,7 +73,7 @@ ob_start();
                                                 Shipping Service
                                           </div>
                                           <ul class="shipping-list">
-                                                <li class="shipping-item">
+                                                <li class="shipping-item active">
                                                       <a href="#!" class="shipping-active">
                                                             <i class="fa-solid fa-truck-fast"></i>
                                                             <div class="shipping-active-content">
@@ -125,7 +125,7 @@ ob_start();
                                                             </a>
                                                       </div>
                                                       <div class="options">
-                                                            <a href="#!">
+                                                            <a href="#!" class="active">
                                                                   <i class="fa-solid fa-money-check-dollar"></i>
                                                                   <div class="payment-content">
                                                                         <h6 class="payment-title">Cash on delivery</h6>

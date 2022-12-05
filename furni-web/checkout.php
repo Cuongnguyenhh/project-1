@@ -90,7 +90,7 @@
                                                                   lại giỏ hàng
                                                             </a>
                                                             <button type="submit" class="btn btn-shipping">
-                                                                  <a href#!="#!">Tiếp tục chuyển hàng</a>
+                                                                  Tiếp tục chuyển hàng
                                                             </button>
                                                       </div>
                                                 </form>
@@ -151,12 +151,18 @@
       <!--================Home Area =================-->
       <!-- start footer Area --> <?php include_once './view/layout/footer.php' ?>
       <!-- End footer Area --> <?php include_once './view/layout/scrip.php' ?> <script>
-      // VALIDATE 
       function validator(options) {
+            var selectorRules = {}
+
             function validate(inputElement, rule) {
-                  var errorMessage = rule.test(inputElement.value)
-                  var errorElement = inputElement.parentElement
-                        .querySelector(options.errorSelector)
+                  var errorMessage
+                  var errorElement = inputElement.parentElement.querySelector(options.errorSelector)
+                  var rules = selectorRules[rule.selector]
+
+                  for (var i = 0; i < rules.length; i++) {
+                        errorMessage = rules[i](inputElement.value)
+                        if (errorMessage) break
+                  }
                   if (errorMessage) {
                         errorElement.innerText = errorMessage
                         inputElement.parentElement.classList.add(
@@ -165,18 +171,40 @@
                         errorElement.innerText = ''
                         inputElement.parentElement.classList.remove('invalid')
                   }
+                  return !errorMessage
             }
             const formElement = document.querySelector(options.form)
             if (formElement) {
-                  formElement.onsubmit = (e) => {
-                        e.preventDefault();
+                  formElement.onsubmit = function(e) {
+                        e.preventDefault()
+                        isFormValid = true
                         options.rules.forEach(function(rule) {
-                              var inputElement = formElement.querySelector(rule
-                                    .selector)
-                              validate(inputElement, rule)
+                              var inputElement = formElement.querySelector(rule.selector)
+                              var isValid = validate(inputElement, rule)
+                              if (!isValid) {
+                                    isFormValid = false
+                              }
                         })
+
+                        if (isFormValid) {
+                              if (typeof options.onSubmit === 'function') {
+                                    var enableInputs = formElement.querySelectorAll('[name]:not([disabled])')
+                                    var formValues = Array.from(enableInputs).reduce(function(values, input) {
+                                          return (values[input.name] = input.value) && values
+                                    }, {})
+                                    options.onSubmit(formValues)
+                              } else {
+                                    formElement.submit()
+                              }
+                        }
                   }
                   options.rules.forEach((rule) => {
+                        if (Array.isArray(selectorRules[rule.selector])) {
+                              selectorRules[rule.selector].push(rule.test)
+                        } else {
+                              selectorRules[rule.selector] = [rule.test]
+                        }
+
                         var inputElement = formElement.querySelector(rule.selector)
                         if (inputElement) {
                               // Xử lý trường hợp khi blur ra ngoài
@@ -185,8 +213,9 @@
                               }
                               // Xử lý khi người dùng nhập vào input
                               inputElement.oninput = () => {
-                                    var errorElement = inputElement.parentElement.querySelector(
-                                          options.errorSelector)
+                                    var errorElement = inputElement.parentElement
+                                          .querySelector(
+                                                options.errorSelector)
                                     errorElement.innerText = ''
                                     inputElement.parentElement.classList.remove('invalid')
                               }
@@ -211,22 +240,6 @@
                   }
             }
       }
-      validator.isConfimed = (selector, getCofirmValue) => {
-            return {
-                  selector: selector,
-                  test: function(value) {
-                        return value === getCofirmValue() ? undefined : 'Giá trị nhập vào không chính xác'
-                  }
-            }
-      }
-      validator({
-            form: '.shipping__form',
-            errorSelector: '.form-message',
-            rules: [validator.isEmail('#email-check'), validator.isRequired('#last-check'), validator
-                  .isRequired('#first-check'), validator.isRequired('#optional-check'), validator
-                  .isRequired('#city-check'), validator.isRequired('#address-check'),
-            ]
-      })
       validator.isRequired = (selector) => {
             return {
                   selector: selector,
@@ -238,12 +251,18 @@
       validator({
             form: '.shipping__form',
             errorSelector: '.form-message',
-            rules: [validator.isEmail('#email-check'), validator.isEmail('#register-email-check'), validator
-                  .isRequired('#last-check'), validator.isRequired('#first-check'), validator
-                  .isRequired('#optional-check'), validator.isRequired('#city-check'), validator
-                  .isRequired('#address-check'), validator.isRequired('#pswrd-login'), validator
-                  .isConfimed('')
-            ]
+            rules: [
+                  validator.isEmail('#email-check'),
+                  validator.isRequired('#email-check'),
+                  validator.isRequired('#last-check'),
+                  validator.isRequired('#first-check'),
+                  validator.isRequired('#optional-check'),
+                  validator.isRequired('#city-check'),
+                  validator.isRequired('#address-check'),
+            ],
+            // onSubmit: function(data) {
+            //       console.log(data)
+            // }
       })
       </script>
 </body>

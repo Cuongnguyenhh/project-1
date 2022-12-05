@@ -1,4 +1,5 @@
 <?php
+
 require_once('./core/funtion.php');
 
 require_once './models/TagOfProductModel.php';
@@ -16,6 +17,7 @@ if (isset($_GET['action'])) {
 }
 switch ($action) {
     case 'home':
+    
         require_once './view/home/index.php';
         break;
 
