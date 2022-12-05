@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 04, 2022 lúc 08:50 PM
+-- Thời gian đã tạo: Th12 05, 2022 lúc 07:01 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -157,13 +157,38 @@ INSERT INTO `cms_inventory` (`store_id`, `product_id`, `quantity`, `user_init`, 
 CREATE TABLE `cms_order` (
   `ID` int(10) NOT NULL,
   `customer_id` int(10) DEFAULT NULL,
+  `name_cus` varchar(150) NOT NULL,
   `sell_date` date NOT NULL,
-  `price` double NOT NULL,
-  `total_prd` int(11) NOT NULL,
-  `prd_id` int(10) DEFAULT NULL,
   `shipping` int(11) NOT NULL DEFAULT 0,
   `payment` int(11) NOT NULL DEFAULT 0,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL,
+  `phone_num` int(11) NOT NULL,
+  `adr_cus` varchar(2000) NOT NULL,
+  `totol_price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `cms_order`
+--
+
+INSERT INTO `cms_order` (`ID`, `customer_id`, `name_cus`, `sell_date`, `shipping`, `payment`, `status`, `phone_num`, `adr_cus`, `totol_price`) VALUES
+(201460425, 25, 'Cuong nguyen', '0000-00-00', 0, 0, 1, 0, '985/62 lac long quan', 62000000),
+(542497925, 25, 'Cuong nguyen', '0000-00-00', 0, 0, 1, 0, '985/62 lac long quan', 62000000),
+(727994625, 25, 'Cuong nguyen', '0000-00-00', 0, 0, 1, 0, '985/62 lac long quan', 62000000);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `cms_order_detail`
+--
+
+CREATE TABLE `cms_order_detail` (
+  `ID` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `prd_name` varchar(1500) NOT NULL,
+  `quailyti` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -367,40 +392,43 @@ INSERT INTO `cms_suppliers` (`ID`, `supplier_code`, `supplier_name`, `supplier_p
 CREATE TABLE `cms_users` (
   `id` int(10) UNSIGNED NOT NULL,
   `email` varchar(120) DEFAULT NULL,
+  `phone` int(11) NOT NULL,
   `password` varchar(100) NOT NULL,
   `display_name` varchar(120) NOT NULL,
   `display_img` varchar(250) NOT NULL,
   `user_status` tinyint(4) NOT NULL,
   `group_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
-  `updated` datetime NOT NULL
+  `updated` datetime NOT NULL,
+  `adr_user` varchar(1500) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `cms_users`
 --
 
-INSERT INTO `cms_users` (`id`, `email`, `password`, `display_name`, `display_img`, `user_status`, `group_id`, `created`, `updated`) VALUES
-(2, 'admin@admin.com', 'acafabfb3b45089f905b5c8c0698f63c', 'admin', '', 1, 1, '2017-09-25 23:01:53', '2019-06-14 08:38:30'),
-(8, 'namit@admin.com', 'b7ba4f82e63748b31419f9ea47d7b72f', 'namit', '', 0, 1, '2019-06-14 08:39:27', '0000-00-00 00:00:00'),
-(9, 'quanly01@gmail.com', '8277e745d10dd789d80c250e9e86b69d', 'Lên Anh Tài', '', 1, 2, '2019-06-14 08:40:00', '2019-06-14 08:45:14'),
-(10, 'quanly02@gmail.com', '529553addffab250295d0595badcee11', 'Lương Tài Em', '', 1, 2, '2019-06-14 08:40:12', '2019-06-14 08:45:36'),
-(11, 'quanly03@gmail.com', '5e4670efb7fe2ae0464f7b440a9d7923', 'Phạm Quỳnh Ánh', '', 1, 2, '2019-06-14 08:40:23', '2019-06-14 08:45:47'),
-(12, 'quanly04@gmail.com', 'b6f311a380b5092207be17128491516d', 'Lý Thành Nam', '', 1, 2, '2019-06-14 08:40:34', '2019-06-14 08:46:12'),
-(13, 'quanly05@gmail.com', '9c2ac0725fb24f301c21bebc7692f6c9', 'Lê Thành Tâm', '', 1, 2, '2019-06-14 08:40:49', '2019-06-14 08:47:07'),
-(14, '000006@gmail.com', '84fc146d13b9aed879b7967264363609', 'Nguyễn Văn An', '', 1, 3, '2019-06-14 08:41:41', '2019-06-14 08:47:32'),
-(15, '000007@gmail.com', '02554771dc6ba1a0fa6704fd5476c45b', 'Nguyễn Văn Bình', '', 1, 3, '2019-06-14 08:42:02', '2019-06-14 08:47:36'),
-(16, '000008@gmail.com', 'cb838e3226df20a3631e5dbd28e3d157', 'Lê Thị Yến', '', 1, 3, '2019-06-14 08:42:14', '2019-06-14 08:47:39'),
-(17, '000009@gmail.com', '8cb3b0ebc60ced476e91f2ed073f0df1', 'Nguyễn Thị Linh', '', 1, 3, '2019-06-14 08:42:30', '2019-06-14 08:47:41'),
-(18, '000010@gmail.com', '24d1ac241a699c9c1b47ce571e63a935', 'Lương Văn Tài', '', 1, 3, '2019-06-14 08:42:46', '2019-06-14 08:47:44'),
-(19, '000011@gmail.com', 'bf1b32a0c3fe64a3e04c3661e925749d', 'Nguyễn Tuấn Anh', '', 1, 3, '2019-06-14 08:43:03', '2019-06-14 08:47:47'),
-(20, '000012@gmail.com', 'e8a4f0c25ea6ded073459f7ca4c9ce36', 'Nguyễn Thị Lan Anh', '', 1, 3, '2019-06-14 08:43:17', '2019-06-14 08:47:49'),
-(21, '000013@gmail.com', '4589b7fd990e5515ebe236ea8217d204', 'Nguyễn Thị Ánh', '', 1, 3, '2019-06-14 08:43:48', '2019-06-14 08:47:51'),
-(22, '000014@gmail.com', '1fc7c3237037d104fb72998e535781b5', 'Phạm Thị Quỳnh', '', 1, 3, '2019-06-14 08:44:08', '2019-06-14 08:47:53'),
-(23, '000015@gmail.com', '1a0239cec22d18eaca2a55d45e1b46d8', 'Phạm Thị Quỳnh Anh', '', 1, 3, '2019-06-14 08:44:25', '2019-06-14 08:47:56'),
-(24, 'test@test.com', '202cb962ac59075b964b07152d234b70', 'test', 'admin.jpg', 1, 1, '2022-12-04 12:16:56', '2022-12-04 12:16:56'),
-(25, 'admin@gmail.com', '202cb962ac59075b964b07152d234b70', 'Cuong nguyen', '', 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(26, 'phucuong2@gmail.com', '202cb962ac59075b964b07152d234b70', 'Phu Cuong', '', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `cms_users` (`id`, `email`, `phone`, `password`, `display_name`, `display_img`, `user_status`, `group_id`, `created`, `updated`, `adr_user`) VALUES
+(2, 'admin@admin.com', 0, 'acafabfb3b45089f905b5c8c0698f63c', 'admin', '', 1, 1, '2017-09-25 23:01:53', '2019-06-14 08:38:30', ''),
+(8, 'namit@admin.com', 0, 'b7ba4f82e63748b31419f9ea47d7b72f', 'namit', '', 0, 1, '2019-06-14 08:39:27', '0000-00-00 00:00:00', ''),
+(9, 'quanly01@gmail.com', 0, '8277e745d10dd789d80c250e9e86b69d', 'Lên Anh Tài', '', 1, 2, '2019-06-14 08:40:00', '2019-06-14 08:45:14', ''),
+(10, 'quanly02@gmail.com', 0, '529553addffab250295d0595badcee11', 'Lương Tài Em', '', 1, 2, '2019-06-14 08:40:12', '2019-06-14 08:45:36', ''),
+(11, 'quanly03@gmail.com', 0, '5e4670efb7fe2ae0464f7b440a9d7923', 'Phạm Quỳnh Ánh', '', 1, 2, '2019-06-14 08:40:23', '2019-06-14 08:45:47', ''),
+(12, 'quanly04@gmail.com', 0, 'b6f311a380b5092207be17128491516d', 'Lý Thành Nam', '', 1, 2, '2019-06-14 08:40:34', '2019-06-14 08:46:12', ''),
+(13, 'quanly05@gmail.com', 0, '9c2ac0725fb24f301c21bebc7692f6c9', 'Lê Thành Tâm', '', 1, 2, '2019-06-14 08:40:49', '2019-06-14 08:47:07', ''),
+(14, '000006@gmail.com', 0, '84fc146d13b9aed879b7967264363609', 'Nguyễn Văn An', '', 1, 3, '2019-06-14 08:41:41', '2019-06-14 08:47:32', ''),
+(15, '000007@gmail.com', 0, '02554771dc6ba1a0fa6704fd5476c45b', 'Nguyễn Văn Bình', '', 1, 3, '2019-06-14 08:42:02', '2019-06-14 08:47:36', ''),
+(16, '000008@gmail.com', 0, 'cb838e3226df20a3631e5dbd28e3d157', 'Lê Thị Yến', '', 1, 3, '2019-06-14 08:42:14', '2019-06-14 08:47:39', ''),
+(17, '000009@gmail.com', 0, '8cb3b0ebc60ced476e91f2ed073f0df1', 'Nguyễn Thị Linh', '', 1, 3, '2019-06-14 08:42:30', '2019-06-14 08:47:41', ''),
+(18, '000010@gmail.com', 0, '24d1ac241a699c9c1b47ce571e63a935', 'Lương Văn Tài', '', 1, 3, '2019-06-14 08:42:46', '2019-06-14 08:47:44', ''),
+(19, '000011@gmail.com', 0, 'bf1b32a0c3fe64a3e04c3661e925749d', 'Nguyễn Tuấn Anh', '', 1, 3, '2019-06-14 08:43:03', '2019-06-14 08:47:47', ''),
+(20, '000012@gmail.com', 0, 'e8a4f0c25ea6ded073459f7ca4c9ce36', 'Nguyễn Thị Lan Anh', '', 1, 3, '2019-06-14 08:43:17', '2019-06-14 08:47:49', ''),
+(21, '000013@gmail.com', 0, '4589b7fd990e5515ebe236ea8217d204', 'Nguyễn Thị Ánh', '', 1, 3, '2019-06-14 08:43:48', '2019-06-14 08:47:51', ''),
+(22, '000014@gmail.com', 0, '1fc7c3237037d104fb72998e535781b5', 'Phạm Thị Quỳnh', '', 1, 3, '2019-06-14 08:44:08', '2019-06-14 08:47:53', ''),
+(23, '000015@gmail.com', 0, '1a0239cec22d18eaca2a55d45e1b46d8', 'Phạm Thị Quỳnh Anh', '', 1, 3, '2019-06-14 08:44:25', '2019-06-14 08:47:56', ''),
+(24, 'test@test.com', 0, '202cb962ac59075b964b07152d234b70', 'test', 'admin.jpg', 1, 1, '2022-12-04 12:16:56', '2022-12-04 12:16:56', ''),
+(25, 'admin@gmail.com', 1900571535, '202cb962ac59075b964b07152d234b70', 'Cuong nguyen', '', 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '985/62 lac long quan'),
+(26, 'phucuong2@gmail.com', 0, '202cb962ac59075b964b07152d234b70', 'Phu Cuong', '', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', ''),
+(27, '\"\"@asdas.com', 0, 'ec32620eb35230a3d620b3af5e523b0b', 'ád ád', '', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -475,6 +503,13 @@ ALTER TABLE `cms_order`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Chỉ mục cho bảng `cms_order_detail`
+--
+ALTER TABLE `cms_order_detail`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `order_id` (`order_id`);
+
+--
 -- Chỉ mục cho bảng `cms_product`
 --
 ALTER TABLE `cms_product`
@@ -544,7 +579,13 @@ ALTER TABLE `cms_customers`
 -- AUTO_INCREMENT cho bảng `cms_order`
 --
 ALTER TABLE `cms_order`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=798511026;
+
+--
+-- AUTO_INCREMENT cho bảng `cms_order_detail`
+--
+ALTER TABLE `cms_order_detail`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT cho bảng `cms_product`
@@ -580,7 +621,7 @@ ALTER TABLE `cms_suppliers`
 -- AUTO_INCREMENT cho bảng `cms_users`
 --
 ALTER TABLE `cms_users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT cho bảng `cms_users_group`
@@ -597,6 +638,12 @@ ALTER TABLE `comment`
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
+
+--
+-- Các ràng buộc cho bảng `cms_order_detail`
+--
+ALTER TABLE `cms_order_detail`
+  ADD CONSTRAINT `cms_order_detail_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `cms_order` (`ID`);
 
 --
 -- Các ràng buộc cho bảng `comment`
