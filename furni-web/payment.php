@@ -260,6 +260,7 @@ require '../admin_remake/config/controller/user.php';
                                                 VALUES ('$id_born','$id_cus', '$name_cus', '$total', '$phone_num', '$adr_user', '1')";
                                                 // use exec() because no results are returned
                                                 $conn->exec($sql);
+                                                unset($_SESSION['viewcart']);
                                                 header('location: ./index.php');
                                               } catch(PDOException $e) {
                                                 echo $sql . "<br>" . $e->getMessage();
@@ -278,7 +279,7 @@ require '../admin_remake/config/controller/user.php';
                                                       VALUES ('$id_born', '$pr[1]', '$pr[4]', '$pr[2]' )";
                                                       // use exec() because no results are returned
                                                       $conn->exec($sql);
-                                                      
+                                                            
                                                     } catch(PDOException $e) {
                                                       echo $sql . "<br>" . $e->getMessage();
                                                     }

@@ -5,8 +5,8 @@
  require '../admin_remake/config/controller/user.php';
  $conn = condb();
  if(isset($_SESSION['email'])){
-      foreach($user as $user);
      $user = getOne_user($_SESSION['email']);
+     foreach($user as $user);
  }else{
  $user = null;
 }
