@@ -151,7 +151,6 @@
       <!--================Home Area =================-->
       <!-- start footer Area --> <?php include_once './view/layout/footer.php' ?>
       <!-- End footer Area --> <?php include_once './view/layout/scrip.php' ?> <script>
-      VALIDATE 
       function validator(options) {
             function validate(inputElement, rule) {
                   var errorMessage = rule.test(inputElement.value)

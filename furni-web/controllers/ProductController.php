@@ -18,7 +18,11 @@ if (isset($_GET['action'])) {
 switch ($action) {
     
     case 'home':
-        $id_user = $_SESSION['id'];
+        if (isset($_SESSION['id'])) {
+            $id_user = $_SESSION['id'];
+        }else {
+            $id_user = null;
+        }
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $kq = getProductById($id);
