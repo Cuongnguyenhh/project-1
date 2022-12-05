@@ -3,6 +3,9 @@
 <?php
 session_start();
 ob_start();
+require '../admin_remake/config/database.php';
+require '../admin_remake/config/controller/user.php';
+
 ?>
 
 <head>
@@ -14,14 +17,14 @@ ob_start();
       <!-- End Header Area -->
 
       <!--================Home Area =================-->
-      <?php
-      $add = $_POST['add_contact'];
-      $add2 = $_POST['add2_contact'];
-      $city = $_POST['city_contact'];
-      $total = 0;
+      <!-- <?php
+      // $add = $_POST['add_contact'];
+      // $add2 = $_POST['add2_contact'];
+      // $city = $_POST['city_contact'];
+      // $total = 0;
 
-      ?>
-      <form action="shop.php?action=order" method="post">
+      ?> -->
+      <form action="./add_order.php" method="post">
             <main class="main">
                   <div class="container">
                         <header class="header__info">
@@ -63,7 +66,6 @@ ob_start();
                                           </div>
                                           <div class="payment-shipping">
                                                 <div>
-                                                      <h5 class="payment-city"><?= $add2 ?> , <?= $add ?> , <?= $city ?> </h5>
                                                 </div>
                                                 <a href="checkout.php">change</a>
                                           </div>
@@ -136,19 +138,9 @@ ob_start();
                                                 </div>
                                           </div>
                                     </div>
-                                    
-                                    <div class="payment-button">
-                                          <button type="submit" class="btn btn-payment">
-                                                Đặt hàng
-                                          </button>
-                                    </div>
-                              </div>
-                              <div class="order">
-                                    <h5 class="order-title">
-                                          Your order
-                                    </h5>
-                                    <div class="order-products">
-                                          <?php foreach ($_SESSION['viewcart'] as   $value) :
+                                    <div class="order-products" style="display:none ;">
+                                          <?php $total_prd = 0; foreach ($_SESSION['viewcart'] as   $value) :
+                                          $total_prd++;
                                                 $total_price = $value[2] * $value[4];
                                                 $total += $total_price; ?>
                                                 <div class="order-product">
@@ -156,7 +148,7 @@ ob_start();
                                                             <img src="uploads/<?= $value[3] ?>" alt="">
                                                       </div>
                                                       <div class="order-product-content">
-                                                            <h3 class="order-product-name">
+                                                            <h3 class="order-product-name" name="vaic">
                                                                   <?= $value[1] ?>
                                                             </h3>
                                                             <div class="order-product-group">
@@ -165,7 +157,48 @@ ob_start();
                                                             </div>
                                                       </div>
                                                 </div>
+                                                
                                           <?php endforeach ?>
+>
+                                    </div>
+                                    
+                                    <div class="payment-button">
+                                          <a  href="payment.php?add_order=true" class="btn btn-payment"> hihi
+                                          
+                                          </a>
+                                    </div>
+                              </div>
+                              <div class="order">
+                                    <h5 class="order-title">
+                                          Your order
+                                    </h5>
+                                    <div class="order-products">
+                                          <?php $total_prd = 0; foreach ($_SESSION['viewcart'] as   $value) :
+                                          $total_prd++;
+                                                $total_price = $value[2] * $value[4];
+                                                $total += $total_price; ?>
+                                                <div class="order-product">
+                                                      <div class="order-product-image">
+                                                            <img src="uploads/<?= $value[3] ?>" alt="">
+                                                      </div>
+                                                      <div class="order-product-content">
+                                                            <h3 class="order-product-name" name="vaic">
+                                                                  <?= $value[1] ?>
+                                                            </h3>
+                                                            <div class="order-product-group">
+                                                                  <span class="money"><?= $value[2] ?></span>
+                                                                  <span class="count">x<?= $value[4] ?></span>
+                                                            </div>
+                                                      </div>
+                                                </div>
+                                                
+                                          <?php endforeach ?>
+
+                                          <!-- them order vao db -->
+
+                                         
+                                          <!-- hetttt -->
+                                       
                                     </div>
                                     <div class="order-product-total">
                                           <div class="total proTotal">
@@ -200,5 +233,63 @@ ob_start();
 
       <?php include_once './view/layout/scrip.php' ?>
 </body>
+                                    <?php 
+                                     $prd_order = $_SESSION['viewcart'];
+                                     $id_born1 = rand(1,10000000);
+                                     $id_born2 = $_SESSION['id'];
+                                     $id_born = $id_born1.''.$id_born2;
+
+                                         function add_order($id_born,$total){
+                                          $conn = condb();
+                                          if(isset($_SESSION['email'])){
+                                              $user = getOne_user($_SESSION['email']);
+                                              foreach($user as $user_gg);
+                                           $id_cus = $user_gg['id'];
+                                           $name_cus = $_SESSION['display_name'];
+                                           $phone_num = $_SESSION['phone_num'];
+                                           $adr_user = $_SESSION['adr_user'];
+                                          }else{
+                                          $user = null;
+                                         }
+                                          
+                                                
+                                          // add oder
+                                          try {
+                                               
+                                                $sql = "INSERT INTO cms_order (ID, customer_id, name_cus, totol_price, phone_num, adr_cus, status)
+                                                VALUES ('$id_born','$id_cus', '$name_cus', '$total', '$phone_num', '$adr_user', '1')";
+                                                // use exec() because no results are returned
+                                                $conn->exec($sql);
+                                                header('location: ./index.php');
+                                              } catch(PDOException $e) {
+                                                echo $sql . "<br>" . $e->getMessage();
+                                              }
+                                             
+                                         }
+                                         function add_order_detail($id_born,$total_prd,$prd_order){
+                                          $conn = condb();
+
+                                          foreach($prd_order as $pr){
+
+                                          
+                                                try {
+                                               
+                                                      $sql = "INSERT INTO cms_order_detail ( order_id, prd_name, quailyti, price )
+                                                      VALUES ('$id_born', '$pr[1]', '$pr[4]', '$pr[2]' )";
+                                                      // use exec() because no results are returned
+                                                      $conn->exec($sql);
+                                                      
+                                                    } catch(PDOException $e) {
+                                                      echo $sql . "<br>" . $e->getMessage();
+                                                    }
+                                          }
+
+                                         };
+                                         if (isset($_GET['add_order'])) {
+                                          add_order($id_born,$total);
+                                          add_order_detail($id_born, $total_prd, $prd_order);
+                                        }
+
+                                          ?>
 
 </html>

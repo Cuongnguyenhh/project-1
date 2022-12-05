@@ -34,12 +34,16 @@ echo "
     foreach($user_one as $user){
      // echo $user['email'];
     }
+    $_SESSION['adr_user'] = $user['adr_user'];
     $_SESSION['display_name'] = $user['display_name'];
     $_SESSION['email'] = $user['email'];
      $_SESSION['avt']= $user['display_img'];
      $_SESSION['type']= $user['group_id'];
      $_SESSION['id'] = $user['id'];
     $_SESSION['log_ss'] = $_SESSION['email'];
+    $_SESSION['phone_num'] = $user['phone_num'];
+
+
 
   if(isset($_SESSION['log_ss'])){
     

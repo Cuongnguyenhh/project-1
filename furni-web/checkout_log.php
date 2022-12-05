@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php session_start(); ob_start();
- require '../admin_remake/config/database.php';
- require '../admin_remake/config/controller/user.php';
- $conn = condb();
- if(isset($_SESSION['email'])){
-      foreach($user as $user);
-     $user = getOne_user($_SESSION['email']);
- }else{
- $user = null;
+    require './admin_remake/config/database.php';
+    require './admin_remake/config/controller/user.php';
+    $conn = condb();
+    if(isset($_SESSION['email'])){
+        $user = getOne_user($_SESSION['email']);
+    }else{
+    $user = null;
 }
- 
-?>
+    foreach($user as $user);
+    echo $user['email'];
+ ?>
 
 <head> <?php include_once './view/layout/meta.php' ?> </head>
 
@@ -27,7 +27,7 @@
                                     </a>
                                     <ul class="header__list">
                                           <li>
-                                                <a href="viewcart.php">Giỏ hàng</a>
+                                                <a href="viewcart.php">Giỏ hàng </a>
                                                 <i class="fa-solid fa-angle-right"></i>
                                           </li>
                                           <li>
@@ -38,143 +38,7 @@
                               <div class="checkout-main">
                                     <div class="main__shipping">
                                           <div class="shipping__content">
-                                                <?php
-                                                if(isset($_SESSION['email'])){
-                                                      echo '<form action="payment.php" method="post" class="shipping__form">
-                                                      <div class="main__info">
-                                                            <div class="info__header">
-                                                                  <h2 class="info__header-title"> Thông tin liên lạc hihi
-                                                                  </h2>
-                                                                  
-                                                            </div>
-                                                            <div class="info__content">
-                                                                  <div class="info__field-set">
-                                                                        <input type="email" name="email_contact"
-                                                                              id="email-check" value="'.$user['email'].'"
-                                                                              aria-required="true">
-                                                                        <span class="form-message"></span>
-                                                                  </div>
-                                                                  <div class="info__content-desc">
-                                                                        <input id="checkbox__contact-info"
-                                                                              type="checkbox">
-                                                                        <label for="checkbox__contact-info">
-                                                                              Gửi email cho tôi với tin tức và ưu đãi
-                                                                        </label>
-                                                                  </div>
-                                                            </div>
-                                                      </div>
-                                                      <div class="field__double">
-                                                            <div class="field field__first">
-                                                                  <input id="first-check" type="text"
-                                                                        name="fname_contact" placeholder="Name" value="'.$user['display_name'].'">
-                                                                  <span class="form-message"></span>
-                                                            </div>
-                                                             <div class="field field__last">
-                                                                   <input id="last-check" type="text"
-                                                                        name="lname_contact" placeholder="Phone" value="'.$user['phone'].'">
-                                                                  <span class="form-message"></span>
-                                                             </div>
-                                                      </div>
-                                                      <div class="field">
-                                                            <input id="address-check" type="text" name="add_contact"
-                                                                  placeholder="Address" value="'.$user['adr_user'].'">
-                                                            <span class="form-message"></span>
-                                                      </div>
-                                                      <div class="field">
-                                                            <input id="optional-check" type="text" name="add2_contact"
-                                                                  placeholder="Apartment, suite, etc. (optional)" value="'.$user['adr_user'].'">
-                                                            <span class="form-message"></span>
-                                                      </div>
-                                                      <div class="field">
-                                                            <input id="city-check" type="text" name="city_contact"
-                                                                  placeholder="City" value="'.$user['adr_user'].'">
-                                                            <span class="form-message"></span>
-                                                      </div>
-                                                      <div class="field__save">
-                                                            <input type="checkbox" id="checkbox__save-remember">
-                                                            <label for="checkbox__save-remember"> Lưu thông tin này cho
-                                                                  lần sau </label>
-                                                      </div>
-                                                      <div class="shipping__footer">
-                                                            <a href="viewcart.php" class="shipping__link-back">
-                                                                  <i class="fa-sharp fa-solid fa-angle-left"></i> Trở
-                                                                  lại giỏ hàng
-                                                            </a>
-                                                            <button type="submit" class="btn btn-shipping">
-                                                                  Tiếp tục chuyển hàng
-                                                            </button>
-                                                      </div>
-                                                </form>';
-                                                } else 
-                                                echo '<form action="payment.php" method="post" class="shipping__form">
-                                                <div class="main__info">
-                                                      <div class="info__header">
-                                                            <h2 class="info__header-title"> Thông tin liên lạc
-                                                            </h2>
-                                                            <p class="info__header-account">
-                                                                  <a href="#">Đăng nhập</a>
-                                                            </p>
-                                                      </div>
-                                                      <div class="info__content">
-                                                            <div class="info__field-set">
-                                                                  <input type="email" name="email_contact"
-                                                                        id="email-check" placeholder=" Email"
-                                                                        aria-required="true">
-                                                                  <span class="form-message"></span>
-                                                            </div>
-                                                            <div class="info__content-desc">
-                                                                  <input id="checkbox__contact-info"
-                                                                        type="checkbox">
-                                                                  <label for="checkbox__contact-info">
-                                                                        Gửi email cho tôi với tin tức và ưu đãi
-                                                                  </label>
-                                                            </div>
-                                                      </div>
-                                                </div>
-                                                <div class="field__double">
-                                                      <div class="field field__first">
-                                                            <input id="first-check" type="text"
-                                                                  name="fname_contact" placeholder="First name">
-                                                            <span class="form-message"></span>
-                                                      </div>
-                                                      <div class="field field__last">
-                                                            <input id="last-check" type="text"
-                                                                  name="lname_contact" placeholder="Last name">
-                                                            <span class="form-message"></span>
-                                                      </div>
-                                                </div>
-                                                <div class="field">
-                                                      <input id="address-check" type="text" name="add_contact"
-                                                            placeholder="Address">
-                                                      <span class="form-message"></span>
-                                                </div>
-                                                <div class="field">
-                                                      <input id="optional-check" type="text" name="add2_contact"
-                                                            placeholder="Apartment, suite, etc. (optional)">
-                                                      <span class="form-message"></span>
-                                                </div>
-                                                <div class="field">
-                                                      <input id="city-check" type="text" name="city_contact"
-                                                            placeholder="City">
-                                                      <span class="form-message"></span>
-                                                </div>
-                                                <div class="field__save">
-                                                      <input type="checkbox" id="checkbox__save-remember">
-                                                      <label for="checkbox__save-remember"> Lưu thông tin này cho
-                                                            lần sau </label>
-                                                </div>
-                                                <div class="shipping__footer">
-                                                      <a href="viewcart.php" class="shipping__link-back">
-                                                            <i class="fa-sharp fa-solid fa-angle-left"></i> Trở
-                                                            lại giỏ hàng
-                                                      </a>
-                                                      <button type="submit" class="btn btn-shipping">
-                                                            Tiếp tục chuyển hàng
-                                                      </button>
-                                                </div>
-                                          </form>';
-                                                ?>
-                                                <!-- <form action="payment.php" method="post" class="shipping__form">
+                                                <form action="payment.php" method="post" class="shipping__form">
                                                       <div class="main__info">
                                                             <div class="info__header">
                                                                   <h2 class="info__header-title"> Thông tin liên lạc
@@ -240,7 +104,7 @@
                                                                   Tiếp tục chuyển hàng
                                                             </button>
                                                       </div>
-                                                </form> -->
+                                                </form>
                                           </div>
                                     </div>
                               </div>
