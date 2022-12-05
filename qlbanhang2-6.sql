@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 04, 2022 lúc 07:11 AM
--- Phiên bản máy phục vụ: 10.4.11-MariaDB
--- Phiên bản PHP: 7.4.4
+-- Thời gian đã tạo: Th12 04, 2022 lúc 08:50 PM
+-- Phiên bản máy phục vụ: 10.4.24-MariaDB
+-- Phiên bản PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -185,38 +185,42 @@ CREATE TABLE `cms_product` (
   `quaility` int(11) NOT NULL,
   `prd_description` varchar(255) NOT NULL,
   `id_color` int(10) NOT NULL,
-  `id_sort` int(10) NOT NULL
+  `id_sort` int(10) NOT NULL,
+  `id_cmt` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `cms_product`
 --
 
-INSERT INTO `cms_product` (`ID`, `id_prd_group`, `id_pro_manufacture`, `prd_img`, `prd_status`, `create`, `prd_sell_price`, `prd_price`, `prd_name`, `quaility`, `prd_description`, `id_color`, `id_sort`) VALUES
-(38, 2, 0, 'moana.webp', 1, '0000-00-00', 9855000, 9000000, 'Sofa MOANA', 2, '', 0, 0),
-(39, 2, 0, 'hiro.webp', 1, '0000-00-00', 12105000, 1100000, 'Sofa HIRO', 1800, '', 0, 0),
-(40, 2, 0, 'anna.webp', 1, '0000-00-00', 13365000, 12000000, 'Sofa ANNA', 2000, '', 0, 0),
-(41, 2, 0, 'lam.webp', 1, '0000-00-00', 1344000, 1000000, 'Tủ quần áo LAM', 1300, '', 0, 0),
-(42, 2, 0, 'ez.webp', 1, '0000-00-00', 2800000, 2000000, 'Tủ quần áo EZ', 1500, '', 0, 0),
-(43, 2, 0, 'johy.webp', 1, '0000-00-00', 12480000, 12000000, 'Tủ quần áo JOHY', 1700, '', 0, 0),
-(44, 2, 0, 'quada.webp', 1, '0000-00-00', 18870000, 17000000, 'Tủ quần áo QUADA', 1900, '', 0, 0),
-(46, 2, 0, 'Doer.webp', 1, '0000-00-00', 1317500, 1000000, 'Bàn DOER', 0, '', 0, 0),
-(47, 0, 0, 'victor.webp', 1, '0000-00-00', 1960000, 1500000, 'Bàn VICTOR', 2500, '', 0, 0),
-(48, 0, 0, 'fighter.webp', 1, '0000-00-00', 1960000, 1500000, 'Bàn FIGHTER', 2700, '', 0, 0),
-(49, 0, 0, 'builder.webp', 1, '0000-00-00', 2422500, 2000000, 'Bàn BUILDER', 0, '', 0, 0),
-(50, 2, 0, 'doer plus.webp', 1, '0000-00-00', 1720000, 1300000, 'Bàn DOER Plus', 2200, '', 0, 0),
-(51, 2, 0, 'latu.webp', 1, '0000-00-00', 962500, 900000, 'Ghế LATU', 2400, '', 0, 0),
-(52, 2, 0, 'to-be.webp', 1, '0000-00-00', 3612500, 3000000, 'Ghế TO-BE', 2800, '', 0, 0),
-(53, 0, 0, 'noven.webp', 1, '0000-00-00', 742500, 650000, 'Ghế NOVEN', 3000, '', 0, 0),
-(54, 0, 0, 'astu.webp', 1, '0000-00-00', 466650, 350000, 'Ghế ASTU', 3200, '', 0, 0),
-(55, 2, 0, 'shape.webp', 1, '0000-00-00', 841500, 750000, 'Ghế SHAPE', 0, '', 0, 0),
-(56, 0, 0, 'tu ez.webp', 1, '0000-00-00', 416500, 350000, 'Tủ EZ', 3800, '', 0, 0),
-(57, 1, 0, 'ke tapi.webp', 1, '0000-00-00', 864000, 700000, 'Kệ TAPI', 4000, '', 0, 0),
-(58, 1, 0, 'ke pamiti.webp', 1, '0000-00-00', 578000, 400000, 'Kệ PAMITI', 3300, '', 0, 0),
-(59, 1, 0, 'ke vita.webp', 1, '0000-00-00', 1032000, 900000, 'Kệ VITA', 3500, '', 0, 0),
-(60, 1, 0, 'ke hobu.webp', 1, '0000-00-00', 1351500, 1000000, 'Kệ HOBU', 3700, '', 0, 0),
-(61, 1, 0, 'guong duka.webp', 1, '0000-00-00', 1160000, 900000, 'Gương DUKA', 1200, '', 0, 0),
-(62, 1, 0, 'guong haso.webp', 1, '0000-00-00', 1317500, 1000000, 'Gương HASO', 4600, '', 0, 0);
+INSERT INTO `cms_product` (`ID`, `id_prd_group`, `id_pro_manufacture`, `prd_img`, `prd_status`, `create`, `prd_sell_price`, `prd_price`, `prd_name`, `quaility`, `prd_description`, `id_color`, `id_sort`, `id_cmt`) VALUES
+(38, 2, 0, 'moana.webp', 1, '0000-00-00', 9855000, 9000000, 'Sofa MOANA', 2, 'Đây chính là mô tả sản phẩm đấy ạ', 0, 0, 0),
+(39, 2, 0, 'hiro.webp', 1, '0000-00-00', 12105000, 1100000, 'Sofa HIRO', 1800, '', 0, 0, 0),
+(40, 2, 0, 'anna.webp', 1, '0000-00-00', 13365000, 12000000, 'Sofa ANNA', 2000, '', 0, 0, 0),
+(41, 2, 0, 'lam.webp', 1, '0000-00-00', 1344000, 1000000, 'Tủ quần áo LAM', 1300, '', 0, 0, 0),
+(42, 2, 0, 'ez.webp', 1, '0000-00-00', 2800000, 2000000, 'Tủ quần áo EZ', 1500, '', 0, 0, 0),
+(43, 2, 0, 'johy.webp', 1, '0000-00-00', 12480000, 12000000, 'Tủ quần áo JOHY', 1700, '', 0, 0, 0),
+(44, 2, 0, 'quada.webp', 1, '0000-00-00', 18870000, 17000000, 'Tủ quần áo QUADA', 1900, '', 0, 0, 0),
+(46, 2, 0, 'Doer.webp', 1, '0000-00-00', 1317500, 1000000, 'Bàn DOER', 0, '', 0, 0, 0),
+(47, 0, 0, 'victor.webp', 1, '0000-00-00', 1960000, 1500000, 'Bàn VICTOR', 2500, '', 0, 0, 0),
+(48, 0, 0, 'fighter.webp', 1, '0000-00-00', 1960000, 1500000, 'Bàn FIGHTER', 2700, '', 0, 0, 0),
+(49, 0, 0, 'builder.webp', 1, '0000-00-00', 2422500, 2000000, 'Bàn BUILDER', 0, '', 0, 0, 0),
+(50, 2, 0, 'doer plus.webp', 1, '0000-00-00', 1720000, 1300000, 'Bàn DOER Plus', 2200, '', 0, 0, 0),
+(51, 2, 0, 'latu.webp', 1, '0000-00-00', 962500, 900000, 'Ghế LATU', 2400, '', 0, 0, 0),
+(52, 2, 0, 'to-be.webp', 1, '0000-00-00', 3612500, 3000000, 'Ghế TO-BE', 2800, '', 0, 0, 0),
+(53, 0, 0, 'noven.webp', 1, '0000-00-00', 742500, 650000, 'Ghế NOVEN', 3000, '', 0, 0, 0),
+(54, 0, 0, 'astu.webp', 1, '0000-00-00', 466650, 350000, 'Ghế ASTU', 3200, '', 0, 0, 0),
+(55, 2, 0, 'shape.webp', 1, '0000-00-00', 841500, 750000, 'Ghế SHAPE', 0, '', 0, 0, 0),
+(56, 0, 0, 'tu ez.webp', 1, '0000-00-00', 416500, 350000, 'Tủ EZ', 3800, '', 0, 0, 0),
+(57, 1, 0, 'ke tapi.webp', 1, '0000-00-00', 864000, 700000, 'Kệ TAPI', 4000, '', 0, 0, 0),
+(58, 1, 0, 'ke pamiti.webp', 1, '0000-00-00', 578000, 400000, 'Kệ PAMITI', 3300, '', 0, 0, 0),
+(59, 1, 0, 'ke vita.webp', 1, '0000-00-00', 1032000, 900000, 'Kệ VITA', 3500, '', 0, 0, 0),
+(60, 1, 0, 'ke hobu.webp', 1, '0000-00-00', 1351500, 1000000, 'Kệ HOBU', 3700, '', 0, 0, 0),
+(61, 1, 0, 'guong duka.webp', 1, '0000-00-00', 1160000, 900000, 'Gương DUKA', 1200, '', 0, 0, 0),
+(62, 1, 0, 'guong haso.webp', 1, '0000-00-00', 1317500, 1000000, 'Gương HASO', 4600, '', 0, 0, 0),
+(63, 2, 0, 'moana.webp', 1, '2022-12-07', 9855000, 9000000, 'Sofa MOANA', 2, 'test 1234455 sss', 0, 0, 0),
+(64, 2, 0, 'moana.webp', 1, '0000-00-00', 9855000, 9000000, 'Sofa MOANA', 2, 'kjshfiu hqhfui qfiuf wf', 0, 0, 0),
+(65, 2, 0, 'moana.webp', 1, '0000-00-00', 9855000, 9000000, 'Sofa MOANA', 2, 'adasdsa dasdasdasd', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -362,10 +366,10 @@ INSERT INTO `cms_suppliers` (`ID`, `supplier_code`, `supplier_name`, `supplier_p
 
 CREATE TABLE `cms_users` (
   `id` int(10) UNSIGNED NOT NULL,
-  `username` varchar(100) NOT NULL,
+  `email` varchar(120) DEFAULT NULL,
   `password` varchar(100) NOT NULL,
-  `email` varchar(120) NOT NULL,
   `display_name` varchar(120) NOT NULL,
+  `display_img` varchar(250) NOT NULL,
   `user_status` tinyint(4) NOT NULL,
   `group_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
@@ -376,24 +380,27 @@ CREATE TABLE `cms_users` (
 -- Đang đổ dữ liệu cho bảng `cms_users`
 --
 
-INSERT INTO `cms_users` (`id`, `username`, `password`, `email`, `display_name`, `user_status`, `group_id`, `created`, `updated`) VALUES
-(2, 'admin', 'acafabfb3b45089f905b5c8c0698f63c', 'admin@admin.com', 'admin', 1, 1, '2017-09-25 23:01:53', '2019-06-14 08:38:30'),
-(8, '000000', 'b7ba4f82e63748b31419f9ea47d7b72f', 'namit@admin.com', 'namit', 0, 1, '2019-06-14 08:39:27', '0000-00-00 00:00:00'),
-(9, '000001', '8277e745d10dd789d80c250e9e86b69d', 'quanly01@gmail.com', 'Lên Anh Tài', 1, 2, '2019-06-14 08:40:00', '2019-06-14 08:45:14'),
-(10, '000002', '529553addffab250295d0595badcee11', 'quanly02@gmail.com', 'Lương Tài Em', 1, 2, '2019-06-14 08:40:12', '2019-06-14 08:45:36'),
-(11, '000003', '5e4670efb7fe2ae0464f7b440a9d7923', 'quanly03@gmail.com', 'Phạm Quỳnh Ánh', 1, 2, '2019-06-14 08:40:23', '2019-06-14 08:45:47'),
-(12, '000004', 'b6f311a380b5092207be17128491516d', 'quanly04@gmail.com', 'Lý Thành Nam', 1, 2, '2019-06-14 08:40:34', '2019-06-14 08:46:12'),
-(13, '000005', '9c2ac0725fb24f301c21bebc7692f6c9', 'quanly05@gmail.com', 'Lê Thành Tâm', 1, 2, '2019-06-14 08:40:49', '2019-06-14 08:47:07'),
-(14, '000006', '84fc146d13b9aed879b7967264363609', '000006@gmail.com', 'Nguyễn Văn An', 1, 3, '2019-06-14 08:41:41', '2019-06-14 08:47:32'),
-(15, '000007', '02554771dc6ba1a0fa6704fd5476c45b', '000007@gmail.com', 'Nguyễn Văn Bình', 1, 3, '2019-06-14 08:42:02', '2019-06-14 08:47:36'),
-(16, '000008', 'cb838e3226df20a3631e5dbd28e3d157', '000008@gmail.com', 'Lê Thị Yến', 1, 3, '2019-06-14 08:42:14', '2019-06-14 08:47:39'),
-(17, '000009', '8cb3b0ebc60ced476e91f2ed073f0df1', '000009@gmail.com', 'Nguyễn Thị Linh', 1, 3, '2019-06-14 08:42:30', '2019-06-14 08:47:41'),
-(18, '000010', '24d1ac241a699c9c1b47ce571e63a935', '000010@gmail.com', 'Lương Văn Tài', 1, 3, '2019-06-14 08:42:46', '2019-06-14 08:47:44'),
-(19, '000011', 'bf1b32a0c3fe64a3e04c3661e925749d', '000011@gmail.com', 'Nguyễn Tuấn Anh', 1, 3, '2019-06-14 08:43:03', '2019-06-14 08:47:47'),
-(20, '000012', 'e8a4f0c25ea6ded073459f7ca4c9ce36', '000012@gmail.com', 'Nguyễn Thị Lan Anh', 1, 3, '2019-06-14 08:43:17', '2019-06-14 08:47:49'),
-(21, '000013', '4589b7fd990e5515ebe236ea8217d204', '000013@gmail.com', 'Nguyễn Thị Ánh', 1, 3, '2019-06-14 08:43:48', '2019-06-14 08:47:51'),
-(22, '000014', '1fc7c3237037d104fb72998e535781b5', '000014@gmail.com', 'Phạm Thị Quỳnh', 1, 3, '2019-06-14 08:44:08', '2019-06-14 08:47:53'),
-(23, '000015', '1a0239cec22d18eaca2a55d45e1b46d8', '000015@gmail.com', 'Phạm Thị Quỳnh Anh', 1, 3, '2019-06-14 08:44:25', '2019-06-14 08:47:56');
+INSERT INTO `cms_users` (`id`, `email`, `password`, `display_name`, `display_img`, `user_status`, `group_id`, `created`, `updated`) VALUES
+(2, 'admin@admin.com', 'acafabfb3b45089f905b5c8c0698f63c', 'admin', '', 1, 1, '2017-09-25 23:01:53', '2019-06-14 08:38:30'),
+(8, 'namit@admin.com', 'b7ba4f82e63748b31419f9ea47d7b72f', 'namit', '', 0, 1, '2019-06-14 08:39:27', '0000-00-00 00:00:00'),
+(9, 'quanly01@gmail.com', '8277e745d10dd789d80c250e9e86b69d', 'Lên Anh Tài', '', 1, 2, '2019-06-14 08:40:00', '2019-06-14 08:45:14'),
+(10, 'quanly02@gmail.com', '529553addffab250295d0595badcee11', 'Lương Tài Em', '', 1, 2, '2019-06-14 08:40:12', '2019-06-14 08:45:36'),
+(11, 'quanly03@gmail.com', '5e4670efb7fe2ae0464f7b440a9d7923', 'Phạm Quỳnh Ánh', '', 1, 2, '2019-06-14 08:40:23', '2019-06-14 08:45:47'),
+(12, 'quanly04@gmail.com', 'b6f311a380b5092207be17128491516d', 'Lý Thành Nam', '', 1, 2, '2019-06-14 08:40:34', '2019-06-14 08:46:12'),
+(13, 'quanly05@gmail.com', '9c2ac0725fb24f301c21bebc7692f6c9', 'Lê Thành Tâm', '', 1, 2, '2019-06-14 08:40:49', '2019-06-14 08:47:07'),
+(14, '000006@gmail.com', '84fc146d13b9aed879b7967264363609', 'Nguyễn Văn An', '', 1, 3, '2019-06-14 08:41:41', '2019-06-14 08:47:32'),
+(15, '000007@gmail.com', '02554771dc6ba1a0fa6704fd5476c45b', 'Nguyễn Văn Bình', '', 1, 3, '2019-06-14 08:42:02', '2019-06-14 08:47:36'),
+(16, '000008@gmail.com', 'cb838e3226df20a3631e5dbd28e3d157', 'Lê Thị Yến', '', 1, 3, '2019-06-14 08:42:14', '2019-06-14 08:47:39'),
+(17, '000009@gmail.com', '8cb3b0ebc60ced476e91f2ed073f0df1', 'Nguyễn Thị Linh', '', 1, 3, '2019-06-14 08:42:30', '2019-06-14 08:47:41'),
+(18, '000010@gmail.com', '24d1ac241a699c9c1b47ce571e63a935', 'Lương Văn Tài', '', 1, 3, '2019-06-14 08:42:46', '2019-06-14 08:47:44'),
+(19, '000011@gmail.com', 'bf1b32a0c3fe64a3e04c3661e925749d', 'Nguyễn Tuấn Anh', '', 1, 3, '2019-06-14 08:43:03', '2019-06-14 08:47:47'),
+(20, '000012@gmail.com', 'e8a4f0c25ea6ded073459f7ca4c9ce36', 'Nguyễn Thị Lan Anh', '', 1, 3, '2019-06-14 08:43:17', '2019-06-14 08:47:49'),
+(21, '000013@gmail.com', '4589b7fd990e5515ebe236ea8217d204', 'Nguyễn Thị Ánh', '', 1, 3, '2019-06-14 08:43:48', '2019-06-14 08:47:51'),
+(22, '000014@gmail.com', '1fc7c3237037d104fb72998e535781b5', 'Phạm Thị Quỳnh', '', 1, 3, '2019-06-14 08:44:08', '2019-06-14 08:47:53'),
+(23, '000015@gmail.com', '1a0239cec22d18eaca2a55d45e1b46d8', 'Phạm Thị Quỳnh Anh', '', 1, 3, '2019-06-14 08:44:25', '2019-06-14 08:47:56'),
+(24, 'test@test.com', '202cb962ac59075b964b07152d234b70', 'test', 'admin.jpg', 1, 1, '2022-12-04 12:16:56', '2022-12-04 12:16:56'),
+(25, 'admin@gmail.com', '202cb962ac59075b964b07152d234b70', 'Cuong nguyen', '', 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(26, 'phucuong2@gmail.com', '202cb962ac59075b964b07152d234b70', 'Phu Cuong', '', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -426,10 +433,18 @@ INSERT INTO `cms_users_group` (`id`, `group_name`, `group_permission`, `group_re
 
 CREATE TABLE `comment` (
   `ID` int(11) NOT NULL,
+  `commet` varchar(1500) DEFAULT NULL,
   `prd_id` int(11) NOT NULL,
   `create` date NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `comment`
+--
+
+INSERT INTO `comment` (`ID`, `commet`, `prd_id`, `create`, `user_id`) VALUES
+(17, 'Chán lắm thành ơiiiiiiiiii', 38, '0000-00-00', 24);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -493,13 +508,21 @@ ALTER TABLE `cms_suppliers`
 -- Chỉ mục cho bảng `cms_users`
 --
 ALTER TABLE `cms_users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Chỉ mục cho bảng `cms_users_group`
 --
 ALTER TABLE `cms_users_group`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `tk_comment` (`prd_id`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
@@ -527,7 +550,7 @@ ALTER TABLE `cms_order`
 -- AUTO_INCREMENT cho bảng `cms_product`
 --
 ALTER TABLE `cms_product`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT cho bảng `cms_products_group`
@@ -557,13 +580,29 @@ ALTER TABLE `cms_suppliers`
 -- AUTO_INCREMENT cho bảng `cms_users`
 --
 ALTER TABLE `cms_users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT cho bảng `cms_users_group`
 --
 ALTER TABLE `cms_users_group`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `tk_comment` FOREIGN KEY (`prd_id`) REFERENCES `cms_product` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
