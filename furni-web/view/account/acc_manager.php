@@ -76,9 +76,12 @@
                                     <div class="manager-body-right">
                                           <div class="account-setting">
                                                 <div class="account-setting-top">
-                                                      <img src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="">
+                                                      <img src="./uploads/<?php  echo $_SESSION['avt'] ?>" alt="">
+
                                                       <div class="account-setting-upload">
-                                                            <h6>Upload a New Photo</h6>
+                                                      <div class="content__button">
+                                                                  <button><input type="file" name="" id=""></button>
+                                                            </div>
                                                             <span>Profile-pic.jpg</span>
                                                       </div>
                                                 </div>
@@ -89,17 +92,17 @@
                                                                   <div class="content__group-row">
                                                                         <div class="content__group-col">
                                                                               <label for="acc-set-user-name">Full Name <sup>*</sup></label>
-                                                                              <input class="content__controll" id="acc-set-user-name" type="text" value="mintsanzz">
+                                                                              <input class="content__controll" id="acc-set-user-name" type="text" value="<?php echo $_SESSION['display_name']; ?>">
                                                                         </div>
                                                                         <div class="content__group-col">
                                                                               <label for="acc-set-user-email">Email Address <sup>*</sup></label>
-                                                                              <input class="content__controll" id="acc-set-user-email" type="text" value="mint03sanzz@gmail.com">
+                                                                              <input class="content__controll" id="acc-set-user-email" type="text" value="<?php echo $_SESSION['email']; ?>">
                                                                         </div>
                                                                   </div>
                                                             </div>
                                                             <div class="content__group">
                                                                   <label for="acc-set-user-address">Address <sup>*</sup></label>
-                                                                  <input class="content__controll" id="acc-set-user-address" type="text" value="HCM, Q12, Đường tân chánh hiệp">
+                                                                  <input class="content__controll" id="acc-set-user-address" type="text" value="<?php echo $_SESSION['adr_user']; ?>">
                                                             </div>
                                                             <div class="content__group">
                                                                   <div class="content__group-row">
@@ -109,15 +112,15 @@
                                                                         </div>
                                                                         <div class="content__group-col">
                                                                               <label for="acc-set-user-state">State/Province <sup>*</sup></label>
-                                                                              <input class="content__controll" id="acc-set-user-state" type="text" value="Quan 12">
+                                                                              <input class="content__controll" id="acc-set-user-state" type="text" value="">
                                                                         </div>
                                                                   </div>
                                                             </div>
                                                             <div class="content__group">
                                                                   <div class="content__group-row">
                                                                         <div class="content__group-col">
-                                                                              <label for="acc-set-user-code">Zip code <sup>*</sup></label>
-                                                                              <input class="content__controll" id="acc-set-user-code" type="text" value="10000">
+                                                                              <label for="acc-set-user-code">Phone Number <sup>*</sup></label>
+                                                                              <input class="content__controll" id="acc-set-user-code" type="text" value="1900574531">
                                                                         </div>
                                                                         <div class="content__group-col">
                                                                               <label for="acc-set-user-country">Country <sup>*</sup></label>

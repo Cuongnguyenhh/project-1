@@ -164,7 +164,7 @@ foreach($userOne as $user){
                                     </div>
                                     <ul class="header-bars-list">
                                           <li class="header-bars-item">
-                                                <a href="#!">Tài khoản của tôi</a>
+                                                <a href="index.php?action=user">Tài khoản của tôi</a>
                                           </li>
                                           <li class="header-bars-item">
                                                 <a href="controllers/logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i>

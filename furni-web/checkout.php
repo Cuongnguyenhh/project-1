@@ -149,8 +149,8 @@
                                                       <span class="form-message"></span>
                                                 </div>
                                                 <div class="field">
-                                                      <input id="optional-check" type="text" name="add2_contact"
-                                                            placeholder="Apartment, suite, etc. (optional)">
+                                                      <input id="optional-check" type="text" name="phone_num"
+                                                            placeholder="Enter your number phone">
                                                       <span class="form-message"></span>
                                                 </div>
                                                 <div class="field">

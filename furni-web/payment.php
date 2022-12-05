@@ -17,13 +17,13 @@ require '../admin_remake/config/controller/user.php';
       <!-- End Header Area -->
 
       <!--================Home Area =================-->
-      <!-- <?php
-      // $add = $_POST['add_contact'];
-      // $add2 = $_POST['add2_contact'];
-      // $city = $_POST['city_contact'];
-      // $total = 0;
+      <?php
+      $add = $_POST['add_contact'];
+      $add2 = $_POST['add2_contact'];
+      $city = $_POST['city_contact'];
+      $total = 0;
 
-      ?> -->
+      ?>
       <form action="./add_order.php" method="post">
             <main class="main">
                   <div class="container">
@@ -66,6 +66,7 @@ require '../admin_remake/config/controller/user.php';
                                           </div>
                                           <div class="payment-shipping">
                                                 <div>
+                                                <h5 class="payment-city"><?= $add2 ?> , <?= $add ?> , <?= $city ?> </h5>
                                                 </div>
                                                 <a href="checkout.php">change</a>
                                           </div>
