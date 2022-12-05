@@ -14,37 +14,39 @@
                               <?php
                               $i = 0;
                               $total = 0;
-                              foreach ($_SESSION['viewcart'] as $value) {
-
-                                    $total_price = $value[2] * $value[4];
-                                    $total += $total_price;
-                                    echo '
-                                          <div class="drawer-product">
-                                                <div class="drawer-product-image">
-                                                      <a href="#" class="drawer-product-link">
-                                                            <img class="drawer-image" src="uploads/'.$value[3].'" alt="">
-                                                            <span class="drawer__quantity">'.$value[4].'</span>
-                                                      </a>
-                                                </div>
-                                                <div class="drawer-product-content">
-                                                      <div class="drawer-product-title">
-                                                            <a href="#">' . $value[1] . '</a>
-                                                      </div>
-                                                      <div class="drawer-product-price">
-                                                            <div class="drawer-price-product">
-                                                                  <span class="money">$' . $value[2] . '</span>
-                                                            </div>
-                                                      </div>
-                                                      <div class="drawer-product-delete">
-                                                            <a href="shop.php?action=delonecart&id=' . $i . '">
-                                                                  <span>Remove</span>
+                              if (isset($_SESSION['viewcart'])) {
+                                    foreach ($_SESSION['viewcart'] as $value) {
+                                          $total_price = $value[2] * $value[4];
+                                          $total += $total_price;
+                                          echo '
+                                                <div class="drawer-product">
+                                                      <div class="drawer-product-image">
+                                                            <a href="#" class="drawer-product-link">
+                                                                  <img class="drawer-image" src="uploads/'.$value[3].'" alt="">
+                                                                  <span class="drawer__quantity">'.$value[4].'</span>
                                                             </a>
                                                       </div>
-                                                </div>
-                                          </div>';
-                                    $i++;
+                                                      <div class="drawer-product-content">
+                                                            <div class="drawer-product-title">
+                                                                  <a href="#">' . $value[1] . '</a>
+                                                            </div>
+                                                            <div class="drawer-product-price">
+                                                                  <div class="drawer-price-product">
+                                                                        <span class="money">$' . $value[2] . '</span>
+                                                                  </div>
+                                                            </div>
+                                                            <div class="drawer-product-delete">
+                                                                  <a href="shop.php?action=delonecart&id=' . $i . '">
+                                                                        <span>Remove</span>
+                                                                  </a>
+                                                            </div>
+                                                      </div>
+                                                </div>';
+                                          $i++;
+                                    }
+                              } else {
+                                    echo 'Bạn chưa thêm sản phẩm';
                               }
-
                               ?>
 
                               <div class="drawer-note">
@@ -73,7 +75,8 @@
                                                       <a href="viewcart.php" class="btn btn-drawer">View Cart</a>
                                                 </div>
                                                 <div class="drawer-button-box">
-                                                      <input type="submit" name="checkout" class="btn btn-checkout" value="Check Out">
+                                                      <input type="submit" name="checkout" class="btn btn-checkout"
+                                                            value="Check Out">
                                                 </div>
                                           </div>
                                     </div>
