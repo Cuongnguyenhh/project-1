@@ -161,7 +161,6 @@ $email = $_POST['pst_email'];
 $phone = $_POST['pst_phone'];
 $name  = $_POST['pst_name'];
 $adr = $_POST['pst_adr'];
-echo $phone;
 
 try {
       $sql = "UPDATE cms_users SET email='$email', phone='$phone', display_name = '$name', adr_user='$adr' WHERE id=$id_user";

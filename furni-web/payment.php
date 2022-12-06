@@ -24,7 +24,7 @@ require '../admin_remake/config/controller/user.php';
       $total = 0;
 
       ?>
-      <form action="./add_order.php" method="post">
+      <form action="add_order.php" method="post">
             <main class="main">
                   <div class="container">
                         <header class="header__info">
@@ -66,7 +66,7 @@ require '../admin_remake/config/controller/user.php';
                                           </div>
                                           <div class="payment-shipping">
                                                 <div>
-                                                <h5 class="payment-city"><?= $add2 ?> , <?= $add ?> , <?= $city ?> </h5>
+                                                      <h5 class="payment-city"><?= $add2 ?> , <?= $add ?> , <?= $city ?> </h5>
                                                 </div>
                                                 <a href="checkout.php">change</a>
                                           </div>
@@ -140,8 +140,9 @@ require '../admin_remake/config/controller/user.php';
                                           </div>
                                     </div>
                                     <div class="order-products" style="display:none ;">
-                                          <?php $total_prd = 0; foreach ($_SESSION['viewcart'] as   $value) :
-                                          $total_prd++;
+                                          <?php $total_prd = 0;
+                                          foreach ($_SESSION['viewcart'] as   $value) :
+                                                $total_prd++;
                                                 $total_price = $value[2] * $value[4];
                                                 $total += $total_price; ?>
                                                 <div class="order-product">
@@ -158,14 +159,13 @@ require '../admin_remake/config/controller/user.php';
                                                             </div>
                                                       </div>
                                                 </div>
-                                                
+
                                           <?php endforeach ?>
->
                                     </div>
-                                    
+
                                     <div class="payment-button">
-                                          <a  href="payment.php?add_order=true" class="btn btn-payment"> Đặt Hàng
-                                          
+                                          <a href="payment.php?add_order=true" class="btn btn-payment"> Đặt Hàng
+
                                           </a>
                                     </div>
                               </div>
@@ -174,8 +174,9 @@ require '../admin_remake/config/controller/user.php';
                                           Your order
                                     </h5>
                                     <div class="order-products">
-                                          <?php $total_prd = 0; foreach ($_SESSION['viewcart'] as   $value) :
-                                          $total_prd++;
+                                          <?php $total_prd = 0;
+                                          foreach ($_SESSION['viewcart'] as   $value) :
+                                                $total_prd++;
                                                 $total_price = $value[2] * $value[4];
                                                 $total += $total_price; ?>
                                                 <div class="order-product">
@@ -192,14 +193,14 @@ require '../admin_remake/config/controller/user.php';
                                                             </div>
                                                       </div>
                                                 </div>
-                                                
+
                                           <?php endforeach ?>
 
                                           <!-- them order vao db -->
 
-                                         
+
                                           <!-- hetttt -->
-                                       
+
                                     </div>
                                     <div class="order-product-total">
                                           <div class="total proTotal">
@@ -234,64 +235,64 @@ require '../admin_remake/config/controller/user.php';
 
       <?php include_once './view/layout/scrip.php' ?>
 </body>
-                                    <?php 
-                                     $prd_order = $_SESSION['viewcart'];
-                                     $id_born1 = rand(1,10000000);
-                                     $id_born2 = $_SESSION['id'];
-                                     $id_born = $id_born1.''.$id_born2;
+<?php
+$prd_order = $_SESSION['viewcart'];
+$id_born1 = rand(1, 10000000);
+$id_born2 = $_SESSION['id'];
+$id_born = $id_born1 . '' . $id_born2;
 
-                                         function add_order($id_born,$total){
-                                          $conn = condb();
-                                          if(isset($_SESSION['email'])){
-                                              $user = getOne_user($_SESSION['email']);
-                                              foreach($user as $user_gg);
-                                           $id_cus = $user_gg['id'];
-                                           $name_cus = $_SESSION['display_name'];
-                                           $phone_num = $_SESSION['phone_num'];
-                                           $adr_user = $_SESSION['adr_user'];
-                                          }else{
-                                          $user = null;
-                                         }
-                                          
-                                                
-                                          // add oder
-                                          try {
-                                               
-                                                $sql = "INSERT INTO cms_order (ID, customer_id, name_cus, totol_price, phone_num, adr_cus)
+function add_order($id_born, $total)
+{
+      $conn = condb();
+      if (isset($_SESSION['email'])) {
+            $user = getOne_user($_SESSION['email']);
+            foreach ($user as $user_gg);
+            $id_cus = $user_gg['id'];
+            $name_cus = $_SESSION['display_name'];
+            $phone_num = $_SESSION['phone_num'];
+            $adr_user = $_SESSION['adr_user'];
+      } else {
+            $user = null;
+      }
+
+
+      // add oder
+      try {
+
+            $sql = "INSERT INTO cms_order (ID, customer_id, name_cus, totol_price, phone_num, adr_cus)
                                                 VALUES ('$id_born','$id_cus', '$name_cus', '$total', '$phone_num', '$adr_user')";
-                                                // use exec() because no results are returned
-                                                $conn->exec($sql);
-                                                unset($_SESSION['viewcart']);
-                                                header('location: ./index.php');
-                                              } catch(PDOException $e) {
-                                                echo $sql . "<br>" . $e->getMessage();
-                                              }
-                                             
-                                         }
-                                         function add_order_detail($id_born,$total_prd,$prd_order){
-                                          $conn = condb();
+            // use exec() because no results are returned
+            $conn->exec($sql);
+            unset($_SESSION['viewcart']);
+            $id = $_SESSION['id'];
+            header("location:../admin_remake/doc/data_order.php?id=$id");
+      } catch (PDOException $e) {
+            echo $sql . "<br>" . $e->getMessage();
+      }
+}
+function add_order_detail($id_born, $total_prd, $prd_order)
+{
+      $conn = condb();
 
-                                          foreach($prd_order as $pr){
+      foreach ($prd_order as $pr) {
 
-                                          
-                                                try {
-                                               
-                                                      $sql = "INSERT INTO cms_order_detail ( order_id, prd_name, quailyti, price )
+
+            try {
+
+                  $sql = "INSERT INTO cms_order_detail ( order_id, prd_name, quailyti, price )
                                                       VALUES ('$id_born', '$pr[1]', '$pr[4]', '$pr[2]' )";
-                                                      // use exec() because no results are returned
-                                                      $conn->exec($sql);
-                                                            
-                                                    } catch(PDOException $e) {
-                                                      echo $sql . "<br>" . $e->getMessage();
-                                                    }
-                                          }
+                  // use exec() because no results are returned
+                  $conn->exec($sql);
+            } catch (PDOException $e) {
+                  echo $sql . "<br>" . $e->getMessage();
+            }
+      }
+};
+if (isset($_GET['add_order'])) {
+      add_order($id_born, $total);
+      add_order_detail($id_born, $total_prd, $prd_order);
+}
 
-                                         };
-                                         if (isset($_GET['add_order'])) {
-                                          add_order($id_born,$total);
-                                          add_order_detail($id_born, $total_prd, $prd_order);
-                                        }
-
-                                          ?>
+?>
 
 </html>
