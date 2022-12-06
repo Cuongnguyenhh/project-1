@@ -50,7 +50,7 @@ if (isset($_SESSION['email'])) {
                                                                   </div>
                                                                   <div class="info__content">
                                                                         <div class="info__field-set">
-                                                                              <input type="email" name="email_contact" id="email-check" value="'.$user['email'].'" aria-required="true">
+                                                                              <input type="email" name="email_contact" id="email-check" value="<?=$user['email']?>" aria-required="true">
                                                                               <span class="form-message"></span>
                                                                         </div>
                                                                         <div class="info__content-desc">
@@ -63,24 +63,24 @@ if (isset($_SESSION['email'])) {
                                                             </div>
                                                             <div class="field__double">
                                                                   <div class="field field__first">
-                                                                        <input id="first-check" type="text" name="fname_contact" placeholder="Name" value="'.$user['display_name'].'">
+                                                                        <input id="first-check" type="text" name="fname_contact" placeholder="Name" value="<?=$user['display_name']?>">
                                                                         <span class="form-message"></span>
                                                                   </div>
                                                                   <div class="field field__last">
-                                                                        <input id="last-check" type="text" name="phone" placeholder="Phone" value="'.$user['phone'].'">
+                                                                        <input id="last-check" type="text" name="phone" placeholder="Phone" value="<?=$user['phone']?>">
                                                                         <span class="form-message"></span>
                                                                   </div>
                                                             </div>
                                                             <div class="field">
-                                                                  <input id="address-check" type="text" name="add_contact" placeholder="Address" value="'.$user['adr_user'].'">
+                                                                  <input id="address-check" type="text" name="add_contact" placeholder="Address" value="<?=$user['adr_user']?>">
                                                                   <span class="form-message"></span>
                                                             </div>
                                                             <div class="field">
-                                                                  <input id="optional-check" type="text" name="add2_contact" placeholder="Apartment, suite, etc. (optional)" value="'.$user['adr_user'].'">
+                                                                  <input id="optional-check" type="text" name="add2_contact" placeholder="Apartment, suite, etc. (optional)" value="<?=$user['adr_user']?>">
                                                                   <span class="form-message"></span>
                                                             </div>
                                                             <div class="field">
-                                                                  <input id="city-check" type="text" name="city_contact" placeholder="City" value="'.$user['adr_user'].'">
+                                                                  <input id="city-check" type="text" name="city_contact" placeholder="City" value="<?=$user['adr_user']?>">
                                                                   <span class="form-message"></span>
                                                             </div>
                                                             <div class="field__save">
