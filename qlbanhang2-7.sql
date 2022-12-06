@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 05, 2022 lúc 07:01 PM
+-- Thời gian đã tạo: Th12 06, 2022 lúc 09:50 AM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -161,7 +161,7 @@ CREATE TABLE `cms_order` (
   `sell_date` date NOT NULL,
   `shipping` int(11) NOT NULL DEFAULT 0,
   `payment` int(11) NOT NULL DEFAULT 0,
-  `status` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 2,
   `phone_num` int(11) NOT NULL,
   `adr_cus` varchar(2000) NOT NULL,
   `totol_price` int(11) NOT NULL
@@ -172,9 +172,8 @@ CREATE TABLE `cms_order` (
 --
 
 INSERT INTO `cms_order` (`ID`, `customer_id`, `name_cus`, `sell_date`, `shipping`, `payment`, `status`, `phone_num`, `adr_cus`, `totol_price`) VALUES
-(201460425, 25, 'Cuong nguyen', '0000-00-00', 0, 0, 1, 0, '985/62 lac long quan', 62000000),
-(542497925, 25, 'Cuong nguyen', '0000-00-00', 0, 0, 1, 0, '985/62 lac long quan', 62000000),
-(727994625, 25, 'Cuong nguyen', '0000-00-00', 0, 0, 1, 0, '985/62 lac long quan', 62000000);
+(418717324, 24, 'test', '0000-00-00', 0, 0, 1, 387426, '101, 3/2 quan 10', 68000000),
+(644463425, 25, 'Cuong nguyen', '0000-00-00', 0, 0, 3, 1900571535, '985/62 lac long quan', 80200000);
 
 -- --------------------------------------------------------
 
@@ -190,6 +189,19 @@ CREATE TABLE `cms_order_detail` (
   `price` int(11) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `cms_order_detail`
+--
+
+INSERT INTO `cms_order_detail` (`ID`, `order_id`, `prd_name`, `quailyti`, `price`, `date`) VALUES
+(33, 644463425, 'Sofa MOANA', 3, 9000000, '0000-00-00'),
+(34, 644463425, 'Sofa HIRO', 1, 1100000, '0000-00-00'),
+(35, 644463425, 'Sofa ANNA', 1, 12000000, '0000-00-00'),
+(36, 418717324, 'Sofa ANNA', 1, 12000000, '0000-00-00'),
+(37, 418717324, 'Tủ quần áo LAM', 1, 1000000, '0000-00-00'),
+(38, 418717324, 'Tủ quần áo JOHY', 1, 12000000, '0000-00-00'),
+(39, 418717324, 'Sofa MOANA', 1, 9000000, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -425,10 +437,11 @@ INSERT INTO `cms_users` (`id`, `email`, `phone`, `password`, `display_name`, `di
 (21, '000013@gmail.com', 0, '4589b7fd990e5515ebe236ea8217d204', 'Nguyễn Thị Ánh', '', 1, 3, '2019-06-14 08:43:48', '2019-06-14 08:47:51', ''),
 (22, '000014@gmail.com', 0, '1fc7c3237037d104fb72998e535781b5', 'Phạm Thị Quỳnh', '', 1, 3, '2019-06-14 08:44:08', '2019-06-14 08:47:53', ''),
 (23, '000015@gmail.com', 0, '1a0239cec22d18eaca2a55d45e1b46d8', 'Phạm Thị Quỳnh Anh', '', 1, 3, '2019-06-14 08:44:25', '2019-06-14 08:47:56', ''),
-(24, 'test@test.com', 0, '202cb962ac59075b964b07152d234b70', 'test', 'admin.jpg', 1, 1, '2022-12-04 12:16:56', '2022-12-04 12:16:56', ''),
+(24, 'test@test.com', 387426, '202cb962ac59075b964b07152d234b70', 'test', 'admin.jpg', 1, 1, '2022-12-04 12:16:56', '2022-12-04 12:16:56', '101, 3/2 quan 10'),
 (25, 'admin@gmail.com', 1900571535, '202cb962ac59075b964b07152d234b70', 'Cuong nguyen', '', 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '985/62 lac long quan'),
 (26, 'phucuong2@gmail.com', 0, '202cb962ac59075b964b07152d234b70', 'Phu Cuong', '', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', ''),
-(27, '\"\"@asdas.com', 0, 'ec32620eb35230a3d620b3af5e523b0b', 'ád ád', '', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '');
+(27, '\"\"@asdas.com', 0, 'ec32620eb35230a3d620b3af5e523b0b', 'ád ád', '', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', ''),
+(28, 'giabao@gmail.com', 19001555, '202cb962ac59075b964b07152d234b70', 'Lê  Bảo', '', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Độc lạ tô kí');
 
 -- --------------------------------------------------------
 
@@ -579,13 +592,13 @@ ALTER TABLE `cms_customers`
 -- AUTO_INCREMENT cho bảng `cms_order`
 --
 ALTER TABLE `cms_order`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=798511026;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=889758025;
 
 --
 -- AUTO_INCREMENT cho bảng `cms_order_detail`
 --
 ALTER TABLE `cms_order_detail`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT cho bảng `cms_product`
@@ -621,7 +634,7 @@ ALTER TABLE `cms_suppliers`
 -- AUTO_INCREMENT cho bảng `cms_users`
 --
 ALTER TABLE `cms_users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT cho bảng `cms_users_group`

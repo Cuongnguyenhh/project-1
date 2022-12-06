@@ -11,7 +11,7 @@ ob_start();
 
 <body>
       <!-- Start Header Area -->
-      
+
       <?php 
       if(isset($_SESSION['email']) && ($_SESSION['type'])==1 ){
       include_once './view/layout/header_admin.php';
@@ -70,7 +70,7 @@ ob_start();
                                                                         <p>velatheme</p>
                                                                         <div class="cart-price">
                                                                               <span class="cart-price-product text-right">
-                                                                                    <span class="money">$' . $value[2] . '</span>
+                                                                                    <span class="money count-price">' . $value[2] . '</span>
                                                                               </span>
                                                                         </div>
                                                                         <form action="shop.php?action=updatecart&id=' . $i . '" method="POST">
@@ -93,7 +93,7 @@ ob_start();
                                                                   </div>
                                                                   <div class="c-2 text-right">
                                                                         <span class="cart-total">
-                                                                              <span class="money">$' . $total_price . '</span>
+                                                                              <span class="money total-price">' . $total_price  . '</span>
                                                                         </span>
                                                                   </div>
                                                             </div>
@@ -116,7 +116,7 @@ ob_start();
                                                                         Subtotal:
                                                                   </span>
                                                                   <span class="cart-subtotal">
-                                                                        <div class="money">$' . $total . '</div>
+                                                                        <div class="money result-total">' . $total . '</div>
                                                                   </span>
                                                             </div>
                                                             <div class="cart-shipping">
