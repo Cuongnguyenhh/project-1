@@ -257,8 +257,8 @@ require '../admin_remake/config/controller/user.php';
                                           // add oder
                                           try {
                                                
-                                                $sql = "INSERT INTO cms_order (ID, customer_id, name_cus, totol_price, phone_num, adr_cus, status)
-                                                VALUES ('$id_born','$id_cus', '$name_cus', '$total', '$phone_num', '$adr_user', '1')";
+                                                $sql = "INSERT INTO cms_order (ID, customer_id, name_cus, totol_price, phone_num, adr_cus)
+                                                VALUES ('$id_born','$id_cus', '$name_cus', '$total', '$phone_num', '$adr_user')";
                                                 // use exec() because no results are returned
                                                 $conn->exec($sql);
                                                 unset($_SESSION['viewcart']);
