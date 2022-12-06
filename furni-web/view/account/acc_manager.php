@@ -118,7 +118,7 @@ $id_user = $_GET['id'];
                                                                   <div class="content__group-row">
                                                                         <div class="content__group-col">
                                                                               <label for="acc-set-user-code">Phone Number <sup>*</sup></label>
-                                                                              <input name="pst_phone" class="content__controll" id="acc-set-user-code" type="text" value="1900574531">
+                                                                              <input name="pst_phone" class="content__controll" id="acc-set-user-code" type="text" value="<?=$_SESSION['phone_num']?>">
                                                                         </div>
                                                                         <div class="content__group-col">
                                                                               <label for="acc-set-user-country">Country <sup>*</sup></label>
@@ -161,6 +161,7 @@ $email = $_POST['pst_email'];
 $phone = $_POST['pst_phone'];
 $name  = $_POST['pst_name'];
 $adr = $_POST['pst_adr'];
+echo $phone;
 
 try {
       $sql = "UPDATE cms_users SET email='$email', phone='$phone', display_name = '$name', adr_user='$adr' WHERE id=$id_user";
