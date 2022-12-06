@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+$id_user = $_GET['id'];
+?>
 <html lang="en">
 
 <head>
@@ -52,16 +55,11 @@
                                                                   <span class="manager-desc">Details about your Personal information</span>
                                                             </a>
                                                       </li>
+                                                    
                                                       <li class="manager-setting-item">
-                                                            <a href="#!">
-                                                                  <h5 class="manager-title">Notification</h5>
-                                                                  <span class="manager-desc">Details about your Personal information</span>
-                                                            </a>
-                                                      </li>
-                                                      <li class="manager-setting-item">
-                                                            <a href="#!">
-                                                                  <h5 class="manager-title">Membership Plan</h5>
-                                                                  <span class="manager-desc">Details about your Personal information</span>
+                                                            <a href="../admin_remake/doc/data_order.php?id=<?=$id_user?>">
+                                                                  <h5 class="manager-title">Quản lý đơn hàng</h5>
+                                                                  <span class="manager-desc">Xem tiến độ đơn hàng của bạn</span>
                                                             </a>
                                                       </li>
                                                       <li class="manager-setting-item">
@@ -80,7 +78,7 @@
 
                                                       <div class="account-setting-upload">
                                                       <div class="content__button">
-                                                                  <button><input type="file" name="" id=""></button>
+                                                                  <button><input type="file" name="img" id=""></button>
                                                             </div>
                                                             <span>Profile-pic.jpg</span>
                                                       </div>
@@ -102,7 +100,7 @@
                                                             </div>
                                                             <div class="content__group">
                                                                   <label for="acc-set-user-address">Address <sup>*</sup></label>
-                                                                  <input name="pst_ard"  class="content__controll" id="acc-set-user-address" type="text" value="<?php echo $_SESSION['adr_user']; ?>">
+                                                                  <input name="pst_adr"  class="content__controll" id="acc-set-user-address" type="text" value="<?php echo $_SESSION['adr_user']; ?>">
                                                             </div>
                                                             <div class="content__group">
                                                                   <div class="content__group-row">
@@ -134,7 +132,7 @@
                                                                   </div>
                                                             </div>
                                                             <div class="content__button">
-                                                                  <button>Update Information</button>
+                                                                  <button type="submit" name="update">Update Information</button>
                                                             </div>
                                                       </form>
                                                 </div>
@@ -155,3 +153,36 @@
 </body>
 
 </html>
+<?php
+require '../admin_remake/config/database.php';
+$conn = condb();
+if(isset($_POST['update'])){
+$email = $_POST['pst_email'];
+$phone = $_POST['pst_phone'];
+$name  = $_POST['pst_name'];
+$adr = $_POST['pst_adr'];
+
+try {
+      $sql = "UPDATE cms_users SET email='$email', phone='$phone', display_name = '$name', adr_user='$adr' WHERE id=$id_user";
+    
+      // Prepare statement
+      $stmt = $conn->prepare($sql);
+    
+      // execute the query
+      $stmt->execute();
+    
+      // echo a message to say the UPDATE succeeded
+      echo $stmt->rowCount() . " records UPDATED successfully";
+    } catch(PDOException $e) {
+      echo $sql . "<br>" . $e->getMessage();
+    }
+}
+
+      
+
+     
+
+
+
+
+?>

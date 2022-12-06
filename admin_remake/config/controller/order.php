@@ -15,4 +15,12 @@ function getOrder($id_order){
     $order_detail = $stmt -> fetchAll();
     return $order_detail;
 }
+function getOrder_user($id_user){
+    $conn = condb();
+    $stmt = $conn->prepare("SELECT * FROM cms_order WHERE customer_id = $id_user ");
+    $stmt->execute();
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $order_user = $stmt -> fetchAll();
+    return $order_user;
+}
 ?>
