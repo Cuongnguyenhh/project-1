@@ -71,7 +71,7 @@
                                                             </div>
                                                              <div class="field field__last">
                                                                    <input id="last-check" type="text"
-                                                                        name="lname_contact" placeholder="Phone" value="'.$user['phone'].'">
+                                                                        name="phone" placeholder="Phone" value="'.$user['phone'].'">
                                                                   <span class="form-message"></span>
                                                              </div>
                                                       </div>

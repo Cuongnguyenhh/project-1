@@ -92,17 +92,17 @@
                                                                   <div class="content__group-row">
                                                                         <div class="content__group-col">
                                                                               <label for="acc-set-user-name">Full Name <sup>*</sup></label>
-                                                                              <input class="content__controll" id="acc-set-user-name" type="text" value="<?php echo $_SESSION['display_name']; ?>">
+                                                                              <input  name="pst_name" class="content__controll" id="acc-set-user-name" type="text" value="<?php echo $_SESSION['display_name']; ?>">
                                                                         </div>
                                                                         <div class="content__group-col">
                                                                               <label for="acc-set-user-email">Email Address <sup>*</sup></label>
-                                                                              <input class="content__controll" id="acc-set-user-email" type="text" value="<?php echo $_SESSION['email']; ?>">
+                                                                              <input name="pst_email" class="content__controll" id="acc-set-user-email" type="text" value="<?php echo $_SESSION['email']; ?>">
                                                                         </div>
                                                                   </div>
                                                             </div>
                                                             <div class="content__group">
                                                                   <label for="acc-set-user-address">Address <sup>*</sup></label>
-                                                                  <input class="content__controll" id="acc-set-user-address" type="text" value="<?php echo $_SESSION['adr_user']; ?>">
+                                                                  <input name="pst_ard"  class="content__controll" id="acc-set-user-address" type="text" value="<?php echo $_SESSION['adr_user']; ?>">
                                                             </div>
                                                             <div class="content__group">
                                                                   <div class="content__group-row">
@@ -120,7 +120,7 @@
                                                                   <div class="content__group-row">
                                                                         <div class="content__group-col">
                                                                               <label for="acc-set-user-code">Phone Number <sup>*</sup></label>
-                                                                              <input class="content__controll" id="acc-set-user-code" type="text" value="1900574531">
+                                                                              <input name="pst_phone" class="content__controll" id="acc-set-user-code" type="text" value="1900574531">
                                                                         </div>
                                                                         <div class="content__group-col">
                                                                               <label for="acc-set-user-country">Country <sup>*</sup></label>

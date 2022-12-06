@@ -41,7 +41,7 @@ echo "
      $_SESSION['type']= $user['group_id'];
      $_SESSION['id'] = $user['id'];
     $_SESSION['log_ss'] = $_SESSION['email'];
-    $_SESSION['phone_num'] = $user['phone_num'];
+    $_SESSION['phone_num'] = $user['phone'];
 
 
 

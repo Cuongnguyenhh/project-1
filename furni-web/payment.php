@@ -164,7 +164,7 @@ require '../admin_remake/config/controller/user.php';
                                     </div>
                                     
                                     <div class="payment-button">
-                                          <a  href="payment.php?add_order=true" class="btn btn-payment"> hihi
+                                          <a  href="payment.php?add_order=true" class="btn btn-payment"> Đặt Hàng
                                           
                                           </a>
                                     </div>

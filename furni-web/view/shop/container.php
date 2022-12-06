@@ -167,16 +167,7 @@
 
                                                 <!-- FILTER PRODUCT  -->
                                                 <div class="product-filter-collsort">
-                                                      <select name="sortby" id="sortby" class="form-control">
-                                                            <?php
-                                                            $where = "SELECT * FROM `cms_sort`";
-                                                            $kq = getProductByFilter($where);
-                                                            foreach ($kq as $value) : ?>
-                                                                  <option value="<?= $value['ID'] ?>">
-                                                                        <a href="#!"><?= $value['sortby'] ?></a>
-                                                                  </option>
-                                                            <?php endforeach; ?>
-                                                      </select>
+                                                     
                                                 </div>
                                                 </form>
                                           </div>

@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+    <?php
+    require '../config/database.php';
+    condb();
+    require '../config/controller/product.php';
+    require '../config/controller/Catelory.php';
+    require '../config/controller/customer.php';
+    require '../config/controller/order.php';
+        session_start();
+        ob_start();
+        $id_order = $_GET['id_order'];
+        $detail= getOrder($id_order);
+
+    ?>
 
 <head>
   <title>Danh sách đơn hàng | Quản trị Admin</title>
@@ -39,7 +52,7 @@
     <main class="app-content">
       <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
-          <li class="breadcrumb-item active"><a href="#"><b>Danh sách đơn hàng</b></a></li>
+          <li class="breadcrumb-item active"><a href="#"><b>Chi tiết đơn hàng số #<?=$id_order?></b></a></li>
         </ul>
         <div id="clock"></div>
       </div>
@@ -47,73 +60,26 @@
         <div class="col-md-12">
           <div class="tile">
             <div class="tile-body">
-              <div class="row element-button">
-                <div class="col-sm-2">
-  
-                  <a class="btn btn-add btn-sm" href="form-add-don-hang.php" title="Thêm"><i class="fas fa-plus"></i>
-                    Tạo mới đơn hàng</a>
-                </div>
-                <div class="col-sm-2">
-                  <a class="btn btn-delete btn-sm nhap-tu-file" type="button" title="Nhập" onclick="myFunction(this)"><i
-                      class="fas fa-file-upload"></i> Tải từ file</a>
-                </div>
-  
-                <div class="col-sm-2">
-                  <a class="btn btn-delete btn-sm print-file" type="button" title="In" onclick="myApp.printTable()"><i
-                      class="fas fa-print"></i> In dữ liệu</a>
-                </div>
-                <div class="col-sm-2">
-                  <a class="btn btn-delete btn-sm print-file js-textareacopybtn" type="button" title="Sao chép"><i
-                      class="fas fa-copy"></i> Sao chép</a>
-                </div>
-  
-                <div class="col-sm-2">
-                  <a class="btn btn-excel btn-sm" href="" title="In"><i class="fas fa-file-excel"></i> Xuất Excel</a>
-                </div>
-                <div class="col-sm-2">
-                  <a class="btn btn-delete btn-sm pdf-file" type="button" title="In" onclick="myFunction(this)"><i
-                      class="fas fa-file-pdf"></i> Xuất PDF</a>
-                </div>
-                <div class="col-sm-2">
-                  <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
-                      class="fas fa-trash-alt"></i> Xóa tất cả </a>
-                </div>
-              </div>
               <table class="table table-hover table-bordered" id="sampleTable">
                 <thead>
                   <tr>
                     <th width="10"><input type="checkbox" id="all"></th>
                     <th>ID đơn hàng</th>
-                    <th>Khách hàng</th>
-                    <th>Đia chỉ</th>
-                    <th>Số điện thoại</th>
-                    <th>Tổng tiền</th>
-                    <th>Tình trạng</th>
-                    <th>Tính năng</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Giá</th>
                   </tr>
                 </thead>
                 <tbody>
                  <?php  
-                 foreach($order as $order) : ?>
+                 foreach($detail as $detail)  : ?>
+
                   <tr>
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                    <td><?=$order['ID']?></td>
-                    <td><?=$order['name_cus']?></td>
-                    <td><?=$order['adr_cus']?></td>
-                    <td><?=$order['phone_num']?></td>
-                    <td> <?=$order['totol_price']?>đ</td>
-                   <?php if(($order['status']) ==1 ){
-                   echo ' <td><span class="badge bg-success">Hoàn Thành</span></td>';
-                   }elseif(($order['status']) ==2){
-                    echo ' <td><span  class="badge bg-info">Chờ thanh toán</span></td>';
-                   }elseif(($order['status']) ==3){
-                    echo ' <td><span class="badge bg-danger">Đã Hủy</span></td>';
-                   }else{
-                    echo ' <td><span class="badge bg-warning">Đang giao hàng</span></td>';
-                   }
-                   ?>
-                    <td><button  class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
-                    <a href="./order_detail.php?id_order=<?=$order['ID']?>"><button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></a></td>
+                    <td><?=$detail['order_id']?></td>
+                    <td>#<?=$detail['prd_name']?></td>
+                    <td><?=$detail['quailyti']?></td>
+                    <td><?=$detail['price']?></td>
                   </tr>
                   <?php endforeach ?>
 
