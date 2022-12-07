@@ -4820,3 +4820,24 @@ tfoot .total td span:last-child {
   -ms-transform: scale(1.2);
   -webkit-transform: scale(1.2);
 }
+
+
+.account-setting-top {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+
+.account-setting-top > div {
+  display: flex;
+  align-items: center;
+}
+
+
+.account-setting-top > div img{
+ border-radius: 100rem;
+}
+
+.account-setting-top > div button::first-letter {
+  text-transform: capitalize;
+}
