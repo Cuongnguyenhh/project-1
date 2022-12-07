@@ -112,8 +112,6 @@ try {
                                                             <div>
                                                                   <img src="./uploads/<?php if(isset($_SESSION['avt'])) {echo $_SESSION['avt'];} ?>"
                                                                         alt="">
-                                                                  <button name="upanh" type="submit">Cập nhật ảnh
-                                                                        diện</button>
                                                             </div>
                                                       </div>
                                                 </form>
