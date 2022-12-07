@@ -1,6 +1,33 @@
 <!DOCTYPE html>
 <?php
+   require '../admin_remake/config/database.php';
+   $conn = condb();
 $id_user = $_GET['id'];
+
+
+    // uploadfile
+    if(isset($_POST['upanh'])){
+      $imgload =basename( $_FILES['img']['name']);
+      $target_dir = "./uploads/";
+      $target_file = $target_dir . $imgload;
+      move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
+try {
+      $sql = "UPDATE cms_users SET display_img='$imgload' WHERE ID =$id_user";
+    
+      // Prepare statement
+      $stmt = $conn->prepare($sql);
+    
+      // execute the query
+      $stmt->execute();
+    
+      // echo a message to say the UPDATE succeeded
+      echo $stmt->rowCount() . " records UPDATED successfully";
+    } catch(PDOException $e) {
+      echo $sql . "<br>" . $e->getMessage();
+    }
+
+    }
+
 ?>
 <html lang="en">
 
@@ -73,16 +100,16 @@ $id_user = $_GET['id'];
                                     </div>
                                     <div class="manager-body-right">
                                           <div class="account-setting">
-                                                <div class="account-setting-top">
-                                                      <img src="./uploads/<?php  echo $_SESSION['avt'] ?>" alt="">
+                                                      
 
-                                                      <div class="account-setting-upload">
-                                                      <div class="content__button">
-                                                                  <button><input type="file" name="img" id=""></button>
-                                                            </div>
-                                                            <span>Profile-pic.jpg</span>
-                                                      </div>
-                                                </div>
+                                                      <form action="" method="post" enctype="multipart/form-data">
+                                                <div class="account-setting-top">
+                                                      <input type="file" name="img" id="">
+                                                      <img src="./uploads/<?= $_SESSION['avt'] ?>" alt="">
+                                                      <button name="upanh" type="submit">Doi anh</button>
+                                                      </div
+                                                      </form>
+                                                >
                                                 <div class="account-setting-content">
                                                       <h3 class="content__title">Change User Infomation here</h3>
                                                       <form action="" method="POST">
