@@ -23,4 +23,21 @@ function getOrder_user($id_user){
     $order_user = $stmt -> fetchAll();
     return $order_user;
 }
+function getOne_user_byId($id){
+    $conn = condb();
+    $stmt = $conn->prepare("SELECT * FROM cms_users WHERE id='$id'");
+    $stmt->execute();
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $user_one = $stmt -> fetchAll();
+    return $user_one;
+
+    function getAll_Order_bylm($top, $offset){
+        $conn = condb();
+        $stmt = $conn->prepare("SELECT * FROM cms_order LIMIT $top OFFSET $offset");
+        $stmt->execute();
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $order = $stmt -> fetchAll();
+        return $order;
+    }
+}
 ?>

@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,10 +22,10 @@
 </head>
 <body>
 <aside class="app-sidebar">
-    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="../images//Admin.png" width="50px"
+    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="../../../uploads/<?=$_SESSION['avt']?>" width="50px"
         alt="User Image">
       <div>
-        <p class="app-sidebar__user-name"><b>Admin</b></p>
+        <p class="app-sidebar__user-name"><b><?php echo $_SESSION['display_name'] ?></b></p>
         <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
       </div>
     </div>

@@ -1,4 +1,5 @@
 <?php
+$total_order = 0;
 $out_prd = 0; 
 $total_prd = 0;
 $total_customers = 0;
@@ -12,6 +13,10 @@ foreach($kq as $prd){
 // lấy số khách hàng
 foreach($kq_customers as $customers){
   $total_customers++;
+}
+// lay don hang
+foreach($order as $order){
+  $total_order++;
 }
 ?>
 <!DOCTYPE html>
@@ -93,8 +98,8 @@ foreach($kq_customers as $customers){
             <div class="widget-small warning coloured-icon"><i class='icon bx bxs-shopping-bags fa-3x'></i>
               <div class="info">
                 <h4>Tổng đơn hàng</h4>
-                <p><b>247 đơn hàng</b></p>
-                <p class="info-tong">Tổng số hóa đơn bán hàng trong tháng.</p>
+                <p><b><?php echo $total_order?> đơn hàng</b></p>
+                <p class="info-tong">Tổng số hóa đơn bán hàng.</p>
               </div>
             </div>
           </div>
@@ -123,38 +128,28 @@ foreach($kq_customers as $customers){
                     </tr>
                   </thead>
                   <tbody>
+                  <?php
+                  $or = getAll_order();
+                   foreach($or as $orders):?>
                     <tr>
-                      <td>AL3947</td>
-                      <td>Phạm Thị Ngọc</td>
-                      <td>
-                        19.770.000 đ
-                      </td>
-                      <td><span class="badge bg-info">Chờ xử lý</span></td>
-                    </tr>
-                    <tr>
-                      <td>ER3835</td>
-                      <td>Nguyễn Thị Mỹ Yến</td>
-                      <td>
-                        16.770.000 đ	
-                      </td>
-                      <td><span class="badge bg-warning">Đang vận chuyển</span></td>
-                    </tr>
-                    <tr>
-                      <td>MD0837</td>
-                      <td>Triệu Thanh Phú</td>
-                      <td>
-                        9.400.000 đ	
-                      </td>
-                      <td><span class="badge bg-success">Đã hoàn thành</span></td>
-                    </tr>
-                    <tr>
-                      <td>MT9835</td>
-                      <td>Đặng Hoàng Phúc	</td>
-                      <td>
-                        40.650.000 đ	
-                      </td>
-                      <td><span class="badge bg-danger">Đã hủy	</span></td>
-                    </tr>
+                    <td><?=$orders['ID']?></td>
+                    <td><?=$orders['name_cus']?></td>
+                    <td>
+                    <?=$orders['totol_price']?>
+                    </td>
+                    <?php if(($orders['status']) ==1 ){
+                      echo ' <td><span class="badge bg-success">Hoàn Thành</span></td>';
+                      }elseif(($orders['status']) ==2){
+                       echo ' <td><span  class="badge bg-info">Chờ thanh toán</span></td>';
+                      }elseif(($orders['status']) ==3){
+                       echo ' <td><span class="badge bg-danger">Đã Hủy</span></td>';
+                      }else{
+                       echo ' <td><span class="badge bg-warning">Đang giao hàng</span></td>';
+                      }
+                      ?>
+                  </tr>
+                  <?php endforeach?>
+                   
                   </tbody>
                 </table>
               </div>

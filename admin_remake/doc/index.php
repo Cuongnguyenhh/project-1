@@ -16,7 +16,8 @@ if(isset($_GET['act'])){
     $act =$_GET['act'];
     switch($_GET['act']){
         case 'main':
-            $kq_customers = getAll_customer();
+            $order = getAll_order();
+            $kq_customers = getAll_user();
             $kq = getAll_pro();
             require_once './mainControll.php';
         // case 'pos':
@@ -45,7 +46,8 @@ if(isset($_GET['act'])){
             
     }
 }else{
-    $kq_customers = getAll_customer();
+    $order = getAll_order();
+    $kq_customers = getAll_user();
     $kq = getAll_pro();
    require_once './navbar.php';
    require_once './mainControll.php';

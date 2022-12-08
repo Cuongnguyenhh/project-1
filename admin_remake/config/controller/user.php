@@ -15,11 +15,4 @@ function getOne_user($get_email){
     $user_one = $stmt -> fetchAll();
     return $user_one;
 }
-function getOne_user_byId($id){
-    $conn = condb();
-    $stmt = $conn->prepare("SELECT * FROM cms_users WHERE id='$id'");
-    $stmt->execute();
-    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    $user_one = $stmt -> fetchAll();
-    return $user_one;
-}
+
