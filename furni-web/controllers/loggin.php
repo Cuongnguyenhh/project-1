@@ -4,9 +4,9 @@
 <?php
 session_start();
 ob_start();
-include '.././admin_remake\/config/database_sqly.php';
-include '.././admin_remake\/config/controller/user.php';
-include '.././admin_remake\/config/database.php';
+include './admin_remake/config/database_sqly.php';
+include './admin_remake/config/controller/user.php';
+include './admin_remake/config/database.php';
  
  if(isset ($_SESSION['email'])){
     header('location:index.php');

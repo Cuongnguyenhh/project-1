@@ -1,6 +1,6 @@
 <?php
-include '.././admin_remake\/config/controller/user.php';
-include '.././admin_remake\/config/database.php';
+include './admin_remake/config/controller/user.php';
+include './admin_remake/config/database.php';
 $conn = condb();
     if(isset($_POST['signin'])){
         $first_name = $_POST['first_name'];

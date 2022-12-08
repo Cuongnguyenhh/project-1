@@ -1,5 +1,5 @@
 <?php
-    require '.././admin_remake\/config/database.php';
+    require './admin_remake/config/database.php';
     $id_cmt = $_GET['id_cmt'];
   
     
