@@ -52,7 +52,7 @@ echo "
     alert('Ngu');
     </script> 
     ";
-    header('location: ../index.php');
+    header('location: index.php');
     unset($_SESSION['log_ss']);
  }  
      
