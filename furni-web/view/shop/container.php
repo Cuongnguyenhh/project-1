@@ -56,10 +56,15 @@
                                           </div>
                                     </div>
                                     <!-- FILTER PRICE  -->
-                                    <!-- <div class="filter">
+                                    <div class="filter">
                                           <h3 class="vela-title">Filter by price</h3>
                                           <div class="filter-content">
-                                                <div class="price-range-slider">
+                                                <div class="slider-box">
+                                                      <label class="priceRange" for="priceRange">Price Range:</label>
+                                                      <input type="text" id="priceRange" readonly>
+                                                      <div id="price-range" class="slider"></div>
+                                                </div>
+                                                <!-- <div class="price-range-slider">
 
                                                       <p class="range-value">
                                                             <input type="text" id="amount" readonly>
@@ -69,9 +74,9 @@
                                                 </div>
                                                 <div class="filter-btn">
                                                       <button class="btn btn-filter-price">Filter</button>
-                                                </div>
+                                                </div> -->
                                           </div>
-                                    </div> -->
+                                    </div>
                                     <div class="best-seller">
                                           <h3 class="vela-title">Bán chạy nhất</h3>
                                           <div class="best-seller-content">
@@ -167,7 +172,7 @@
 
                                                 <!-- FILTER PRODUCT  -->
                                                 <div class="product-filter-collsort">
-                                                     
+
                                                 </div>
                                                 </form>
                                           </div>
@@ -191,16 +196,16 @@
 
                                                 if (isset($_GET['cate'])) {
                                                       $cate = $_GET['cate'];
-                                                      
+
                                                       if ($cate == "1") {
                                                             $where = "SELECT * FROM `cms_products_group` as c, `cms_product` as p 
                                                             WHERE c.ID = p.id_prd_group 
                                                             AND p.id_prd_group = '1'";
                                                             $kq = getProductByFilter($where);
 
-                                                            $count ="SELECT COUNT(*) FROM `cms_products_group` as c, `cms_product` as p 
+                                                            $count = "SELECT COUNT(*) FROM `cms_products_group` as c, `cms_product` as p 
                                                             WHERE c.ID = p.id_prd_group 
-                                                            AND p.id_prd_group = '1'"; 
+                                                            AND p.id_prd_group = '1'";
                                                             $count_pro = getCountFilter($count);
                                                       } elseif ($cate == 2) {
                                                             $where = "SELECT * FROM `cms_products_group` as c, `cms_product` as p
@@ -208,20 +213,19 @@
                                                             AND c.ID = '2'";
                                                             $kq = getProductByFilter($where);
 
-                                                            $count ="SELECT COUNT(*) FROM `cms_products_group` as c, `cms_product` as p 
+                                                            $count = "SELECT COUNT(*) FROM `cms_products_group` as c, `cms_product` as p 
                                                             WHERE c.ID = p.id_prd_group 
-                                                            AND p.id_prd_group = '2'"; 
+                                                            AND p.id_prd_group = '2'";
                                                             $count_pro = getCountFilter($count);
-
                                                       } elseif ($cate == 3) {
                                                             $where = "SELECT * FROM `cms_products_group` as c, `cms_product` as p
                                                             WHERE c.ID = p.id_prd_group 
                                                             AND p.id_prd_group = '3'";
                                                             $kq = getProductByFilter($where);
 
-                                                            $count ="SELECT COUNT(*) FROM `cms_products_group` as c, `cms_product` as p 
+                                                            $count = "SELECT COUNT(*) FROM `cms_products_group` as c, `cms_product` as p 
                                                             WHERE c.ID = p.id_prd_group 
-                                                            AND p.id_prd_group = '3'"; 
+                                                            AND p.id_prd_group = '3'";
                                                             $count_pro = getCountFilter($count);
                                                       } elseif ($cate == 4) {
                                                             $where = "SELECT * FROM `cms_products_group` as c, `cms_product` as p
@@ -229,9 +233,9 @@
                                                             AND p.id_prd_group = '4'";
                                                             $kq = getProductByFilter($where);
 
-                                                            $count ="SELECT COUNT(*) FROM `cms_products_group` as c, `cms_product` as p 
+                                                            $count = "SELECT COUNT(*) FROM `cms_products_group` as c, `cms_product` as p 
                                                             WHERE c.ID = p.id_prd_group 
-                                                            AND p.id_prd_group = '4'"; 
+                                                            AND p.id_prd_group = '4'";
                                                             $count_pro = getCountFilter($count);
                                                       } elseif ($cate == 5) {
                                                             $where = "SELECT * FROM `cms_products_group` as c, `cms_product` as p
@@ -239,9 +243,9 @@
                                                             AND p.id_prd_group = '5'";
                                                             $kq = getProductByFilter($where);
 
-                                                            $count ="SELECT COUNT(*) FROM `cms_products_group` as c, `cms_product` as p 
+                                                            $count = "SELECT COUNT(*) FROM `cms_products_group` as c, `cms_product` as p 
                                                             WHERE c.ID = p.id_prd_group 
-                                                            AND p.id_prd_group = '5'"; 
+                                                            AND p.id_prd_group = '5'";
                                                             $count_pro = getCountFilter($count);
                                                       } else {
                                                             $kq = getProductByOffset($from_pro, $per_page);
@@ -251,7 +255,7 @@
                                                       $kq = getProductByOffset($from_pro, $per_page);
                                                       $count_pro = getCountProduct();
                                                 }
-                                                
+
                                                 foreach ($kq as $value) : ?>
                                                       <div class="c-3 col">
                                                             <form action="shop.php?action=viewcart" method="post">
@@ -313,7 +317,7 @@
                                                 <?php endforeach ?>
                                           </div>
                                     </div>
-                                    
+
                                     <!-- PAGINATION  -->
                                     <?php
                                     $total_page = ceil($count_pro / $per_page);
@@ -396,7 +400,20 @@
             changeList.classList.remove('active');
             changeGrid.classList.add('active');
       });
+      $(function() {
+            $("#price-range").slider({
+                  step: 500,
+                  range: true,
+                  min: 0,
+                  max: 20000,
+                  values: [0, 20000],
+                  slide: function(event, ui) {
+                        $("#priceRange").val(ui.values[0] + " - " + ui.values[1]);
+                  }
+            });
+            $("#priceRange").val($("#price-range").slider("values", 0) + " - " + $("#price-range").slider("values", 1));
 
+      });
       // $(document).ready(function() {
       //       $("#slider-range").slider({
       //             range: true,

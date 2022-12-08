@@ -2347,22 +2347,22 @@ fieldset {
   line-height: 26px;
   cursor: pointer;
 }
-  .price-range-slider .range-bar .ui-slider-range {
-      background: #bd8448;
-  }
-  .price-range-slider .range-bar .ui-slider-handle {
-      border: none;
-      border-radius: 25px;
-      background: red;
-      border: 6px solid #bd8448;
-      height: 5px;
-      width: 5px;
-      top: -0.3em;
-      cursor: pointer;
-  }
-  .price-range-slider .range-bar .ui-slider-handle + span {
-      background: red;
-  }
+.price-range-slider .range-bar .ui-slider-range {
+  background: #bd8448;
+}
+.price-range-slider .range-bar .ui-slider-handle {
+  border: none;
+  border-radius: 25px;
+  background: red;
+  border: 6px solid #bd8448;
+  height: 5px;
+  width: 5px;
+  top: -0.3em;
+  cursor: pointer;
+}
+.price-range-slider .range-bar .ui-slider-handle + span {
+  background: red;
+}
 .btn-filter-price {
   background-color: transparent;
   padding: 5px 25px;
@@ -2511,7 +2511,6 @@ fieldset {
   padding: 10px 0;
   text-align: center;
 }
-
 
 .addcard-qty-minus {
   left: 0;
@@ -3303,8 +3302,9 @@ fieldset {
   position: relative;
 }
 
-.info__content .info__field-set.invalid input, .field.invalid{
-  border-color:  red;
+.info__content .info__field-set.invalid input,
+.field.invalid {
+  border-color: red;
 }
 
 .info__content .info__field-set input {
@@ -3462,7 +3462,6 @@ fieldset {
   border-radius: 6px;
   position: relative;
 }
-
 
 .sidebar__table .product__item {
   margin-bottom: 20px;
@@ -4295,7 +4294,24 @@ tfoot .total td span:last-child {
 .manager-head > a i {
   margin-right: 0.5rem;
 }
-
+.slider-box {
+  width: 90%;
+  margin: 25px auto;
+}
+.priceRange,
+input {
+  border: none;
+  display: inline-block;
+  margin-right: -4px;
+  vertical-align: top;
+  width: 30%;
+}
+#priceRange {
+  width: 70%;
+}
+.slider {
+  margin: 25px 0;
+}
 .manager-search {
   width: 35%;
   display: flex;
@@ -4557,7 +4573,6 @@ tfoot .total td span:last-child {
 
 .main-inner {
   display: flex;
-  
 }
 
 .payment {
@@ -4613,7 +4628,7 @@ tfoot .total td span:last-child {
   width: 100%;
 }
 
-.shipping-item  {
+.shipping-item {
   border: 1px solid var(--vela-border-color);
   border-radius: 3px;
   width: 50%;
@@ -4654,11 +4669,12 @@ tfoot .total td span:last-child {
 .options {
   margin-bottom: 20px;
 }
-.options a{
+.options a {
   display: flex;
   padding: 20px;
   border: 1px solid var(--vela-border-color);
-  transition: border .3s ease-in, color .3s ease-in-out, background .3s ease-out;
+  transition: border 0.3s ease-in, color 0.3s ease-in-out,
+    background 0.3s ease-out;
   border-radius: 3px;
 }
 
@@ -4675,7 +4691,7 @@ tfoot .total td span:last-child {
   color: white;
 }
 
-.options i{
+.options i {
   font-size: 22px;
   margin-right: 20px;
 }
@@ -4706,7 +4722,7 @@ tfoot .total td span:last-child {
 }
 
 .order-products {
-  border-bottom: 1px  solid var(--vela-border-color);
+  border-bottom: 1px solid var(--vela-border-color);
 }
 .order-product {
   display: flex;
@@ -4748,14 +4764,13 @@ tfoot .total td span:last-child {
   padding: 10px 30px;
   border: 1px solid var(--vela-color-primary);
   color: var(--vela-color-primary);
-  transition: color .3s ease-in, background .3s ease-out;
+  transition: color 0.3s ease-in, background 0.3s ease-out;
 }
 
 .btn-edit-order:hover {
   background-color: var(--vela-color-primary);
   color: var(--white);
 }
-
 
 .drawer-product-link {
   position: relative;
@@ -4774,7 +4789,6 @@ tfoot .total td span:last-child {
   justify-content: center;
   border-radius: 100rem;
 }
-
 
 @media screen and (max-width: 991px) {
   .vela-aside {
@@ -4812,15 +4826,14 @@ tfoot .total td span:last-child {
 }
 
 .product .product-image-link img {
-  transition: transform .3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
-.product:hover .product-image-link img{
+.product:hover .product-image-link img {
   transform: scale(1.2);
   -ms-transform: scale(1.2);
   -webkit-transform: scale(1.2);
 }
-
 
 .account-setting-top {
   display: flex;
@@ -4833,9 +4846,8 @@ tfoot .total td span:last-child {
   align-items: center;
 }
 
-
-.account-setting-top > div img{
- border-radius: 100rem;
+.account-setting-top > div img {
+  border-radius: 100rem;
 }
 
 .account-setting-top > div button::first-letter {

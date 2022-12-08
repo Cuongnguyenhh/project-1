@@ -17,13 +17,13 @@ try {
     $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
     $mail->Username = 'hiepdt2909@gmail.com';                 // SMTP username
-    $mail->Password = 'hodsuoiiorzlbglj';                           // SMTP password
+    $mail->Password = 'eqldkrsejsvlgatj';                           // SMTP password
     $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
     $mail->Port = 587;                                    // TCP port to connect to
  
     //Recipients
     $mail->setFrom('hiepdt2909@gmail.com', 'Mailer');
-    // $mail->addAddress('joe@example.net', 'Joe User');     // Add a recipient
+    $mail->addAddress('khis2boo32@gmail.com', 'Joe User');     // Add a recipient
     // $mail->addAddress('ellen@example.com');               // Name is optional
     // $mail->addReplyTo('info@example.com', 'Information');
     // $mail->addCC('cc@example.com');
