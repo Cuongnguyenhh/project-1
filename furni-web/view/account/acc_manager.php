@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
 require '../admin_remake/config/database.php';
+require '../admin_remake/config/controller/user.php';
+$user = getOne_user($_SESSION['email']);
+foreach($user as $user)
 $conn = condb();
 $id_user = $_GET['id'];
 
@@ -86,8 +89,8 @@ $id_user = $_GET['id'];
                                           <!-- Account user -->
                                           <div class="manager-user">
                                                 <a href="#!">
-                                                      <img src="./uploads/<?= $_SESSION['avt'] ?>" alt="">
-                                                      <span><?= $_SESSION['display_name'] ?></span>
+                                                      <img src="./uploads/<?= $user['display_img']?>" alt="">
+                                                      <span><?= $user['display_name'] ?></span>
                                                 </a>
                                           </div>
                                     </div>
@@ -132,7 +135,7 @@ $id_user = $_GET['id'];
                                                       <form action="" method="POST" enctype="multipart/form-data">
                                                             <div class="account-setting-top">
                                                                   <input type="file" name="img" id="">
-                                                                  <img src="./uploads/<?= $_SESSION['avt'] ?>" alt="">
+                                                                  <img src="./uploads/<?=$user['display_img']?>" alt="">
                                                                   <button name="upanh" type="submit">Doi anh</button>
                                                             </div>
                                                             <div class="content__group">
@@ -147,19 +150,19 @@ $id_user = $_GET['id'];
                                                                               <input name="pst_email"
                                                                                     class="content__controll"
                                                                                     id="acc-set-user-email" type="text"
-                                                                                    value="<?php echo $_SESSION['email']; ?>">
+                                                                                    value="<?php echo $user['email']; ?>">
                                                                         </div>
                                                                   </div>
                                                             </div>
                                                             <div class="content__group">
                                                                   <label for="acc-set-user-address">Address <sup>*</sup></label>
-                                                                  <input name="pst_adr" class="content__controll" id="acc-set-user-address" type="text" value="<?php echo $_SESSION['adr_user']; ?>">
+                                                                  <input name="pst_adr" class="content__controll" id="acc-set-user-address" type="text" value="<?php echo $user['adr_user']; ?>">
                                                             </div>
                                                             <div class="content__group">
                                                                   <div class="content__group-row">
                                                                         <div class="content__group-col">
                                                                               <label for="acc-set-user-code">Phone Number <sup>*</sup></label>
-                                                                              <input name="pst_phone" class="content__controll" id="acc-set-user-code" type="text" value="<?= $_SESSION['phone_num'] ?>">
+                                                                              <input name="pst_phone" class="content__controll" id="acc-set-user-code" type="text" value="<?= $user['phone'] ?>">
                                                                         </div>
                                                                   </div>
                                                             </div>
