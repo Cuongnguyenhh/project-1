@@ -1,6 +1,6 @@
 <?php
 function condb(){
-    $servername = "baowebpa_qlbanhang2";
+    $servername = "localhost";
     $username = "baowebpa_admin";
     $pass = "admin123Admin";
     try {
