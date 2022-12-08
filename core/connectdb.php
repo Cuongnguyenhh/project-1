@@ -4,7 +4,7 @@ function getConnection(){
     $servername = "localhost";
 $username = "baowebpa_admin";
 $password = "admin123Admin";
-
+$concac =1;
 
     try {
     $conn = new PDO("mysql:host=$servername;dbname=baowebpa_qlbanhang2", $username, $password);
