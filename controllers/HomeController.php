@@ -65,7 +65,7 @@ switch ($action) {
          }
         break;
     case 'forgotpass':
-        require_once './view/account/forgotpass.php';
+        require_once '../view/account/forgotpass.php';
         break;
     case 'user':
         require_once './view/account/acc_manager.php';
