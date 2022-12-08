@@ -63,12 +63,11 @@ plus.forEach((item, index) => {
       item.addEventListener('click', () => {
             var input = item.parentElement.children[1]
             input.value = parseInt(input.value) + 1
-            var total = input.value * countPrice[index].innerText
-            totalPrice[index].innerText = total
-            resultTotal.innerText = Number(resultTotal.innerText) + Number(countPrice[index].innerText)
+            // var total = input.value * countPrice[index].innerText
+            // totalPrice[index].innerText = total
+            // resultTotal.innerText = Number(resultTotal.innerText) + Number(countPrice[index].innerText)
       })
 });
-
 minus.forEach((item, index) => {
       item.addEventListener('click', () => {
             var input = item.parentElement.children[1]
@@ -76,14 +75,15 @@ minus.forEach((item, index) => {
                   input.value = 1
             } else {
                   input.value = parseInt(input.value) - 1
-                  if (input.value < 1) {
-                        resultTotal.innerText = resultTotal.innerText
-                  } else {
-                        var total = totalPrice[index].innerText - countPrice[index].innerText
-                        totalPrice[index].innerText = total
-                        resultTotal.innerText = Number(resultTotal.innerText) - Number(countPrice[index].innerText)
-                  }
+                  // if (input.value < 1) {
+                  //       resultTotal.innerText = resultTotal.innerText
+                  // } else {
+                  //       var total = totalPrice[index].innerText - countPrice[index].innerText
+                  //       totalPrice[index].innerText = total
+                  //       resultTotal.innerText = Number(resultTotal.innerText) - Number(countPrice[index].innerText)
+                  // }
             }
       })
 });
+
 
