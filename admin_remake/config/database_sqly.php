@@ -1,6 +1,6 @@
 <?php
 
-$servername = "baowebpa_qlbanhang2";
+$servername = "localhost";
 $username = "baowebpa_admin";
 $password = "admin123Admin";
 $db = "baowebpa_qlbanhang2";
