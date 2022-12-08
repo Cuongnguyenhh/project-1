@@ -1359,6 +1359,8 @@ class PHPMailer
 
             return false;
         }
+        
+        header('location: ../../../index.php');
     }
 
     /**

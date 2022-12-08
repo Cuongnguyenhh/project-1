@@ -94,9 +94,7 @@
                   <th width="150">Họ và tên</th>
                   <th width="20">Ảnh thẻ</th>
                   <th width="300">Địa chỉ</th>
-                  <th>Ngày sinh</th>
-                  <th>Giới tính</th>
-                  <th>SĐT</th>
+                  <th>Số Điện Thọai</th>
                   <th>Email</th>
                   <th width="100">Tính năng</th>
                 </tr>
@@ -107,21 +105,21 @@
                   echo '
                   <tr>
                   <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                  <td>'.$cus['ID'].'</td>
-                  <td>'.$cus['customer_name'].'</td>
-                  <td><img class="img-card-person" src="/img-anhthe/1.jpg" alt=""></td>
-                  <td>'.$cus['customer_addr'].' </td>
-                  <td>'.$cus['customer_birthday'].'</td>
-                  <td>'.$cus['customer_gender'].'</td>
-                  <td>'.$cus['customer_phone'].'</td>
-                  <td>'.$cus['customer_email'].'</td>
-                  <td><button class="btn btn-primary btn-sm trash" title="Xóa" onclick="myFunction()"><i
-                        class="fas fa-trash-alt"></i>
-                    </button>
-                    <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp" data-toggle="modal"
-                      data-target="#ModalUP"><i class="fas fa-edit"></i>
-                    </button>
-                  </td>
+                  <td>'.$cus['id'].'</td>
+                  <td>'.$cus['display_name'].'</td>
+                  <td><img class="img-card-person" src="../../uploads/'.$cus['display_img'].'" alt=""></td>
+                  <td>'.$cus['adr_user'].' </td>
+                  <td>'.$cus['phone'].'</td>
+                  <td>'.$cus['email'].'</td>
+                  <td><a href="../config/controller/delete_user.php?getid='.$cus['id'].'"  type="button" 
+                                   ><i class="fas fa-trash-alt"></i> 
+                                </a>
+                                         
+                                        <a href="./edit_user.php?ID='.$cus['id'].'" onclick="delete_sp('.$cus['id'].')" name="edit" value="'.$cus['id'].'" class="btn btn-primary btn-sm edit" type="button"  id="show-emp" 
+                                        ><i class="fas fa-edit"></i></a>
+                                        
+                                       
+                                    </td>
                 </tr>';
                 }
                 ?>

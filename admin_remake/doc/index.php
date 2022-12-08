@@ -7,6 +7,7 @@ require '../config/controller/product.php';
 require '../config/controller/Catelory.php';
 require '../config/controller/customer.php';
 require '../config/controller/order.php';
+require '../config/controller/user.php';
 
 
 
@@ -24,7 +25,7 @@ if(isset($_GET['act'])){
             // require_once './navbar.php';
             require_once './table-data-table.php';
         case 'ql_khachhang':
-            $kq_customers = getAll_customer();
+            $kq_customers = getAll_user();
             require_once './navbar.php';
             require_once './Customer_control.php';
         case 'product':
