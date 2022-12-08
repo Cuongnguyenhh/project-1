@@ -1,4 +1,5 @@
 <?php
+
 foreach ($kq as  $value) : ?>
       <main class="main-content" role="main">
             <div class="vela-path">
@@ -204,7 +205,7 @@ foreach ($kq as  $value) : ?>
                                     <div class="rte">
                                           <?php
                                           foreach ($kq as  $value) {
-                                                echo '<p>' . $value['prd_description'] . '</p>';
+                                                echo '<p>' . substr($value['prd_description'],0, 50). '</p>';
                                           }
                                           ?>
 
@@ -248,7 +249,12 @@ foreach ($kq as  $value) : ?>
                                                 theo.</p>
                                     </div>
                               </div>
-                              <?php include_once 'comment/comment.php' ?>
+                              <?php if((isset($_SESSION['email'])) && (($_SESSION['type']==1))){
+                                    include_once 'comment/comment_admin.php';
+                                    }else{
+                                          include 'comment/comment.php';
+                                    }
+                                     ?>
                         </div>
                   </div>
             </div>

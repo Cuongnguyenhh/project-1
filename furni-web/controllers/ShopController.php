@@ -43,10 +43,11 @@ switch ($action) {
             }
             if ($flag == 0) {
                 $arr = array($id, $name_cart, $price_cart, $img_cart, $amount);
-                array_push($_SESSION['viewcart'], $arr);
+                // array_push($_SESSION['viewcart'], $arr);
+                $_SESSION['viewcart'][] = $arr;
             }
         }
-        // header('location:viewcart.php');
+        header('location:shop.php');
         break;
     case 'delonecart':
         if (isset($_GET['id'])) {
@@ -56,11 +57,27 @@ switch ($action) {
         }
         header('location:viewcart.php');
         break;
-    case 'cate':
-        $id = $_GET['id'];
-        if ($id == 0) {
-            
+    case 'updatecart':
+        if (isset($_POST['update'])) {
+            $qty = intval($_POST['amount']) ;
+            if ($qty > 1) {
+                $amount = $qty;
+            }else {
+                $amount = 1;
+            }
+            $i = $_GET['id'];
+            foreach ($_SESSION['viewcart'] as  $value) {
+                // cập nhật số lượng 
+                $_SESSION['viewcart'][$i][4] = $amount;
+                break;
+            }
         }
+
+        header('location:viewcart.php');
+        break;
+    case 'order':
+        header('location:index.php');
+
         break;
     default:
         require_once './view/shop/index.php';

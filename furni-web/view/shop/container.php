@@ -15,8 +15,7 @@
                                                       </li>
                                                       <?php
                                                       $cate = getAllTag();
-                                                      foreach ($cate as $c) :
-                                                            $result = strtolower(str_replace(' ', '-', $c['prd_group_name'])); ?>
+                                                      foreach ($cate as $c) : ?>
                                                             <li class="categories-item">
                                                                   <a class="categories-item-link" href="shop.php?cate=<?= $c['ID'] ?> "><?= $c['prd_group_name'] ?></a>
                                                             </li>
@@ -29,27 +28,27 @@
                                           <div class="color-content">
                                                 <ul class="color-list">
                                                       <li class="color-item">
-                                                            <a class="color-item-link" style="background-color: black;">
+                                                            <a href="" class="color-item-link" style="background-color: black;">
                                                                   <img src="assets/img/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                       <li class="color-item">
-                                                            <a class="color-item-link" style="background-color: grey;">
+                                                            <a href="" class="color-item-link" style="background-color: grey;">
                                                                   <img src="assets/img/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                       <li class="color-item">
-                                                            <a class="color-item-link" style="background-color: indianred;">
+                                                            <a href="" class="color-item-link" style="background-color: indianred;">
                                                                   <img src="assets/img/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                       <li class="color-item">
-                                                            <a class="color-item-link" style="background-color: lightgrey;">
+                                                            <a href="" class="color-item-link" style="background-color: lightgrey;">
                                                                   <img src="assets/img/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
                                                       <li class="color-item">
-                                                            <a class="color-item-link" style="background-color: white;">
+                                                            <a href="" class="color-item-link" style="background-color: brown;">
                                                                   <img src="assets/img/color_default_icon.webp" alt="color-default">
                                                             </a>
                                                       </li>
@@ -168,16 +167,7 @@
 
                                                 <!-- FILTER PRODUCT  -->
                                                 <div class="product-filter-collsort">
-                                                      <select name="sortby" id="sortby" class="form-control">
-                                                            <?php
-                                                            $where = "SELECT * FROM `cms_sort`";
-                                                            $kq = getProductByFilter($where);
-                                                            foreach ($kq as $value) : ?>
-                                                                  <option value="<?= $value['ID'] ?>">
-                                                                        <a href="#!"><?= $value['sortby'] ?></a>
-                                                                  </option>
-                                                            <?php endforeach; ?>
-                                                      </select>
+                                                     
                                                 </div>
                                                 </form>
                                           </div>

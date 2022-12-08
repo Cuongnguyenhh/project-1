@@ -4,13 +4,23 @@
 session_start();
 ob_start();
 ?>
+
 <head>
       <?php include_once './view/layout/meta.php' ?>
 </head>
 
 <body>
       <!-- Start Header Area -->
-      <?php include_once './view/layout/header.php' ?>
+
+      <?php 
+      if(isset($_SESSION['email']) && ($_SESSION['type'])==1 ){
+      include_once './view/layout/header_admin.php';
+      }elseif(isset($_SESSION['email']) && ($_SESSION['type'])!=1){
+            include_once './view/layout/header_user.php';
+      }else{
+            include_once './view/layout/header.php';
+      }
+       ?>
       <!-- End Header Area -->
 
       <!--================Home Area =================-->
@@ -26,7 +36,7 @@ ob_start();
                                     <?php
                                     $i = 0;
                                     if (isset($_SESSION['viewcart']) && count($_SESSION['viewcart']) > 0) {
-                                          echo '<form action="checkout.php" method="POST" novalidate class="cart-form">
+                                          echo '
                                                 <div class="cart-table">
                                                       <div class="cart-header-label">
                                                             <div class="c-2">
@@ -60,28 +70,30 @@ ob_start();
                                                                         <p>velatheme</p>
                                                                         <div class="cart-price">
                                                                               <span class="cart-price-product text-right">
-                                                                                    <span class="money">$' . $value[2] . '</span>
+                                                                                    <span class="money count-price">' . $value[2] . '</span>
                                                                               </span>
                                                                         </div>
-                                                                        <div class="cart-group row-flex align-items" data-label="Quantity">
-                                                                              <div class="cart-quantity">
-                                                                                    <div class="addcard-qty">
-                                                                                          <button type="button" class="addcard-qty-minus">
-                                                                                                <span>-</span>
-                                                                                          </button>
-                                                                                          <input class="qty" type="text" value="' . $value[4] . '" min="1" readonly pattern="[0-9]*">
-                                                                                          <button type="button" class="addcard-qty-plus">
-                                                                                                <span>+</span>
-                                                                                          </button>
+                                                                        <form action="shop.php?action=updatecart&id=' . $i . '" method="POST">
+                                                                              <div class="cart-group row-flex align-items" data-label="Quantity">
+                                                                                    <div class="cart-quantity">
+                                                                                          <div class="addcard-qty">
+                                                                                                <button type="button" class="addcard-qty-minus">
+                                                                                                      <span>-</span>
+                                                                                                </button>
+                                                                                                <input class="qty" type="text" value="' . $value[4] . '" min="1" name="amount" readonly pattern="[0-9]*">
+                                                                                                <button type="button" class="addcard-qty-plus">
+                                                                                                      <span>+</span>
+                                                                                                </button>
+                                                                                          </div>
                                                                                     </div>
+                                                                                    <button type="submit" class="btn btn-update-cart" name="update" > Update Cart</button>
+                                                                                    <a class="cart-remove" href="shop.php?action=delonecart&id=' . $i . '" >Remove</a>
                                                                               </div>
-                                                                              <input type="submit" name="update" class="btn btn-update-cart" value="Update Cart">
-                                                                              <a class="cart-remove" href="shop.php?action=delonecart&id=' . $i . '">Remove</a>
-                                                                        </div>
+                                                                        </form>
                                                                   </div>
                                                                   <div class="c-2 text-right">
                                                                         <span class="cart-total">
-                                                                              <span class="money">$' . $total_price . '</span>
+                                                                              <span class="money total-price">' . $total_price  . '</span>
                                                                         </span>
                                                                   </div>
                                                             </div>
@@ -104,24 +116,25 @@ ob_start();
                                                                         Subtotal:
                                                                   </span>
                                                                   <span class="cart-subtotal">
-                                                                        <div class="money">$' . $total . '</div>
+                                                                        <div class="money result-total">' . $total . '</div>
                                                                   </span>
                                                             </div>
                                                             <div class="cart-shipping">
                                                                   Shipping, taxes, and discounts will be calculated at checkout.
                                                             </div>
                                                             <div class="function-cart-button">
-                                                                  <input type="submit" name="update" class="btn btn-update-cart" value="Update Cart">
+                                                            <form action="checkout.php" method="POST" novalidate class="cart-form">
+                                                                  <button type="submit" name="update" class="btn btn-update-cart" >Update Cart</button>
                                                                   
-                                                                  <input type="submit" name="checkout" class="btn btn-checkout-cart" value="Check Out">
-                                                                  
-                                                                  
+                                                                  <button type="submit" name="checkout" class="btn btn-checkout-cart" >Check Out</button>
+                                                                  <input type="hidden" name="total" value="' . $total . '">
+                                                            </form>
                                                             </div>
                                                       </div>
                                                 </div>
-
-                                                <input type="hidden" name="total" value="' . $total . '">
-                                            </form>';
+                                          
+                                                
+                                          ';
                                     } else {
                                           echo '<p>Your cart is currently empty.</p>';
                                     }
@@ -129,6 +142,7 @@ ob_start();
                               </div>
                         </div>
                   </div>
+
             </section>
       </main>
       <!--================Home Area =================-->

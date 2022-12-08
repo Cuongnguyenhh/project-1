@@ -55,59 +55,35 @@ if (btnDrawerClose) {
 const minus = document.querySelectorAll('.addcard-qty-minus');
 const plus = document.querySelectorAll('.addcard-qty-plus');
 const inputCount = document.querySelector('.addcard-qty input');
+const totalPrice = document.querySelectorAll('.total-price');
+const resultTotal = document.querySelector('.result-total')
+const countPrice = document.querySelectorAll('.count-price')
 
-
-plus.forEach(item => {
+plus.forEach((item, index) => {
       item.addEventListener('click', () => {
-            // const cokk = 
             var input = item.parentElement.children[1]
-            input.value = parseInt(input.value) + 1;
+            input.value = parseInt(input.value) + 1
+            var total = input.value * countPrice[index].innerText
+            totalPrice[index].innerText = total
+            resultTotal.innerText = Number(resultTotal.innerText) + Number(countPrice[index].innerText)
       })
 });
 
-
-minus.forEach(item => {
+minus.forEach((item, index) => {
       item.addEventListener('click', () => {
             var input = item.parentElement.children[1]
-            input.value <= 1 ? input.value = 1 : input.value = parseInt(input.value) - 1;
-
+            if (input.value <= 1) {
+                  input.value = 1
+            } else {
+                  input.value = parseInt(input.value) - 1
+                  if (input.value < 1) {
+                        resultTotal.innerText = resultTotal.innerText
+                  } else {
+                        var total = totalPrice[index].innerText - countPrice[index].innerText
+                        totalPrice[index].innerText = total
+                        resultTotal.innerText = Number(resultTotal.innerText) - Number(countPrice[index].innerText)
+                  }
+            }
       })
 });
-
-// for(var i = 0; i < plus.length; i++) {
-//       if (plus[i]) {
-//             plus[i].addEventListener('click', () => {
-//                   inputCount[i].value = parseInt(inputCount.value) + 1;
-//             })
-//       }
-// }
-
-
-// for(var i = 0; i < minus.length; i++) {
-//       if (minus[i]) {
-//             minus[i].addEventListener('click', () => {
-//                   if (inputCount.value <= 1) {
-//                         inputCount.value = 1
-//                   } else {
-//                         inputCount.value = parseInt(inputCount.value) - 1;
-//                   }
-//             })
-//       }
-// }
-
-// if (plus) {
-//       plus.addEventListener('click', () => {
-//             inputCount.value = parseInt(inputCount.value) + 1;
-//       })
-// }
-
-// if (minus) {
-//       minus.addEventListener('click', () => {
-//             if (inputCount.value <= 1) {
-//                   inputCount.value = 1;
-//             } else {
-//                   inputCount.value = parseInt(inputCount.value) - 1;
-//             }
-//       });
-// }
 

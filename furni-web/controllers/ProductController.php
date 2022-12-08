@@ -16,7 +16,13 @@ if (isset($_GET['action'])) {
     $action = 'home';
 }
 switch ($action) {
+    
     case 'home':
+        if (isset($_SESSION['id'])) {
+            $id_user = $_SESSION['id'];
+        }else {
+            $id_user = null;
+        }
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $kq = getProductById($id);

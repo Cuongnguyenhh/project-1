@@ -1,11 +1,16 @@
 <?php  
+session_start();
+ if(isset($_SESSION['email']) && ($_SESSION['type'])==1){
 require '../config/database.php';
 condb();
 require '../config/controller/product.php';
 require '../config/controller/Catelory.php';
 require '../config/controller/customer.php';
+require '../config/controller/order.php';
 
-require './user_menu.php';
+
+
+require  './user_menu.php';
 if(isset($_GET['act'])){
     $act =$_GET['act'];
     switch($_GET['act']){
@@ -29,6 +34,7 @@ if(isset($_GET['act'])){
             require_once './table-data-product.php';
             break;
         case 'order':
+            $order = getAll_order();
             require_once './navbar.php';
             require_once './table-data-oder.php';
         case 'pos':
@@ -43,5 +49,9 @@ if(isset($_GET['act'])){
    require_once './navbar.php';
    require_once './mainControll.php';
 }
+ }else{
+    header('location:../../furni-web/index.php?action=login'); 
+ }
+ 
 
 ?>

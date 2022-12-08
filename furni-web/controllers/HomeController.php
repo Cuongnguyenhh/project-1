@@ -1,4 +1,5 @@
 <?php
+
 require_once('./core/funtion.php');
 
 require_once './models/TagOfProductModel.php';
@@ -16,6 +17,7 @@ if (isset($_GET['action'])) {
 }
 switch ($action) {
     case 'home':
+    
         require_once './view/home/index.php';
         break;
 
@@ -56,20 +58,18 @@ switch ($action) {
         }
         break;
     case 'login':
+        if(isset ($_SESSION['email'])){
+            header('location:index.php');
+         }else{
         require_once './view/account/login.php';
+         }
         break;
-    case 'register':
-        require_once './view/account/register.php';
-        break;
+    // case 'register':
+    //     require_once './view/account/register.php';
+    //     break;
     case 'user':
         require_once './view/account/acc_manager.php';
         break;
-    case 'checkout':
-        if (isset($_POST['checkout'])) {
-            header('location: checkout.php');
-            break;
-        }
-        
     default:
         require_once './view/home/index.php';
         break;

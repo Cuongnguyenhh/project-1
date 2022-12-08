@@ -15,5 +15,6 @@ function getOne_pro($get_id){
     $pro_one = $stmt -> fetchAll();
     return $pro_one;
     
-   
-}
+  
+   }
+
