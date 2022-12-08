@@ -2,8 +2,8 @@
 
 $servername = "baowebpa_qlbanhang2";
 $username = "baowebpa_admin";
-$password = "";
-$db = "admin123Admin";
+$password = "admin123Admin";
+$db = "baowebpa_qlbanhang2";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password,$db);
