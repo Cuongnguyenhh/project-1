@@ -1,9 +1,9 @@
 <?php
 // hàm connect db 
 function getConnection(){
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
+    $servername = "baowebpa_qlbanhang2";
+    $username = "baowebpa_admin";
+    $password = "admin123Admin";
 
     try {
     $conn = new PDO("mysql:host=$servername;dbname=qlbanhang2", $username, $password);
