@@ -1,3 +1,28 @@
+<?php
+require './admin_remake/config/database.php';
+
+
+$conn = condb();
+
+
+
+$email = $_GET['email'];
+function getOne_user($email){
+  $conn = condb();
+  $stmt = $conn->prepare("SELECT * FROM cms_users WHERE email='$email'");
+  $stmt->execute();
+  $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+  $user_one = $stmt -> fetchAll();
+  return $user_one;
+}
+$user = GetOne_user($email);
+// print_r($user);
+foreach ($user as  $value) {
+  $id = $value['id'];
+
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -123,9 +148,9 @@ button[disabled] {
     </div>
     
     <div class="buttonWrapper">
-      <button type="submit" id="submitButton" onclick="validateSignupForm()" class="submitButton pure-button pure-button-primary">
+      <button type="submit" name="changpass" id="submitButton" class="submitButton pure-button pure-button-primary">
         <span>Continue</span>
-        <span id="loader"></span>
+        
       </button>
     </div>
       
@@ -201,3 +226,33 @@ function onSignup() {
   xhttp.send();
 }</script>
 </html>
+<?php 
+if (isset($_POST['changpass'])) {
+  
+  $conn = condb();
+
+  $changepass = md5($_POST['password']);
+  
+  try {
+    
+    // $sql = "UPDATE cms_users SET password = $changepass WHERE email = $email";
+    $sql = "UPDATE cms_users SET password='$changepass' WHERE id= $id ";
+  
+    // Prepare statement
+    $stmt = $conn->prepare($sql);
+  
+    // execute the query
+    $stmt->execute();
+  
+    // echo a message to say the UPDATE succeeded
+    // echo $stmt->rowCount() . " records UPDATED successfully";
+    unset($_SESSION['ramcheck']);
+    header('location: index.php?action=login');
+  } catch(PDOException $e) {
+    echo $sql . "<br>" . $e->getMessage();
+
+  }
+
+
+}
+?>

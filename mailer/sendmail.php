@@ -44,7 +44,7 @@ $mail = new PHPMailer(true);
         //Content
         $mail->isHTML(true);                                  // Set email format to HTML
         $mail->Subject = 'Lấy lại mật khẩu';
-        $mail->Body    = " http://localhost/duan1/project-1/index.php?action=$ramcheck&email=$email";
+        $mail->Body    = " http://localhost/project/index.php?action=$ramcheck&email=$email";
         $mail->AltBody = "This is the body in plain text for non-HTML mail clients";
      
         $mail->send();
