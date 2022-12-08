@@ -115,7 +115,7 @@ $id_user = $_GET['id'];
                                                             </a>
                                                       </li>
                                                       <li class="manager-setting-item">
-                                                            <a href="#!">
+                                                            <a href="index.php?action=forgotpass">
                                                                   <h5 class="manager-title">Password & Security</h5>
                                                                   <span class="manager-desc">Details about your Personal
                                                                         information</span>

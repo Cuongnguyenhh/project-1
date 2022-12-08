@@ -45,7 +45,7 @@
                                                                   <button type="submit" name="login" class="btn btn-form-login" >Đăng nhập </button>
                                                                   </div>
                                                                   <div class="forgot-password">
-                                                                        <a href="#">Quên mật
+                                                                        <a href="../admin_remake/forgot.php">Quên mật
                                                                               khẩu?</a>
                                                                   </div>
                                                             </div>
@@ -122,7 +122,7 @@
                                                                   <button type="submit" class="btn btn-form-login" name="signin" > TẠO TÀI KHOẢN"</button>
                                                                   </div>
                                                                   <div class="forgot-password">
-                                                                        <a href="#">Quên mật
+                                                                        <a href="../admin_remake/forgot.php">Quên mật
                                                                               khẩu?</a>
                                                                   </div>
                                                             </div>

@@ -1,4 +1,7 @@
 <?php
+if (isset($_POST['getpass'])) {
+    $email = $_POST['email'];
+}
 include  "PHPMailer/src/PHPMailer.php";
 include "PHPMailer/src/Exception.php";
 include  "PHPMailer/src/OAuth.php";
@@ -23,7 +26,7 @@ try {
  
     //Recipients
     $mail->setFrom('hiepdt2909@gmail.com', 'Mailer');
-    $mail->addAddress('khis2boo32@gmail.com', 'Joe User');     // Add a recipient
+    $mail->addAddress($email, 'Joe User');     // Add a recipient
     // $mail->addAddress('ellen@example.com');               // Name is optional
     // $mail->addReplyTo('info@example.com', 'Information');
     // $mail->addCC('cc@example.com');

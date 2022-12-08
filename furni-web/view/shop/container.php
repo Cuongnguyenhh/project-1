@@ -68,27 +68,8 @@
                                           </div>
                                     </div>
                                     <!-- FILTER PRICE  -->
-                                    <div class="filter">
-                                          <h3 class="vela-title">Filter by price</h3>
-                                          <div class="filter-content">
-                                                <div class="slider-box">
-                                                      <label class="priceRange" for="priceRange">Price Range:</label>
-                                                      <input type="text" id="priceRange" readonly>
-                                                      <div id="price-range" class="slider"></div>
-                                                </div>
-                                                <!-- <div class="price-range-slider">
-
-                                                      <p class="range-value">
-                                                            <input type="text" id="amount" readonly>
-                                                      </p>
-                                                      <div id="slider-range" class="range-bar"></div>
-
-                                                </div>
-                                                <div class="filter-btn">
-                                                      <button class="btn btn-filter-price">Filter</button>
-                                                </div> -->
-                                          </div>
-                                    </div>
+                                    
+                                    
                                     <div class="best-seller">
                                           <h3 class="vela-title">Bán chạy nhất</h3>
                                           <div class="best-seller-content">
@@ -444,47 +425,6 @@ const changeGrid = document.querySelector('.change-grid');
 const productList = document.querySelector('.product-box-list');
 const productBox = document.querySelector('.product-box');
 
-<<<<<<< HEAD
-      changeList.addEventListener('click', () => {
-            productList.classList.add('active');
-            productBox.classList.remove('active');
-            changeList.classList.add('active');
-            changeGrid.classList.remove('active');
-      });
-      changeGrid.addEventListener('click', () => {
-            productBox.classList.add('active');
-            productList.classList.remove('active');
-            changeList.classList.remove('active');
-            changeGrid.classList.add('active');
-      });
-      $(function() {
-            $("#price-range").slider({
-                  step: 500,
-                  range: true,
-                  min: 0,
-                  max: 20000,
-                  values: [0, 20000],
-                  slide: function(event, ui) {
-                        $("#priceRange").val(ui.values[0] + " - " + ui.values[1]);
-                  }
-            });
-            $("#priceRange").val($("#price-range").slider("values", 0) + " - " + $("#price-range").slider("values", 1));
-
-      });
-      // $(document).ready(function() {
-      //       $("#slider-range").slider({
-      //             range: true,
-      //             min: 130,
-      //             max: 10000,
-      //             values: [130, 5500],
-      //             slide: function(event, ui) {
-      //                   $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-      //             }
-      //       });
-      //       $("#amount").val("$" + $("#slider-range").slider("values", 0) +
-      //             " - $" + $("#slider-range").slider("values", 1));
-      // });
-=======
 changeList.addEventListener('click', () => {
       productList.classList.add('active');
       productBox.classList.remove('active');
@@ -511,5 +451,4 @@ changeGrid.addEventListener('click', () => {
 //       $("#amount").val("$" + $("#slider-range").slider("values", 0) +
 //             " - $" + $("#slider-range").slider("values", 1));
 // });
->>>>>>> 1101ced3b0c82e0beb27a5771b078f87086d0a6d
 </script>
