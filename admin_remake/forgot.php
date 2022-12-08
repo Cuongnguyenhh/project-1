@@ -28,7 +28,7 @@
                 <div class="login100-pic js-tilt" data-tilt>
                     <img src="images/fg-img.png" alt="IMG">
               </div>
-                <form action="../mailer/sendmail.php" method="POST">
+                <form action="../../mailer/sendmail.php" method="POST">
                     <span class="login100-form-title">
                         <b>KHÔI PHỤC MẬT KHẨU</b>
                     </span>

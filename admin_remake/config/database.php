@@ -1,11 +1,11 @@
 <?php
 function condb(){
   $servername = "localhost";
-  $username = "baowebpa_admin";
-  $pass = "admin123Admin";
+  $username = "root";
+  $pass = "";
   
     try {
-        $conn = new PDO("mysql:host=$servername;dbname=baowebpa_qlbanhang2", $username, $pass);
+        $conn = new PDO("mysql:host=$servername;dbname=qlbanhang2", $username, $pass);
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $conn;

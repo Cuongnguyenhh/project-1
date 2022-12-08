@@ -2,12 +2,12 @@
 // hàm connect db 
 function getConnection(){
     $servername = "localhost";
-$username = "baowebpa_admin";
-$password = "admin123Admin";
-$concac =1;
+$username = "root";
+$password = "";
+
 
     try {
-    $conn = new PDO("mysql:host=$servername;dbname=baowebpa_qlbanhang2", $username, $password);
+    $conn = new PDO("mysql:host=$servername;dbname=qlbanhang2", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $conn;

@@ -12,7 +12,7 @@ if (isset($_SESSION['email'])) {
       $user = null;
 }
 
-?>
+?>sd
 
 <head> <?php include_once './view/layout/meta.php' ?> </head>
 

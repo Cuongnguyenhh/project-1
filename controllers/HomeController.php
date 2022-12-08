@@ -1,4 +1,9 @@
 <?php
+if(isset($_SESSION['ramcheck'])){
+    $fogot = $_SESSION['ramcheck'];
+    
+}
+echo $fogot;
 
 require_once('./core/funtion.php');
 
@@ -13,9 +18,16 @@ require_once './models/DealModel.php';
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
 } else {
+   
+
     $action = 'home';
 }
 switch ($action) {
+    case  ''.$fogot.'':
+
+    require './view/account/changepass.php';
+    break;
+
     case 'home':
     
         require_once './view/home/index.php';

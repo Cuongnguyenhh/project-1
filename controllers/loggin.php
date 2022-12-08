@@ -66,4 +66,4 @@ echo "
  }
 
 ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.15/sweetalert2.all.min.js" integrity="sha512-SFaxUL267Y1wH3eelsqXwDXir/ebciCMRmmqlbwnSKhQH8hmnqIbUm8FKiYWQ+8jcnagOColZIaQuhdZYUhcPg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.15/sweetalert2.all.min.js" integrity="sha512-SFaxUL267Y1wH3eelsqXwDXir/ebciCMRmmqlbwnSKhQH8hmnqIbUm8FKiYWQ+8jcnagOColZIaQuhdZYUhcPg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
