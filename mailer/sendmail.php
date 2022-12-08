@@ -1,6 +1,11 @@
 <?php
+session_start();
 if (isset($_POST['getpass'])) {
     $email = $_POST['email'];
+    $_SESSION['get_email'] = $email;
+   $ramcheck = rand(1,99999);
+    $_SESSION['ramcheck'] = $ramcheck;
+
 }
 include  "PHPMailer/src/PHPMailer.php";
 include "PHPMailer/src/Exception.php";
@@ -39,7 +44,7 @@ try {
     //Content
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Test';
-    $mail->Body    = 'This is the HTML message body in bold!';
+    $mail->Body    = '../';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
  
     $mail->send();

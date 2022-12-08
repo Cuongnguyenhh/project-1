@@ -12,7 +12,7 @@ function validate() {
             close: true,
             button: false,
           });
-        window.location = "../admin_remake/doc/index.php";
+        window.location = "./admin_remake\/doc/index.php";
         return true;
           
     }
