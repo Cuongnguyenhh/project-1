@@ -83,6 +83,9 @@ switch ($action) {
     case 'user':
         require_once './view/account/acc_manager.php';
         break;
+    case 'changepass':
+        require_once './view/account/changepass.php';
+        break;
     default:
         require_once './view/home/index.php';
         break;

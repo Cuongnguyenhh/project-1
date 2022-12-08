@@ -12,7 +12,7 @@ if (isset($_SESSION['email'])) {
       $user = null;
 }
 
-?>sd
+?>
 
 <head> <?php include_once './view/layout/meta.php' ?> </head>
 
@@ -84,12 +84,7 @@ if (isset($_SESSION['email'])) {
                                                                   placeholder="Address" value="<?=$user['adr_user']?>">
                                                             <span class="form-message"></span>
                                                       </div>
-                                                      <div class="field">
-                                                            <input id="optional-check" type="text" name="add2_contact"
-                                                                  placeholder="Apartment, suite, etc. (optional)"
-                                                                  value="<?=$user['adr_user']?>">
-                                                            <span class="form-message"></span>
-                                                      </div>
+                                                      
                                                       <div class="field">
                                                             <input id="city-check" type="text" name="city_contact"
                                                                   placeholder="City" value="<?=$user['adr_user']?>">
@@ -346,7 +341,7 @@ if (isset($_SESSION['email'])) {
                   validator.isRequired('#email-check'),
                   validator.isRequired('#last-check'),
                   validator.isRequired('#first-check'),
-                  validator.isRequired('#optional-check'),
+                  // validator.isRequired('#optional-check'),
                   validator.isRequired('#city-check'),
                   validator.isRequired('#address-check'),
             ],
