@@ -46,7 +46,7 @@ switch ($action) {
                 array_push($_SESSION['viewcart'], $arr);
             }
         }
-        header('location:viewcart.php');
+        // header('location:viewcart.php');
         break;
     case 'delonecart':
         if (isset($_GET['id'])) {
