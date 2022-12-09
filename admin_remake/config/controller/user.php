@@ -1,7 +1,7 @@
 <?php
-function getAll_pro(){
+function getAll_user(){
     $conn = condb();
-    $stmt = $conn->prepare("SELECT * FROM cms_user");
+    $stmt = $conn->prepare("SELECT * FROM cms_users");
     $stmt->execute();
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $kq_user = $stmt -> fetchAll();
@@ -15,3 +15,4 @@ function getOne_user($get_email){
     $user_one = $stmt -> fetchAll();
     return $user_one;
 }
+

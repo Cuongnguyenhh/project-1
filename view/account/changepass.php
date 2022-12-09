@@ -1,5 +1,10 @@
 <?php
+$get_email = $_SESSION['email'];
 require './admin_remake/config/database.php';
+require './admin_remake/config/controller/user.php';
+$user_one = getOne_user($get_email);
+foreach($user_one as $user_one){};
+echo $user_one['password'];
 $conn = condb();
 $id = $_SESSION['id'];
 
@@ -141,7 +146,11 @@ $id = $_SESSION['id'];
                     <input type="text" readonly id="password" name="password" value=<?=$_SESSION['email']?> required>
                 </div>
                 <div class="inputDiv">
-                    <label class="inputLabel" for="password">New Password</label>
+                    <label class="inputLabel" for="password">Nhập lại mật khẩu</label>
+                    <input type="password" id="password" name="old_pass" required>
+                </div>
+                <div class="inputDiv">
+                    <label class="inputLabel" for="password">Mật khẩu mới</label>
                     <input type="password" id="password" name="password" required>
                 </div>
 
@@ -231,7 +240,9 @@ $id = $_SESSION['id'];
 </script>
 <?php
     if (isset($_POST['changpass']) && $_POST['confirmPassword'] == $_POST['password']) {
-        $changepass = md5($_POST['password']);
+        $old_pass = md5($_POST['old_pass']);
+        if($old_pass === $user_one['password']){
+            $changepass = md5($_POST['password']);
         try {
     
             // $sql = "UPDATE cms_users SET password = $changepass WHERE email = $email";
@@ -250,7 +261,11 @@ $id = $_SESSION['id'];
           } catch(PDOException $e) {
             echo $sql . "<br>" . $e->getMessage();
         
+          }}else{
+            echo "ngu";
           }
+        
+        
     }
 ?>
 </html>

@@ -121,14 +121,14 @@
                                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
                                     <td>'.$pro['ID'].'</td>
                                     <td>'.$pro['prd_name'].'</td>
-                                    <td><img src="../../furni-web/uploads/'.$pro['prd_img'].'" alt="" width="100px;"></td>
+                                    <td><img src="../../uploads/'.$pro['prd_img'].'" alt="" width="100px;"></td>
                                     <td>'.$pro['quaility'].'</td> 
                                    
           
                                     <td><span class="'.$class.'">'.$status.'</span></td>
                                     <td>'.$pro['prd_sell_price'].'</td>
                                     <td>'.$pro['id_prd_group'].'</td>
-                                    <td><a href="../config//controller//delete.php?getid='.$pro['ID'].'"  type="button" 
+                                    <td><a href="../config//controller/delete.php?getid='.$pro['ID'].'"  type="button" 
                                    ><i class="fas fa-trash-alt"></i> 
                                 </a>
                                          

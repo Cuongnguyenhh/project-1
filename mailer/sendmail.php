@@ -52,6 +52,7 @@ $mail = new PHPMailer(true);
         
     } catch (Exception $e) {
         echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+        
     
 }
 header("location: ../index.php?action=login");
