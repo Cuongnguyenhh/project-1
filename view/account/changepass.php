@@ -2,7 +2,7 @@
 require './admin_remake/config/database.php';
 $conn = condb();
 $id = $_SESSION['id'];
-echo $id;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

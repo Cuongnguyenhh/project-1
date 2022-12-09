@@ -163,7 +163,7 @@ foreach($userOne as $user){
 
                               <div class="header-bars">
                                     <div class="header-bars__user">
-                                          <a class="header-bars__user-link" href="acc_manager.php">
+                                          <a class="header-bars__user-link" href="index.php?action=user&id=<?=$_SESSION['id']?>">
                                                 <img src="uploads/<?php echo $user['display_img']?>" alt="">
                                                 <span
                                                       class="header-bars__user-name"><?php echo $user['display_name'] ?></span>
