@@ -243,7 +243,6 @@ if (isset($_POST['changpass'])) {
   
     // execute the query
     $stmt->execute();
-  
     // echo a message to say the UPDATE succeeded
     // echo $stmt->rowCount() . " records UPDATED successfully";
     unset($_SESSION['ramcheck']);

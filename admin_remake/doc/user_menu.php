@@ -22,4 +22,4 @@
 <body>
 <li><a style="float: right; margin-bottom: 20px;" class="app-nav__item" href="../../controllers/logout.php"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 </body>
-</html><a href="../../controllers/logout.php"></a>
+</html><a href="../../../controllers/logout.php"></a>

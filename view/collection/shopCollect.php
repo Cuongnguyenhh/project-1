@@ -152,9 +152,6 @@
                                                                                                 </div>
                                                                                           </div>
                                                                                     </a>
-                                                                                    <div class="product-label-sale">
-                                                                                          <span>Sale</span>
-                                                                                    </div>
                                                                                     <div class="product-quick-view">
                                                                                           <a class="btn btn-product-view btn-quick-view" href="#">
                                                                                                 <span class="icons">
@@ -177,15 +174,17 @@
                                                                                           <div class="product-sale">
                                                                                                 <span>$26.00</span>
                                                                                           </div>
-                                                                                          <button name="add-cart" type="submit" class="btn btn-add-cart ">
-                                                                                                <i class="icons">
-                                                                                                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-                                                                                                            <path d="M416,277.333H277.333V416h-42.666V277.333H96v-42.666h138.667V96h42.666v138.667H416V277.333z">
-                                                                                                            </path>
-                                                                                                      </svg>
-                                                                                                </i>
-                                                                                                <span>Add to Cart</span>
-                                                                                          </button>
+                                                                                          <div class="product-form">
+                                                                                                <button name="add-cart" type="submit" class="btn btn-add-cart ">
+                                                                                                      <i class="icons">
+                                                                                                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                                                                                                                  <path d="M416,277.333H277.333V416h-42.666V277.333H96v-42.666h138.667V96h42.666v138.667H416V277.333z">
+                                                                                                                  </path>
+                                                                                                            </svg>
+                                                                                                      </i>
+                                                                                                      <span>Add to Cart</span>
+                                                                                                </button>
+                                                                                          </div>
                                                                                     </div>
                                                                               </div>
                                                                         </div>

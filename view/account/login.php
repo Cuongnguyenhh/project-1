@@ -70,7 +70,9 @@
                                                     
                                                     
                                                     // var_dump($kq); 
-                                                $_SESSION['user_name'] = $email_login; if ($typeUser == 1) { header('location: ../admin/index.php'); } else { header('location: ./index.php'); } } } ?>
+                                                $_SESSION['user_name'] = $email_login; 
+                                                if ($typeUser == 1) { header('location: ../admin/index.php');
+                                                } else { header('location: ./index.php'); } } } ?>
                                           </div>
                                           <!-- FORM REGISTER  -->
                                           <div id="CreateAccount" class="tab-change ">

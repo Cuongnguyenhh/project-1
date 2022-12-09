@@ -2,9 +2,12 @@
 session_start();
 if (isset($_POST['getpass'])) {
     $email = $_POST['email'];
-    $_SESSION['get_email'] = $email;
-   $ramcheck = rand(1,99999);
-    $_SESSION['ramcheck'] = $ramcheck;
+    if ($email != null) {
+        $_SESSION['get_email'] = $email;
+        $ramcheck = rand(1,99999);
+        $_SESSION['ramcheck'] = $ramcheck;
+    }
+    
 
 }
 include  "PHPMailer/src/PHPMailer.php";
@@ -56,4 +59,3 @@ $mail = new PHPMailer(true);
     
 }
 header("location: ../index.php?action=login");
-?>
