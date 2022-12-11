@@ -22,8 +22,8 @@
                                                 <div class="drawer-product">
                                                       <div class="drawer-product-image">
                                                             <a href="#" class="drawer-product-link">
-                                                                  <img class="drawer-image" src="uploads/'.$value[3].'" alt="">
-                                                                  <span class="drawer__quantity">'.$value[4].'</span>
+                                                                  <img class="drawer-image" src="uploads/' . $value[3] . '" alt="">
+                                                                  <span class="drawer__quantity">' . $value[4] . '</span>
                                                             </a>
                                                       </div>
                                                       <div class="drawer-product-content">
@@ -75,8 +75,11 @@
                                                       <a href="viewcart.php" class="btn btn-drawer">View Cart</a>
                                                 </div>
                                                 <div class="drawer-button-box">
-                                                      <input type="submit" name="checkout" class="btn btn-checkout"
-                                                            value="Check Out">
+                                                      <?php if (isset($_SESSION['email'])) { ?>
+                                                            <button type="submit" name="checkout" class="btn btn-checkout-cart"><a href="checkout.php">Check Out</a></button>
+                                                      <?php } else { ?>
+                                                            <button type="submit" name="checkout" class="btn btn-checkout-cart"><a href="index.php?action=login">Check</a></button>
+                                                      <?php } ?>
                                                 </div>
                                           </div>
                                     </div>

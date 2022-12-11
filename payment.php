@@ -5,7 +5,6 @@ session_start();
 ob_start();
 require './admin_remake\/config/database.php';
 require './admin_remake\/config/controller/user.php';
-
 ?>
 
 <head>
@@ -20,10 +19,10 @@ require './admin_remake\/config/controller/user.php';
       <?php
       $add = $_POST['add_contact'];
       $city = $_POST['city_contact'];
-      $total = 0;
+      $bill = 0;
 
       ?>
-      <form action="add_order.php" method="post">
+      <form action="" method="post">
             <main class="main">
                   <div class="container">
                         <header class="header__info">
@@ -138,33 +137,35 @@ require './admin_remake\/config/controller/user.php';
                                                 </div>
                                           </div>
                                     </div>
-                                    <div class="order-products" style="display:none ;">
-                                          <?php $total_prd = 0;
+                                    <!-- <div class="order-products" style="display:block ;">
+                                           $total_prd = 0;
                                           foreach ($_SESSION['viewcart'] as   $value) :
                                                 $total_prd++;
                                                 $total_price = $value[2] * $value[4];
-                                                $total += $total_price; ?>
+                                                $total += $total_price; 
+                                                 ?>
+                                                
+                                          
                                                 <div class="order-product">
                                                       <div class="order-product-image">
-                                                            <img src="uploads/<?= $value[3] ?>" alt="">
+                                                            <img src="uploads/ $value[3] ?>" alt="">
                                                       </div>
                                                       <div class="order-product-content">
                                                             <h3 class="order-product-name" name="vaic">
-                                                                  <?= $value[1] ?>
+                                                                  $value[1] 
                                                             </h3>
                                                             <div class="order-product-group">
-                                                                  <span class="money"><?= $value[2] ?></span>
-                                                                  <span class="count">x<?= $value[4] ?></span>
+                                                                  <span class="money"> $value[2] ?></span>
+                                                                  <span class="count">x $value[4] ?></span>
                                                             </div>
                                                       </div>
                                                 </div>
 
-                                          <?php endforeach ?>
-                                    </div>
+                                          
+                                    </div> -->
 
                                     <div class="payment-button">
                                           <a href="payment.php?add_order=true" class="btn btn-payment"> Đặt Hàng
-
                                           </a>
                                     </div>
                               </div>
@@ -177,7 +178,9 @@ require './admin_remake\/config/controller/user.php';
                                           foreach ($_SESSION['viewcart'] as   $value) :
                                                 $total_prd++;
                                                 $total_price = $value[2] * $value[4];
-                                                $total += $total_price; ?>
+                                                $bill += $total_price;
+                                                $tax = round((0.1 * $bill), 1);
+                                                $total = round(($bill + $tax ), 1); ?>
                                                 <div class="order-product">
                                                       <div class="order-product-image">
                                                             <img src="uploads/<?= $value[3] ?>" alt="">
@@ -248,8 +251,10 @@ function add_order($id_born, $total)
             foreach ($user as $user_gg);
             $id_cus = $user_gg['id'];
             $name_cus = $_SESSION['display_name'];
-            $phone_num = $_SESSION['phone_num'];
-            $adr_user = $_SESSION['adr_user'];
+            $phone_num = $_POST['phone'];
+            $adr_user = $_POST['add_contact'];
+            
+            $date = date("Y/m/d");
       } else {
             $user = null;
       }
@@ -258,8 +263,8 @@ function add_order($id_born, $total)
       // add oder
       try {
 
-            $sql = "INSERT INTO cms_order (ID, customer_id, name_cus, totol_price, phone_num, adr_cus)
-                                                VALUES ('$id_born','$id_cus', '$name_cus', '$total', '$phone_num', '$adr_user')";
+            $sql = "INSERT INTO cms_order (ID, customer_id, name_cus,sell_date, totol_price, phone_num, adr_cus)
+            VALUES ('$id_born','$id_cus', '$name_cus','$date', '$total', '$phone_num', '$adr_user')";
             // use exec() because no results are returned
             $conn->exec($sql);
             unset($_SESSION['viewcart']);
@@ -279,7 +284,7 @@ function add_order_detail($id_born, $total_prd, $prd_order)
             try {
 
                   $sql = "INSERT INTO cms_order_detail ( order_id, prd_name, quailyti, price )
-                                                      VALUES ('$id_born', '$pr[1]', '$pr[4]', '$pr[2]' )";
+                  VALUES ('$id_born', '$pr[1]', '$pr[4]', '$pr[2]' )";
                   // use exec() because no results are returned
                   $conn->exec($sql);
             } catch (PDOException $e) {

@@ -17,6 +17,7 @@ if (isset($_POST['update'])) {
       $phone = $_POST['pst_phone'];
       $name  = $_POST['pst_name'];
       $adr = $_POST['pst_adr'];
+      $city = $_POST['pst_city'];
       if ($imgload == null) {
             try {
                   $sql = "UPDATE cms_users SET email='$email', phone='$phone', display_name = '$name', adr_user='$adr' WHERE id=$id_user";
@@ -162,9 +163,8 @@ if (isset($_POST['update'])) {
                                                             <div class="content__group">
                                                                   <div class="content__group-row">
                                                                         <div class="content__group-col">
-                                                                              <label for="acc-set-user-city">City
-                                                                                    <sup>*</sup></label>
-                                                                              <input class="content__controll" id="acc-set-user-city" type="text" value="HCM City">
+                                                                              <label for="acc-set-user-city">City <sup>*</sup></label>
+                                                                              <input name="pst_city" class="content__controll" id="acc-set-user-city" type="text" value="<?= $user['city_user'] ?>">
                                                                         </div>
                                                                         <div class="content__group-col">
                                                                               <label for="acc-set-user-country">Country
@@ -208,9 +208,10 @@ if (isset($_POST['update'])) {
       $phone = $_POST['pst_phone'];
       $name  = $_POST['pst_name'];
       $adr = $_POST['pst_adr'];
+      $city = $_POST['pst_city'];
 
       try {
-            $sql = "UPDATE cms_users SET email='$email', phone='$phone', display_name = '$name', adr_user='$adr' WHERE id=$id_user";
+            $sql = "UPDATE cms_users SET email='$email', phone='$phone', display_name = '$name', adr_user='$adr', city_user = '$city' WHERE id=$id_user";
 
             // Prepare statement
             $stmt = $conn->prepare($sql);
