@@ -20,7 +20,7 @@ require './admin_remake\/config/controller/user.php';
       $add = $_POST['add_contact'];
       $city = $_POST['city_contact'];
       $bill = 0;
-
+      
       ?>
       <form action="" method="post">
             <main class="main">
@@ -251,8 +251,17 @@ function add_order($id_born, $total)
             foreach ($user as $user_gg);
             $id_cus = $user_gg['id'];
             $name_cus = $_SESSION['display_name'];
-            $phone_num = $_POST['phone'];
-            $adr_user = $_POST['add_contact'];
+            if (isset($_POST['phone'])) {
+                  $phone_num = $_POST['phone'];
+            }else {
+                  $phone_num = $user_gg['phone'];
+            }
+            if (isset($_POST['add_contact'])) {
+                  $adr_user = $_POST['add_contact'];
+            }else {
+                  $adr_user = $user_gg['adr_user'];
+            }
+            
             
             $date = date("Y/m/d");
       } else {
@@ -277,14 +286,14 @@ function add_order($id_born, $total)
 function add_order_detail($id_born, $total_prd, $prd_order)
 {
       $conn = condb();
-
+      $date = date("Y/m/d");
       foreach ($prd_order as $pr) {
 
 
             try {
 
-                  $sql = "INSERT INTO cms_order_detail ( order_id, prd_name, quailyti, price )
-                  VALUES ('$id_born', '$pr[1]', '$pr[4]', '$pr[2]' )";
+                  $sql = "INSERT INTO cms_order_detail ( order_id, prd_name, quailyti, price, date )
+                  VALUES ('$id_born', '$pr[1]', '$pr[4]', '$pr[2]' ,' $date')";
                   // use exec() because no results are returned
                   $conn->exec($sql);
             } catch (PDOException $e) {

@@ -60,6 +60,7 @@ $order_user = getOrder_user($id_user);
                     <th>ID đơn hàng</th>
                     <th>Khách hàng</th>
                     <th>Đia chỉ</th>
+                    <th>Thời gian</th>
                     <th>Số điện thoại</th>
                     <th>Tổng tiền</th>
                     <th>Tình trạng</th>
@@ -73,6 +74,7 @@ $order_user = getOrder_user($id_user);
                     <td><?=$order['ID']?></td>
                     <td><?=$order['name_cus']?></td>
                     <td><?=$order['adr_cus']?></td>
+                    <td><?=$order['sell_date']?></td>
                     <td><?=$order['phone_num']?></td>
                     <td> <?=$order['totol_price']?>đ</td>
                    <?php if(($order['status']) ==1 ){

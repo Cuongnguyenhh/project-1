@@ -66,6 +66,7 @@
                     <th width="10"><input type="checkbox" id="all"></th>
                     <th>ID đơn hàng</th>
                     <th>Tên sản phẩm</th>
+                    <th>Ngày đặt hàng</th>
                     <th>Số lượng</th>
                     <th>Giá</th>
                   </tr>
@@ -77,7 +78,8 @@
                   <tr>
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
                     <td><?=$detail['order_id']?></td>
-                    <td>#<?=$detail['prd_name']?></td>
+                    <td><?=$detail['prd_name']?></td>
+                    <td><?=$detail['date']?></td>
                     <td><?=$detail['quailyti']?></td>
                     <td><?=$detail['price']?></td>
                   </tr>
