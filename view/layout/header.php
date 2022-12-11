@@ -9,6 +9,30 @@
                                     <span class="menu__icon"></span>
                                     <span class="menu__icon"></span>
                               </div>
+                              <div class="mobile-menu">
+                                    <i class="fa-solid fa-x mobile-close"></i>
+                                    <h3 class="mobile-subtitle">
+                                          Menu
+                                    </h3>
+                                    <h3 class="mobile-title">Mobile</h3>
+                                    <ul class="mobile-list">
+                                          <li class="mobile-item">
+                                                <a href="index.php">Trang chủ</a>
+                                          </li>
+                                          <li class="mobile-item">
+                                                <a href="shop.php">Cửa hàng</a>
+                                          </li>
+                                          <li class="mobile-item">
+                                                <a href="collection.php">Bộ sưu tập</a>
+                                          </li>
+                                          <li class="mobile-item">
+                                                <a href="blog.php">Blog</a>
+                                          </li>
+                                          <li class="mobile-item">
+                                                <a href="contact.php">Liên lạc</a>
+                                          </li>
+                                    </ul>
+                              </div>
                               <a href="index.php">
                                     <img src="https://cdn.shopify.com/s/files/1/1573/5553/files/logo_dark.svg?v=1601695205"
                                           alt="Logo Outstock">
@@ -44,48 +68,58 @@
                                                       <div class="row-flex row-flex-margin">
                                                             <div class="coll-list">
                                                                   <div class="coll-item">
-                                                                        <a class="coll-image" href="collection.php?action=cate&id=1">
+                                                                        <a class="coll-image"
+                                                                              href="collection.php?action=cate&id=1">
                                                                               <img src="https://cdn.shopify.com/s/files/1/1573/5553/collections/18_360x.jpg?v=1511442950"
                                                                                     alt="Decor Art">
                                                                         </a>
                                                                         <h5 class="coll-title">
-                                                                              <a href="collection.php?action=cate&id=1">Nghệ thuật trang trí</a>
+                                                                              <a href="collection.php?action=cate&id=1">Nghệ
+                                                                                    thuật trang trí</a>
                                                                         </h5>
                                                                   </div>
                                                                   <div class="coll-item">
-                                                                        <a class="coll-image" href="collection.php?action=cate&id=2">
+                                                                        <a class="coll-image"
+                                                                              href="collection.php?action=cate&id=2">
                                                                               <img src="https://cdn.shopify.com/s/files/1/1573/5553/collections/7_360x.jpg?v=1511442889"
                                                                                     alt="Decor Art">
                                                                         </a>
                                                                         <h5 class="coll-title">
-                                                                              <a href="collection.php?action=cate&id=2">Đồ nội thất</a>
+                                                                              <a href="collection.php?action=cate&id=2">Đồ
+                                                                                    nội thất</a>
                                                                         </h5>
                                                                   </div>
                                                                   <div class="coll-item">
-                                                                        <a class="coll-image" href="collection.php?action=cate&id=3">
+                                                                        <a class="coll-image"
+                                                                              href="collection.php?action=cate&id=3">
                                                                               <img src="https://cdn.shopify.com/s/files/1/1573/5553/collections/21_360x.jpg?v=1511442906"
                                                                                     alt="Decor Art">
                                                                         </a>
                                                                         <h5 class="coll-title">
-                                                                              <a href="collection.php?action=cate&id=3">Đồ nhà bếp</a>
+                                                                              <a href="collection.php?action=cate&id=3">Đồ
+                                                                                    nhà bếp</a>
                                                                         </h5>
                                                                   </div>
                                                                   <div class="coll-item">
-                                                                        <a class="coll-image" href="collection.php?action=cate&id=4">
+                                                                        <a class="coll-image"
+                                                                              href="collection.php?action=cate&id=4">
                                                                               <img src="https://cdn.shopify.com/s/files/1/1573/5553/collections/12_360x.jpg?v=1511442995"
                                                                                     alt="Decor Art">
                                                                         </a>
                                                                         <h5 class="coll-title">
-                                                                              <a href="collection.php?action=cate&id=4">Sự chiếu sáng</a>
+                                                                              <a href="collection.php?action=cate&id=4">Sự
+                                                                                    chiếu sáng</a>
                                                                         </h5>
                                                                   </div>
                                                                   <div class="coll-item">
-                                                                        <a class="coll-image" href="collection.php?action=cate&id=5">
+                                                                        <a class="coll-image"
+                                                                              href="collection.php?action=cate&id=5">
                                                                               <img src="https://cdn.shopify.com/s/files/1/1573/5553/collections/Arc-Large-Cup_360x.jpg?v=1511443696"
                                                                                     alt="Decor Art">
                                                                         </a>
                                                                         <h5 class="coll-title">
-                                                                              <a href="collection.php?action=cate&id=5">Giảm giá</a>
+                                                                              <a href="collection.php?action=cate&id=5">Giảm
+                                                                                    giá</a>
                                                                         </h5>
                                                                   </div>
                                                             </div>
@@ -148,10 +182,10 @@
                                           (
                                           <span id="CartCount">
                                                 <?php
-                                echo (isset($_SESSION['viewcart']) && count($_SESSION['viewcart'])) > 0 ? count($_SESSION['viewcart']) : '0';
+                                                echo (isset($_SESSION['viewcart']) && count($_SESSION['viewcart'])) > 0 ? count($_SESSION['viewcart']) : '0';
 
 
-                                ?>
+                                                ?>
                                           </span>
                                           )
                                     </a>
@@ -175,7 +209,6 @@
 </div>
 <?php include_once 'cart-header.php'; ?>
 <script>
-
 // #LIVE SEARCH 
 $(document).ready(function() {
       $("#live_search").keyup(function() {
@@ -187,7 +220,9 @@ $(document).ready(function() {
                         data: {
                               content: content
                         },
-                        success: function(data) { // Hàm thực thi khi nhận dữ liệu được từ server
+                        success: function(
+                              data
+                        ) { // Hàm thực thi khi nhận dữ liệu được từ server
                               $('#result').html(data);
                               $("#result").css("display", "block");
                         }

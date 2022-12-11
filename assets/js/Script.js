@@ -1,15 +1,17 @@
-const menuMobileOpen = document.getElementById('menu-mobile');
-const menuMobileClose = document.getElementById('nav-menu-close');
-const menuBarMobile = document.getElementById('navbar-menu');
+const mobileOpen = document.querySelector('#menu-mobile')
+const mobileClose = document.querySelector('.mobile-close')
+const bodyMobileMenu = document.querySelector('.mobile-menu')
 
-if (menuMobileOpen) {
-      menuBarMobile.addEventListener('click', () => {
-            menuBarMobile.classList.add('show');
+if (mobileOpen) {
+      mobileOpen.addEventListener('click', () => {
+            console.log(mobileOpen)
+            bodyMobileMenu.classList.add('active')
       })
 }
-if (menuMobileClose) {
-      menuBarMobile.addEventListener('click', () => {
-            menuBarMobile.classList.remove('show');
+
+if (mobileClose) {
+      mobileClose.addEventListener('click', () => {
+            bodyMobileMenu.classList.remove('active')
       })
 }
 
