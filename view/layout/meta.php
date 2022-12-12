@@ -10,6 +10,7 @@
     <meta name="keywords" content="">
     <!-- meta character set -->
     <meta charset="UTF-8">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Site Title -->
     <title></title>
     <!--

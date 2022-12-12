@@ -48,7 +48,7 @@ ob_start();
                                                             <div class="c-2 text-right">
                                                                   Total
                                                             </div>
-                                                      </div>';
+                                                      </div>
                                           <?php $total = 0;
                                           foreach ($_SESSION['viewcart'] as $value) {
                                                 $total_price = $value[2] * $value[4];
