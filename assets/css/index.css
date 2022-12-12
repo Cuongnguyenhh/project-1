@@ -2628,6 +2628,11 @@ fieldset {
 .cart-shipping {
   margin-bottom: 20px;
 }
+.function-cart-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
 
 .function-cart-button .btn-update-cart {
   color: var(--vela-text-color-secondary);
@@ -2642,17 +2647,28 @@ fieldset {
   margin-right: 10px;
 }
 
-.function-cart-button .btn-checkout-cart {
-  color: #fff;
+.function-cart-button .btn-checkout-cart  {
+  width: auto;
+}
+
+.btn-checkout-cart {
+  width: 100%;
   background-color: #323232;
   border-color: #323232;
+  -webkit-transition: all .35s ease;
+  -o-transition: all .35s ease;
+  transition: all .35s ease;
+}
+.btn-checkout-cart:hover {
+  background-color: var(--vela-color-primary);
+  border-color: var(--vela-color-primary);
+}
+.btn-checkout-cart a {
   line-height: 20px;
-  -webkit-transition: all 0.35s ease;
-  -o-transition: all 0.35s ease;
-  transition: all 0.35s ease;
   font-weight: 600;
-  text-transform: uppercase;
   font-size: calc(var(--vela-font-size) - 2px);
+  text-transform: uppercase;
+  color: #fff;
 }
 
 /* SLIDE SHOW - HOME PAGES */
