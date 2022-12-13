@@ -10,7 +10,7 @@
     <meta name="keywords" content="">
     <!-- meta character set -->
     <meta charset="UTF-8">
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <!-- Site Title -->
     <title></title>
     <!--
@@ -33,4 +33,5 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <link rel="short icon" href="//cdn.shopify.com/s/files/1/1573/5553/files/icon_77100d4d-857c-43ad-8f83-a543a7e2e4b9_32x32.png?v=1613719979">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

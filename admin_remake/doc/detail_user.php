@@ -55,7 +55,9 @@
     <main class="app-content">
       <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
-          <li class="breadcrumb-item active"><a href="#"><b>Chi tiết đơn hàng số #<?=$id_order?></b>|<?=$orderID['name_cus']?>|<?=$orderID['phone_num']?> </a></li>
+          <li class="breadcrumb-item active"><a href="#"><b>Chi tiết đơn hàng số #<?=$id_order?></b></a></li>
+          <li><?=$orderID['name_cus']?></li>
+          <li><?=$orderID['phone_num']?></li>
         </ul>
         <div id="clock"></div>
       </div>
@@ -86,7 +88,7 @@
                     <td><?=$detail['date']?></td>
                     <td><?=$detail['quailyti']?></td>
                     <td><?=$detail['price']?></td>
-                    <?php $total += (($detail['price']*$detail['quailyti'])*0.1) + ($detail['price']*$detail['quailyti']) ?>
+                    <?php $total +=  ($detail['price']*$detail['quailyti']) ?>
                   </tr>
                   <?php endforeach ?>
 

@@ -88,7 +88,7 @@ $order_user = getOrder_user($id_user);
                     echo ' <td><span class="badge bg-warning">Đang giao hàng</span></td>';
                    }
                    ?>
-                  <td><button type="submit">
+                  <td><button class="bt third" type="submit">
                     <a href="./detail_user.php?id_order=<?=$order['ID']?>">chi tiết</a>
                   </button></td>
                   </tr>

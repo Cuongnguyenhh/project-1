@@ -1,7 +1,7 @@
 <?php
 // hàm connect db 
 function getConnection(){
-    $servername = "localhost";
+$servername = "localhost";
 $username = "root";
 $password = "";
 
