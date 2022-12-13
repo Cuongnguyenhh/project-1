@@ -192,7 +192,7 @@
                               </div>
 
                               <div class="header-bars">
-                                    <i class="fa-solid fa-bars"></i>
+                                    <i class="fa-solid fa-user"></i>
                                     <ul class="header-bars-list">
                                           <li class="header-bars-item">
                                                 <a href="index.php?action=login">Đăng nhập</a>

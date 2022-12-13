@@ -18,6 +18,7 @@ if (isset($_POST['update'])) {
       $name  = $_POST['pst_name'];
       $adr = $_POST['pst_adr'];
       $city = $_POST['pst_city'];
+      print_r($imgload);
       if ($imgload == null) {
             try {
                   $sql = "UPDATE cms_users SET email='$email', phone='$phone', display_name = '$name', adr_user='$adr' WHERE id=$id_user";
