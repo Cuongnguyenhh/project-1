@@ -56,8 +56,8 @@
       <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item active"><a href="#"><b>Chi tiết đơn hàng số #<?=$id_order?></b></a></li>
-          <li><?=$orderID['name_cus']?></li>
-          <li><?=$orderID['phone_num']?></li>
+          <li><?=$orderID['name_cus']?> --</li>
+          <li>--<?=$orderID['phone_num']?></li>
         </ul>
         <div id="clock"></div>
       </div>
@@ -97,7 +97,11 @@
               </table>
             </div>
           </div>
-          <div class="total-"><?=$total?></div>
+          <div style="float:right; color: #0780fd;
+    font-weight: bolder;
+    font-size: 25px;
+    font-family: sans-serif;
+};" class="total-"> Tổng Giá: <?=$orderID['totol_price']?></div>
         </div>
       </div>
     </main>

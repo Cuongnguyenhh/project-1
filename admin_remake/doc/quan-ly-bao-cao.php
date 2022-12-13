@@ -49,7 +49,8 @@
         </div>
       </div>
     </div>
-        <div class="row">
+       <div style=" display: block; justify-content: center; text-align: center;" class="title">
+       <div class="row">
             <div class="col-md-6 col-lg-3">
                 <div class="widget-small primary coloured-icon"><i class='icon  bx bxs-user fa-3x'></i>
                     <div class="info">
@@ -66,7 +67,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3">
+            <div  class="col-md-6 col-lg-3">
                 <div class="widget-small warning coloured-icon"><i class='icon fa-3x bx bxs-shopping-bag-alt'></i>
                     <div class="info">
                         <h4>Tổng đơn hàng</h4>
@@ -74,13 +75,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="widget-small danger coloured-icon"><i class='icon fa-3x bx bxs-info-circle' ></i>
-                    <div class="info">
-                        <h4>Bị cấm</h4>
-                        <p><b>4 nhân viên</b></p>
-                    </div>
-                </div>
+           
             </div>
         </div>
         <div class="row">
@@ -108,14 +103,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="widget-small danger coloured-icon"><i class='icon fa-3x bx bxs-receipt' ></i>
-                    <div class="info">
-                        <h4>Đơn hàng hủy</h4>
-                        <p><b>2 đơn hàng</b></p>
-                    </div>
-                </div>
-            </div>
+       </div>
+          
         </div>
         <div class="row">
             <div class="col-md-12">

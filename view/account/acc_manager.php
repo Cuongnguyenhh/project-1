@@ -163,10 +163,10 @@ if (isset($_POST['update'])) {
                                                             <div class="content__group">
                                                                   <div class="content__group-row">
                                                                         <div class="content__group-col">
-                                                                              <label for="acc-set-user-city">City <sup>*</sup></label>
-                                                                              <input name="pst_city" class="content__controll" id="acc-set-user-city" type="text" value="<?= $user['city_user'] ?>">
+                                                                              <!-- <label for="acc-set-user-city">City <sup>*</sup></label> -->
+                                                                              <!-- <input name="pst_city" class="content__controll" id="acc-set-user-city" type="text" value="<?= $user['city_user'] ?>"> -->
                                                                         </div>
-                                                                        <div class="content__group-col">
+                                                                        <!-- <div class="content__group-col">
                                                                               <label for="acc-set-user-country">Country
                                                                                     <sup>*</sup></label>
                                                                               <select name="" id="acc-set-user-country">
@@ -175,7 +175,7 @@ if (isset($_POST['update'])) {
                                                                                           vietnam
                                                                                     </option>
                                                                               </select>
-                                                                        </div>
+                                                                        </div> -->
                                                                   </div>
                                                             </div>
                                                             <div class="content__button">
