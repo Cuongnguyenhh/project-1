@@ -1,9 +1,9 @@
 <?php
 require_once './admin_remake\/config/database.php';
-$conn =condb();
+$conn = condb();
 require_once './admin_remake\/config/controller/user.php';
 $userOne = getOne_user($_SESSION['email']);
-foreach($userOne as $user){
+foreach ($userOne as $user) {
 }
 ?>
 <div class="app">
@@ -16,6 +16,30 @@ foreach($userOne as $user){
                                     <span class="menu__icon"></span>
                                     <span class="menu__icon"></span>
                                     <span class="menu__icon"></span>
+                              </div>
+                              <div class="mobile-menu">
+                                    <i class="fa-solid fa-x mobile-close"></i>
+                                    <h3 class="mobile-subtitle">
+                                          Menu
+                                    </h3>
+                                    <h3 class="mobile-title">Mobile</h3>
+                                    <ul class="mobile-list">
+                                          <li class="mobile-item">
+                                                <a href="index.php">Trang chủ</a>
+                                          </li>
+                                          <li class="mobile-item">
+                                                <a href="shop.php">Cửa hàng</a>
+                                          </li>
+                                          <li class="mobile-item">
+                                                <a href="collection.php">Bộ sưu tập</a>
+                                          </li>
+                                          <li class="mobile-item">
+                                                <a href="blog.php">Blog</a>
+                                          </li>
+                                          <li class="mobile-item">
+                                                <a href="contact.php">Liên lạc</a>
+                                          </li>
+                                    </ul>
                               </div>
                               <a href="index.php">
                                     <img src="https://cdn.shopify.com/s/files/1/1573/5553/files/logo_dark.svg?v=1601695205"
@@ -171,14 +195,14 @@ foreach($userOne as $user){
                               <div class="header-bars">
                                     <div class="header-bars__user">
                                           <a class="header-bars__user-link" href="#!">
-                                                <img src="uploads/<?php echo $user['display_img']?>" alt="">
+                                                <img src="uploads/<?php echo $user['display_img'] ?>" alt="">
                                                 <span
                                                       class="header-bars__user-name"><?php echo $user['display_name'] ?></span>
                                           </a>
                                     </div>
                                     <ul class="header-bars-list">
                                           <li class="header-bars-item">
-                                                <a href="index.php?action=user&id=<?=$_SESSION['id']?>">Tài khoản của
+                                                <a href="index.php?action=user&id=<?= $_SESSION['id'] ?>">Tài khoản của
                                                       tôi</a>
                                           </li>
                                           <li class="header-bars-item">

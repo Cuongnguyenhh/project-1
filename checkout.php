@@ -45,7 +45,7 @@ if (isset($_SESSION['email'])) {
                                                       <div class="main__info">
                                                             <div class="info__header">
                                                                   <h2 class="info__header-title"> Thông tin liên lạc
-                                                                        hihi
+                                                                        
                                                                   </h2>
 
                                                             </div>
@@ -87,7 +87,7 @@ if (isset($_SESSION['email'])) {
                                                       
                                                       <div class="field">
                                                             <input id="city-check" type="text" name="city_contact"
-                                                                  placeholder="City" value="<?=$user['adr_user']?>">
+                                                                  placeholder="City" value="<?=$user['city_user']?>">
                                                             <span class="form-message"></span>
                                                       </div>
                                                       <div class="field__save">
@@ -191,8 +191,7 @@ if (isset($_SESSION['email'])) {
                                     <?php foreach ($_SESSION['viewcart'] as  $value) : $total_price = $value[2] * $value[4];
                                           $total += $total_price;
                                           $tax = round((0.1 * $total), 1);
-                                          $ship = 10;
-                                          $bill = round(($total + $tax + $ship), 1); ?>
+                                          $bill = round(($total + $tax ), 1); ?>
                                     <table class="sidebar__table">
                                           <tr class="product__item">
                                                 <td class="product__image"> <img src="uploads/<?= $value[3] ?>" alt="">
@@ -209,10 +208,6 @@ if (isset($_SESSION['email'])) {
                                                       <tr class="total subtotal">
                                                             <th>Tổng phụ</th>
                                                             <td><?= $total ?></td>
-                                                      </tr>
-                                                      <tr class="total shipping">
-                                                            <th>Đang chuyển hàng</th>
-                                                            <td><?= $ship ?></td>
                                                       </tr>
                                                       <tr class="total taxes">
                                                             <th> Thuế (ước tính) </th>

@@ -75,7 +75,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                 <?php  
+                 <?php
+                 $total = 0;
                  foreach($detail as $detail)  : ?>
 
                   <tr>
@@ -85,6 +86,7 @@
                     <td><?=$detail['date']?></td>
                     <td><?=$detail['quailyti']?></td>
                     <td><?=$detail['price']?></td>
+                    <?php $total += (($detail['price']*$detail['quailyti'])*0.1) + ($detail['price']*$detail['quailyti']) ?>
                   </tr>
                   <?php endforeach ?>
 
@@ -93,6 +95,7 @@
               </table>
             </div>
           </div>
+          <div class="total-"><?=$total?></div>
         </div>
       </div>
     </main>

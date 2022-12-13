@@ -2628,6 +2628,11 @@ fieldset {
 .cart-shipping {
   margin-bottom: 20px;
 }
+.function-cart-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
 
 .function-cart-button .btn-update-cart {
   color: var(--vela-text-color-secondary);
@@ -2642,17 +2647,28 @@ fieldset {
   margin-right: 10px;
 }
 
-.function-cart-button .btn-checkout-cart {
-  color: #fff;
+.function-cart-button .btn-checkout-cart  {
+  width: auto;
+}
+
+.btn-checkout-cart {
+  width: 100%;
   background-color: #323232;
   border-color: #323232;
+  -webkit-transition: all .35s ease;
+  -o-transition: all .35s ease;
+  transition: all .35s ease;
+}
+.btn-checkout-cart:hover {
+  background-color: var(--vela-color-primary);
+  border-color: var(--vela-color-primary);
+}
+.btn-checkout-cart a {
   line-height: 20px;
-  -webkit-transition: all 0.35s ease;
-  -o-transition: all 0.35s ease;
-  transition: all 0.35s ease;
   font-weight: 600;
-  text-transform: uppercase;
   font-size: calc(var(--vela-font-size) - 2px);
+  text-transform: uppercase;
+  color: #fff;
 }
 
 /* SLIDE SHOW - HOME PAGES */
@@ -4852,4 +4868,77 @@ input {
 
 .account-setting-top > div button::first-letter {
   text-transform: capitalize;
+}
+
+
+/* Menu Mobile ________ */
+
+.mobile-title{
+  font-size: 2.2em; 
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: var(--vela-text-color-secondary);
+}
+
+.mobile-subtitle {
+  font-size: 2rem;
+  color: var(--vela-text-color-secondary);
+  }
+
+.mobile-menu.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.mobile-menu {
+  transition: all 0.3s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateX(-250px);
+  width: 250px;
+  box-shadow: rgba(99, 99, 99, 0.345) 0px 2px 8px 0px;
+  padding: 20px;
+  height: 100vh;
+  z-index: 200;
+  background-color: var(--white);
+}
+
+.mobile-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mobile-item a {
+  padding: 1rem;
+  font-size: 16px;
+  text-transform: uppercase;
+  transition: .3s ease-in-out;
+  border-radius: 8px;
+  width: 100%;
+}
+
+
+.mobile-item a:hover {
+  background-color: var(--vela-text-color-secondary);
+  color: white;
+  transform: translateX(10px);
+}
+
+.mobile-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 5px;
+  transition:  color .3s ease-in-out;
+}
+
+
+
+.mobile-close:hover {
+  color: var(--vela-color-primary);
+  cursor: pointer;
 }
