@@ -110,7 +110,8 @@ if (isset($_POST['update'])) {
                                                       </li>
 
                                                       <li class="manager-setting-item">
-                                                            <a href="./admin_remake\/doc/data_order.php?id=<?= $id_user ?>">
+                                                            <a
+                                                                  href="./admin_remake\/doc/data_order.php?id=<?= $id_user ?>">
                                                                   <h5 class="manager-title">Quản lý đơn hàng</h5>
                                                                   <span class="manager-desc">Xem tiến độ đơn hàng của
                                                                         bạn</span>
@@ -133,31 +134,48 @@ if (isset($_POST['update'])) {
                                                       <form action="" method="POST" enctype="multipart/form-data">
                                                             <div class="account-setting-top">
                                                                   <input type="file" name="img" id="">
-                                                                  <img src="./uploads/<?= $user['display_img'] ?>" alt="">
-                                                                  <button name="upanh" type="submit">Cập nhật</button>
+                                                                  <img src="./uploads/<?= $user['display_img'] ?>"
+                                                                        alt="">
+                                                                  <button class="account-setting-button" name="upanh"
+                                                                        type="submit">Cập
+                                                                        nhật</button>
                                                             </div>
                                                             <div class="content__group">
                                                                   <div class="content__group-row">
                                                                         <div class="content__group-col">
-                                                                              <label for="acc-set-user-name">Full Name <sup>*</sup></label>
-                                                                              <input name="pst_name" class="content__controll" id="acc-set-user-name" type="text" value="<?php echo $user['display_name']; ?>">
+                                                                              <label for="acc-set-user-name">Full Name
+                                                                                    <sup>*</sup></label>
+                                                                              <input name="pst_name"
+                                                                                    class="content__controll"
+                                                                                    id="acc-set-user-name" type="text"
+                                                                                    value="<?php echo $user['display_name']; ?>">
                                                                         </div>
                                                                         <div class="content__group-col">
                                                                               <label for="acc-set-user-email">Email
                                                                                     Address <sup>*</sup></label>
-                                                                              <input name="pst_email" class="content__controll" id="acc-set-user-email" type="text" value="<?php echo $user['email']; ?>">
+                                                                              <input name="pst_email"
+                                                                                    class="content__controll"
+                                                                                    id="acc-set-user-email" type="text"
+                                                                                    value="<?php echo $user['email']; ?>">
                                                                         </div>
                                                                   </div>
                                                             </div>
                                                             <div class="content__group">
-                                                                  <label for="acc-set-user-address">Address <sup>*</sup></label>
-                                                                  <input name="pst_adr" class="content__controll" id="acc-set-user-address" type="text" value="<?php echo $user['adr_user']; ?>">
+                                                                  <label for="acc-set-user-address">Address
+                                                                        <sup>*</sup></label>
+                                                                  <input name="pst_adr" class="content__controll"
+                                                                        id="acc-set-user-address" type="text"
+                                                                        value="<?php echo $user['adr_user']; ?>">
                                                             </div>
                                                             <div class="content__group">
                                                                   <div class="content__group-row">
                                                                         <div class="content__group-col">
-                                                                              <label for="acc-set-user-code">Phone Number <sup>*</sup></label>
-                                                                              <input name="pst_phone" class="content__controll" id="acc-set-user-code" type="text" value="<?= $user['phone'] ?>">
+                                                                              <label for="acc-set-user-code">Phone
+                                                                                    Number <sup>*</sup></label>
+                                                                              <input name="pst_phone"
+                                                                                    class="content__controll"
+                                                                                    id="acc-set-user-code" type="text"
+                                                                                    value="<?= $user['phone'] ?>">
                                                                         </div>
                                                                   </div>
                                                             </div>

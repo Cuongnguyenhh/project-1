@@ -4942,3 +4942,10 @@ input {
   color: var(--vela-color-primary);
   cursor: pointer;
 }
+
+.account-setting-button {
+  padding: 1rem 3rem;
+  background-color: var(--vela-text-color-secondary);
+  color: var(--white);
+  border-radius: 100rem;
+}
