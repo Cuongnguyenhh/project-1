@@ -1,5 +1,26 @@
 <main class="main-content" role="main">
-      <?php include_once './view/layout/banner.php'; ?>
+      <div class="banner-pages">
+            <div class="banner-content">
+                  <div class="banner-images">
+                        <img src="assets/img/banner-pages.webp" alt="banner-pages">
+                  </div>
+                  <nav class="banner-navbar container">
+                        <div class="banner-navbar__wrap">
+                              <h1>Sản phẩm</h1>
+                              <ol class="banner-list">
+                                    <li class="banner-list-item">
+                                          <a href="#">
+                                                <span>Trang chủ</span>
+                                          </a>
+                                    </li>
+                                    <li class="banner-list-item active">
+                                          <span>Sản phẩm</span>
+                                    </li>
+                              </ol>
+                        </div>
+                  </nav>
+            </div>
+      </div>
       <div class="vela-product">
             <div class="container">
                   <div class="row">
@@ -64,24 +85,24 @@
                                                 <?php
                                                 $top = ordertop();
                                                 foreach ($top as  $value) : ?>
-                                                <div class="product-sidebar">
-                                                      <div class="product-sidebar-image">
-                                                            <a href="#" class="product-sidebar-link">
-                                                                  <img src="assets/img/product-1.webp" alt="product-sidebar">
-                                                            </a>
-                                                      </div>
-                                                      <div class="product-sidebar-content">
-                                                            <div class="product-sidebar-title">
-                                                                  <a href="#"><?= $value['prd_name']?></a>
+                                                      <div class="product-sidebar">
+                                                            <div class="product-sidebar-image">
+                                                                  <a href="#" class="product-sidebar-link">
+                                                                        <img src="assets/img/product-1.webp" alt="product-sidebar">
+                                                                  </a>
                                                             </div>
-                                                            <div class="product-sidebar-price">
-                                                                  <div class="product-sidebar-current">
-                                                                        <span><?= $value['price']?></span>
+                                                            <div class="product-sidebar-content">
+                                                                  <div class="product-sidebar-title">
+                                                                        <a href="#"><?= $value['prd_name'] ?></a>
+                                                                  </div>
+                                                                  <div class="product-sidebar-price">
+                                                                        <div class="product-sidebar-current">
+                                                                              <span><?= $value['price'] ?></span>
+                                                                        </div>
                                                                   </div>
                                                             </div>
                                                       </div>
-                                                </div>
-                                                <?php endforeach  ?>                                 
+                                                <?php endforeach  ?>
                                           </div>
                                     </div>
                               </aside>
