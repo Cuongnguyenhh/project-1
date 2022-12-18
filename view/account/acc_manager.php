@@ -136,9 +136,6 @@ if (isset($_POST['update'])) {
                                                                   <input type="file" name="img" id="">
                                                                   <img src="./uploads/<?= $user['display_img'] ?>"
                                                                         alt="">
-                                                                  <button class="account-setting-button" name="upanh"
-                                                                        type="submit">Cập
-                                                                        nhật</button>
                                                             </div>
                                                             <div class="content__group">
                                                                   <div class="content__group-row">
