@@ -4,7 +4,6 @@ require './admin_remake/config/database.php';
 require './admin_remake/config/controller/user.php';
 $user_one = getOne_user($get_email);
 foreach($user_one as $user_one){};
-echo $user_one['password'];
 $conn = condb();
 $id = $_SESSION['id'];
 
@@ -262,7 +261,7 @@ $id = $_SESSION['id'];
             echo $sql . "<br>" . $e->getMessage();
         
           }}else{
-            echo "ngu";
+            echo "thất bại";
           }
         
         
